@@ -111,6 +111,7 @@ impl RuntimeGenerator {
     /// * `type_substitutes` - Provide custom type substitutes.
     /// * `crate_path` - Path to the `subxt` crate.
     /// * `should_gen_docs` - True if the generated API contains the documentation from the metadata.
+    /// * `dispatch_error_module` - The module path for DispatchError (e.g., "sp_runtime" or "pezsp_runtime").
     pub fn generate_runtime(
         &self,
         item_mod: syn::ItemMod,
@@ -118,6 +119,7 @@ impl RuntimeGenerator {
         type_substitutes: scale_typegen::TypeSubstitutes,
         crate_path: syn::Path,
         should_gen_docs: bool,
+        dispatch_error_module: &str,
     ) -> Result<TokenStream2, CodegenError> {
         let item_mod_attrs = item_mod.attrs.clone();
         let item_mod_ir = ir::ItemMod::try_from(item_mod)?;
@@ -130,6 +132,7 @@ impl RuntimeGenerator {
             .generate_types_mod()?
             .to_token_stream(type_gen.settings());
         let types_mod_ident = type_gen.types_mod_ident();
+        let dispatch_error_mod_ident = format_ident!("{}", dispatch_error_module);
         let pallets_with_mod_names = self
             .metadata
             .pallets()
@@ -161,7 +164,7 @@ impl RuntimeGenerator {
         let modules = pallets_with_mod_names
             .iter()
             .map(|(pallet, mod_name)| {
-                let calls = calls::generate_calls(&type_gen, pallet, &crate_path)?;
+                let calls = calls::generate_calls(&type_gen, pallet, &crate_path, dispatch_error_module)?;
 
                 let event = events::generate_events(&type_gen, pallet, &crate_path)?;
 
@@ -268,7 +271,7 @@ impl RuntimeGenerator {
                 pub static RUNTIME_APIS: [&str; #runtime_api_names_len] = [ #(#runtime_api_names,)* ];
 
                 /// The error type that is returned when there is a runtime issue.
-                pub type DispatchError = #types_mod_ident::sp_runtime::DispatchError;
+                pub type DispatchError = #types_mod_ident::#dispatch_error_mod_ident::DispatchError;
 
                 /// The outer event enum.
                 pub type Event = #event_path;

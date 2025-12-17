@@ -56,6 +56,11 @@ struct RuntimeMetadataArgs {
     no_default_substitutions: bool,
     #[darling(default)]
     unstable_metadata: darling::util::Flag,
+    /// The module path for DispatchError (default: "sp_runtime").
+    /// Chains with rebranded runtime modules can use this to specify their path,
+    /// e.g., "pezsp_runtime" for Kurdistan SDK.
+    #[darling(default)]
+    dispatch_error_module: Option<String>,
     #[cfg(feature = "runtime-wasm-path")]
     #[darling(default)]
     runtime_path: Option<String>,
@@ -168,6 +173,11 @@ fn subxt_inner(args: TokenStream, item_mod: syn::ItemMod) -> Result<TokenStream,
     for sub in args.substitute_type.into_iter() {
         validate_type_path(&sub.path, &metadata);
         codegen.set_type_substitute(sub.path, sub.with);
+    }
+
+    // Set the dispatch error module path if provided:
+    if let Some(dispatch_error_module) = args.dispatch_error_module {
+        codegen.set_dispatch_error_module(dispatch_error_module);
     }
 
     let code = codegen

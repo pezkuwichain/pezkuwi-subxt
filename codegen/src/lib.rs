@@ -66,6 +66,9 @@ pub struct CodegenBuilder {
     attributes_for_type: HashMap<syn::TypePath, Vec<syn::Attribute>>,
     derives_for_type_recursive: HashMap<syn::TypePath, Vec<syn::Path>>,
     attributes_for_type_recursive: HashMap<syn::TypePath, Vec<syn::Attribute>>,
+    /// The module path for DispatchError (default: "sp_runtime").
+    /// This allows chains with rebranded runtime modules to specify their own path.
+    dispatch_error_module: String,
 }
 
 impl Default for CodegenBuilder {
@@ -86,6 +89,7 @@ impl Default for CodegenBuilder {
             attributes_for_type: HashMap::new(),
             derives_for_type_recursive: HashMap::new(),
             attributes_for_type_recursive: HashMap::new(),
+            dispatch_error_module: "sp_runtime".to_string(),
         }
     }
 }
@@ -128,6 +132,23 @@ impl CodegenBuilder {
     /// interface.
     pub fn runtime_types_only(&mut self) {
         self.runtime_types_only = true;
+    }
+
+    /// Set the module path for DispatchError type.
+    ///
+    /// By default, this is "sp_runtime", which generates code like:
+    /// `pub type DispatchError = runtime_types::sp_runtime::DispatchError;`
+    ///
+    /// Chains that have rebranded their runtime modules can use this to specify
+    /// a different module path. For example, setting this to "pezsp_runtime" would
+    /// generate: `pub type DispatchError = runtime_types::pezsp_runtime::DispatchError;`
+    pub fn set_dispatch_error_module(&mut self, module: impl Into<String>) {
+        self.dispatch_error_module = module.into();
+    }
+
+    /// Get the configured dispatch error module path.
+    pub fn dispatch_error_module(&self) -> &str {
+        &self.dispatch_error_module
     }
 
     /// Set the additional derives that will be applied to all types. By default,
@@ -292,6 +313,7 @@ impl CodegenBuilder {
                 type_substitutes,
                 crate_path,
                 should_gen_docs,
+                &self.dispatch_error_module,
             )
         }
     }
