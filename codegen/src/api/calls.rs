@@ -18,10 +18,12 @@ use subxt_metadata::PalletMetadata;
 /// - `type_gen` - [`scale_typegen::TypeGenerator`] that contains settings and all types from the runtime metadata.
 /// - `pallet` - Pallet metadata from which the calls are generated.
 /// - `crate_path` - The crate path under which the `subxt-core` crate is located, e.g. `::subxt::ext::subxt_core` when using subxt as a dependency.
+/// - `dispatch_error_module` - The module path for DispatchError (e.g., "sp_runtime" or "pezsp_runtime").
 pub fn generate_calls(
     type_gen: &TypeGenerator,
     pallet: &PalletMetadata,
     crate_path: &syn::Path,
+    dispatch_error_module: &str,
 ) -> Result<TokenStream2, CodegenError> {
     // Early return if the pallet has no calls.
     let Some(call_ty) = pallet.call_ty_id() else {
@@ -115,6 +117,7 @@ pub fn generate_calls(
     let docs = type_gen.docs_from_scale_info(&call_ty.docs);
 
     let types_mod_ident = type_gen.types_mod_ident();
+    let dispatch_error_mod_ident = format_ident!("{}", dispatch_error_module);
 
     Ok(quote! {
         #docs
@@ -123,7 +126,7 @@ pub fn generate_calls(
             use super::root_mod;
             use super::#types_mod_ident;
 
-            type DispatchError = #types_mod_ident::sp_runtime::DispatchError;
+            type DispatchError = #types_mod_ident::#dispatch_error_mod_ident::DispatchError;
 
             pub mod types {
                 use super::#types_mod_ident;
