@@ -84,7 +84,7 @@ pub mod node_runtime6 {}
     substitute_type(
         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
         // Check that things can be wrapped in our Static type:
-        with = "::subxt::utils::Static<crate::DoesntImplEncodeDecodeAsType>"
+        with = "::pezkuwi_subxt::utils::Static<crate::DoesntImplEncodeDecodeAsType>"
     )
 )]
 pub mod node_runtime7 {}
@@ -94,7 +94,7 @@ pub mod node_runtime7 {}
     substitute_type(
         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
         // Recursive type param substitution should work too (swapping out nested A and B):
-        with = "::subxt::utils::Static<crate::Second<A, B>>"
+        with = "::pezkuwi_subxt::utils::Static<crate::Second<A, B>>"
     )
 )]
 pub mod node_runtime8 {}

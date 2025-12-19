@@ -16,12 +16,12 @@ use subxt::{
     config::Hasher,
     utils::{AccountId32, MultiAddress},
 };
-use subxt_rpcs::methods::chain_head::{
+use pezkuwi_subxt_rpcs::methods::chain_head::{
     FollowEvent, Initialized, MethodResponse, RuntimeEvent, RuntimeVersionEvent, StorageQuery,
     StorageQueryType,
 };
 
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 #[subxt_test]
 async fn chainhead_v1_follow() {

@@ -20,7 +20,7 @@ use core::fmt::Debug;
 use scale_decode::DecodeAsType;
 use scale_encode::EncodeAsType;
 use serde::{Serialize, de::DeserializeOwned};
-use subxt_metadata::Metadata;
+use pezkuwi_subxt_metadata::Metadata;
 
 pub use default_extrinsic_params::{DefaultExtrinsicParams, DefaultExtrinsicParamsBuilder};
 pub use extrinsic_params::{ExtrinsicParams, ExtrinsicParamsEncoder};

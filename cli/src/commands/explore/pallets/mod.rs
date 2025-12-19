@@ -2,7 +2,7 @@ use clap::Subcommand;
 
 use indoc::writedoc;
 use subxt::Metadata;
-use subxt_metadata::PalletMetadata;
+use pezkuwi_subxt_metadata::PalletMetadata;
 
 use crate::utils::{FileOrUrl, Indent, first_paragraph_of_docs};
 

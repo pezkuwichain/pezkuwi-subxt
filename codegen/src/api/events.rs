@@ -7,7 +7,7 @@ use proc_macro2::TokenStream as TokenStream2;
 use quote::quote;
 use scale_typegen::TypeGenerator;
 use scale_typegen::typegen::ir::ToTokensWithSettings;
-use subxt_metadata::PalletMetadata;
+use pezkuwi_subxt_metadata::PalletMetadata;
 
 /// Generate events from the provided pallet metadata.
 ///
@@ -28,7 +28,7 @@ use subxt_metadata::PalletMetadata;
 /// pub struct EventName {
 ///      pub event_param: type,
 /// }
-/// impl ::subxt::events::StaticEvent for EventName {
+/// impl ::pezkuwi_subxt::events::StaticEvent for EventName {
 /// ...
 /// }
 /// ```
@@ -37,7 +37,7 @@ use subxt_metadata::PalletMetadata;
 ///
 /// - `type_gen` - [`scale_typegen::TypeGenerator`] that contains settings and all types from the runtime metadata.
 /// - `pallet` - Pallet metadata from which the events are generated.
-/// - `crate_path` - The crate path under which the `subxt-core` crate is located, e.g. `::subxt::ext::subxt_core` when using subxt as a dependency.
+/// - `crate_path` - The crate path under which the `subxt-core` crate is located, e.g. `::pezkuwi_subxt::ext::pezkuwi_subxt_core` when using subxt as a dependency.
 pub fn generate_events(
     type_gen: &TypeGenerator,
     pallet: &PalletMetadata,

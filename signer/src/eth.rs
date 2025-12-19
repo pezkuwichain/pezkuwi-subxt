@@ -47,7 +47,7 @@ impl Keypair {
     /// # Example
     ///
     /// ```rust,standalone_crate
-    /// use subxt_signer::{ bip39::Mnemonic, eth::{ Keypair, DerivationPath } };
+    /// use pezkuwi_subxt_signer::{ bip39::Mnemonic, eth::{ Keypair, DerivationPath } };
     ///
     /// let phrase = "bottom drive obey lake curtain smoke basket hold race lonely fit walk";
     /// let mnemonic = Mnemonic::parse(phrase).unwrap();
@@ -176,7 +176,7 @@ impl AsRef<[u8; 65]> for Signature {
 /// Verify that some signature for a message was created by the owner of the [`PublicKey`].
 ///
 /// ```rust,standalone_crate
-/// use subxt_signer::{ bip39::Mnemonic, eth };
+/// use pezkuwi_subxt_signer::{ bip39::Mnemonic, eth };
 ///
 /// let keypair = eth::dev::alith();
 /// let message = b"Hello!";
@@ -309,10 +309,10 @@ pub mod dev {
 #[cfg(feature = "subxt")]
 mod subxt_compat {
     use super::*;
-    use subxt_core::config::Config;
-    use subxt_core::tx::signer::Signer as SignerT;
-    use subxt_core::utils::AccountId20;
-    use subxt_core::utils::MultiAddress;
+    use pezkuwi_subxt_core::config::Config;
+    use pezkuwi_subxt_core::tx::signer::Signer as SignerT;
+    use pezkuwi_subxt_core::utils::AccountId20;
+    use pezkuwi_subxt_core::utils::MultiAddress;
 
     impl<T: Config> SignerT<T> for Keypair
     where
@@ -365,9 +365,9 @@ mod test {
     use bip39::Mnemonic;
     use proptest::prelude::*;
     use secp256k1::Secp256k1;
-    use subxt_core::utils::AccountId20;
+    use pezkuwi_subxt_core::utils::AccountId20;
 
-    use subxt_core::{config::*, tx::signer::Signer as SignerT};
+    use pezkuwi_subxt_core::{config::*, tx::signer::Signer as SignerT};
 
     use super::*;
 
@@ -434,7 +434,7 @@ mod test {
         }
 
         #[test]
-        fn check_subxt_signer_implementation_matches(keypair in keypair(), msg in ".*") {
+        fn check_pezkuwi_subxt_signer_implementation_matches(keypair in keypair(), msg in ".*") {
             let msg_as_bytes = msg.as_bytes();
 
             assert_eq!(SubxtSigner::account_id(&keypair), keypair.public_key().to_account_id());

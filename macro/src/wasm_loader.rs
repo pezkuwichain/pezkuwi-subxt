@@ -8,15 +8,15 @@ use codec::{Decode, Encode};
 use sc_executor::{WasmExecutionMethod, WasmExecutor};
 use sc_executor_common::runtime_blob::RuntimeBlob;
 use sp_maybe_compressed_blob::{self, CODE_BLOB_BOMB_LIMIT};
-use subxt_codegen::{CodegenError, Metadata};
-use subxt_metadata::SUPPORTED_METADATA_VERSIONS;
+use pezkuwi_subxt_codegen::{CodegenError, Metadata};
+use pezkuwi_subxt_metadata::SUPPORTED_METADATA_VERSIONS;
 
 /// Result type shorthand
 pub type WasmMetadataResult<A> = Result<A, CodegenError>;
 
 /// Uses wasm artifact produced by compiling the runtime to generate metadata
 pub fn from_wasm_file(wasm_file_path: &Path) -> WasmMetadataResult<Metadata> {
-    let wasm_file = subxt_utils_fetchmetadata::from_file_blocking(wasm_file_path)
+    let wasm_file = pezkuwi_subxt_utils_fetchmetadata::from_file_blocking(wasm_file_path)
         .map_err(|e| CodegenError::Other(e.to_string()))
         .and_then(maybe_decompress)?;
     call_and_decode(wasm_file)

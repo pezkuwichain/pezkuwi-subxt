@@ -19,11 +19,11 @@ use futures::{Future, FutureExt, Stream, StreamExt, future, future::Either, stre
 use std::collections::VecDeque;
 use std::pin::Pin;
 use std::task::{Context, Poll};
-use subxt_rpcs::RpcClient;
+use pezkuwi_subxt_rpcs::RpcClient;
 
-/// Re-export legacy RPC types and methods from [`subxt_rpcs::methods::legacy`].
+/// Re-export legacy RPC types and methods from [`pezkuwi_subxt_rpcs::methods::legacy`].
 pub mod rpc_methods {
-    pub use subxt_rpcs::methods::legacy::*;
+    pub use pezkuwi_subxt_rpcs::methods::legacy::*;
 }
 
 // Expose the RPC methods.

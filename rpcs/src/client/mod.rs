@@ -33,8 +33,8 @@ crate::macros::cfg_jsonrpsee! {
 
 crate::macros::cfg_unstable_light_client! {
     mod lightclient_impl;
-    pub use subxt_lightclient::LightClientRpc as LightClientRpcClient;
-    pub use subxt_lightclient::LightClient;
+    pub use pezkuwi_subxt_lightclient::LightClientRpc as LightClientRpcClient;
+    pub use pezkuwi_subxt_lightclient::LightClient;
 }
 
 crate::macros::cfg_reconnecting_rpc_client! {

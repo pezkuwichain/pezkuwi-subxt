@@ -15,7 +15,7 @@ use subxt::{
     Metadata,
     ext::{scale_decode::DecodeAsType, scale_encode::EncodeAsType},
 };
-use subxt_metadata::RuntimeApiMetadata;
+use pezkuwi_subxt_metadata::RuntimeApiMetadata;
 
 /// Runs for a specified runtime API trait.
 /// Cases to consider:

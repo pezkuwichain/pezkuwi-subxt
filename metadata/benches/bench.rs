@@ -8,7 +8,7 @@ use codec::Decode;
 use criterion::*;
 use frame_metadata::{RuntimeMetadata, RuntimeMetadataPrefixed};
 use std::{fs, path::Path};
-use subxt_metadata::Metadata;
+use pezkuwi_subxt_metadata::Metadata;
 
 fn load_metadata() -> Metadata {
     let bytes = fs::read(Path::new("../artifacts/polkadot_metadata_full.scale"))

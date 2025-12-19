@@ -11,7 +11,7 @@ use crate::{
 };
 use derive_where::derive_where;
 use std::{future::Future, marker::PhantomData};
-use subxt_core::storage::address::Address;
+use pezkuwi_subxt_core::storage::address::Address;
 
 /// Query the runtime storage.
 #[derive_where(Clone; Client)]
@@ -40,7 +40,7 @@ where
     /// Return an error if the address was not valid or something went wrong trying to validate it (ie
     /// the pallet or storage entry in question do not exist at all).
     pub fn validate<Addr: Address>(&self, address: &Addr) -> Result<(), StorageError> {
-        subxt_core::storage::validate(address, &self.client.metadata()).map_err(Into::into)
+        pezkuwi_subxt_core::storage::validate(address, &self.client.metadata()).map_err(Into::into)
     }
 }
 

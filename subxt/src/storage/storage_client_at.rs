@@ -11,11 +11,11 @@ use crate::{
 use derive_where::derive_where;
 use futures::StreamExt;
 use std::marker::PhantomData;
-use subxt_core::Metadata;
-use subxt_core::storage::{PrefixOf, address::Address};
-use subxt_core::utils::{Maybe, Yes};
+use pezkuwi_subxt_core::Metadata;
+use pezkuwi_subxt_core::storage::{PrefixOf, address::Address};
+use pezkuwi_subxt_core::utils::{Maybe, Yes};
 
-pub use subxt_core::storage::{StorageKeyValue, StorageValue};
+pub use pezkuwi_subxt_core::storage::{StorageKeyValue, StorageValue};
 
 /// Query the runtime storage.
 #[derive_where(Clone; Client)]
@@ -57,7 +57,7 @@ where
         &self,
         address: Addr,
     ) -> Result<StorageEntryClient<'_, T, Client, Addr, Addr::IsPlain>, StorageError> {
-        let inner = subxt_core::storage::entry(address, &self.metadata)?;
+        let inner = pezkuwi_subxt_core::storage::entry(address, &self.metadata)?;
         Ok(StorageEntryClient {
             inner,
             client: self.client.clone(),
@@ -78,7 +78,7 @@ where
         addr: Addr,
         key_parts: Addr::KeyParts,
     ) -> Result<StorageValue<'_, Addr::Value>, StorageError> {
-        let entry = subxt_core::storage::entry(addr, &self.metadata)?;
+        let entry = pezkuwi_subxt_core::storage::entry(addr, &self.metadata)?;
         fetch(&entry, &self.client, self.block_ref.hash(), key_parts).await
     }
 
@@ -88,7 +88,7 @@ where
         addr: Addr,
         key_parts: Addr::KeyParts,
     ) -> Result<Option<StorageValue<'_, Addr::Value>>, StorageError> {
-        let entry = subxt_core::storage::entry(addr, &self.metadata)?;
+        let entry = pezkuwi_subxt_core::storage::entry(addr, &self.metadata)?;
         try_fetch(&entry, &self.client, self.block_ref.hash(), key_parts).await
     }
 
@@ -102,7 +102,7 @@ where
         + use<'_, Addr, Client, T, KeyParts>,
         StorageError,
     > {
-        let entry = subxt_core::storage::entry(addr, &self.metadata)?;
+        let entry = pezkuwi_subxt_core::storage::entry(addr, &self.metadata)?;
         iter(entry, &self.client, self.block_ref.hash(), key_parts).await
     }
 
@@ -130,10 +130,10 @@ where
         // construct the storage key. This is done similarly in
         // `frame_support::traits::metadata::StorageVersion::storage_key()`:
         let mut key_bytes: Vec<u8> = vec![];
-        key_bytes.extend(&sp_crypto_hashing::twox_128(
+        key_bytes.extend(&pezsp_crypto_hashing::twox_128(
             pallet_name.as_ref().as_bytes(),
         ));
-        key_bytes.extend(&sp_crypto_hashing::twox_128(b":__STORAGE_VERSION__:"));
+        key_bytes.extend(&pezsp_crypto_hashing::twox_128(b":__STORAGE_VERSION__:"));
 
         // fetch the raw bytes and decode them into the StorageVersion struct:
         let storage_version_bytes = self.fetch_raw(key_bytes).await?;
@@ -152,7 +152,7 @@ where
 /// This represents a single storage entry (be it a plain value or map)
 /// and the operations that can be performed on it.
 pub struct StorageEntryClient<'atblock, T: Config, Client, Addr, IsPlain> {
-    inner: subxt_core::storage::StorageEntry<'atblock, Addr>,
+    inner: pezkuwi_subxt_core::storage::StorageEntry<'atblock, Addr>,
     client: Client,
     block_ref: BlockRef<HashFor<T>>,
     _marker: PhantomData<(T, IsPlain)>,
@@ -316,7 +316,7 @@ where
 }
 
 async fn fetch<'atblock, T: Config, Client: OnlineClientT<T>, Addr: Address>(
-    entry: &subxt_core::storage::StorageEntry<'atblock, Addr>,
+    entry: &pezkuwi_subxt_core::storage::StorageEntry<'atblock, Addr>,
     client: &Client,
     block_hash: HashFor<T>,
     key_parts: Addr::KeyParts,
@@ -330,7 +330,7 @@ async fn fetch<'atblock, T: Config, Client: OnlineClientT<T>, Addr: Address>(
 }
 
 async fn try_fetch<'atblock, T: Config, Client: OnlineClientT<T>, Addr: Address>(
-    entry: &subxt_core::storage::StorageEntry<'atblock, Addr>,
+    entry: &pezkuwi_subxt_core::storage::StorageEntry<'atblock, Addr>,
     client: &Client,
     block_hash: HashFor<T>,
     key_parts: Addr::KeyParts,
@@ -355,7 +355,7 @@ async fn iter<
     Addr: Address,
     KeyParts: PrefixOf<Addr::KeyParts>,
 >(
-    entry: subxt_core::storage::StorageEntry<'atblock, Addr>,
+    entry: pezkuwi_subxt_core::storage::StorageEntry<'atblock, Addr>,
     client: &Client,
     block_hash: HashFor<T>,
     key_parts: KeyParts,

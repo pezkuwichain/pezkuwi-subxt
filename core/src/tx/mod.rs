@@ -7,17 +7,17 @@
 //! # Example
 //!
 //! ```rust
-//! use subxt_signer::sr25519::dev;
-//! use subxt_macro::subxt;
-//! use subxt_core::config::{PolkadotConfig, HashFor};
-//! use subxt_core::config::DefaultExtrinsicParamsBuilder as Params;
-//! use subxt_core::tx;
-//! use subxt_core::utils::H256;
-//! use subxt_core::Metadata;
+//! use pezkuwi_subxt_signer::sr25519::dev;
+//! use pezkuwi_subxt_macro::subxt;
+//! use pezkuwi_subxt_core::config::{PolkadotConfig, HashFor};
+//! use pezkuwi_subxt_core::config::DefaultExtrinsicParamsBuilder as Params;
+//! use pezkuwi_subxt_core::tx;
+//! use pezkuwi_subxt_core::utils::H256;
+//! use pezkuwi_subxt_core::Metadata;
 //!
-//! // If we generate types without `subxt`, we need to point to `::subxt_core`:
+//! // If we generate types without `subxt`, we need to point to `::pezkuwi_subxt_core`:
 //! #[subxt(
-//!     crate = "::subxt_core",
+//!     crate = "::pezkuwi_subxt_core",
 //!     runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale",
 //! )]
 //! pub mod polkadot {}
@@ -69,7 +69,7 @@ use alloc::vec::Vec;
 use codec::{Compact, Encode};
 use payload::Payload;
 use signer::Signer as SignerT;
-use sp_crypto_hashing::blake2_256;
+use pezsp_crypto_hashing::blake2_256;
 
 // Expose these here since we expect them in some calls below.
 pub use crate::client::{ClientState, RuntimeVersion};

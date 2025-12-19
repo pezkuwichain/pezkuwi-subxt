@@ -6,8 +6,8 @@
 #![allow(missing_docs)]
 
 use subxt::OnlineClient;
-use subxt_core::utils::AccountId20;
-use subxt_signer::eth::{Signature, dev};
+use pezkuwi_subxt_core::utils::AccountId20;
+use pezkuwi_subxt_signer::eth::{Signature, dev};
 
 #[subxt::subxt(runtime_metadata_path = "../artifacts/frontier_metadata_small.scale")]
 mod eth_runtime {}

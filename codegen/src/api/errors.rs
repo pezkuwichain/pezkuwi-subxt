@@ -5,7 +5,7 @@
 use proc_macro2::TokenStream as TokenStream2;
 use quote::quote;
 use scale_typegen::TypeGenerator;
-use subxt_metadata::PalletMetadata;
+use pezkuwi_subxt_metadata::PalletMetadata;
 
 use super::CodegenError;
 use scale_typegen::typegen::ir::ToTokensWithSettings;

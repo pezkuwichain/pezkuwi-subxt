@@ -1,49 +1,37 @@
 [workspace]
+# All pezkuwi-subxt crates
 members = [
     "cli",
     "codegen",
     "core",
     "lightclient",
-    "historic",
-    "testing/substrate-runner",
-    "testing/test-runtime",
-    "testing/integration-tests",
-    "testing/integration-tests/subxt-test-macro",
-    "testing/ui-tests",
-    "testing/generate-custom-metadata",
     "macro",
     "metadata",
     "rpcs",
     "signer",
     "subxt",
-    "scripts/artifacts",
     "utils/fetch-metadata",
     "utils/strip-metadata",
 ]
 
-# We exclude any crates that would depend on non mutually
-# exclusive feature flags and thus can't compile with the
-# workspace:
+# Exclude testing and examples for now
 exclude = [
-    "testing/no-std-tests",
-    "testing/wasm-rpc-tests",
-    "testing/wasm-lightclient-tests",
-    "signer/wasm-tests",
-    "examples/wasm-example",
-    "examples/parachain-example",
-    "examples/ffi-example",
+    "historic",
+    "testing",
+    "scripts",
+    "examples",
 ]
 resolver = "2"
 
 [workspace.package]
-authors = ["Parity Technologies <admin@parity.io>"]
+authors = ["Pezkuwi Chain <admin@pezkuwichain.io>"]
 edition = "2024"
 version = "0.44.0"
 rust-version = "1.85.0"
 license = "Apache-2.0 OR GPL-3.0"
-repository = "https://github.com/paritytech/subxt"
-documentation = "https://docs.rs/subxt"
-homepage = "https://www.parity.io/"
+repository = "https://github.com/pezkuwichain/pezkuwi-subxt"
+documentation = "https://docs.rs/pezkuwi-subxt"
+homepage = "https://pezkuwichain.org/"
 
 [workspace.lints.rust]
 bad_style = "deny"
@@ -144,30 +132,30 @@ futures-timer = "3"
 web-time = { version = "1.1", default-features = false }
 tokio-util = "0.7.12"
 
-# Substrate crates:
-sc-executor = { version = "0.42.0", default-features = false }
-sc-executor-common = { version = "0.38.0", default-features = false }
-sp-crypto-hashing = { version = "0.1.0", default-features = false }
-sp-core = { version = "36.1.0", default-features = false }
-sp-keyring = { version = "41.0.0", default-features = false }
-sp-maybe-compressed-blob = { version = "11.0.0", default-features = false }
-sp-io = { version = "40.0.1", default-features = false }
-sp-state-machine = { version = "0.45.0", default-features = false }
-sp-runtime = { version = "41.1.0", default-features = false }
+# Pezkuwi SDK crates (rebranded from Substrate) - using local paths:
+pezsc-executor = { path = "../../bizinikiwi/client/executor", default-features = false }
+pezsc-executor-common = { path = "../../bizinikiwi/client/executor/common", default-features = false }
+pezsp-crypto-hashing = { path = "../../bizinikiwi/primitives/crypto/hashing", default-features = false }
+pezsp-core = { path = "../../bizinikiwi/primitives/core", default-features = false }
+pezsp-keyring = { path = "../../bizinikiwi/primitives/keyring", default-features = false }
+pezsp-maybe-compressed-blob = { path = "../../bizinikiwi/primitives/maybe-compressed-blob", default-features = false }
+pezsp-io = { path = "../../bizinikiwi/primitives/io", default-features = false }
+pezsp-state-machine = { path = "../../bizinikiwi/primitives/state-machine", default-features = false }
+pezsp-runtime = { path = "../../bizinikiwi/primitives/runtime", default-features = false }
 
-# Subxt workspace crates:
-subxt = { version = "0.44.0", path = "subxt", default-features = false }
-subxt-core = { version = "0.44.0", path = "core", default-features = false }
-subxt-macro = { version = "0.44.0", path = "macro" }
-subxt-metadata = { version = "0.44.0", path = "metadata", default-features = false }
-subxt-codegen = { version = "0.44.0", path = "codegen" }
-subxt-signer = { version = "0.44.0", path = "signer", default-features = false }
-subxt-rpcs = { version = "0.44.0", path = "rpcs", default-features = false }
-subxt-lightclient = { version = "0.44.0", path = "lightclient", default-features = false }
-subxt-utils-fetchmetadata = { version = "0.44.0", path = "utils/fetch-metadata", default-features = false }
-subxt-utils-stripmetadata = { version = "0.44.0", path = "utils/strip-metadata", default-features = false }
+# Pezkuwi-Subxt workspace crates:
+pezkuwi-subxt = { version = "0.44.0", path = "subxt", default-features = false }
+pezkuwi-subxt-core = { version = "0.44.0", path = "core", default-features = false }
+pezkuwi-subxt-macro = { version = "0.44.0", path = "macro" }
+pezkuwi-subxt-metadata = { version = "0.44.0", path = "metadata", default-features = false }
+pezkuwi-subxt-codegen = { version = "0.44.0", path = "codegen" }
+pezkuwi-subxt-signer = { version = "0.44.0", path = "signer", default-features = false }
+pezkuwi-subxt-rpcs = { version = "0.44.0", path = "rpcs", default-features = false }
+pezkuwi-subxt-lightclient = { version = "0.44.0", path = "lightclient", default-features = false }
+pezkuwi-subxt-utils-fetchmetadata = { version = "0.44.0", path = "utils/fetch-metadata", default-features = false }
+pezkuwi-subxt-utils-stripmetadata = { version = "0.44.0", path = "utils/strip-metadata", default-features = false }
 test-runtime = { path = "testing/test-runtime" }
-substrate-runner = { path = "testing/substrate-runner" }
+bizinikiwi-runner = { path = "testing/substrate-runner" }
 
 # subxt-signer deps that I expect aren't useful anywhere else:
 bip39 = { version = "2.1.0", default-features = false }

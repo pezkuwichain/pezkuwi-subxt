@@ -12,7 +12,7 @@ use subxt::{
     ext::scale_decode::DecodeAsType,
     utils::{AccountId32, MultiAddress},
 };
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 #[subxt_test]
 async fn tx_basic_transfer() -> Result<(), subxt::Error> {
@@ -140,7 +140,7 @@ async fn tx_dynamic_transfer() -> Result<(), subxt::Error> {
         .expect("Failed to decode event fields");
 
     #[derive(DecodeAsType, Debug, PartialEq)]
-    #[decode_as_type(crate_path = "::subxt::ext::scale_decode")]
+    #[decode_as_type(crate_path = "::pezkuwi_subxt::ext::scale_decode")]
     struct DecodedTransferEvent {
         from: AccountId32,
         to: AccountId32,

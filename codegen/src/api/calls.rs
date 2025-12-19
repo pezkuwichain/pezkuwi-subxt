@@ -8,7 +8,7 @@ use proc_macro2::TokenStream as TokenStream2;
 use quote::{format_ident, quote};
 use scale_typegen::typegen::ir::ToTokensWithSettings;
 use scale_typegen::{TypeGenerator, typegen::ir::type_ir::CompositeIRKind};
-use subxt_metadata::PalletMetadata;
+use pezkuwi_subxt_metadata::PalletMetadata;
 
 /// Generate calls from the provided pallet's metadata. Each call returns a `StaticPayload`
 /// that can be passed to the subxt client to submit/sign/encode.
@@ -17,7 +17,7 @@ use subxt_metadata::PalletMetadata;
 ///
 /// - `type_gen` - [`scale_typegen::TypeGenerator`] that contains settings and all types from the runtime metadata.
 /// - `pallet` - Pallet metadata from which the calls are generated.
-/// - `crate_path` - The crate path under which the `subxt-core` crate is located, e.g. `::subxt::ext::subxt_core` when using subxt as a dependency.
+/// - `crate_path` - The crate path under which the `subxt-core` crate is located, e.g. `::pezkuwi_subxt::ext::pezkuwi_subxt_core` when using subxt as a dependency.
 pub fn generate_calls(
     type_gen: &TypeGenerator,
     pallet: &PalletMetadata,
@@ -123,7 +123,7 @@ pub fn generate_calls(
             use super::root_mod;
             use super::#types_mod_ident;
 
-            type DispatchError = #types_mod_ident::sp_runtime::DispatchError;
+            type DispatchError = #types_mod_ident::pezsp_runtime::DispatchError;
 
             pub mod types {
                 use super::#types_mod_ident;

@@ -215,7 +215,7 @@ where
         StorageError,
     > {
         use futures::stream::StreamExt;
-        use subxt_rpcs::methods::chain_head::{
+        use pezkuwi_subxt_rpcs::methods::chain_head::{
             ArchiveStorageEvent, StorageQuery, StorageQueryType,
         };
 
@@ -297,7 +297,7 @@ where
     T: Config + 'atblock,
     Client: OnlineClientAtBlockT<'atblock, T>,
 {
-    use subxt_rpcs::methods::chain_head::{ArchiveStorageEvent, StorageQuery, StorageQueryType};
+    use pezkuwi_subxt_rpcs::methods::chain_head::{ArchiveStorageEvent, StorageQuery, StorageQueryType};
 
     let query = StorageQuery {
         key: key_bytes,

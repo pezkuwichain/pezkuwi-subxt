@@ -7,7 +7,7 @@ use super::follow_stream::FollowStream;
 use crate::config::{Config, Hash, HashFor};
 use crate::error::BackendError;
 use futures::stream::{FuturesUnordered, Stream, StreamExt};
-use subxt_rpcs::methods::chain_head::{
+use pezkuwi_subxt_rpcs::methods::chain_head::{
     BestBlockChanged, Finalized, FollowEvent, Initialized, NewBlock,
 };
 

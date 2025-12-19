@@ -14,7 +14,7 @@ hex = { workspace = true }
 scale-info = { workspace = true, features = ["bit-vec"] }
 frame-metadata = { workspace = true }
 codec = { package = "parity-scale-codec", workspace = true, features = ["derive", "bit-vec"] }
-subxt = { workspace = true, features = ["native", "jsonrpsee", "runtime-wasm-path"] }
-subxt-metadata = { workspace = true }
+pezkuwi-subxt = { workspace = true, features = ["native", "jsonrpsee", "runtime-wasm-path"] }
+pezkuwi-subxt-metadata = { workspace = true }
 subxt-utils-stripmetadata = { workspace = true }
 generate-custom-metadata = { path = "../generate-custom-metadata" }

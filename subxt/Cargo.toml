@@ -1,5 +1,5 @@
 [package]
-name = "subxt"
+name = "pezkuwi-subxt"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
@@ -11,8 +11,8 @@ readme = "../README.md"
 repository.workspace = true
 documentation.workspace = true
 homepage.workspace = true
-description = "Submit extrinsics (transactions) to a substrate node via RPC"
-keywords = ["parity", "substrate", "blockchain"]
+description = "Submit extrinsics (transactions) to a Pezkuwi/Bizinikiwi node via RPC"
+keywords = ["pezkuwi", "bizinikiwi", "blockchain"]
 
 [lints]
 workspace = true
@@ -25,19 +25,19 @@ default = ["jsonrpsee", "native"]
 # Enable this for native (ie non web/wasm builds).
 # Exactly 1 of "web" and "native" is expected.
 native = [
-    "subxt-lightclient?/native",
-    "subxt-rpcs/native",
+    "pezkuwi-subxt-lightclient?/native",
+    "pezkuwi-subxt-rpcs/native",
     "tokio-util",
     "tokio?/sync",
-    "sp-crypto-hashing/std",
+    "pezsp-crypto-hashing/std",
 ]
 
 # Enable this for web/wasm builds.
 # Exactly 1 of "web" and "native" is expected.
 web = [
-    "subxt-lightclient?/web",
-    "subxt-macro/web",
-    "subxt-rpcs/web",
+    "pezkuwi-subxt-lightclient?/web",
+    "pezkuwi-subxt-macro/web",
+    "pezkuwi-subxt-rpcs/web",
     "tokio?/sync",
 ]
 
@@ -50,13 +50,13 @@ web = [
 runtime = ["tokio/rt", "wasm-bindgen-futures"]
 
 # Enable this to use the reconnecting rpc client
-reconnecting-rpc-client = ["subxt-rpcs/reconnecting-rpc-client"]
+reconnecting-rpc-client = ["pezkuwi-subxt-rpcs/reconnecting-rpc-client"]
 
 # Enable this to use jsonrpsee, which enables the jsonrpsee RPC client, and
 # a couple of util functions which rely on jsonrpsee.
 jsonrpsee = [
     "dep:jsonrpsee",
-    "subxt-rpcs/jsonrpsee",
+    "pezkuwi-subxt-rpcs/jsonrpsee",
     "runtime"
 ]
 
@@ -68,10 +68,10 @@ unstable-metadata = []
 
 # Activate this to expose the Light Client functionality.
 # Note that this feature is experimental and things may break or not work as expected.
-unstable-light-client = ["subxt-lightclient", "subxt-rpcs/unstable-light-client"]
+unstable-light-client = ["pezkuwi-subxt-lightclient", "pezkuwi-subxt-rpcs/unstable-light-client"]
 
 # Activate this to expose the ability to generate metadata from Wasm runtime files.
-runtime-wasm-path = ["subxt-macro/runtime-wasm-path"]
+runtime-wasm-path = ["pezkuwi-subxt-macro/runtime-wasm-path"]
 
 [dependencies]
 async-trait = { workspace = true }
@@ -86,7 +86,7 @@ futures = { workspace = true }
 hex = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true, features = ["default", "raw_value"] }
-sp-crypto-hashing = { workspace = true }
+pezsp-crypto-hashing = { workspace = true }
 thiserror = { workspace = true }
 tracing = { workspace = true }
 frame-metadata = { workspace = true }
@@ -99,12 +99,12 @@ primitive-types = { workspace = true, features = ["codec", "scale-info", "serde"
 # Included if the "jsonrpsee" feature is enabled.
 jsonrpsee = { workspace = true, optional = true, features = ["jsonrpsee-types"] }
 
-# Other subxt crates we depend on.
-subxt-macro = { workspace = true }
-subxt-core = { workspace = true, features = ["std"] }
-subxt-metadata = { workspace = true, features = ["std"] }
-subxt-lightclient = { workspace = true, optional = true, default-features = false }
-subxt-rpcs = { workspace = true, features = ["subxt"] }
+# Other pezkuwi-subxt crates we depend on.
+pezkuwi-subxt-macro = { workspace = true }
+pezkuwi-subxt-core = { workspace = true, features = ["std"] }
+pezkuwi-subxt-metadata = { workspace = true, features = ["std"] }
+pezkuwi-subxt-lightclient = { workspace = true, optional = true, default-features = false }
+pezkuwi-subxt-rpcs = { workspace = true, features = ["subxt"] }
 
 # For parsing urls to disallow insecure schemes
 url = { workspace = true }
@@ -123,12 +123,12 @@ bitvec = { workspace = true }
 codec = { workspace = true, features = ["derive", "bit-vec"] }
 scale-info = { workspace = true, features = ["bit-vec"] }
 tokio = { workspace = true, features = ["macros", "time", "rt-multi-thread", "sync"] }
-sp-core = { workspace = true, features = ["std"] }
-sp-keyring = { workspace = true, features = ["std"] }
-sp-runtime = { workspace = true, features = ["std"] }
+pezsp-core = { workspace = true, features = ["std"] }
+pezsp-keyring = { workspace = true, features = ["std"] }
+pezsp-runtime = { workspace = true, features = ["std"] }
 assert_matches = { workspace = true }
-subxt-signer = { path = "../signer", features = ["unstable-eth"] }
-subxt-rpcs = { workspace = true, features = ["subxt", "mock-rpc-client"] }
+pezkuwi-subxt-signer = { path = "../signer", features = ["unstable-eth"] }
+pezkuwi-subxt-rpcs = { workspace = true, features = ["subxt", "mock-rpc-client"] }
 # Tracing subscriber is useful for light-client examples to ensure that
 # the `bootNodes` and chain spec are configured correctly. If all is fine, then
 # the light-client will emit INFO logs with

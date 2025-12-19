@@ -2,7 +2,7 @@
 use subxt::config::{
     Config, DefaultExtrinsicParams, DefaultExtrinsicParamsBuilder, PolkadotConfig, SubstrateConfig,
 };
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 #[subxt::subxt(
     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",

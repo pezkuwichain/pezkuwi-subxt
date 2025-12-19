@@ -189,7 +189,7 @@ mod tests {
     use crate::backend::StreamOf;
 
     fn disconnect_err() -> BackendError {
-        BackendError::Rpc(subxt_rpcs::Error::DisconnectedWillReconnect(String::new()).into())
+        BackendError::Rpc(pezkuwi_subxt_rpcs::Error::DisconnectedWillReconnect(String::new()).into())
     }
 
     fn custom_err() -> BackendError {

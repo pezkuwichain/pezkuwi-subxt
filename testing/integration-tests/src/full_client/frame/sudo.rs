@@ -10,7 +10,7 @@ use crate::{
     },
     subxt_test, test_context,
 };
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 type Call = runtime_types::kitchensink_runtime::RuntimeCall;
 type BalancesCall = runtime_types::pallet_balances::pallet::Call;

@@ -10,7 +10,7 @@ use crypto_secretbox::{
     aead::{Aead, KeyInit},
 };
 use serde::Deserialize;
-use subxt_core::utils::AccountId32;
+use pezkuwi_subxt_core::utils::AccountId32;
 
 use thiserror::Error as DeriveError;
 

@@ -8,7 +8,7 @@ use subxt::config::{
     Config, DefaultExtrinsicParamsBuilder, ExtrinsicParams, ExtrinsicParamsEncoder,
     ExtrinsicParamsError,
 };
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 #[subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
 pub mod runtime {}

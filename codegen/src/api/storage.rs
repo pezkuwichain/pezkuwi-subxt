@@ -6,7 +6,7 @@ use heck::ToSnakeCase as _;
 use proc_macro2::TokenStream as TokenStream2;
 use quote::{format_ident, quote};
 use scale_typegen::TypeGenerator;
-use subxt_metadata::{PalletMetadata, StorageEntryMetadata};
+use pezkuwi_subxt_metadata::{PalletMetadata, StorageEntryMetadata};
 
 use super::CodegenError;
 
@@ -19,7 +19,7 @@ use scale_typegen::typegen::ir::ToTokensWithSettings;
 ///
 /// - `type_gen` - [`scale_typegen::TypeGenerator`] that contains settings and all types from the runtime metadata.
 /// - `pallet` - Pallet metadata from which the storage items are generated.
-/// - `crate_path` - The crate path under which the `subxt-core` crate is located, e.g. `::subxt::ext::subxt_core` when using subxt as a dependency.
+/// - `crate_path` - The crate path under which the `subxt-core` crate is located, e.g. `::pezkuwi_subxt::ext::pezkuwi_subxt_core` when using subxt as a dependency.
 pub fn generate_storage(
     type_gen: &TypeGenerator,
     pallet: &PalletMetadata,
@@ -173,7 +173,7 @@ fn generate_storage_entry_fns(
 mod tests {
     use frame_metadata::v15;
     use scale_info::{MetaType, meta_type};
-    use subxt_metadata::Metadata;
+    use pezkuwi_subxt_metadata::Metadata;
 
     // TODO: Think about adding tests for storage codegen which can use this sort of function.
     #[allow(dead_code)]

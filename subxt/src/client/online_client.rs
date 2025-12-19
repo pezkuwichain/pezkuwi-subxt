@@ -21,7 +21,7 @@ use derive_where::derive_where;
 use futures::TryFutureExt;
 use futures::future;
 use std::sync::{Arc, RwLock};
-use subxt_core::client::{ClientState, RuntimeVersion};
+use pezkuwi_subxt_core::client::{ClientState, RuntimeVersion};
 
 /// A trait representing a client that can perform
 /// online actions.
@@ -68,7 +68,7 @@ impl<T: Config> OnlineClient<T> {
 
     /// Construct a new [`OnlineClient`], providing a URL to connect to.
     pub async fn from_url(url: impl AsRef<str>) -> Result<OnlineClient<T>, OnlineClientError> {
-        subxt_rpcs::utils::validate_url_is_secure(url.as_ref())?;
+        pezkuwi_subxt_rpcs::utils::validate_url_is_secure(url.as_ref())?;
         OnlineClient::from_insecure_url(url).await
     }
 
@@ -162,7 +162,7 @@ impl<T: Config> OnlineClient<T> {
         metadata: impl Into<Metadata>,
         backend: Arc<B>,
     ) -> Result<OnlineClient<T>, OnlineClientError> {
-        use subxt_core::config::Hasher;
+        use pezkuwi_subxt_core::config::Hasher;
 
         let metadata = metadata.into();
         let hasher = T::Hasher::new(&metadata);
@@ -209,7 +209,7 @@ impl<T: Config> OnlineClient<T> {
         block_hash: HashFor<T>,
     ) -> Result<Metadata, BackendError> {
         // The metadata versions we support in Subxt, from newest to oldest.
-        use subxt_metadata::SUPPORTED_METADATA_VERSIONS;
+        use pezkuwi_subxt_metadata::SUPPORTED_METADATA_VERSIONS;
 
         // Try to fetch each version that we support in order from newest to oldest.
         for version in SUPPORTED_METADATA_VERSIONS {

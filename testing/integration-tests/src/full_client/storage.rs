@@ -8,7 +8,7 @@ use futures::StreamExt;
 #[cfg(fullclient)]
 use subxt::utils::AccountId32;
 #[cfg(fullclient)]
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 #[subxt_test]
 async fn storage_plain_lookup() -> Result<(), subxt::Error> {

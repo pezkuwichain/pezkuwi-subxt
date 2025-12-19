@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-subxt = { workspace = true, features = ["native"] }
+pezkuwi-subxt = { workspace = true, features = ["native"] }
 
 [build-dependencies]
 substrate-runner = { workspace = true }

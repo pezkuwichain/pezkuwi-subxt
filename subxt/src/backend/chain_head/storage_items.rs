@@ -12,7 +12,7 @@ use std::future::Future;
 use std::pin::Pin;
 use std::sync::Arc;
 use std::task::{Context, Poll};
-use subxt_rpcs::methods::chain_head::{
+use pezkuwi_subxt_rpcs::methods::chain_head::{
     ChainHeadRpcMethods, FollowEvent, MethodResponse, StorageQuery, StorageResult,
 };
 

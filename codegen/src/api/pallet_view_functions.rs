@@ -10,7 +10,7 @@ use quote::{format_ident, quote};
 use scale_typegen::TypeGenerator;
 use scale_typegen::typegen::ir::ToTokensWithSettings;
 use std::collections::HashSet;
-use subxt_metadata::{PalletMetadata, ViewFunctionMetadata};
+use pezkuwi_subxt_metadata::{PalletMetadata, ViewFunctionMetadata};
 
 pub fn generate_pallet_view_functions(
     type_gen: &TypeGenerator,

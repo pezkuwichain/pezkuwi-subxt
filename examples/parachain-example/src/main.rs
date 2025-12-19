@@ -3,7 +3,7 @@ use subxt::{
     utils::{AccountId32, MultiAddress},
     OnlineClient,
 };
-use subxt_signer::sr25519::dev::{self};
+use pezkuwi_subxt_signer::sr25519::dev::{self};
 
 #[subxt::subxt(runtime_metadata_path = "statemint_metadata.scale")]
 pub mod statemint {}

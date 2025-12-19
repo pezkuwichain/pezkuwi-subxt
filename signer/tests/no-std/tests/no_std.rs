@@ -1,6 +1,6 @@
 #![no_std]
 
-use subxt_signer::{ecdsa, eth, sr25519};
+use pezkuwi_subxt_signer::{ecdsa, eth, sr25519};
 
 // Run the tests by calling:
 //

@@ -1,5 +1,5 @@
 [package]
-name = "subxt-rpcs"
+name = "pezkuwi-subxt-rpcs"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
@@ -17,12 +17,10 @@ keywords = ["parity", "subxt", "rpcs"]
 [features]
 default = ["jsonrpsee", "native"]
 
-subxt = ["dep:subxt-core"]
+subxt = ["dep:pezkuwi-subxt-core"]
 jsonrpsee = ["dep:jsonrpsee", "dep:tokio-util"]
 
-unstable-light-client = [
-    "dep:subxt-lightclient"
-]
+unstable-light-client = ["dep:pezkuwi-subxt-lightclient"]
 
 reconnecting-rpc-client = [
     "jsonrpsee",
@@ -42,7 +40,7 @@ native = [
     "jsonrpsee?/async-client",
     "jsonrpsee?/client-ws-transport-tls",
     "jsonrpsee?/ws-client",
-    "subxt-lightclient?/native",
+    "pezkuwi-subxt-lightclient?/native",
 ]
 
 # Enable this for web/wasm builds.
@@ -51,7 +49,7 @@ web = [
     "jsonrpsee?/async-wasm-client",
     "jsonrpsee?/client-web-transport",
     "jsonrpsee?/wasm-client",
-    "subxt-lightclient?/web",
+    "pezkuwi-subxt-lightclient?/web",
     "finito?/wasm-bindgen",
     "dep:wasm-bindgen-futures",
     "getrandom/js",
@@ -80,11 +78,11 @@ tokio-util = { workspace = true, features = ["compat"], optional = true }
 finito = { workspace = true, optional = true }
 tokio = { workspace = true, optional = true }
 
-# Included with the lightclient feature
-subxt-lightclient = { workspace = true, optional = true, default-features = false }
+# Included with the unstable-light-client feature
+pezkuwi-subxt-lightclient = { workspace = true, optional = true, default-features = false }
 
-# Included with the subxt-core feature to impl Config for RpcConfig
-subxt-core = { workspace = true, optional = true }
+# Included with the pezkuwi-subxt-core feature to impl Config for RpcConfig
+pezkuwi-subxt-core = { workspace = true, optional = true }
 
 # Included with WASM feature
 wasm-bindgen-futures = { workspace = true, optional = true }

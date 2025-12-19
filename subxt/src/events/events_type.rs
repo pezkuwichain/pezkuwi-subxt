@@ -5,15 +5,15 @@ use crate::{
 };
 use derive_where::derive_where;
 use scale_decode::{DecodeAsFields, DecodeAsType};
-use subxt_core::events::{EventDetails as CoreEventDetails, Events as CoreEvents};
+use pezkuwi_subxt_core::events::{EventDetails as CoreEventDetails, Events as CoreEvents};
 
-pub use subxt_core::events::{EventMetadataDetails, Phase, StaticEvent};
+pub use pezkuwi_subxt_core::events::{EventMetadataDetails, Phase, StaticEvent};
 
 /// A collection of events obtained from a block, bundled with the necessary
 /// information needed to decode and iterate over them.
-// Dev note: we are just wrapping the subxt_core types here to avoid leaking them
+// Dev note: we are just wrapping the pezkuwi_subxt_core types here to avoid leaking them
 // in Subxt and map any errors into Subxt errors so that we don't have this part of the
-// API returning a different error type (ie the subxt_core::Error).
+// API returning a different error type (ie the pezkuwi_subxt_core::Error).
 #[derive_where(Clone, Debug)]
 pub struct Events<T> {
     inner: CoreEvents<T>,

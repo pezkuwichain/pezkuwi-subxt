@@ -1,5 +1,5 @@
 [package]
-name = "subxt-macro"
+name = "pezkuwi-subxt-macro"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
@@ -14,9 +14,9 @@ homepage.workspace = true
 description = "Generate types and helpers for interacting with Substrate runtimes."
 
 [features]
-web = ["subxt-codegen/web"]
-runtime-wasm-path = ["sc-executor", "sc-executor-common", "sp-maybe-compressed-blob", "sp-io", "sp-state-machine"]
-runtime-metadata-insecure-url = ["subxt-utils-fetchmetadata/url"]
+web = ["pezkuwi-subxt-codegen/web"]
+runtime-wasm-path = ["pezsc-executor", "pezsc-executor-common", "pezsp-maybe-compressed-blob", "pezsp-io", "pezsp-state-machine"]
+runtime-metadata-insecure-url = ["pezkuwi-subxt-utils-fetchmetadata/url"]
 
 [lib]
 proc-macro = true
@@ -27,15 +27,15 @@ darling = { workspace = true }
 proc-macro-error2 = { workspace = true }
 syn = { workspace = true }
 quote = { workspace = true }
-subxt-codegen = { workspace = true }
-subxt-metadata = { workspace = true }
-subxt-utils-fetchmetadata = { workspace = true }
+pezkuwi-subxt-codegen = { workspace = true }
+pezkuwi-subxt-metadata = { workspace = true }
 scale-typegen = { workspace = true }
-sc-executor = { workspace = true, optional = true }
-sc-executor-common = { workspace = true, optional = true }
-sp-maybe-compressed-blob = { workspace = true, optional = true }
-sp-io = { workspace = true, optional = true }
-sp-state-machine = { workspace = true, optional = true }
+pezsc-executor = { workspace = true, optional = true }
+pezsc-executor-common = { workspace = true, optional = true }
+pezsp-maybe-compressed-blob = { workspace = true, optional = true }
+pezsp-io = { workspace = true, optional = true }
+pezsp-state-machine = { workspace = true, optional = true }
+pezkuwi-subxt-utils-fetchmetadata = { workspace = true }
 
 [lints]
 workspace = true

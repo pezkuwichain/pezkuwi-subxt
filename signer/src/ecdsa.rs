@@ -49,7 +49,7 @@ impl Keypair {
     /// # Example
     ///
     /// ```rust,standalone_crate
-    /// use subxt_signer::{ SecretUri, ecdsa::Keypair };
+    /// use pezkuwi_subxt_signer::{ SecretUri, ecdsa::Keypair };
     /// use std::str::FromStr;
     ///
     /// let uri = SecretUri::from_str("//Alice").unwrap();
@@ -85,7 +85,7 @@ impl Keypair {
     /// # Example
     ///
     /// ```rust,standalone_crate
-    /// use subxt_signer::{ bip39::Mnemonic, ecdsa::Keypair };
+    /// use pezkuwi_subxt_signer::{ bip39::Mnemonic, ecdsa::Keypair };
     ///
     /// let phrase = "bottom drive obey lake curtain smoke basket hold race lonely fit walk";
     /// let mnemonic = Mnemonic::parse(phrase).unwrap();
@@ -123,7 +123,7 @@ impl Keypair {
     /// # Example
     ///
     /// ```rust,standalone_crate
-    /// use subxt_signer::{ bip39::Mnemonic, ecdsa::Keypair, DeriveJunction };
+    /// use pezkuwi_subxt_signer::{ bip39::Mnemonic, ecdsa::Keypair, DeriveJunction };
     ///
     /// let phrase = "bottom drive obey lake curtain smoke basket hold race lonely fit walk";
     /// let mnemonic = Mnemonic::parse(phrase).unwrap();
@@ -145,7 +145,7 @@ impl Keypair {
                 DeriveJunction::Soft(_) => return Err(Error::SoftJunction),
                 DeriveJunction::Hard(junction_bytes) => {
                     acc = ("Secp256k1HDKD", acc, junction_bytes)
-                        .using_encoded(sp_crypto_hashing::blake2_256)
+                        .using_encoded(pezsp_crypto_hashing::blake2_256)
                 }
             }
         }
@@ -166,7 +166,7 @@ impl Keypair {
 
     /// Sign some message. These bytes can be used directly in a Substrate `MultiSignature::Ecdsa(..)`.
     pub fn sign(&self, message: &[u8]) -> Signature {
-        self.sign_prehashed(&sp_crypto_hashing::blake2_256(message))
+        self.sign_prehashed(&pezsp_crypto_hashing::blake2_256(message))
     }
 
     /// Signs a pre-hashed message.
@@ -179,7 +179,7 @@ impl Keypair {
 /// Verify that some signature for a message was created by the owner of the [`PublicKey`].
 ///
 /// ```rust,standalone_crate
-/// use subxt_signer::{ bip39::Mnemonic, ecdsa };
+/// use pezkuwi_subxt_signer::{ bip39::Mnemonic, ecdsa };
 ///
 /// let keypair = ecdsa::dev::alice();
 /// let message = b"Hello!";
@@ -189,7 +189,7 @@ impl Keypair {
 /// assert!(ecdsa::verify(&signature, message, &public_key));
 /// ```
 pub fn verify<M: AsRef<[u8]>>(sig: &Signature, message: M, pubkey: &PublicKey) -> bool {
-    let message_hash = sp_crypto_hashing::blake2_256(message.as_ref());
+    let message_hash = pezsp_crypto_hashing::blake2_256(message.as_ref());
     let wrapped = Message::from_digest_slice(&message_hash).expect("Message is 32 bytes; qed");
 
     internal::verify(&sig.0, &wrapped, pubkey)
@@ -298,9 +298,9 @@ pub mod dev {
 mod subxt_compat {
     use super::*;
 
-    use subxt_core::config::Config;
-    use subxt_core::tx::signer::Signer as SignerT;
-    use subxt_core::utils::{AccountId32, MultiAddress, MultiSignature};
+    use pezkuwi_subxt_core::config::Config;
+    use pezkuwi_subxt_core::tx::signer::Signer as SignerT;
+    use pezkuwi_subxt_core::utils::{AccountId32, MultiAddress, MultiSignature};
 
     impl From<Signature> for MultiSignature {
         fn from(value: Signature) -> Self {
@@ -325,7 +325,7 @@ mod subxt_compat {
         /// We often want this type, and using this method avoids any
         /// ambiguous type resolution issues.
         pub fn to_account_id(self) -> AccountId32 {
-            AccountId32(sp_crypto_hashing::blake2_256(&self.0))
+            AccountId32(pezsp_crypto_hashing::blake2_256(&self.0))
         }
         /// A shortcut to obtain a [`MultiAddress`] from a [`PublicKey`].
         /// We often want this type, and using this method avoids any

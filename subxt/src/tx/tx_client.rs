@@ -13,7 +13,7 @@ use crate::{
 use codec::{Compact, Decode, Encode};
 use derive_where::derive_where;
 use futures::future::{TryFutureExt, try_join};
-use subxt_core::tx::TransactionVersion;
+use pezkuwi_subxt_core::tx::TransactionVersion;
 
 /// A client for working with transactions.
 #[derive_where(Clone; Client)]
@@ -41,7 +41,7 @@ impl<T: Config, C: OfflineClientT<T>> TxClient<T, C> {
     where
         Call: Payload,
     {
-        subxt_core::tx::validate(call, &self.client.metadata()).map_err(Into::into)
+        pezkuwi_subxt_core::tx::validate(call, &self.client.metadata()).map_err(Into::into)
     }
 
     /// Return the SCALE encoded bytes representing the call data of the transaction.
@@ -49,7 +49,7 @@ impl<T: Config, C: OfflineClientT<T>> TxClient<T, C> {
     where
         Call: Payload,
     {
-        subxt_core::tx::call_data(call, &self.client.metadata()).map_err(Into::into)
+        pezkuwi_subxt_core::tx::call_data(call, &self.client.metadata()).map_err(Into::into)
     }
 
     /// Creates an unsigned transaction without submitting it. Depending on the metadata, we might end
@@ -63,9 +63,9 @@ impl<T: Config, C: OfflineClientT<T>> TxClient<T, C> {
         Call: Payload,
     {
         let metadata = self.client.metadata();
-        let tx = match subxt_core::tx::suggested_version(&metadata)? {
-            TransactionVersion::V4 => subxt_core::tx::create_v4_unsigned(call, &metadata),
-            TransactionVersion::V5 => subxt_core::tx::create_v5_bare(call, &metadata),
+        let tx = match pezkuwi_subxt_core::tx::suggested_version(&metadata)? {
+            TransactionVersion::V4 => pezkuwi_subxt_core::tx::create_v4_unsigned(call, &metadata),
+            TransactionVersion::V5 => pezkuwi_subxt_core::tx::create_v5_bare(call, &metadata),
         }?;
 
         Ok(SubmittableTransaction {
@@ -86,7 +86,7 @@ impl<T: Config, C: OfflineClientT<T>> TxClient<T, C> {
         Call: Payload,
     {
         let metadata = self.client.metadata();
-        let tx = subxt_core::tx::create_v4_unsigned(call, &metadata)?;
+        let tx = pezkuwi_subxt_core::tx::create_v4_unsigned(call, &metadata)?;
 
         Ok(SubmittableTransaction {
             client: self.client.clone(),
@@ -106,7 +106,7 @@ impl<T: Config, C: OfflineClientT<T>> TxClient<T, C> {
         Call: Payload,
     {
         let metadata = self.client.metadata();
-        let tx = subxt_core::tx::create_v5_bare(call, &metadata)?;
+        let tx = pezkuwi_subxt_core::tx::create_v5_bare(call, &metadata)?;
 
         Ok(SubmittableTransaction {
             client: self.client.clone(),
@@ -115,7 +115,7 @@ impl<T: Config, C: OfflineClientT<T>> TxClient<T, C> {
     }
 
     /// Create a partial transaction. Depending on the metadata, we might end up constructing either a v4 or
-    /// v5 transaction. See [`subxt_core::tx`] if you'd like to manually pick the version to construct
+    /// v5 transaction. See [`pezkuwi_subxt_core::tx`] if you'd like to manually pick the version to construct
     ///
     /// Note: if not provided, the default account nonce will be set to 0 and the default mortality will be _immortal_.
     /// This is because this method runs offline, and so is unable to fetch the data needed for more appropriate values.
@@ -128,12 +128,12 @@ impl<T: Config, C: OfflineClientT<T>> TxClient<T, C> {
         Call: Payload,
     {
         let metadata = self.client.metadata();
-        let tx = match subxt_core::tx::suggested_version(&metadata)? {
+        let tx = match pezkuwi_subxt_core::tx::suggested_version(&metadata)? {
             TransactionVersion::V4 => PartialTransactionInner::V4(
-                subxt_core::tx::create_v4_signed(call, &self.client.client_state(), params)?,
+                pezkuwi_subxt_core::tx::create_v4_signed(call, &self.client.client_state(), params)?,
             ),
             TransactionVersion::V5 => PartialTransactionInner::V5(
-                subxt_core::tx::create_v5_general(call, &self.client.client_state(), params)?,
+                pezkuwi_subxt_core::tx::create_v5_general(call, &self.client.client_state(), params)?,
             ),
         };
 
@@ -158,7 +158,7 @@ impl<T: Config, C: OfflineClientT<T>> TxClient<T, C> {
     where
         Call: Payload,
     {
-        let tx = PartialTransactionInner::V4(subxt_core::tx::create_v4_signed(
+        let tx = PartialTransactionInner::V4(pezkuwi_subxt_core::tx::create_v4_signed(
             call,
             &self.client.client_state(),
             params,
@@ -185,7 +185,7 @@ impl<T: Config, C: OfflineClientT<T>> TxClient<T, C> {
     where
         Call: Payload,
     {
-        let tx = PartialTransactionInner::V5(subxt_core::tx::create_v5_general(
+        let tx = PartialTransactionInner::V5(pezkuwi_subxt_core::tx::create_v5_general(
             call,
             &self.client.client_state(),
             params,
@@ -382,8 +382,8 @@ pub struct PartialTransaction<T: Config, C> {
 }
 
 enum PartialTransactionInner<T: Config> {
-    V4(subxt_core::tx::PartialTransactionV4<T>),
-    V5(subxt_core::tx::PartialTransactionV5<T>),
+    V4(pezkuwi_subxt_core::tx::PartialTransactionV4<T>),
+    V5(pezkuwi_subxt_core::tx::PartialTransactionV5<T>),
 }
 
 impl<T, C> PartialTransaction<T, C>
@@ -455,7 +455,7 @@ where
 /// This represents an transaction that has been signed and is ready to submit.
 pub struct SubmittableTransaction<T, C> {
     client: C,
-    inner: subxt_core::tx::Transaction<T>,
+    inner: pezkuwi_subxt_core::tx::Transaction<T>,
 }
 
 impl<T, C> SubmittableTransaction<T, C>
@@ -473,7 +473,7 @@ where
     pub fn from_bytes(client: C, tx_bytes: Vec<u8>) -> Self {
         Self {
             client,
-            inner: subxt_core::tx::Transaction::from_bytes(tx_bytes),
+            inner: pezkuwi_subxt_core::tx::Transaction::from_bytes(tx_bytes),
         }
     }
 
@@ -638,7 +638,7 @@ async fn inject_account_nonce_and_block<T: Config, Client: OnlineClientT<T>>(
     account_id: &T::AccountId,
     params: &mut <T::ExtrinsicParams as ExtrinsicParams<T>>::Params,
 ) -> Result<(), ExtrinsicError> {
-    use subxt_core::config::transaction_extensions::Params;
+    use pezkuwi_subxt_core::config::transaction_extensions::Params;
 
     let block_ref = client
         .backend()

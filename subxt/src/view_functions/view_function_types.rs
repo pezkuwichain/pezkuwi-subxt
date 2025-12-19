@@ -41,7 +41,7 @@ where
     /// Return an error if the payload was not valid or something went wrong trying to validate it (ie
     /// the View Function in question do not exist at all)
     pub fn validate<Call: Payload>(&self, payload: Call) -> Result<(), ViewFunctionError> {
-        subxt_core::view_functions::validate(payload, &self.client.metadata()).map_err(Into::into)
+        pezkuwi_subxt_core::view_functions::validate(payload, &self.client.metadata()).map_err(Into::into)
     }
 
     /// Execute a View Function call.
@@ -58,12 +58,12 @@ where
             let metadata = client.metadata();
 
             // Validate the View Function payload hash against the compile hash from codegen.
-            subxt_core::view_functions::validate(&payload, &metadata)?;
+            pezkuwi_subxt_core::view_functions::validate(&payload, &metadata)?;
 
             // Assemble the data to call the "execute_view_function" runtime API, which
             // then calls the relevant view function.
-            let call_name = subxt_core::view_functions::CALL_NAME;
-            let call_args = subxt_core::view_functions::call_args(&payload, &metadata)?;
+            let call_name = pezkuwi_subxt_core::view_functions::CALL_NAME;
+            let call_args = pezkuwi_subxt_core::view_functions::call_args(&payload, &metadata)?;
 
             // Make the call.
             let bytes = client
@@ -74,7 +74,7 @@ where
 
             // Decode the response.
             let value =
-                subxt_core::view_functions::decode_value(&mut &*bytes, &payload, &metadata)?;
+                pezkuwi_subxt_core::view_functions::decode_value(&mut &*bytes, &payload, &metadata)?;
             Ok(value)
         }
     }

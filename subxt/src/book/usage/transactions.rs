@@ -64,26 +64,26 @@
 //! Subxt who the extrinsic is from, and takes care of signing the relevant details to prove this.
 //!
 //! There are two main ways to create a compatible signer instance:
-//! 1. The `subxt_signer` crate provides a WASM compatible implementation of [`crate::tx::Signer`]
+//! 1. The `pezkuwi_subxt_signer` crate provides a WASM compatible implementation of [`crate::tx::Signer`]
 //! for chains which require sr25519 or ecdsa signatures (requires the `subxt` feature to be enabled).
 //! 2. Alternately, implement your own [`crate::tx::Signer`] instance by wrapping it in a new type pattern.
 //!
 //! Going for 1 leads to fewer dependencies being imported and WASM compatibility out of the box via
 //! the `web` feature flag. Going for 2 is useful if you're already using the Substrate dependencies or
-//! need additional signing algorithms that `subxt_signer` doesn't support, and don't care about WASM
+//! need additional signing algorithms that `pezkuwi_subxt_signer` doesn't support, and don't care about WASM
 //! compatibility.
 //!
 //! Because 2 is more complex and require more code, we'll focus on 1 here.
 //! For 2, see the example in `subxt/examples/substrate_compat_signer.rs` how
 //! you can integrate things like sp_core's signer in subxt.
 //!
-//! Let's go through how to create a signer using the `subxt_signer` crate:
+//! Let's go through how to create a signer using the `pezkuwi_subxt_signer` crate:
 //!
 //! ```rust,standalone_crate
 //! use subxt::config::PolkadotConfig;
 //! use std::str::FromStr;
 //!
-//! use subxt_signer::{SecretUri, sr25519};
+//! use pezkuwi_subxt_signer::{SecretUri, sr25519};
 //!
 //! // Get hold of a `Signer` for a test account:
 //! let alice = sr25519::dev::alice();
@@ -128,7 +128,7 @@
 //! let signature;
 //! let account_id;
 //! # use subxt::tx::Signer;
-//! # let signer = subxt_signer::sr25519::dev::alice();
+//! # let signer = pezkuwi_subxt_signer::sr25519::dev::alice();
 //! # signature = signer.sign(&signer_payload).into();
 //! # account_id = signer.public_key().to_account_id();
 //!

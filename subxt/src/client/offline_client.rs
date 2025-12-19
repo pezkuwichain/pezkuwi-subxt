@@ -17,7 +17,7 @@ use crate::{
 
 use derive_where::derive_where;
 use std::sync::Arc;
-use subxt_core::client::{ClientState, RuntimeVersion};
+use pezkuwi_subxt_core::client::{ClientState, RuntimeVersion};
 
 /// A trait representing a client that can perform
 /// offline-only actions.
@@ -34,7 +34,7 @@ pub trait OfflineClientT<T: Config>: Clone + Send + Sync + 'static {
     /// Return the hasher used on the chain.
     fn hasher(&self) -> T::Hasher;
 
-    /// Return the [subxt_core::client::ClientState] (metadata, runtime version and genesis hash).
+    /// Return the [pezkuwi_subxt_core::client::ClientState] (metadata, runtime version and genesis hash).
     fn client_state(&self) -> ClientState<T> {
         ClientState {
             genesis_hash: self.genesis_hash(),
@@ -101,7 +101,7 @@ impl<T: Config> OfflineClient<T> {
         metadata: impl Into<Metadata>,
     ) -> OfflineClient<T> {
         let metadata = metadata.into();
-        let hasher = <T::Hasher as subxt_core::config::Hasher>::new(&metadata);
+        let hasher = <T::Hasher as pezkuwi_subxt_core::config::Hasher>::new(&metadata);
 
         OfflineClient {
             hasher,

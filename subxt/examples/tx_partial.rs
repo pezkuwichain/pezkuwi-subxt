@@ -1,6 +1,6 @@
 #![allow(missing_docs)]
 use subxt::{OnlineClient, PolkadotConfig};
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 type BoxedError = Box<dyn std::error::Error + Send + Sync + 'static>;
 

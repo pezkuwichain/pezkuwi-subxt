@@ -1,5 +1,5 @@
 [package]
-name = "subxt-utils-fetchmetadata"
+name = "pezkuwi-subxt-utils-fetchmetadata"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true

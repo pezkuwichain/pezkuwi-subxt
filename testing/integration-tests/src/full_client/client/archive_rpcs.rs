@@ -17,11 +17,11 @@ use subxt::{
     config::{Config, Hasher},
     utils::AccountId32,
 };
-use subxt_rpcs::methods::chain_head::{
+use pezkuwi_subxt_rpcs::methods::chain_head::{
     ArchiveStorageEventItem, Bytes, StorageQuery, StorageQueryType,
 };
 
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 async fn fetch_finalized_blocks<T: Config>(
     ctx: &TestNodeProcess<T>,
@@ -72,7 +72,7 @@ async fn archive_v1_call() {
     let mut blocks = fetch_finalized_blocks(&ctx, 3).await;
 
     while let Some(block) = blocks.next().await {
-        let subxt_metadata_versions = block
+        let pezkuwi_subxt_metadata_versions = block
             .runtime_api()
             .await
             .call(node_runtime::apis().metadata().metadata_versions())
@@ -87,7 +87,7 @@ async fn archive_v1_call() {
             .unwrap()
             .0;
 
-        assert_eq!(subxt_metadata_versions, archive_metadata_versions);
+        assert_eq!(pezkuwi_subxt_metadata_versions, archive_metadata_versions);
     }
 }
 

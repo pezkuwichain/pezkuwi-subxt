@@ -13,7 +13,7 @@ use scale_typegen::typegen::{
     settings::substitutes::path_segments,
     validation::{registry_contains_type_path, similar_type_paths_in_registry},
 };
-use subxt_codegen::{CodegenBuilder, CodegenError, Metadata};
+use pezkuwi_subxt_codegen::{CodegenBuilder, CodegenError, Metadata};
 use syn::{parse_macro_input, punctuated::Punctuated};
 
 #[cfg(feature = "runtime-wasm-path")]
@@ -229,7 +229,7 @@ fn resolve_path(path_str: &str) -> std::path::PathBuf {
 }
 
 /// Fetches metadata in a blocking manner, from a url or file path.
-fn fetch_metadata(args: &RuntimeMetadataArgs) -> Result<subxt_codegen::Metadata, TokenStream> {
+fn fetch_metadata(args: &RuntimeMetadataArgs) -> Result<pezkuwi_subxt_codegen::Metadata, TokenStream> {
     // Do we want to fetch unstable metadata? This only works if fetching from a URL.
     let unstable_metadata = args.unstable_metadata.is_present();
 
@@ -259,13 +259,13 @@ fn fetch_metadata(args: &RuntimeMetadataArgs) -> Result<subxt_codegen::Metadata,
 
             let path = resolve_path(rest_of_path);
 
-            subxt_utils_fetchmetadata::from_file_blocking(&path)
-                .and_then(|b| subxt_codegen::Metadata::decode(&mut &*b).map_err(Into::into))
+            pezkuwi_subxt_utils_fetchmetadata::from_file_blocking(&path)
+                .and_then(|b| pezkuwi_subxt_codegen::Metadata::decode(&mut &*b).map_err(Into::into))
                 .map_err(|e| CodegenError::Other(e.to_string()).into_compile_error())?
         }
         #[cfg(feature = "runtime-metadata-insecure-url")]
         (None, Some(url_string)) => {
-            use subxt_utils_fetchmetadata::{MetadataVersion, Url, from_url_blocking};
+            use pezkuwi_subxt_utils_fetchmetadata::{MetadataVersion, Url, from_url_blocking};
 
             let url = Url::parse(url_string).unwrap_or_else(|_| {
                 abort_call_site!("Cannot download metadata; invalid url: {}", url_string)
@@ -278,7 +278,7 @@ fn fetch_metadata(args: &RuntimeMetadataArgs) -> Result<subxt_codegen::Metadata,
 
             from_url_blocking(url, version, None)
                 .map_err(|e| CodegenError::Other(e.to_string()))
-                .and_then(|b| subxt_codegen::Metadata::decode(&mut &*b).map_err(Into::into))
+                .and_then(|b| pezkuwi_subxt_codegen::Metadata::decode(&mut &*b).map_err(Into::into))
                 .map_err(|e| e.into_compile_error())?
         }
         #[cfg(not(feature = "runtime-metadata-insecure-url"))]

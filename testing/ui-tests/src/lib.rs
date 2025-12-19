@@ -18,7 +18,7 @@ mod utils;
 
 use crate::utils::MetadataTestRunner;
 use frame_metadata::{RuntimeMetadata, RuntimeMetadataPrefixed};
-use subxt_utils_stripmetadata::StripMetadata;
+use pezkuwi_subxt_utils_stripmetadata::StripMetadata;
 
 // Each of these tests leads to some rust code being compiled and
 // executed to test that compilation is successful (or errors in the

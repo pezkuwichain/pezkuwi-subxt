@@ -1,6 +1,6 @@
 #![allow(missing_docs)]
 use subxt::{OnlineClient, config::PolkadotConfig};
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 #[subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
 pub mod polkadot {}

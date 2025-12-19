@@ -8,7 +8,7 @@ mod dispatch_error;
 mod hex;
 
 crate::macros::cfg_unstable_light_client! {
-    pub use subxt_lightclient::LightClientError;
+    pub use pezkuwi_subxt_lightclient::LightClientError;
 }
 
 // Re-export dispatch error types:
@@ -21,10 +21,10 @@ pub use crate::Metadata;
 pub use hex::Hex;
 pub use scale_decode::Error as DecodeError;
 pub use scale_encode::Error as EncodeError;
-pub use subxt_metadata::TryFromError as MetadataTryFromError;
+pub use pezkuwi_subxt_metadata::TryFromError as MetadataTryFromError;
 
 // Re-export core error types we're just reusing.
-pub use subxt_core::error::{
+pub use pezkuwi_subxt_core::error::{
     ConstantError,
     CustomValueError,
     EventsError as CoreEventsError,
@@ -95,15 +95,15 @@ pub enum Error {
     // users use common crates (like parity-scale-codec and subxt-rpcs), errors returned
     // there can be handled automatically using ? when the expected error is subxt::Error.
     #[error("Other RPC client error: {0}")]
-    OtherRpcClientError(#[from] subxt_rpcs::Error),
+    OtherRpcClientError(#[from] pezkuwi_subxt_rpcs::Error),
     #[error("Other codec error: {0}")]
     OtherCodecError(#[from] codec::Error),
     #[cfg(feature = "unstable-light-client")]
     #[error("Other light client error: {0}")]
-    OtherLightClientError(#[from] subxt_lightclient::LightClientError),
+    OtherLightClientError(#[from] pezkuwi_subxt_lightclient::LightClientError),
     #[cfg(feature = "unstable-light-client")]
     #[error("Other light client RPC error: {0}")]
-    OtherLightClientRpcError(#[from] subxt_lightclient::LightClientRpcError),
+    OtherLightClientRpcError(#[from] pezkuwi_subxt_lightclient::LightClientRpcError),
     // Dev note: Nothing in subxt should ever emit this error. It can instead be used
     // to easily map other errors into a subxt::Error for convenience. Some From impls
     // make this automatic for common "other" error types.
@@ -138,7 +138,7 @@ impl Error {
         matches!(
             self.backend_error(),
             Some(BackendError::Rpc(RpcError::ClientError(
-                subxt_rpcs::Error::DisconnectedWillReconnect(_)
+                pezkuwi_subxt_rpcs::Error::DisconnectedWillReconnect(_)
             )))
         )
     }
@@ -194,7 +194,7 @@ impl BackendError {
         matches!(
             self,
             BackendError::Rpc(RpcError::ClientError(
-                subxt_rpcs::Error::DisconnectedWillReconnect(_)
+                pezkuwi_subxt_rpcs::Error::DisconnectedWillReconnect(_)
             ))
         )
     }
@@ -205,8 +205,8 @@ impl BackendError {
     }
 }
 
-impl From<subxt_rpcs::Error> for BackendError {
-    fn from(value: subxt_rpcs::Error) -> Self {
+impl From<pezkuwi_subxt_rpcs::Error> for BackendError {
+    fn from(value: pezkuwi_subxt_rpcs::Error) -> Self {
         BackendError::Rpc(RpcError::ClientError(value))
     }
 }
@@ -218,8 +218,8 @@ impl From<subxt_rpcs::Error> for BackendError {
 pub enum RpcError {
     /// Error related to the RPC client.
     #[error("RPC error: {0}")]
-    ClientError(#[from] subxt_rpcs::Error),
-    /// This error signals that we got back a [`subxt_rpcs::methods::chain_head::MethodResponse::LimitReached`],
+    ClientError(#[from] pezkuwi_subxt_rpcs::Error),
+    /// This error signals that we got back a [`pezkuwi_subxt_rpcs::methods::chain_head::MethodResponse::LimitReached`],
     /// which is not technically an RPC error but is treated as an error in our own APIs.
     #[error("RPC error: limit reached")]
     LimitReached,
@@ -297,7 +297,7 @@ impl AccountNonceError {
 #[allow(missing_docs)]
 pub enum OnlineClientError {
     #[error("Cannot construct OnlineClient: {0}")]
-    RpcError(#[from] subxt_rpcs::Error),
+    RpcError(#[from] pezkuwi_subxt_rpcs::Error),
     #[error(
         "Cannot construct OnlineClient: Cannot fetch latest finalized block to obtain init details from: {0}"
     )]

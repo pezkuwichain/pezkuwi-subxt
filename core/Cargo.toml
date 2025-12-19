@@ -1,5 +1,5 @@
 [package]
-name = "subxt-core"
+name = "pezkuwi-subxt-core"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
@@ -20,16 +20,16 @@ std = [
     "codec/std",
     "scale-info/std",
     "frame-metadata/std",
-    "subxt-metadata/std",
+    "pezkuwi-subxt-metadata/std",
     "hex/std",
     "serde/std",
     "serde_json/std",
     "tracing/std",
     "impl-serde/std",
     "primitive-types/std",
-    "sp-core/std",
-    "sp-keyring/std",
-    "sp-crypto-hashing/std",
+    "pezsp-core/std",
+    "pezsp-keyring/std",
+    "pezsp-crypto-hashing/std",
 ]
 
 [dependencies]
@@ -41,13 +41,13 @@ scale-bits = { workspace = true, default-features = false }
 scale-decode = { workspace = true, default-features = false, features = ["derive", "primitive-types"] }
 scale-encode = { workspace = true, default-features = false, features = ["derive", "primitive-types", "bits"] }
 frame-metadata = { workspace = true, default-features = false }
-subxt-metadata = { workspace = true, default-features = false }
+pezkuwi-subxt-metadata = { workspace = true, default-features = false }
 derive-where = { workspace = true }
 hex = { workspace = true }
 serde = { workspace = true, default-features = false, features = ["derive"] }
 serde_json = { workspace = true, default-features = false, features = ["raw_value", "alloc"] }
 tracing = { workspace = true, default-features = false }
-sp-crypto-hashing = { workspace = true }
+pezsp-crypto-hashing = { workspace = true }
 hashbrown = { workspace = true }
 thiserror = { workspace = true, default-features = false }
 
@@ -66,10 +66,10 @@ keccak-hash = { workspace = true}
 assert_matches = { workspace = true }
 bitvec = { workspace = true }
 codec = { workspace = true, features = ["derive", "bit-vec"] }
-subxt-macro = { workspace = true }
-subxt-signer = { workspace = true, features = ["sr25519", "subxt"] }
-sp-core = { workspace = true }
-sp-keyring = { workspace = true }
+pezkuwi-subxt-macro = { workspace = true }
+pezkuwi-subxt-signer = { workspace = true, features = ["sr25519", "subxt"] }
+pezsp-core = { workspace = true }
+pezsp-keyring = { workspace = true }
 hex = { workspace = true }
 
 [package.metadata.docs.rs]

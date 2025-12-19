@@ -16,7 +16,7 @@ use subxt::{
     error::{DispatchError, TransactionEventsError, TransactionFinalizedSuccessError},
     tx::{TransactionInvalid, ValidationResult},
 };
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 #[cfg(fullclient)]
 mod archive_rpcs;
@@ -126,7 +126,7 @@ async fn transaction_validation() {
 #[subxt_test]
 async fn validation_fails() {
     use std::str::FromStr;
-    use subxt_signer::{SecretUri, sr25519::Keypair};
+    use pezkuwi_subxt_signer::{SecretUri, sr25519::Keypair};
 
     let ctx = test_context().await;
     let api = ctx.client();

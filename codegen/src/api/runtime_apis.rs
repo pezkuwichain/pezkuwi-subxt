@@ -9,7 +9,7 @@ use heck::ToUpperCamelCase as _;
 
 use scale_typegen::TypeGenerator;
 use scale_typegen::typegen::ir::ToTokensWithSettings;
-use subxt_metadata::{Metadata, RuntimeApiMetadata};
+use pezkuwi_subxt_metadata::{Metadata, RuntimeApiMetadata};
 
 use proc_macro2::TokenStream as TokenStream2;
 use quote::{format_ident, quote};
@@ -239,7 +239,7 @@ mod tests {
     };
     use quote::quote;
     use scale_info::meta_type;
-    use subxt_metadata::Metadata;
+    use pezkuwi_subxt_metadata::Metadata;
 
     fn metadata_with_runtime_apis(runtime_apis: Vec<RuntimeApiMetadata>) -> Metadata {
         let extrinsic_metadata = v15::ExtrinsicMetadata {

@@ -30,18 +30,18 @@ use futures::{Stream, StreamExt};
 use std::collections::HashMap;
 use std::task::Poll;
 use storage_items::StorageItems;
-use subxt_rpcs::RpcClient;
-use subxt_rpcs::methods::chain_head::{
+use pezkuwi_subxt_rpcs::RpcClient;
+use pezkuwi_subxt_rpcs::methods::chain_head::{
     FollowEvent, MethodResponse, RuntimeEvent, StorageQuery, StorageQueryType, StorageResultType,
 };
 
-/// Re-export RPC types and methods from [`subxt_rpcs::methods::chain_head`].
+/// Re-export RPC types and methods from [`pezkuwi_subxt_rpcs::methods::chain_head`].
 pub mod rpc_methods {
-    pub use subxt_rpcs::methods::legacy::*;
+    pub use pezkuwi_subxt_rpcs::methods::legacy::*;
 }
 
 // Expose the RPC methods.
-pub use subxt_rpcs::methods::chain_head::ChainHeadRpcMethods;
+pub use pezkuwi_subxt_rpcs::methods::chain_head::ChainHeadRpcMethods;
 
 /// Configure and build an [`ChainHeadBackend`].
 pub struct ChainHeadBackendBuilder<T> {
@@ -603,7 +603,7 @@ impl<T: Config + Send + Sync + 'static> Backend<T> for ChainHeadBackend<T> {
                 .await?
                 .map(|ev| {
                     ev.map(|tx_status| {
-                        use subxt_rpcs::methods::chain_head::TransactionStatus as RpcTransactionStatus;
+                        use pezkuwi_subxt_rpcs::methods::chain_head::TransactionStatus as RpcTransactionStatus;
                         match tx_status {
                             RpcTransactionStatus::Validated => TransactionStatus::Validated,
                             RpcTransactionStatus::Broadcasted => TransactionStatus::Broadcasted,
@@ -770,7 +770,7 @@ impl<T: Config + Send + Sync + 'static> Backend<T> for ChainHeadBackend<T> {
                     };
 
                     // When we get one, map it to the correct format (or for finalized ev, wait for the pinned block):
-                    use subxt_rpcs::methods::chain_head::TransactionStatus as RpcTransactionStatus;
+                    use pezkuwi_subxt_rpcs::methods::chain_head::TransactionStatus as RpcTransactionStatus;
                     let tx_progress_ev = match tx_progress_ev {
                         RpcTransactionStatus::Finalized { block } => {
                             // We'll wait until we have seen this hash, to try to guarantee

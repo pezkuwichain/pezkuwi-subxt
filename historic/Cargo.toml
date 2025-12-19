@@ -42,7 +42,7 @@ jsonrpsee = [
 ]
 
 [dependencies]
-subxt-rpcs = { workspace = true }
+pezkuwi-subxt-rpcs = { workspace = true }
 frame-decode = { workspace = true, features = ["legacy", "legacy-types"] }
 frame-metadata = { workspace = true, features = ["std", "legacy"] }
 scale-type-resolver = { workspace = true, features = ["scale-info"] }
@@ -52,7 +52,7 @@ scale-info = { workspace = true }
 scale-info-legacy = { workspace = true }
 scale-decode = { workspace = true }
 thiserror = { workspace = true }
-sp-crypto-hashing = { workspace = true }
+pezsp-crypto-hashing = { workspace = true }
 url = { workspace = true }
 futures = { workspace = true }
 

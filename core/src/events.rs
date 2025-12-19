@@ -7,15 +7,15 @@
 //! # Example
 //!
 //! ```rust
-//! use subxt_macro::subxt;
-//! use subxt_core::config::PolkadotConfig;
-//! use subxt_core::events;
-//! use subxt_core::Metadata;
-//! use subxt_core::dynamic::Value;
+//! use pezkuwi_subxt_macro::subxt;
+//! use pezkuwi_subxt_core::config::PolkadotConfig;
+//! use pezkuwi_subxt_core::events;
+//! use pezkuwi_subxt_core::Metadata;
+//! use pezkuwi_subxt_core::dynamic::Value;
 //!
-//! // If we generate types without `subxt`, we need to point to `::subxt_core`:
+//! // If we generate types without `subxt`, we need to point to `::pezkuwi_subxt_core`:
 //! #[subxt(
-//!     crate = "::subxt_core",
+//!     crate = "::pezkuwi_subxt_core",
 //!     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
 //! )]
 //! pub mod polkadot {}
@@ -45,7 +45,7 @@ use alloc::vec::Vec;
 use codec::{Compact, Decode, Encode};
 use derive_where::derive_where;
 use scale_decode::{DecodeAsFields, DecodeAsType};
-use subxt_metadata::PalletMetadata;
+use pezkuwi_subxt_metadata::PalletMetadata;
 
 use crate::{
     Metadata,
@@ -587,7 +587,7 @@ pub(crate) mod test_utils {
             },
         );
         let runtime_metadata: RuntimeMetadataPrefixed = meta.into();
-        let metadata: subxt_metadata::Metadata = runtime_metadata.try_into().unwrap();
+        let metadata: pezkuwi_subxt_metadata::Metadata = runtime_metadata.try_into().unwrap();
 
         metadata
     }

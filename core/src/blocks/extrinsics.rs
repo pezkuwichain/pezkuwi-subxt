@@ -484,7 +484,7 @@ mod tests {
             },
         );
         let runtime_metadata: RuntimeMetadataPrefixed = meta.into();
-        let metadata: subxt_metadata::Metadata = runtime_metadata.try_into().unwrap();
+        let metadata: pezkuwi_subxt_metadata::Metadata = runtime_metadata.try_into().unwrap();
 
         metadata
     }

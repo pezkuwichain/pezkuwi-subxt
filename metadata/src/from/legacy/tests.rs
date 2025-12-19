@@ -50,7 +50,7 @@ fn test_opts() -> super::Opts {
     }
 }
 
-/// Return a pair of original metadata + converted subxt_metadata::Metadata
+/// Return a pair of original metadata + converted pezkuwi_subxt_metadata::Metadata
 fn metadata_pair(
     version: u8,
     opts: super::Opts,
@@ -67,7 +67,7 @@ fn metadata_pair(
         types_for_spec
     };
 
-    let subxt_metadata = match &metadata {
+    let pezkuwi_subxt_metadata = match &metadata {
         RuntimeMetadata::V9(m) => super::from_v9(m, &types_for_spec, opts),
         RuntimeMetadata::V10(m) => super::from_v10(m, &types_for_spec, opts),
         RuntimeMetadata::V11(m) => super::from_v11(m, &types_for_spec, opts),
@@ -75,9 +75,9 @@ fn metadata_pair(
         RuntimeMetadata::V13(m) => super::from_v13(m, &types_for_spec, opts),
         _ => panic!("Metadata version {} not expected", metadata.version()),
     }
-    .expect("Could not convert to subxt_metadata::Metadata");
+    .expect("Could not convert to pezkuwi_subxt_metadata::Metadata");
 
-    (types_for_spec, metadata, subxt_metadata)
+    (types_for_spec, metadata, pezkuwi_subxt_metadata)
 }
 
 /// A representation of the shape of some type that we can compare across metadatas.
@@ -441,7 +441,7 @@ fn builtin_event() {
 #[test]
 fn codegen_works() {
     for version in 9..=13 {
-        // We need to do this against `subxt_codegen::Metadata` and so cannot re-use our
+        // We need to do this against `pezkuwi_subxt_codegen::Metadata` and so cannot re-use our
         // test functions for it. This is because the compiler sees some difference between
         // `subxct_codegen::Metadata` and `crate::Metadata` even though they should be identical.
         let new_md = {
@@ -457,18 +457,18 @@ fn codegen_works() {
             };
 
             match &metadata {
-                RuntimeMetadata::V9(m) => subxt_codegen::Metadata::from_v9(m, &types_for_spec),
-                RuntimeMetadata::V10(m) => subxt_codegen::Metadata::from_v10(m, &types_for_spec),
-                RuntimeMetadata::V11(m) => subxt_codegen::Metadata::from_v11(m, &types_for_spec),
-                RuntimeMetadata::V12(m) => subxt_codegen::Metadata::from_v12(m, &types_for_spec),
-                RuntimeMetadata::V13(m) => subxt_codegen::Metadata::from_v13(m, &types_for_spec),
+                RuntimeMetadata::V9(m) => pezkuwi_subxt_codegen::Metadata::from_v9(m, &types_for_spec),
+                RuntimeMetadata::V10(m) => pezkuwi_subxt_codegen::Metadata::from_v10(m, &types_for_spec),
+                RuntimeMetadata::V11(m) => pezkuwi_subxt_codegen::Metadata::from_v11(m, &types_for_spec),
+                RuntimeMetadata::V12(m) => pezkuwi_subxt_codegen::Metadata::from_v12(m, &types_for_spec),
+                RuntimeMetadata::V13(m) => pezkuwi_subxt_codegen::Metadata::from_v13(m, &types_for_spec),
                 _ => panic!("Metadata version {} not expected", metadata.version()),
             }
-            .expect("Could not convert to subxt_metadata::Metadata")
+            .expect("Could not convert to pezkuwi_subxt_metadata::Metadata")
         };
 
         // We only test that generation succeeds without any errors, not necessarily that it's 100% useful:
-        let codegen = subxt_codegen::CodegenBuilder::new();
+        let codegen = pezkuwi_subxt_codegen::CodegenBuilder::new();
         let _ = codegen
             .generate(new_md)
             .map_err(|e| e.into_compile_error())

@@ -28,7 +28,7 @@ use syn::parse_quote;
 
 // Part of the public interface, so expose:
 pub use error::CodegenError;
-pub use subxt_metadata::Metadata;
+pub use pezkuwi_subxt_metadata::Metadata;
 pub use syn;
 
 /// Generate a type safe interface to use with `subxt`.
@@ -42,7 +42,7 @@ pub use syn;
 ///
 /// ```rust,standalone_crate
 /// use codec::Decode;
-/// use subxt_codegen::{ Metadata, CodegenBuilder };
+/// use pezkuwi_subxt_codegen::{ Metadata, CodegenBuilder };
 ///
 /// // Get hold of and decode some metadata:
 /// let encoded = std::fs::read("../artifacts/polkadot_metadata_full.scale").unwrap();
@@ -71,7 +71,7 @@ pub struct CodegenBuilder {
 impl Default for CodegenBuilder {
     fn default() -> Self {
         CodegenBuilder {
-            crate_path: syn::parse_quote!(::subxt::ext::subxt_core),
+            crate_path: syn::parse_quote!(::pezkuwi_subxt::ext::pezkuwi_subxt_core),
             use_default_derives: true,
             use_default_substitutions: true,
             generate_docs: true,
@@ -216,7 +216,7 @@ impl CodegenBuilder {
         self.item_mod = item_mod;
     }
 
-    /// Set the path to the `subxt` crate. By default, we expect it to be at `::subxt::ext::subxt_core`.
+    /// Set the path to the `subxt` crate. By default, we expect it to be at `::pezkuwi_subxt::ext::pezkuwi_subxt_core`.
     ///
     /// # Panics
     ///
@@ -232,7 +232,7 @@ impl CodegenBuilder {
         self.crate_path = crate_path;
     }
 
-    /// Generate an interface, assuming that the default path to the `subxt` crate is `::subxt::ext::subxt_core`.
+    /// Generate an interface, assuming that the default path to the `subxt` crate is `::pezkuwi_subxt::ext::pezkuwi_subxt_core`.
     /// If the `subxt` crate is not available as a top level dependency, use `generate` and provide
     /// a valid path to the `subxt¦ crate.
     pub fn generate(self, metadata: Metadata) -> Result<TokenStream2, CodegenError> {
@@ -300,7 +300,7 @@ impl CodegenBuilder {
 /// The default [`scale_typegen::TypeGeneratorSettings`], subxt is using for generating code.
 /// Useful for emulating subxt's code generation settings from e.g. subxt-explorer.
 pub fn default_subxt_type_gen_settings() -> TypeGeneratorSettings {
-    let crate_path: syn::Path = parse_quote!(::subxt::ext::subxt_core);
+    let crate_path: syn::Path = parse_quote!(::pezkuwi_subxt::ext::pezkuwi_subxt_core);
     let derives = default_derives(&crate_path);
     let substitutes = default_substitutes(&crate_path);
     subxt_type_gen_settings(derives, substitutes, &crate_path, true)
@@ -377,7 +377,7 @@ fn default_substitutes(crate_path: &syn::Path) -> TypeSubstitutes {
             parse_quote!(#crate_path::utils::bits::Msb0),
         ),
         (
-            parse_quote!(sp_core::crypto::AccountId32),
+            parse_quote!(pezsp_core::crypto::AccountId32),
             parse_quote!(#crate_path::utils::AccountId32),
         ),
         (
@@ -385,7 +385,7 @@ fn default_substitutes(crate_path: &syn::Path) -> TypeSubstitutes {
             parse_quote!(#crate_path::utils::AccountId20),
         ),
         (
-            parse_quote!(sp_runtime::multiaddress::MultiAddress),
+            parse_quote!(pezsp_runtime::multiaddress::MultiAddress),
             parse_quote!(#crate_path::utils::MultiAddress),
         ),
         (
@@ -401,7 +401,7 @@ fn default_substitutes(crate_path: &syn::Path) -> TypeSubstitutes {
             parse_quote!(#crate_path::utils::H512),
         ),
         (
-            parse_quote!(frame_support::traits::misc::WrapperKeepOpaque),
+            parse_quote!(pezframe_support::traits::misc::WrapperKeepOpaque),
             parse_quote!(#crate_path::utils::WrapperKeepOpaque),
         ),
         // BTreeMap and BTreeSet impose an `Ord` constraint on their key types. This
@@ -427,7 +427,7 @@ fn default_substitutes(crate_path: &syn::Path) -> TypeSubstitutes {
 
         // Note: Not sure if this is appropriate or not. The most recent polkadot.rs file does not have these.
         (
-            parse_quote!(sp_runtime::generic::unchecked_extrinsic::UncheckedExtrinsic),
+            parse_quote!(pezsp_runtime::generic::unchecked_extrinsic::UncheckedExtrinsic),
             parse_quote!(#crate_path::utils::UncheckedExtrinsic),
         ),
     ];

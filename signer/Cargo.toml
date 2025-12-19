@@ -1,5 +1,5 @@
 [package]
-name = "subxt-signer"
+name = "pezkuwi-subxt-signer"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
@@ -44,14 +44,14 @@ polkadot-js-compat = ["std", "subxt", "sr25519", "base64", "scrypt", "crypto_sec
 
 # Make the keypair algorithms here compatible with Subxt's Signer trait,
 # so that they can be used to sign transactions for compatible chains.
-subxt = ["dep:subxt-core"]
+subxt = ["dep:pezkuwi-subxt-core"]
 
 # The getrandom package is used via schnorrkel. We need to enable the JS
 # feature on it if compiling for the web.
 web = ["getrandom/js"]
 
 [dependencies]
-subxt-core = { workspace = true, optional = true, default-features = false }
+pezkuwi-subxt-core = { workspace = true, optional = true, default-features = false }
 secrecy = { workspace = true }
 regex = { workspace = true, features = ["unicode"] }
 hex = { workspace = true }
@@ -59,7 +59,7 @@ cfg-if = { workspace = true }
 codec = { package = "parity-scale-codec", workspace = true, features = [
     "derive",
 ] }
-sp-crypto-hashing = { workspace = true }
+pezsp-crypto-hashing = { workspace = true }
 pbkdf2 = { workspace = true }
 sha2 = { workspace = true }
 hmac = { workspace = true }
@@ -87,8 +87,8 @@ getrandom = { workspace = true, optional = true }
 [dev-dependencies]
 proptest = { workspace = true }
 hex-literal = { workspace = true }
-sp-core = { workspace = true }
-sp-keyring = { workspace = true }
+pezsp-core = { workspace = true }
+pezsp-keyring = { workspace = true }
 
 [package.metadata.cargo-machete]
 ignored = ["getrandom"]

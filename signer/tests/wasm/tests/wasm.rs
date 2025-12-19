@@ -1,6 +1,6 @@
 #![cfg(target_arch = "wasm32")]
 
-use subxt_signer::{ecdsa, eth, sr25519};
+use pezkuwi_subxt_signer::{ecdsa, eth, sr25519};
 use wasm_bindgen_test::*;
 
 wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_browser);

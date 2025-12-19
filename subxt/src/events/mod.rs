@@ -11,7 +11,7 @@ mod events_type;
 
 use crate::client::OnlineClientT;
 use crate::error::EventsError;
-use subxt_core::{
+use pezkuwi_subxt_core::{
     Metadata,
     config::{Config, HashFor},
 };

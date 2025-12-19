@@ -116,11 +116,11 @@ impl Config for SubstrateConfig {
     }
 
     fn hash(s: &[u8]) -> <Self as Config>::Hash {
-        sp_crypto_hashing::blake2_256(s).into()
+        pezsp_crypto_hashing::blake2_256(s).into()
     }
 }
 
-impl subxt_rpcs::RpcConfig for SubstrateConfig {
+impl pezkuwi_subxt_rpcs::RpcConfig for SubstrateConfig {
     type Hash = <Self as Config>::Hash;
     // We don't use these types in any of the RPC methods we call,
     // so don't bother setting them up:

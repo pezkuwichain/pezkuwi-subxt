@@ -1,5 +1,5 @@
 [package]
-name = "subxt-codegen"
+name = "pezkuwi-subxt-codegen"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
@@ -7,9 +7,9 @@ rust-version.workspace = true
 publish = true
 license.workspace = true
 repository.workspace = true
-documentation = "https://docs.rs/subxt-codegen"
+documentation = "https://docs.rs/pezkuwi-subxt-codegen"
 homepage.workspace = true
-description = "Generate an API for interacting with a substrate node from FRAME metadata"
+description = "Generate an API for interacting with a Pezkuwi/Bizinikiwi node from FRAME metadata"
 
 [features]
 default = []
@@ -23,7 +23,7 @@ proc-macro2 = { workspace = true }
 quote = { workspace = true }
 syn = { workspace = true }
 scale-info = { workspace = true }
-subxt-metadata = { workspace = true }
+pezkuwi-subxt-metadata = { workspace = true }
 thiserror = { workspace = true }
 scale-typegen = { workspace = true }
 

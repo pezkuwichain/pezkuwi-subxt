@@ -10,8 +10,8 @@ use scale_typegen_description::scale_typegen::typegen::{
     validation::{registry_contains_type_path, similar_type_paths_in_registry},
 };
 use std::path::PathBuf;
-use subxt_codegen::CodegenBuilder;
-use subxt_metadata::Metadata;
+use pezkuwi_subxt_codegen::CodegenBuilder;
+use pezkuwi_subxt_metadata::Metadata;
 
 /// Generate runtime API client code from metadata.
 ///
@@ -52,7 +52,7 @@ pub struct Opts {
     #[clap(long = "substitute-type", value_parser = substitute_type_parser)]
     substitute_types: Vec<(String, String)>,
     /// The `subxt` crate access path in the generated code.
-    /// Defaults to `::subxt::ext::subxt_core`.
+    /// Defaults to `::pezkuwi_subxt::ext::pezkuwi_subxt_core`.
     #[clap(long = "crate")]
     crate_path: Option<String>,
     /// Do not generate documentation for the runtime API code.
@@ -230,7 +230,7 @@ fn codegen(
     }
 
     let metadata = {
-        let runtime_metadata = subxt_metadata::decode_runtime_metadata(metadata_bytes)?;
+        let runtime_metadata = pezkuwi_subxt_metadata::decode_runtime_metadata(metadata_bytes)?;
         let mut metadata = match runtime_metadata {
             // Too old to work with:
             frame_metadata::RuntimeMetadata::V0(_)

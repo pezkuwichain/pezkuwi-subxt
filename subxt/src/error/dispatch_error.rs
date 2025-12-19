@@ -232,7 +232,7 @@ impl ModuleError {
 /// Details about the module error.
 pub struct ModuleErrorDetails<'a> {
     /// The pallet that the error is in
-    pub pallet: subxt_metadata::PalletMetadata<'a>,
+    pub pallet: pezkuwi_subxt_metadata::PalletMetadata<'a>,
     /// The variant representing the error
     pub variant: &'a scale_info::Variant<scale_info::form::PortableForm>,
 }

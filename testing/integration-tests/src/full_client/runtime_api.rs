@@ -5,7 +5,7 @@
 use crate::{node_runtime, subxt_test, test_context};
 use codec::{Decode, Encode};
 use subxt::utils::AccountId32;
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 #[subxt_test]
 async fn account_nonce() -> Result<(), subxt::Error> {

@@ -17,13 +17,13 @@ use codec::{Decode, Encode};
 use futures::{Stream, StreamExt};
 use std::pin::Pin;
 use std::sync::Arc;
-use subxt_core::client::RuntimeVersion;
-use subxt_metadata::Metadata;
+use pezkuwi_subxt_core::client::RuntimeVersion;
+use pezkuwi_subxt_metadata::Metadata;
 
-/// Some re-exports from the [`subxt_rpcs`] crate, also accessible in full via [`crate::ext::subxt_rpcs`].
+/// Some re-exports from the [`pezkuwi_subxt_rpcs`] crate, also accessible in full via [`crate::ext::pezkuwi_subxt_rpcs`].
 pub mod rpc {
-    pub use subxt_rpcs::client::{RawRpcFuture, RawRpcSubscription, RawValue, RpcParams};
-    pub use subxt_rpcs::{RpcClient, RpcClientT, rpc_params};
+    pub use pezkuwi_subxt_rpcs::client::{RawRpcFuture, RawRpcSubscription, RawValue, RpcParams};
+    pub use pezkuwi_subxt_rpcs::{RpcClient, RpcClientT, rpc_params};
 
     crate::macros::cfg_reconnecting_rpc_client! {
         /// An RPC client that automatically reconnects.
@@ -63,7 +63,7 @@ pub mod rpc {
         ///    }
         /// }
         /// ```
-        pub use subxt_rpcs::client::reconnecting_rpc_client;
+        pub use pezkuwi_subxt_rpcs::client::reconnecting_rpc_client;
     }
 }
 
@@ -395,8 +395,8 @@ mod test {
     use primitive_types::H256;
     use rpc::RpcClientT;
     use std::collections::{HashMap, VecDeque};
-    use subxt_core::{Config, config::DefaultExtrinsicParams};
-    use subxt_rpcs::client::{
+    use pezkuwi_subxt_core::{Config, config::DefaultExtrinsicParams};
+    use pezkuwi_subxt_rpcs::client::{
         MockRpcClient,
         mock_rpc_client::{Json, MockRpcClientBuilder},
     };
@@ -405,8 +405,8 @@ mod test {
         H256::random()
     }
 
-    fn disconnected_will_reconnect() -> subxt_rpcs::Error {
-        subxt_rpcs::Error::DisconnectedWillReconnect("..".into())
+    fn disconnected_will_reconnect() -> pezkuwi_subxt_rpcs::Error {
+        pezkuwi_subxt_rpcs::Error::DisconnectedWillReconnect("..".into())
     }
 
     fn storage_response<K: Into<Vec<u8>>, V: Into<Vec<u8>>>(key: K, value: V) -> StorageResponse
@@ -614,7 +614,7 @@ mod test {
                 vec![
                     Ok(Json(runtime_version(4))),
                     Ok(Json(runtime_version(5))),
-                    Err(subxt_rpcs::Error::Client("..".into())),
+                    Err(pezkuwi_subxt_rpcs::Error::Client("..".into())),
                 ],
             ]);
 
@@ -644,7 +644,7 @@ mod test {
             assert!(matches!(
                 results.next().await.unwrap(),
                 Err(BackendError::Rpc(RpcError::ClientError(
-                    subxt_rpcs::Error::Client(_)
+                    pezkuwi_subxt_rpcs::Error::Client(_)
                 )))
             ));
             assert!(results.next().await.is_none());
@@ -652,7 +652,7 @@ mod test {
     }
 
     mod unstable_backend {
-        use subxt_rpcs::methods::chain_head::{
+        use pezkuwi_subxt_rpcs::methods::chain_head::{
             self, Bytes, Initialized, MethodResponse, MethodResponseStarted, OperationError,
             OperationId, OperationStorageItems, RuntimeSpec, RuntimeVersionEvent,
         };
@@ -718,8 +718,8 @@ mod test {
             I: IntoIterator<Item = usize> + Send,
             I::IntoIter: Send + Sync + 'static,
         {
-            use subxt_rpcs::client::mock_rpc_client::AndThen;
-            use subxt_rpcs::{Error, UserError};
+            use pezkuwi_subxt_rpcs::client::mock_rpc_client::AndThen;
+            use pezkuwi_subxt_rpcs::{Error, UserError};
 
             let recv = Arc::new(tokio::sync::Mutex::new(recv));
             let mut ids = ids.into_iter();

@@ -8,7 +8,7 @@ use codec::{Decode, Encode};
 use color_eyre::eyre::{self, bail};
 use frame_metadata::{RuntimeMetadata, RuntimeMetadataPrefixed};
 use std::{io::Write, path::PathBuf};
-use subxt_utils_stripmetadata::StripMetadata;
+use pezkuwi_subxt_utils_stripmetadata::StripMetadata;
 
 /// Download metadata from a substrate node, for use with `subxt` codegen.
 #[derive(Debug, ClapParser)]

@@ -16,6 +16,6 @@ pub use wait_for_blocks::*;
 /// This must cause the test to panic.
 #[subxt_test(timeout = 1)]
 #[should_panic]
-async fn test_subxt_macro() {
+async fn test_pezkuwi_subxt_macro() {
     tokio::time::sleep(std::time::Duration::from_secs(5)).await;
 }

@@ -9,7 +9,7 @@ use alloc::sync::Arc;
 use alloc::vec::Vec;
 use frame_decode::storage::{IntoEncodableValues, StorageInfo};
 use scale_info::PortableRegistry;
-use subxt_metadata::Metadata;
+use pezkuwi_subxt_metadata::Metadata;
 
 /// Create a [`StorageEntry`] to work with a given storage entry.
 pub fn entry<'info, Addr: Address>(

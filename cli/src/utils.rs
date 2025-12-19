@@ -14,7 +14,7 @@ use std::{fs, io::Read, path::PathBuf};
 use subxt::{OnlineClient, PolkadotConfig};
 
 use scale_value::Value;
-use subxt_utils_fetchmetadata::{self as fetch_metadata, MetadataVersion, Url};
+use pezkuwi_subxt_utils_fetchmetadata::{self as fetch_metadata, MetadataVersion, Url};
 
 /// The source of the metadata.
 #[derive(Debug, Args, Clone)]

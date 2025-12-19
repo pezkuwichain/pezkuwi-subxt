@@ -16,7 +16,7 @@ use crate::{
 use subxt::error::{
     DispatchError, Error, TransactionEventsError, TransactionFinalizedSuccessError,
 };
-use subxt_signer::{
+use pezkuwi_subxt_signer::{
     SecretUri,
     sr25519::{self, dev},
 };

@@ -6,7 +6,7 @@ use super::{RawRpcFuture, RawRpcSubscription, RpcClientT};
 use crate::Error;
 use futures::stream::{StreamExt, TryStreamExt};
 use serde_json::value::RawValue;
-use subxt_lightclient::{LightClientRpc, LightClientRpcError};
+use pezkuwi_subxt_lightclient::{LightClientRpc, LightClientRpcError};
 
 impl RpcClientT for LightClientRpc {
     fn request_raw<'a>(

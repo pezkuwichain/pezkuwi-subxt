@@ -1,5 +1,5 @@
 [package]
-name = "subxt-cli"
+name = "pezkuwi-subxt-cli"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
@@ -26,12 +26,12 @@ workspace = true
 chain-spec-pruning = ["smoldot"]
 
 [dependencies]
-subxt-codegen = { workspace = true }
+pezkuwi-subxt-codegen = { workspace = true }
 scale-typegen = { workspace = true }
-subxt-utils-fetchmetadata = { workspace = true, features = ["url"] }
-subxt-utils-stripmetadata = { workspace = true }
-subxt-metadata = { workspace = true, features = ["legacy"] }
-subxt = { workspace = true, features = ["default"] }
+pezkuwi-subxt-utils-fetchmetadata = { workspace = true, features = ["url"] }
+pezkuwi-subxt-utils-stripmetadata = { workspace = true }
+pezkuwi-subxt-metadata = { workspace = true, features = ["legacy"] }
+pezkuwi-subxt = { workspace = true, features = ["default"] }
 clap = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 color-eyre = { workspace = true }

@@ -4,14 +4,14 @@
 
 //! # RPC calls
 //!
-//! The RPC interface is provided by the [`subxt_rpcs`] crate but re-exposed here. We have:
+//! The RPC interface is provided by the [`pezkuwi_subxt_rpcs`] crate but re-exposed here. We have:
 //!
 //! - [`crate::backend::rpc::RpcClient`] and [`crate::backend::rpc::RpcClientT`]: the underlying type and trait
 //!   which provides a basic RPC client.
 //! - [`crate::backend::legacy::rpc_methods`] and [`crate::backend::chain_head::rpc_methods`]: RPc methods that
 //!   can be instantiated with an RPC client.
 //!
-//! See [`subxt_rpcs`] or [`crate::ext::subxt_rpcs`] for more.
+//! See [`pezkuwi_subxt_rpcs`] or [`crate::ext::pezkuwi_subxt_rpcs`] for more.
 //!
 //! # Example
 //!

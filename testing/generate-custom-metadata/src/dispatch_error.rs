@@ -7,7 +7,7 @@ use scale_info::{
     build::{Fields, Variants},
 };
 
-/// See the `ModuleErrorType` in `subxt_codegen` for more info on the different DispatchError
+/// See the `ModuleErrorType` in `pezkuwi_subxt_codegen` for more info on the different DispatchError
 /// types that we've encountered. We need the path to match `sp_runtime::DispatchError`, otherwise
 /// we could just implement roughly the correct types and derive TypeInfo on them.
 ///

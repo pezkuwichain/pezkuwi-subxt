@@ -6,13 +6,13 @@
 
 use crate::macros::cfg_jsonrpsee;
 
-pub use subxt_core::utils::{
+pub use pezkuwi_subxt_core::utils::{
     AccountId32, Encoded, Era, H160, H256, H512, KeyedVec, MultiAddress, MultiSignature,
     PhantomDataSendSync, Static, UncheckedExtrinsic, WrapperKeepOpaque, Yes, bits,
     strip_compact_prefix, to_hex,
 };
 
-pub use subxt_rpcs::utils::url_is_secure;
+pub use pezkuwi_subxt_rpcs::utils::url_is_secure;
 
 cfg_jsonrpsee! {
     mod fetch_chain_spec;

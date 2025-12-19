@@ -11,7 +11,7 @@ use alloc::vec::Vec;
 use codec::{Decode, Encode};
 pub use primitive_types::{H256, U256};
 use serde::{Deserialize, Serialize};
-use subxt_metadata::Metadata;
+use pezkuwi_subxt_metadata::Metadata;
 
 /// Default set of commonly used types by Substrate runtimes.
 // Note: We only use this at the type level, so it should be impossible to
@@ -51,7 +51,7 @@ impl Hasher for BlakeTwo256 {
     }
 
     fn hash(&self, s: &[u8]) -> Self::Output {
-        sp_crypto_hashing::blake2_256(s).into()
+        pezsp_crypto_hashing::blake2_256(s).into()
     }
 }
 
@@ -100,8 +100,8 @@ impl Hasher for DynamicHasher256 {
 
     fn hash(&self, s: &[u8]) -> Self::Output {
         match self.0 {
-            HashType::BlakeTwo256 | HashType::Unknown => sp_crypto_hashing::blake2_256(s).into(),
-            HashType::Keccak256 => sp_crypto_hashing::keccak_256(s).into(),
+            HashType::BlakeTwo256 | HashType::Unknown => pezsp_crypto_hashing::blake2_256(s).into(),
+            HashType::Keccak256 => pezsp_crypto_hashing::keccak_256(s).into(),
         }
     }
 }

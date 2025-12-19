@@ -35,20 +35,20 @@ fn compile_test() {
     // Subxt Metadata compiles:
     use codec::Decode;
     let bytes: alloc::vec::Vec<u8> = alloc::vec![0, 1, 2, 3, 4];
-    subxt_metadata::Metadata::decode(&mut &bytes[..]).expect_err("invalid byte sequence");
+    pezkuwi_subxt_metadata::Metadata::decode(&mut &bytes[..]).expect_err("invalid byte sequence");
 
     const METADATA: &[u8] = include_bytes!("../../../artifacts/polkadot_metadata_small.scale");
-    subxt_metadata::Metadata::decode(&mut &METADATA[..]).expect("should be valid metadata");
+    pezkuwi_subxt_metadata::Metadata::decode(&mut &METADATA[..]).expect("should be valid metadata");
 
     // Subxt signer compiles (though nothing much works on this particular nostd target...):
     // Supported targets: <https://docs.rs/getrandom/latest/getrandom/#supported-targets>
     use core::str::FromStr;
-    let _ = subxt_signer::SecretUri::from_str("//Alice/bar");
+    let _ = pezkuwi_subxt_signer::SecretUri::from_str("//Alice/bar");
 
     // Note: sr25519 needs randomness, but `thumbv7em-none-eabi` isn't supported by
     // `getrandom`, so we can't sign in nostd on this target.
     //
-    // use subxt_signer::sr25519;
+    // use pezkuwi_subxt_signer::sr25519;
     // let keypair = sr25519::dev::alice();
     // let message = b"Hello!";
     // let _signature = keypair.sign(message);
@@ -57,18 +57,18 @@ fn compile_test() {
     // Note: `ecdsa` is also not compiling for the `thumbv7em-none-eabi` target owing to
     // an issue compiling `secp256k1-sys`.
     //
-    // use subxt_signer::ecdsa;
+    // use pezkuwi_subxt_signer::ecdsa;
     // let keypair = ecdsa::dev::alice();
     // let message = b"Hello!";
     // let _signature = keypair.sign(message);
     // let _public_key = keypair.public_key();
 
     // Subxt Core compiles:
-    let _era = subxt_core::utils::Era::Immortal;
+    let _era = pezkuwi_subxt_core::utils::Era::Immortal;
 }
 
-#[subxt_macro::subxt(
+#[pezkuwi_subxt_macro::subxt(
     runtime_metadata_path = "../../artifacts/polkadot_metadata_full.scale",
-    crate = "::subxt_core"
+    crate = "::pezkuwi_subxt_core"
 )]
 pub mod polkadot {}

@@ -11,7 +11,7 @@ use color_eyre::owo_colors::OwoColorize;
 use scale_info::Variant;
 use scale_info::form::PortableForm;
 
-use subxt_metadata::{
+use pezkuwi_subxt_metadata::{
     ConstantMetadata, Metadata, PalletMetadata, RuntimeApiMetadata, StorageEntryMetadata,
 };
 

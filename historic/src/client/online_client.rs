@@ -6,8 +6,8 @@ use codec::{Compact, Decode, Encode};
 use frame_metadata::{RuntimeMetadata, RuntimeMetadataPrefixed};
 use scale_info_legacy::TypeRegistrySet;
 use std::sync::Arc;
-use subxt_rpcs::methods::chain_head::ArchiveCallResult;
-use subxt_rpcs::{ChainHeadRpcMethods, RpcClient};
+use pezkuwi_subxt_rpcs::methods::chain_head::ArchiveCallResult;
+use pezkuwi_subxt_rpcs::{ChainHeadRpcMethods, RpcClient};
 
 #[cfg(feature = "jsonrpsee")]
 #[cfg_attr(docsrs, doc(cfg(feature = "jsonrpsee")))]
@@ -51,7 +51,7 @@ impl<T: Config> OnlineClient<T> {
         })?;
         if !Self::is_url_secure(&url) {
             return Err(OnlineClientError::RpcClientError(
-                subxt_rpcs::Error::InsecureUrl(url_str.to_string()),
+                pezkuwi_subxt_rpcs::Error::InsecureUrl(url_str.to_string()),
             ));
         }
         OnlineClient::from_insecure_url(config, url).await
@@ -206,7 +206,7 @@ async fn get_spec_version<T: Config>(
     block_hash: <T as Config>::Hash,
 ) -> Result<u32, OnlineClientAtBlockError> {
     use codec::Decode;
-    use subxt_rpcs::methods::chain_head::ArchiveCallResult;
+    use pezkuwi_subxt_rpcs::methods::chain_head::ArchiveCallResult;
 
     // make a runtime call to get the version information. This is also a constant
     // in the metadata and so we could fetch it from there to avoid the call, but it would be a

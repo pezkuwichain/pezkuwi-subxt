@@ -37,7 +37,7 @@ pub enum OnlineClientError {
         url: String,
     },
     #[error("Cannot construct OnlineClient owing to an RPC client error: {0}")]
-    RpcClientError(#[from] subxt_rpcs::Error),
+    RpcClientError(#[from] pezkuwi_subxt_rpcs::Error),
 }
 
 /// Errors constructing an offline client at a specific block number.
@@ -73,7 +73,7 @@ pub enum OnlineClientAtBlockError {
         /// Block number we failed to get the hash for.
         block_number: u64,
         /// The error we encountered.
-        reason: subxt_rpcs::Error,
+        reason: pezkuwi_subxt_rpcs::Error,
     },
     #[error("Cannot construct OnlineClientAtBlock: block number {block_number} not found")]
     BlockNotFound {
@@ -115,7 +115,7 @@ pub enum ExtrinsicsError {
     #[error("Could not fetch extrinsics: {reason}")]
     FetchError {
         /// The error that occurred while fetching the extrinsics.
-        reason: subxt_rpcs::Error,
+        reason: pezkuwi_subxt_rpcs::Error,
     },
     #[error("Could not decode extrinsic at index {index}: {reason}")]
     DecodeError {
@@ -235,7 +235,7 @@ pub enum StorageError {
     #[error("RPC error interacting with storage APIs: {reason}")]
     RpcError {
         /// The error that occurred while fetching the storage entry.
-        reason: subxt_rpcs::Error,
+        reason: pezkuwi_subxt_rpcs::Error,
     },
     #[error("Could not fetch next entry from storage subscription: {reason}")]
     StorageEventError {

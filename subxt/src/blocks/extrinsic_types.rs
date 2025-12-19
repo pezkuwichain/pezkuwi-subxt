@@ -11,10 +11,10 @@ use crate::{
 };
 use derive_where::derive_where;
 use scale_decode::{DecodeAsFields, DecodeAsType};
-use subxt_core::blocks::{ExtrinsicDetails as CoreExtrinsicDetails, Extrinsics as CoreExtrinsics};
+use pezkuwi_subxt_core::blocks::{ExtrinsicDetails as CoreExtrinsicDetails, Extrinsics as CoreExtrinsics};
 
 // Re-export anything that's directly returned/used in the APIs below.
-pub use subxt_core::blocks::{
+pub use pezkuwi_subxt_core::blocks::{
     ExtrinsicTransactionExtension, ExtrinsicTransactionExtensions, StaticExtrinsic,
 };
 
@@ -46,12 +46,12 @@ where
         })
     }
 
-    /// See [`subxt_core::blocks::Extrinsics::len()`].
+    /// See [`pezkuwi_subxt_core::blocks::Extrinsics::len()`].
     pub fn len(&self) -> usize {
         self.inner.len()
     }
 
-    /// See [`subxt_core::blocks::Extrinsics::is_empty()`].
+    /// See [`pezkuwi_subxt_core::blocks::Extrinsics::is_empty()`].
     pub fn is_empty(&self) -> bool {
         self.inner.is_empty()
     }
@@ -154,87 +154,87 @@ where
         }
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::hash()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::hash()`].
     pub fn hash(&self) -> HashFor<T> {
         self.inner.hash()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::is_signed()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::is_signed()`].
     pub fn is_signed(&self) -> bool {
         self.inner.is_signed()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::index()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::index()`].
     pub fn index(&self) -> u32 {
         self.inner.index()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::bytes()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::bytes()`].
     pub fn bytes(&self) -> &[u8] {
         self.inner.bytes()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::call_bytes()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::call_bytes()`].
     pub fn call_bytes(&self) -> &[u8] {
         self.inner.call_bytes()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::field_bytes()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::field_bytes()`].
     pub fn field_bytes(&self) -> &[u8] {
         self.inner.field_bytes()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::address_bytes()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::address_bytes()`].
     pub fn address_bytes(&self) -> Option<&[u8]> {
         self.inner.address_bytes()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::signature_bytes()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::signature_bytes()`].
     pub fn signature_bytes(&self) -> Option<&[u8]> {
         self.inner.signature_bytes()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::transaction_extensions_bytes()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::transaction_extensions_bytes()`].
     pub fn transaction_extensions_bytes(&self) -> Option<&[u8]> {
         self.inner.transaction_extensions_bytes()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::transaction_extensions()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::transaction_extensions()`].
     pub fn transaction_extensions(&self) -> Option<ExtrinsicTransactionExtensions<'_, T>> {
         self.inner.transaction_extensions()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::pallet_index()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::pallet_index()`].
     pub fn pallet_index(&self) -> u8 {
         self.inner.pallet_index()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::call_index()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::call_index()`].
     pub fn call_index(&self) -> u8 {
         self.inner.call_index()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::pallet_name()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::pallet_name()`].
     pub fn pallet_name(&self) -> &str {
         self.inner.pallet_name()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::call_name()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::call_name()`].
     pub fn call_name(&self) -> &str {
         self.inner.call_name()
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::decode_as_fields()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::decode_as_fields()`].
     pub fn decode_as_fields<E: DecodeAsFields>(&self) -> Result<E, ExtrinsicError> {
         self.inner.decode_as_fields().map_err(Into::into)
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::as_extrinsic()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::as_extrinsic()`].
     pub fn as_extrinsic<E: StaticExtrinsic>(&self) -> Result<Option<E>, ExtrinsicError> {
         self.inner.as_extrinsic::<E>().map_err(Into::into)
     }
 
-    /// See [`subxt_core::blocks::ExtrinsicDetails::as_root_extrinsic()`].
+    /// See [`pezkuwi_subxt_core::blocks::ExtrinsicDetails::as_root_extrinsic()`].
     pub fn as_root_extrinsic<E: DecodeAsType>(&self) -> Result<E, ExtrinsicError> {
         self.inner.as_root_extrinsic::<E>().map_err(Into::into)
     }

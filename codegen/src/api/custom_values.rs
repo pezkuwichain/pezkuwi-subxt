@@ -6,7 +6,7 @@ use heck::ToSnakeCase as _;
 use scale_typegen::TypeGenerator;
 use scale_typegen::typegen::ir::ToTokensWithSettings;
 use std::collections::HashSet;
-use subxt_metadata::{CustomValueMetadata, Metadata};
+use pezkuwi_subxt_metadata::{CustomValueMetadata, Metadata};
 
 use proc_macro2::TokenStream as TokenStream2;
 use quote::quote;

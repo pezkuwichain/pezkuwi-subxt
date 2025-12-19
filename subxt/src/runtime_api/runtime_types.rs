@@ -41,7 +41,7 @@ where
     /// Return an error if the payload was not valid or something went wrong trying to validate it (ie
     /// the runtime API in question do not exist at all)
     pub fn validate<Call: Payload>(&self, payload: Call) -> Result<(), RuntimeApiError> {
-        subxt_core::runtime_api::validate(payload, &self.client.metadata()).map_err(Into::into)
+        pezkuwi_subxt_core::runtime_api::validate(payload, &self.client.metadata()).map_err(Into::into)
     }
 
     /// Execute a raw runtime API call. This returns the raw bytes representing the result
@@ -79,11 +79,11 @@ where
             let metadata = client.metadata();
 
             // Validate the runtime API payload hash against the compile hash from codegen.
-            subxt_core::runtime_api::validate(&payload, &metadata)?;
+            pezkuwi_subxt_core::runtime_api::validate(&payload, &metadata)?;
 
             // Encode the arguments of the runtime call.
-            let call_name = subxt_core::runtime_api::call_name(&payload);
-            let call_args = subxt_core::runtime_api::call_args(&payload, &metadata)?;
+            let call_name = pezkuwi_subxt_core::runtime_api::call_name(&payload);
+            let call_args = pezkuwi_subxt_core::runtime_api::call_args(&payload, &metadata)?;
 
             // Make the call.
             let bytes = client
@@ -93,7 +93,7 @@ where
                 .map_err(RuntimeApiError::CannotCallApi)?;
 
             // Decode the response.
-            let value = subxt_core::runtime_api::decode_value(&mut &*bytes, &payload, &metadata)?;
+            let value = pezkuwi_subxt_core::runtime_api::decode_value(&mut &*bytes, &payload, &metadata)?;
             Ok(value)
         }
     }

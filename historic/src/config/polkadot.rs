@@ -81,8 +81,8 @@ impl Config for PolkadotConfig {
     }
 }
 
-impl subxt_rpcs::RpcConfig for PolkadotConfig {
-    type Hash = <SubstrateConfig as subxt_rpcs::RpcConfig>::Hash;
-    type Header = <SubstrateConfig as subxt_rpcs::RpcConfig>::Header;
-    type AccountId = <SubstrateConfig as subxt_rpcs::RpcConfig>::AccountId;
+impl pezkuwi_subxt_rpcs::RpcConfig for PolkadotConfig {
+    type Hash = <SubstrateConfig as pezkuwi_subxt_rpcs::RpcConfig>::Hash;
+    type Header = <SubstrateConfig as pezkuwi_subxt_rpcs::RpcConfig>::Header;
+    type AccountId = <SubstrateConfig as pezkuwi_subxt_rpcs::RpcConfig>::AccountId;
 }

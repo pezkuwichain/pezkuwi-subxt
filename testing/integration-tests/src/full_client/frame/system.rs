@@ -6,7 +6,7 @@ use crate::{
     node_runtime::{self, system},
     subxt_test, test_context,
 };
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 #[subxt_test]
 async fn storage_account() -> Result<(), subxt::Error> {

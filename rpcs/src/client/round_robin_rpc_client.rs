@@ -9,7 +9,7 @@
 //!
 //! ```rust,no_run
 //! # async fn foo() -> Result<(), Box<dyn std::error::Error>> {
-//! use subxt_rpcs::client::{RpcClient, RoundRobinRpcClient, jsonrpsee_client};
+//! use pezkuwi_subxt_rpcs::client::{RpcClient, RoundRobinRpcClient, jsonrpsee_client};
 //!
 //! // Construct some RpcClients (we'll make some jsonrpsee clients here, but
 //! // you could use anything which implements `RpcClientT`).

@@ -7,8 +7,8 @@
 //! # Example
 //! 
 //! ```rust
-//! use subxt_rpcs::client::{ RpcClient, MockRpcClient };
-//! use subxt_rpcs::client::mock_rpc_client::Json;
+//! use pezkuwi_subxt_rpcs::client::{ RpcClient, MockRpcClient };
+//! use pezkuwi_subxt_rpcs::client::mock_rpc_client::Json;
 //! 
 //! let mut state = vec![
 //!     Json(1u8),

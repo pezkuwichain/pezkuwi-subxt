@@ -32,7 +32,7 @@ enum TypeBeingHashed {
 
 /// Hashing function utilized internally.
 fn hash(data: &[u8]) -> Hash {
-    sp_crypto_hashing::twox_256(data)
+    pezsp_crypto_hashing::twox_256(data)
 }
 
 /// XOR two hashes together. Only use this when you don't care about the order
@@ -1169,7 +1169,7 @@ mod tests {
 
     #[test]
     fn hash_comparison_trimmed_metadata() {
-        use subxt_utils_stripmetadata::StripMetadata;
+        use pezkuwi_subxt_utils_stripmetadata::StripMetadata;
 
         // trim the metadata:
         let metadata = metadata_with_pallet_events();

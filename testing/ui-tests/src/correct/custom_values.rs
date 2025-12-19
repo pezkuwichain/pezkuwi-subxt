@@ -1,6 +1,6 @@
 use codec::{Decode};
 use subxt::{config::substrate::H256, OfflineClient, PolkadotConfig};
-use subxt_metadata::Metadata;
+use pezkuwi_subxt_metadata::Metadata;
 
 #[subxt::subxt(runtime_metadata_path = "../../../../artifacts/metadata_with_custom_values.scale", derive_for_all_types = "Eq, PartialEq")]
 pub mod node {}

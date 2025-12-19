@@ -29,7 +29,7 @@ pub mod book;
 // only used in example code snippets at the time of writing.
 #[cfg(test)]
 mod only_used_in_docs_or_tests {
-    use subxt_signer as _;
+    use pezkuwi_subxt_signer as _;
     use tokio as _;
 }
 
@@ -57,28 +57,28 @@ pub mod view_functions;
 /// default Substrate node implementation, and [`PolkadotConfig`] for a
 /// Polkadot node.
 pub mod config {
-    pub use subxt_core::config::{
+    pub use pezkuwi_subxt_core::config::{
         Config, DefaultExtrinsicParams, DefaultExtrinsicParamsBuilder, ExtrinsicParams,
         ExtrinsicParamsEncoder, Hash, HashFor, Hasher, Header, PolkadotConfig,
         PolkadotExtrinsicParams, SubstrateConfig, SubstrateExtrinsicParams, TransactionExtension,
         polkadot, substrate, transaction_extensions,
     };
-    pub use subxt_core::error::ExtrinsicParamsError;
+    pub use pezkuwi_subxt_core::error::ExtrinsicParamsError;
 }
 
 /// Types representing the metadata obtained from a node.
 pub mod metadata {
-    pub use subxt_metadata::*;
+    pub use pezkuwi_subxt_metadata::*;
 }
 
 /// Submit dynamic transactions.
 pub mod dynamic {
-    pub use subxt_core::dynamic::*;
+    pub use pezkuwi_subxt_core::dynamic::*;
 }
 
 // Expose light client bits
 cfg_unstable_light_client! {
-    pub use subxt_lightclient as lightclient;
+    pub use pezkuwi_subxt_lightclient as lightclient;
 }
 
 // Expose a few of the most common types at root,
@@ -99,8 +99,8 @@ pub mod ext {
     pub use scale_decode;
     pub use scale_encode;
     pub use scale_value;
-    pub use subxt_core;
-    pub use subxt_rpcs;
+    pub use pezkuwi_subxt_core;
+    pub use pezkuwi_subxt_rpcs;
 
     cfg_jsonrpsee! {
         pub use jsonrpsee;
@@ -202,15 +202,15 @@ pub mod ext {
 ///
 /// ## `crate = "..."`
 ///
-/// Use this attribute to specify a custom path to the `subxt_core` crate:
+/// Use this attribute to specify a custom path to the `pezkuwi_subxt_core` crate:
 ///
 /// ```rust,standalone_crate
-/// # pub extern crate subxt_core;
-/// # pub mod path { pub mod to { pub use subxt_core; } }
+/// # pub extern crate pezkuwi_subxt_core;
+/// # pub mod path { pub mod to { pub use pezkuwi_subxt_core; } }
 /// # fn main() {}
 /// #[subxt::subxt(
 ///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
-///     crate = "crate::path::to::subxt_core"
+///     crate = "crate::path::to::pezkuwi_subxt_core"
 /// )]
 /// mod polkadot {}
 /// ```
@@ -266,7 +266,7 @@ pub mod ext {
 ///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
 ///     substitute_type(
 ///         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
-///         with = "::subxt::utils::Static<sp_runtime::MultiAddress<A, B>>"
+///         with = "::pezkuwi_subxt::utils::Static<sp_runtime::MultiAddress<A, B>>"
 ///     )
 /// )]
 /// mod polkadot {}
@@ -367,4 +367,4 @@ pub mod ext {
 /// )]
 /// mod polkadot {}
 /// ```
-pub use subxt_macro::subxt;
+pub use pezkuwi_subxt_macro::subxt;

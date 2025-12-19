@@ -12,8 +12,8 @@
 mod tx_client;
 mod tx_progress;
 
-pub use subxt_core::tx::payload::{DefaultPayload, DynamicPayload, Payload, dynamic};
-pub use subxt_core::tx::signer::{self, Signer};
+pub use pezkuwi_subxt_core::tx::payload::{DefaultPayload, DynamicPayload, Payload, dynamic};
+pub use pezkuwi_subxt_core::tx::signer::{self, Signer};
 pub use tx_client::{
     DefaultParams, PartialTransaction, SubmittableTransaction, TransactionInvalid,
     TransactionUnknown, TxClient, ValidationResult,

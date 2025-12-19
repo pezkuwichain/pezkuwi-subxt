@@ -10,13 +10,13 @@
 //! # Example
 //!
 //! ```rust
-//! use subxt_macro::subxt;
-//! use subxt_core::custom_values;
-//! use subxt_core::Metadata;
+//! use pezkuwi_subxt_macro::subxt;
+//! use pezkuwi_subxt_core::custom_values;
+//! use pezkuwi_subxt_core::Metadata;
 //!
-//! // If we generate types without `subxt`, we need to point to `::subxt_core`:
+//! // If we generate types without `subxt`, we need to point to `::pezkuwi_subxt_core`:
 //! #[subxt(
-//!     crate = "::subxt_core",
+//!     crate = "::pezkuwi_subxt_core",
 //!     runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale",
 //! )]
 //! pub mod polkadot {}
@@ -156,7 +156,7 @@ mod tests {
             },
         };
 
-        let metadata: subxt_metadata::Metadata = frame_metadata.try_into().unwrap();
+        let metadata: pezkuwi_subxt_metadata::Metadata = frame_metadata.try_into().unwrap();
         metadata
     }
 

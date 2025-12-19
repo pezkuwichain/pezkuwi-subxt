@@ -11,7 +11,7 @@ use std::ops::DerefMut;
 use std::pin::Pin;
 use std::sync::{Arc, Mutex};
 use std::task::{Context, Poll, Waker};
-use subxt_rpcs::methods::chain_head::{FollowEvent, Initialized, RuntimeEvent};
+use pezkuwi_subxt_rpcs::methods::chain_head::{FollowEvent, Initialized, RuntimeEvent};
 
 /// A `Stream` which builds on `FollowStreamDriver`, and allows multiple subscribers to obtain events
 /// from the single underlying subscription (each being provided an `Initialized` message and all new
@@ -455,7 +455,7 @@ where
                             .position(|b| b.hash() == p.hash())
                         else {
                             return Poll::Ready(Some(Err(RpcError::ClientError(
-                                subxt_rpcs::Error::DisconnectedWillReconnect(
+                                pezkuwi_subxt_rpcs::Error::DisconnectedWillReconnect(
                                     "Missed at least one block when the connection was lost"
                                         .to_owned(),
                                 ),
@@ -742,7 +742,7 @@ mod test {
             )
         );
         assert!(
-            matches!(&evs[1], Err(BackendError::Rpc(RpcError::ClientError(subxt_rpcs::Error::DisconnectedWillReconnect(e)))) if e.contains("Missed at least one block when the connection was lost"))
+            matches!(&evs[1], Err(BackendError::Rpc(RpcError::ClientError(pezkuwi_subxt_rpcs::Error::DisconnectedWillReconnect(e)))) if e.contains("Missed at least one block when the connection was lost"))
         );
         assert_eq!(
             evs[2].as_ref().unwrap(),

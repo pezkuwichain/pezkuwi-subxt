@@ -4,8 +4,8 @@
 
 use codec::Decode;
 use regex::Regex;
-use subxt_codegen::{CodegenBuilder, syn};
-use subxt_metadata::Metadata;
+use pezkuwi_subxt_codegen::{CodegenBuilder, syn};
+use pezkuwi_subxt_metadata::Metadata;
 
 fn load_test_metadata() -> Metadata {
     let bytes = test_runtime::METADATA;

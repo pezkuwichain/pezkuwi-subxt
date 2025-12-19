@@ -4,7 +4,7 @@ pub mod substrate;
 use scale_info_legacy::TypeRegistrySet;
 use std::fmt::Display;
 use std::sync::Arc;
-use subxt_rpcs::RpcConfig;
+use pezkuwi_subxt_rpcs::RpcConfig;
 
 pub use polkadot::PolkadotConfig;
 pub use substrate::SubstrateConfig;

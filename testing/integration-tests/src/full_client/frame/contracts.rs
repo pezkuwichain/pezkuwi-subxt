@@ -19,7 +19,7 @@ use subxt::{
     tx::TxProgress,
     utils::MultiAddress,
 };
-use subxt_signer::sr25519::{self, dev};
+use pezkuwi_subxt_signer::sr25519::{self, dev};
 
 struct ContractsTestContext {
     cxt: TestContext,

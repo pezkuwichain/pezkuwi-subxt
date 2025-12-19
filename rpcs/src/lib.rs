@@ -67,11 +67,11 @@ impl<T> AccountId for T where T: serde::Serialize {}
 #[cfg(feature = "subxt")]
 mod impl_config {
     use super::*;
-    use subxt_core::config::HashFor;
+    use pezkuwi_subxt_core::config::HashFor;
 
     impl<T> RpcConfig for T
     where
-        T: subxt_core::Config,
+        T: pezkuwi_subxt_core::Config,
     {
         type Header = T::Header;
         type Hash = HashFor<T>;

@@ -19,7 +19,7 @@ use subxt::{
 };
 
 #[cfg(fullclient)]
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 
 #[cfg(fullclient)]
 #[subxt_test]

@@ -1,7 +1,7 @@
 use hex::decode;
 use std::{ffi::CStr, os::raw::c_char, sync::OnceLock};
 use subxt::{OnlineClient, PolkadotConfig, dynamic::Value, ext::scale_value::Composite, tx};
-use subxt_signer::sr25519::dev;
+use pezkuwi_subxt_signer::sr25519::dev;
 use tokio::runtime::Runtime;
 
 static TOKIO: OnceLock<Runtime> = OnceLock::new();

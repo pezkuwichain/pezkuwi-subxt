@@ -34,7 +34,7 @@ use subxt::backend::chain_head::ChainHeadBackend;
 use subxt::backend::rpc::RpcClient;
 use subxt::dynamic::Value;
 use subxt::{client::OnlineClient, config::PolkadotConfig, lightclient::LightClient};
-use subxt_metadata::Metadata;
+use pezkuwi_subxt_metadata::Metadata;
 
 type Client = OnlineClient<PolkadotConfig>;
 

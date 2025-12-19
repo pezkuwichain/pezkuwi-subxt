@@ -48,7 +48,7 @@ use thiserror::Error as DeriveError;
 /// Parse [`DEV_PHRASE`] secret URI with junction:
 ///
 /// ```
-/// # use subxt_signer::{SecretUri, DeriveJunction, DEV_PHRASE, ExposeSecret};
+/// # use pezkuwi_subxt_signer::{SecretUri, DeriveJunction, DEV_PHRASE, ExposeSecret};
 /// # use std::str::FromStr;
 /// let suri = SecretUri::from_str("//Alice").expect("Parse SURI");
 ///
@@ -60,7 +60,7 @@ use thiserror::Error as DeriveError;
 /// Parse [`DEV_PHRASE`] secret URI with junction and password:
 ///
 /// ```
-/// # use subxt_signer::{SecretUri, DeriveJunction, DEV_PHRASE, ExposeSecret};
+/// # use pezkuwi_subxt_signer::{SecretUri, DeriveJunction, DEV_PHRASE, ExposeSecret};
 /// # use std::str::FromStr;
 /// let suri = SecretUri::from_str("//Alice///SECRET_PASSWORD").expect("Parse SURI");
 ///
@@ -72,7 +72,7 @@ use thiserror::Error as DeriveError;
 /// Parse [`DEV_PHRASE`] secret URI with hex phrase and junction:
 ///
 /// ```
-/// # use subxt_signer::{SecretUri, DeriveJunction, DEV_PHRASE, ExposeSecret};
+/// # use pezkuwi_subxt_signer::{SecretUri, DeriveJunction, DEV_PHRASE, ExposeSecret};
 /// # use std::str::FromStr;
 /// let suri = SecretUri::from_str("0xe5be9a5092b81bca64be81d212e7f2f9eba183bb7a90954f7b76361f6edb5c0a//Alice").expect("Parse SURI");
 ///

@@ -358,7 +358,7 @@ impl<T: Config, C: OnlineClientT<T>> TxInBlock<T, C> {
 #[cfg(test)]
 mod test {
     use super::*;
-    use subxt_core::client::RuntimeVersion;
+    use pezkuwi_subxt_core::client::RuntimeVersion;
 
     use crate::{
         SubstrateConfig,
@@ -393,7 +393,7 @@ mod test {
             unimplemented!("just a mock impl to satisfy trait bounds")
         }
 
-        fn client_state(&self) -> subxt_core::client::ClientState<SubstrateConfig> {
+        fn client_state(&self) -> pezkuwi_subxt_core::client::ClientState<SubstrateConfig> {
             unimplemented!("just a mock impl to satisfy trait bounds")
         }
     }

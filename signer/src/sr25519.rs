@@ -59,7 +59,7 @@ impl Keypair {
     /// # Example
     ///
     /// ```rust,standalone_crate
-    /// use subxt_signer::{ SecretUri, sr25519::Keypair };
+    /// use pezkuwi_subxt_signer::{ SecretUri, sr25519::Keypair };
     /// use std::str::FromStr;
     ///
     /// let uri = SecretUri::from_str("//Alice").unwrap();
@@ -95,7 +95,7 @@ impl Keypair {
     /// # Example
     ///
     /// ```rust,standalone_crate
-    /// use subxt_signer::{ bip39::Mnemonic, sr25519::Keypair };
+    /// use pezkuwi_subxt_signer::{ bip39::Mnemonic, sr25519::Keypair };
     ///
     /// let phrase = "bottom drive obey lake curtain smoke basket hold race lonely fit walk";
     /// let mnemonic = Mnemonic::parse(phrase).unwrap();
@@ -145,7 +145,7 @@ impl Keypair {
     /// # Example
     ///
     /// ```rust,standalone_crate
-    /// use subxt_signer::{ bip39::Mnemonic, sr25519::Keypair, DeriveJunction };
+    /// use pezkuwi_subxt_signer::{ bip39::Mnemonic, sr25519::Keypair, DeriveJunction };
     ///
     /// let phrase = "bottom drive obey lake curtain smoke basket hold race lonely fit walk";
     /// let mnemonic = Mnemonic::parse(phrase).unwrap();
@@ -187,7 +187,7 @@ impl Keypair {
 /// Verify that some signature for a message was created by the owner of the [`PublicKey`].
 ///
 /// ```rust,standalone_crate
-/// use subxt_signer::{ bip39::Mnemonic, sr25519 };
+/// use pezkuwi_subxt_signer::{ bip39::Mnemonic, sr25519 };
 ///
 /// let keypair = sr25519::dev::alice();
 /// let message = b"Hello!";
@@ -291,7 +291,7 @@ pub mod dev {
 mod subxt_compat {
     use super::*;
 
-    use subxt_core::{
+    use pezkuwi_subxt_core::{
         Config,
         tx::signer::Signer as SignerT,
         utils::{AccountId32, MultiAddress, MultiSignature},

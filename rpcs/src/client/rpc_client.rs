@@ -107,7 +107,7 @@ impl std::ops::Deref for RpcClient {
 /// # Example
 ///
 /// ```rust,standalone_crate
-/// use subxt_rpcs::client::{ rpc_params, RpcParams };
+/// use pezkuwi_subxt_rpcs::client::{ rpc_params, RpcParams };
 ///
 /// // If you provide no params you get `None` back
 /// let params: RpcParams = rpc_params![];
@@ -139,7 +139,7 @@ pub use rpc_params;
 /// # Example
 ///
 /// ```rust,standalone_crate
-/// use subxt_rpcs::client::RpcParams;
+/// use pezkuwi_subxt_rpcs::client::RpcParams;
 ///
 /// let mut params = RpcParams::new();
 /// params.push(1).unwrap();

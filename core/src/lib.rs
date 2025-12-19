@@ -38,7 +38,7 @@ pub mod view_functions;
 
 pub use config::Config;
 pub use error::Error;
-pub use subxt_metadata::Metadata;
+pub use pezkuwi_subxt_metadata::Metadata;
 
 /// Re-exports of some of the key external crates.
 pub mod ext {
