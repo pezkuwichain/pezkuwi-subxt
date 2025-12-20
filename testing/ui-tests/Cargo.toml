@@ -1,0 +1,20 @@
+[package]
+name = "ui-tests"
+version.workspace = true
+edition = "2021"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[dev-dependencies]
+codec = { package = "parity-scale-codec", workspace = true, features = ["bit-vec", "derive"] }
+frame-metadata = { workspace = true }
+generate-custom-metadata = { path = "../generate-custom-metadata" }
+hex = { workspace = true }
+pezkuwi-subxt = { workspace = true, features = ["jsonrpsee", "native", "runtime-wasm-path"] }
+pezkuwi-subxt-metadata = { workspace = true }
+scale-info = { workspace = true, features = ["bit-vec"] }
+subxt-utils-stripmetadata = { workspace = true }
+trybuild = { workspace = true }

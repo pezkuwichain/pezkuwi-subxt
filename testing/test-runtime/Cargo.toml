@@ -1,0 +1,25 @@
+[package]
+name = "test-runtime"
+version.workspace = true
+edition = "2021"
+publish = false
+
+[dependencies]
+pezkuwi-subxt = { workspace = true, features = ["native"] }
+
+[build-dependencies]
+codec = { workspace = true }
+hex = { workspace = true }
+impl-serde = { workspace = true }
+jsonrpsee = { workspace = true, features = [
+	"async-client",
+	"client-ws-transport-tls",
+] }
+serde = { workspace = true }
+substrate-runner = { workspace = true }
+tokio = { workspace = true, features = ["rt-multi-thread"] }
+tokio-util = { workspace = true, features = ["compat"] }
+which = { workspace = true }
+
+[package.metadata.cargo-machete]
+ignored = ["subxt"]

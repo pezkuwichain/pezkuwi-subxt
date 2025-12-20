@@ -1,0 +1,58 @@
+[package]
+name = "pezkuwi-subxt-cli"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish = true
+
+license.workspace = true
+repository.workspace = true
+documentation = "https://docs.rs/subxt-cli"
+homepage.workspace = true
+description = "Command line utilities for working with subxt codegen"
+
+[[bin]]
+name = "subxt"
+path = "src/main.rs"
+doc = false
+
+[lints]
+workspace = true
+
+[features]
+# Compute the state root hash from the genesis entry.
+# Enable this to create a smaller chain spec file.
+chain-spec-pruning = ["smoldot"]
+
+[dependencies]
+clap = { workspace = true }
+codec = { package = "parity-scale-codec", workspace = true }
+color-eyre = { workspace = true }
+frame-decode = { workspace = true, features = ["legacy-types"] }
+frame-metadata = { workspace = true }
+heck = { workspace = true }
+hex = { workspace = true }
+indoc = { workspace = true }
+jsonrpsee = { workspace = true, features = ["async-client", "client-ws-transport-tls", "http-client"] }
+pezkuwi-subxt = { workspace = true, features = ["default"] }
+pezkuwi-subxt-codegen = { workspace = true }
+pezkuwi-subxt-metadata = { workspace = true, features = ["legacy"] }
+pezkuwi-subxt-utils-fetchmetadata = { workspace = true, features = ["url"] }
+pezkuwi-subxt-utils-stripmetadata = { workspace = true }
+quote = { workspace = true }
+scale-info = { workspace = true }
+scale-info-legacy = { workspace = true }
+scale-typegen = { workspace = true }
+scale-typegen-description = { workspace = true }
+scale-value = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+smoldot = { workspace = true, optional = true }
+syn = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["rt-multi-thread"] }
+
+[dev-dependencies]
+pretty_assertions = { workspace = true }
+strip-ansi-escapes = { workspace = true }
