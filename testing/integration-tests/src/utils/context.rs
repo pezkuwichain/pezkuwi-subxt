@@ -4,14 +4,14 @@
 
 pub(crate) use crate::{node_runtime, utils::TestNodeProcess};
 
-use pezkuwi_subxt::SubstrateConfig;
+use pezkuwi_subxt::BizinikiwConfig;
 use pezkuwi_subxt::client::OnlineClient;
 
 use super::node_proc::RpcClientKind;
 
-/// `substrate-node` should be installed on the $PATH. We fall back
-/// to also checking for an older `substrate` binary.
-const SUBSTRATE_NODE_PATHS: &str = "substrate-node,substrate";
+/// `bizinikiwi-node` should be installed on the $PATH. We fall back
+/// to also checking for an older `bizinikiwi` binary.
+const SUBSTRATE_NODE_PATHS: &str = "bizinikiwi-node,bizinikiwi";
 
 pub async fn test_context_with(authority: String, rpc_client_kind: RpcClientKind) -> TestContext {
     let paths =
@@ -21,14 +21,14 @@ pub async fn test_context_with(authority: String, rpc_client_kind: RpcClientKind
     let mut proc = TestContext::build(&paths);
     proc.with_authority(authority);
     proc.with_rpc_client_kind(rpc_client_kind);
-    proc.spawn::<SubstrateConfig>().await.unwrap()
+    proc.spawn::<BizinikiwConfig>().await.unwrap()
 }
 
-pub type TestConfig = SubstrateConfig;
+pub type TestConfig = BizinikiwConfig;
 
-pub type TestContext = TestNodeProcess<SubstrateConfig>;
+pub type TestContext = TestNodeProcess<BizinikiwConfig>;
 
-pub type TestClient = OnlineClient<SubstrateConfig>;
+pub type TestClient = OnlineClient<BizinikiwConfig>;
 
 pub async fn test_context() -> TestContext {
     test_context_with("alice".to_string(), RpcClientKind::Legacy).await

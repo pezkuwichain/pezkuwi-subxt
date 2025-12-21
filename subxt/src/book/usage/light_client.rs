@@ -37,9 +37,9 @@
 //! ### Connecting to a local node
 //!
 //! This example connects to a local chain and submits a transaction. To run this, you first need
-//! to have a local polkadot node running using the following command:
+//! to have a local pezkuwi node running using the following command:
 //! ```text
-//! polkadot --dev --node-key 0000000000000000000000000000000000000000000000000000000000000001
+//! pezkuwi --dev --node-key 0000000000000000000000000000000000000000000000000000000000000001
 //! ```
 //! 
 //! Then, the following code will download a chain spec from this local node, alter the bootnodes

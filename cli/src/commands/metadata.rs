@@ -10,7 +10,7 @@ use frame_metadata::{RuntimeMetadata, RuntimeMetadataPrefixed};
 use pezkuwi_subxt_utils_stripmetadata::StripMetadata;
 use std::{io::Write, path::PathBuf};
 
-/// Download metadata from a substrate node, for use with `subxt` codegen.
+/// Download metadata from a bizinikiwi node, for use with `subxt` codegen.
 #[derive(Debug, ClapParser)]
 pub struct Opts {
 	#[command(flatten)]

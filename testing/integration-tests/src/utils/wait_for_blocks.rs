@@ -3,7 +3,7 @@
 // see LICENSE for license details.
 
 use pezkuwi_subxt::{
-    Config, OnlineClient, SubstrateConfig, backend::StreamOf, blocks::Block, client::OnlineClientT,
+    Config, OnlineClient, BizinikiwConfig, backend::StreamOf, blocks::Block, client::OnlineClientT,
     error::BackendError,
 };
 
@@ -33,7 +33,7 @@ pub async fn wait_for_number_of_blocks<C: Config>(
 /// and one relies on something to included in finalized block in ner future.
 pub async fn consume_initial_blocks(
     blocks: &mut StreamOf<
-        Result<Block<SubstrateConfig, OnlineClient<SubstrateConfig>>, BackendError>,
+        Result<Block<BizinikiwConfig, OnlineClient<BizinikiwConfig>>, BackendError>,
     >,
 ) {
     use tokio::time::{Duration, Instant, interval_at};

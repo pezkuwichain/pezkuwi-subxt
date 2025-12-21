@@ -4,7 +4,7 @@
 
 //! # Custom Values
 //!
-//! Substrate-based chains can expose custom values in their metadata.
+//! Bizinikiwi-based chains can expose custom values in their metadata.
 //! Each of these values:
 //!
 //! - can be accessed by a unique __name__.
@@ -29,10 +29,10 @@
 //! Dynamically accessing a custom value using a [`str`] to select which one:
 //!
 //! ```rust,ignore
-//! use pezkuwi_subxt::{OnlineClient, PolkadotConfig, ext::scale_decode::DecodeAsType};
+//! use pezkuwi_subxt::{OnlineClient, PezkuwiConfig, ext::scale_decode::DecodeAsType};
 //! use pezkuwi_subxt::dynamic::Value;
 //!
-//! let api = OnlineClient::<PolkadotConfig>::new().await?;
+//! let api = OnlineClient::<PezkuwiConfig>::new().await?;
 //! let custom_value_client = api.custom_values();
 //! let foo: Value = custom_value_client.at("foo")?;
 //! ```
@@ -40,7 +40,7 @@
 //! Use the [`dynamic`](crate::custom_values::dynamic) function to select the return type:
 //!
 //! ```rust,ignore
-//! use pezkuwi_subxt::{OnlineClient, PolkadotConfig, ext::scale_decode::DecodeAsType};
+//! use pezkuwi_subxt::{OnlineClient, PezkuwiConfig, ext::scale_decode::DecodeAsType};
 //!
 //! #[derive(Decode, DecodeAsType, Debug)]
 //! struct Foo {
@@ -48,7 +48,7 @@
 //!     b: bool,
 //! }
 //!
-//! let api = OnlineClient::<PolkadotConfig>::new().await?;
+//! let api = OnlineClient::<PezkuwiConfig>::new().await?;
 //! let custom_value_client = api.custom_values();
 //! let custom_value_addr = pezkuwi_subxt::custom_values::dynamic::<Foo>("foo");
 //! let foo: Foo = custom_value_client.at(&custom_value_addr)?;
@@ -62,7 +62,7 @@
 //!
 //! let static_address = interface::custom().foo();
 //!
-//! let api = OnlineClient::<PolkadotConfig>::new().await?;
+//! let api = OnlineClient::<PezkuwiConfig>::new().await?;
 //! let custom_value_client = api.custom_values();
 //!
 //! // Now the `at()` function already decodes the value into the Foo type:

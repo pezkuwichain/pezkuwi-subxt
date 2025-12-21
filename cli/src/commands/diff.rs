@@ -17,8 +17,8 @@ use pezkuwi_subxt_metadata::{
 ///
 /// # Example
 /// ```text
-/// subxt diff ./artifacts/polkadot_metadata_small.scale ./artifacts/polkadot_metadata_tiny.scale
-/// subxt diff ./artifacts/polkadot_metadata_small.scale wss://rpc.polkadot.io:443
+/// subxt diff ./artifacts/pezkuwi_metadata_small.scale ./artifacts/pezkuwi_metadata_tiny.scale
+/// subxt diff ./artifacts/pezkuwi_metadata_small.scale wss://rpc.pezkuwi.io:443
 /// ```
 #[derive(Debug, Args)]
 #[command(author, version, about, long_about = None)]

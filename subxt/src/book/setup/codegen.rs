@@ -14,8 +14,8 @@
 //! Using this macro looks something like:
 //!
 //! ```rust,no_run,standalone_crate
-//! #[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_tiny.scale")]
-//! pub mod polkadot {}
+//! #[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_tiny.scale")]
+//! pub mod pezkuwi {}
 //! ```
 //!
 //! The macro takes a path to some node metadata, and uses that to generate the interface you'll use

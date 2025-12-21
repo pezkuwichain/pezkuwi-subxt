@@ -7,7 +7,7 @@ use crate::{subxt_test, test_context};
 use frame_decode::extrinsics::ExtrinsicType;
 use pezkuwi_subxt_signer::sr25519::dev;
 
-// TODO: When VerifySignature exists on the substrate kitchensink runtime,
+// TODO: When VerifySignature exists on the bizinikiwi kitchensink runtime,
 // let's try actuallty submitting v4 and v5 signed extrinsics to verify that
 // they are actually accepted by the node.
 

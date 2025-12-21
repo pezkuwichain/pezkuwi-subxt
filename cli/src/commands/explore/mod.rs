@@ -20,7 +20,7 @@ mod runtime_apis;
 /// Show the pallets and runtime apis that are available:
 ///
 /// ```text
-/// subxt explore --file=polkadot_metadata.scale
+/// subxt explore --file=pezkuwi_metadata.scale
 /// ```
 ///
 /// ## Pallets
@@ -290,7 +290,7 @@ pub mod tests {
 	}
 
 	async fn run_against_file(cli_command: &str) -> color_eyre::Result<String> {
-		run(&format!("--file=../artifacts/polkadot_metadata_small.scale {cli_command}")).await
+		run(&format!("--file=../artifacts/pezkuwi_metadata_small.scale {cli_command}")).await
 	}
 
 	#[tokio::test]
@@ -422,11 +422,11 @@ pub mod tests {
 	#[tokio::test]
 	async fn insecure_urls_get_denied() {
 		// Connection should work fine:
-		run("--url wss://rpc.polkadot.io:443").await.unwrap();
+		run("--url wss://rpc.pezkuwi.io:443").await.unwrap();
 
 		// Errors, because the --allow-insecure is not set:
 		assert!(
-			run("--url ws://rpc.polkadot.io:443")
+			run("--url ws://rpc.pezkuwi.io:443")
 				.await
 				.unwrap_err()
 				.to_string()

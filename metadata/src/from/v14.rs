@@ -229,7 +229,7 @@ fn generate_outer_error_enum_type(
 
 /// The type IDs extracted from the metadata that represent the
 /// generic type parameters passed to the `UncheckedExtrinsic` from
-/// the substrate-based chain.
+/// the bizinikiwi-based chain.
 #[derive(Clone, Copy)]
 struct MissingExtrinsicTypeIds {
 	address: u32,

@@ -1,7 +1,7 @@
 use anyhow::anyhow;
 use futures::FutureExt;
 
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig};
 
 use pezkuwi_subxt::config::DefaultExtrinsicParamsBuilder;
 use pezkuwi_subxt::ext::codec::{Decode, Encode};
@@ -9,14 +9,14 @@ use pezkuwi_subxt::tx::Payload as _;
 use pezkuwi_subxt::tx::SubmittableTransaction;
 use pezkuwi_subxt::utils::{AccountId32, MultiSignature};
 
-use crate::services::{extension_signature_for_extrinsic, get_accounts, polkadot, Account};
+use crate::services::{extension_signature_for_extrinsic, get_accounts, pezkuwi, Account};
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
 
 pub struct SigningExamplesComponent {
     message: String,
     remark_call_bytes: Vec<u8>,
-    online_client: Option<OnlineClient<PolkadotConfig>>,
+    online_client: Option<OnlineClient<PezkuwiConfig>>,
     stage: SigningStage,
 }
 
@@ -24,7 +24,7 @@ impl SigningExamplesComponent {
     /// # Panics
     /// panics if self.online_client is None.
     fn set_message(&mut self, message: String) {
-        let remark_call = polkadot::tx().system().remark(message.as_bytes().to_vec());
+        let remark_call = pezkuwi::tx().system().remark(message.as_bytes().to_vec());
         let online_client = self.online_client.as_ref().unwrap();
         let remark_call_bytes = remark_call
             .encode_call_data(&online_client.metadata())
@@ -51,18 +51,18 @@ pub enum SigningStage {
 
 pub enum SubmittingStage {
     Initial {
-        signed_extrinsic: SubmittableTransaction<PolkadotConfig, OnlineClient<PolkadotConfig>>,
+        signed_extrinsic: SubmittableTransaction<PezkuwiConfig, OnlineClient<PezkuwiConfig>>,
     },
     Submitting,
     Success {
-        remark_event: polkadot::system::events::ExtrinsicSuccess,
+        remark_event: pezkuwi::system::events::ExtrinsicSuccess,
     },
     Error(anyhow::Error),
 }
 
 pub enum Message {
     Error(anyhow::Error),
-    OnlineClientCreated(OnlineClient<PolkadotConfig>),
+    OnlineClientCreated(OnlineClient<PezkuwiConfig>),
     ChangeMessage(String),
     RequestAccounts,
     ReceivedAccounts(Vec<Account>),
@@ -70,11 +70,11 @@ pub enum Message {
     SignWithAccount(usize),
     ReceivedSignature(
         MultiSignature,
-        SubmittableTransaction<PolkadotConfig, OnlineClient<PolkadotConfig>>,
+        SubmittableTransaction<PezkuwiConfig, OnlineClient<PezkuwiConfig>>,
     ),
     SubmitSigned,
     ExtrinsicFinalized {
-        remark_event: polkadot::system::events::ExtrinsicSuccess,
+        remark_event: pezkuwi::system::events::ExtrinsicSuccess,
     },
     ExtrinsicFailed(anyhow::Error),
 }
@@ -85,7 +85,7 @@ impl Component for SigningExamplesComponent {
     type Properties = ();
 
     fn create(ctx: &Context<Self>) -> Self {
-        ctx.link().send_future(OnlineClient::<PolkadotConfig>::new().map(|res| {
+        ctx.link().send_future(OnlineClient::<PezkuwiConfig>::new().map(|res| {
             match res {
                 Ok(online_client) => Message::OnlineClientCreated(online_client),
                 Err(err) => Message::Error(anyhow!("Online Client could not be created. Make sure you have a local node running:\n{err}")),
@@ -131,7 +131,7 @@ impl Component for SigningExamplesComponent {
 
                     self.stage = SigningStage::Signing(account.clone());
 
-                    let remark_call = polkadot::tx()
+                    let remark_call = pezkuwi::tx()
                         .system()
                         .remark(self.message.as_bytes().to_vec());
 
@@ -258,7 +258,7 @@ impl Component for SigningExamplesComponent {
             | SigningStage::EnterMessage
             | SigningStage::CreatingOnlineClient => html!(<></>),
             _ => {
-                let _remark_call = polkadot::tx()
+                let _remark_call = pezkuwi::tx()
                     .system()
                     .remark(self.message.as_bytes().to_vec());
                 html!(
@@ -321,7 +321,7 @@ impl Component for SigningExamplesComponent {
             }
             SigningStage::SelectAccount(accounts) => {
                 if accounts.is_empty() {
-                    html!(<div>{"No Web3 extension accounts found. Install Talisman or the Polkadot.js extension and add an account."}</div>)
+                    html!(<div>{"No Web3 extension accounts found. Install Talisman or the Pezkuwi.js extension and add an account."}</div>)
                 } else {
                     html!(
                         <>
@@ -394,8 +394,8 @@ impl Component for SigningExamplesComponent {
 }
 
 async fn submit_wait_finalized_and_get_extrinsic_success_event(
-    extrinsic: SubmittableTransaction<PolkadotConfig, OnlineClient<PolkadotConfig>>,
-) -> Result<polkadot::system::events::ExtrinsicSuccess, anyhow::Error> {
+    extrinsic: SubmittableTransaction<PezkuwiConfig, OnlineClient<PezkuwiConfig>>,
+) -> Result<pezkuwi::system::events::ExtrinsicSuccess, anyhow::Error> {
     let events = extrinsic
         .submit_and_watch()
         .await?
@@ -404,10 +404,10 @@ async fn submit_wait_finalized_and_get_extrinsic_success_event(
 
     let events_str = format!("{:?}", &events);
     web_sys::console::log_1(&events_str.into());
-    for event in events.find::<polkadot::system::events::ExtrinsicSuccess>() {
+    for event in events.find::<pezkuwi::system::events::ExtrinsicSuccess>() {
         web_sys::console::log_1(&format!("{:?}", event).into());
     }
 
-    let success = events.find_first::<polkadot::system::events::ExtrinsicSuccess>()?;
+    let success = events.find_first::<pezkuwi::system::events::ExtrinsicSuccess>()?;
     success.ok_or(anyhow!("ExtrinsicSuccess not found in events"))
 }

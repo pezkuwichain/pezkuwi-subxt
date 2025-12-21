@@ -8,10 +8,10 @@
 /// Generate by running this at the root of the repository:
 ///
 /// ```text
-/// cargo run --bin subxt -- codegen --file artifacts/polkadot_metadata_full.scale | rustfmt > testing/integration-tests/src/full_client/codegen/polkadot.rs
+/// cargo run --bin subxt -- codegen --file artifacts/pezkuwi_metadata_full.scale | rustfmt > testing/integration-tests/src/full_client/codegen/pezkuwi.rs
 /// ```
 #[rustfmt::skip]
 #[allow(clippy::all)]
-mod polkadot;
+mod pezkuwi;
 
 mod documentation;

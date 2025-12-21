@@ -10,7 +10,7 @@ use frame_metadata::{
 use crate::utils::generate_metadata_from_runtime_apis;
 
 /// Generate metadata which contains a `Map` storage entry with no hashers/values.
-/// This is a bit of an odd case, but it was raised in https://github.com/paritytech/subxt/issues/552,
+/// This is a bit of an odd case, but it was raised in https://github.com/pezkuwichain/subxt/issues/552,
 /// and this test will fail before the fix and should pass once the fix is applied.
 pub fn metadata_runtime_api_underscore_method_name() -> RuntimeMetadataPrefixed {
     generate_metadata_from_runtime_apis(vec![RuntimeApiMetadata {

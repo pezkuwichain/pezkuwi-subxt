@@ -1,16 +1,16 @@
 use super::Config;
-use super::SubstrateConfig;
+use super::BizinikiwConfig;
 use scale_info_legacy::{ChainTypeRegistry, TypeRegistrySet};
 use std::sync::Arc;
 
-/// Configuration that's suitable for the Polkadot Relay Chain
-pub struct PolkadotConfig(SubstrateConfig);
+/// Configuration that's suitable for the Pezkuwi Relay Chain
+pub struct PezkuwiConfig(BizinikiwConfig);
 
-impl PolkadotConfig {
-    /// Create a new PolkadotConfig.
+impl PezkuwiConfig {
+    /// Create a new PezkuwiConfig.
     pub fn new() -> Self {
-        let config = SubstrateConfig::new()
-            .set_legacy_types(frame_decode::legacy_types::polkadot::relay_chain());
+        let config = BizinikiwConfig::new()
+            .set_legacy_types(frame_decode::legacy_types::pezkuwi::relay_chain());
 
         // TODO: Set spec versions as well with known spec version changes, to speed
         // up accessing historic blocks within the known ranges. For now, we just let
@@ -39,19 +39,19 @@ impl PolkadotConfig {
     }
 }
 
-/// This hands back the legacy types for the Polkadot Relay Chain, which is what [`PolkadotConfig`] uses internally.
+/// This hands back the legacy types for the Pezkuwi Relay Chain, which is what [`PezkuwiConfig`] uses internally.
 pub fn legacy_types() -> ChainTypeRegistry {
-    frame_decode::legacy_types::polkadot::relay_chain()
+    frame_decode::legacy_types::pezkuwi::relay_chain()
 }
 
-impl Default for PolkadotConfig {
+impl Default for PezkuwiConfig {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl Config for PolkadotConfig {
-    type Hash = <SubstrateConfig as Config>::Hash;
+impl Config for PezkuwiConfig {
+    type Hash = <BizinikiwConfig as Config>::Hash;
 
     fn legacy_types_for_spec_version(&'_ self, spec_version: u32) -> TypeRegistrySet<'_> {
         self.0.legacy_types_for_spec_version(spec_version)
@@ -77,12 +77,12 @@ impl Config for PolkadotConfig {
     }
 
     fn hash(s: &[u8]) -> <Self as Config>::Hash {
-        SubstrateConfig::hash(s)
+        BizinikiwConfig::hash(s)
     }
 }
 
-impl pezkuwi_subxt_rpcs::RpcConfig for PolkadotConfig {
-    type Hash = <SubstrateConfig as pezkuwi_subxt_rpcs::RpcConfig>::Hash;
-    type Header = <SubstrateConfig as pezkuwi_subxt_rpcs::RpcConfig>::Header;
-    type AccountId = <SubstrateConfig as pezkuwi_subxt_rpcs::RpcConfig>::AccountId;
+impl pezkuwi_subxt_rpcs::RpcConfig for PezkuwiConfig {
+    type Hash = <BizinikiwConfig as pezkuwi_subxt_rpcs::RpcConfig>::Hash;
+    type Header = <BizinikiwConfig as pezkuwi_subxt_rpcs::RpcConfig>::Header;
+    type AccountId = <BizinikiwConfig as pezkuwi_subxt_rpcs::RpcConfig>::AccountId;
 }

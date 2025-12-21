@@ -7,7 +7,7 @@ use frame_metadata::RuntimeMetadataPrefixed;
 use std::io::Read;
 
 static TEST_DIR_PREFIX: &str = "subxt_generated_ui_tests_";
-static METADATA_FILE: &str = "../../artifacts/polkadot_metadata_full.scale";
+static METADATA_FILE: &str = "../../artifacts/pezkuwi_metadata_full.scale";
 
 #[derive(Default)]
 pub struct MetadataTestRunner {
@@ -144,7 +144,7 @@ impl MetadataTestRunnerCaseBuilder {
             use std::io::Read;
 
             #[pezkuwi_subxt::subxt(runtime_metadata_path = "{tmp_macro_metadata_path}")]
-            pub mod polkadot {{}}
+            pub mod pezkuwi {{}}
 
             fn main() {{
                 // load validation metadata:
@@ -159,7 +159,7 @@ impl MetadataTestRunnerCaseBuilder {
                     .expect("Cannot decode metadata bytes");
 
                 // validate it:
-                let is_valid = polkadot::is_codegen_valid_for(&metadata);
+                let is_valid = pezkuwi::is_codegen_valid_for(&metadata);
                 assert_eq!(is_valid, {should_be_valid_str}, "expected validity to line up");
             }}
         "#

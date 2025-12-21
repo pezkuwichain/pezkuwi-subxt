@@ -1,13 +1,13 @@
-pub mod polkadot;
-pub mod substrate;
+pub mod pezkuwi;
+pub mod bizinikiwi;
 
 use scale_info_legacy::TypeRegistrySet;
 use std::fmt::Display;
 use std::sync::Arc;
 use pezkuwi_subxt_rpcs::RpcConfig;
 
-pub use polkadot::PolkadotConfig;
-pub use substrate::SubstrateConfig;
+pub use pezkuwi::PezkuwiConfig;
+pub use bizinikiwi::BizinikiwConfig;
 
 /// This represents the configuration needed for a specific chain. This includes
 /// any hardcoded types we need to know about for that chain, as well as a means to

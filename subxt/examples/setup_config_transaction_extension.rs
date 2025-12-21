@@ -11,7 +11,7 @@ use pezkuwi_subxt::{
 	},
 };
 
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
 pub mod runtime {}
 
 // We don't need to construct this at runtime,
@@ -23,8 +23,8 @@ impl Config for CustomConfig {
 	type AccountId = pezkuwi_subxt::utils::AccountId32;
 	type Address = pezkuwi_subxt::utils::MultiAddress<Self::AccountId, ()>;
 	type Signature = pezkuwi_subxt::utils::MultiSignature;
-	type Hasher = pezkuwi_subxt::config::substrate::BlakeTwo256;
-	type Header = pezkuwi_subxt::config::substrate::SubstrateHeader<u32, Self::Hasher>;
+	type Hasher = pezkuwi_subxt::config::bizinikiwi::BlakeTwo256;
+	type Header = pezkuwi_subxt::config::bizinikiwi::BizinikiwiHeader<u32, Self::Hasher>;
 	type ExtrinsicParams = transaction_extensions::AnyOf<
 		Self,
 		(

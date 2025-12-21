@@ -11,4 +11,4 @@ homepage.workspace = true
 description = "Internal tool to regenerate artifacts"
 
 [dependencies]
-substrate-runner = { workspace = true }
+bizinikiwi-runner = { workspace = true }

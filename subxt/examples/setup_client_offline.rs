@@ -1,6 +1,6 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt::{
-	OfflineClient, config::PolkadotConfig, ext::codec::Decode, metadata::Metadata, utils::H256,
+	OfflineClient, config::PezkuwiConfig, ext::codec::Decode, metadata::Metadata, utils::H256,
 };
 
 #[tokio::main]
@@ -14,19 +14,19 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 		H256::from_slice(&bytes)
 	};
 
-	// 2. A runtime version (system_version constant on a Substrate node has these):
+	// 2. A runtime version (system_version constant on a Bizinikiwi node has these):
 	let runtime_version =
 		pezkuwi_subxt::client::RuntimeVersion { spec_version: 9370, transaction_version: 20 };
 
 	// 3. Metadata (I'll load it from the downloaded metadata, but you can use `subxt metadata >
 	//    file.scale` to download it):
 	let metadata = {
-		let bytes = std::fs::read("./artifacts/polkadot_metadata_small.scale").unwrap();
+		let bytes = std::fs::read("./artifacts/pezkuwi_metadata_small.scale").unwrap();
 		Metadata::decode(&mut &*bytes).unwrap()
 	};
 
 	// Create an offline client using the details obtained above:
-	let _api = OfflineClient::<PolkadotConfig>::new(genesis_hash, runtime_version, metadata);
+	let _api = OfflineClient::<PezkuwiConfig>::new(genesis_hash, runtime_version, metadata);
 
 	Ok(())
 }

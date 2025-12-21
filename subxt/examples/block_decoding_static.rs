@@ -1,20 +1,20 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt::{
-	OnlineClient, PolkadotConfig,
+	OnlineClient, PezkuwiConfig,
 	utils::{AccountId32, MultiAddress},
 };
 
 use codec::Decode;
 
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
-use polkadot::balances::calls::types::TransferKeepAlive;
+use pezkuwi::balances::calls::types::TransferKeepAlive;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-	// Create a client that subscribes to blocks of the Polkadot network.
-	let api = OnlineClient::<PolkadotConfig>::from_url("wss://rpc.polkadot.io:443").await?;
+	// Create a client that subscribes to blocks of the Pezkuwi network.
+	let api = OnlineClient::<PezkuwiConfig>::from_url("wss://rpc.pezkuwi.io:443").await?;
 
 	// Subscribe to all finalized blocks:
 	let mut blocks_sub = api.blocks().subscribe_finalized().await?;

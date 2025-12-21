@@ -1,4 +1,4 @@
-//! Example to use subxt to talk to substrate-based nodes with ethereum accounts
+//! Example to use subxt to talk to bizinikiwi-based nodes with ethereum accounts
 //! which is not the default for subxt which is why we need to provide a custom config.
 //!
 //! This example requires to run a local frontier/moonbeam node to work.
@@ -18,10 +18,10 @@ impl pezkuwi_subxt::Config for EthRuntimeConfig {
 	type AccountId = AccountId20;
 	type Address = AccountId20;
 	type Signature = Signature;
-	type Hasher = pezkuwi_subxt::config::substrate::BlakeTwo256;
+	type Hasher = pezkuwi_subxt::config::bizinikiwi::BlakeTwo256;
 	type Header =
-		pezkuwi_subxt::config::substrate::SubstrateHeader<u32, pezkuwi_subxt::config::substrate::BlakeTwo256>;
-	type ExtrinsicParams = pezkuwi_subxt::config::SubstrateExtrinsicParams<Self>;
+		pezkuwi_subxt::config::bizinikiwi::BizinikiwiHeader<u32, pezkuwi_subxt::config::bizinikiwi::BlakeTwo256>;
+	type ExtrinsicParams = pezkuwi_subxt::config::BizinikiwiExtrinsicParams<Self>;
 	type AssetId = u32;
 }
 

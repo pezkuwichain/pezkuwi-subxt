@@ -11,7 +11,7 @@ license.workspace = true
 repository.workspace = true
 documentation.workspace = true
 homepage.workspace = true
-description = "Generate types and helpers for interacting with Substrate runtimes."
+description = "Generate types and helpers for interacting with Bizinikiwi runtimes."
 
 [features]
 web = ["pezkuwi-subxt-codegen/web"]

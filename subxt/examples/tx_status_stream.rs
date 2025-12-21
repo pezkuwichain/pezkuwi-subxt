@@ -1,19 +1,19 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt_signer::sr25519::dev;
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig, tx::TxStatus};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig, tx::TxStatus};
 
 // Generate an interface that we can use from the node's metadata.
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-	// Create a new API client, configured to talk to Polkadot nodes.
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	// Create a new API client, configured to talk to Pezkuwi nodes.
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 
 	// Build a balance transfer extrinsic.
 	let dest = dev::bob().public_key().into();
-	let balance_transfer_tx = polkadot::tx().balances().transfer_allow_death(dest, 10_000);
+	let balance_transfer_tx = pezkuwi::tx().balances().transfer_allow_death(dest, 10_000);
 
 	// Submit the balance transfer extrinsic from Alice, and then monitor the
 	// progress of it.
@@ -35,7 +35,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 				let events = in_block.wait_for_success().await?;
 				// We can look for events (this uses the static interface; we can also iterate
 				// over them and dynamically decode them):
-				let transfer_event = events.find_first::<polkadot::balances::events::Transfer>()?;
+				let transfer_event = events.find_first::<pezkuwi::balances::events::Transfer>()?;
 
 				if let Some(event) = transfer_event {
 					println!("Balance transfer success: {event:?}");

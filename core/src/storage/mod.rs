@@ -15,16 +15,16 @@
 //! // If we generate types without `subxt`, we need to point to `::pezkuwi_subxt_core`:
 //! #[subxt(
 //!     crate = "::pezkuwi_subxt_core",
-//!     runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale",
+//!     runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale",
 //! )]
-//! pub mod polkadot {}
+//! pub mod pezkuwi {}
 //!
 //! // Some metadata we'll use to work with storage entries:
-//! let metadata_bytes = include_bytes!("../../../artifacts/polkadot_metadata_small.scale");
+//! let metadata_bytes = include_bytes!("../../../artifacts/pezkuwi_metadata_small.scale");
 //! let metadata = Metadata::decode_from(&metadata_bytes[..]).unwrap();
 //!
 //! // Build a storage query to access account information.
-//! let address = polkadot::storage().system().account();
+//! let address = pezkuwi::storage().system().account();
 //!
 //! // We can validate that the address is compatible with the given metadata.
 //! storage::validate(&address, &metadata).unwrap();

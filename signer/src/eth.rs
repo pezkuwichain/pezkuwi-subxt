@@ -376,9 +376,9 @@ mod test {
 		type AccountId = AccountId20;
 		type Address = AccountId20;
 		type Signature = Signature;
-		type Hasher = substrate::BlakeTwo256;
-		type Header = substrate::SubstrateHeader<u32, substrate::BlakeTwo256>;
-		type ExtrinsicParams = SubstrateExtrinsicParams<Self>;
+		type Hasher = bizinikiwi::BlakeTwo256;
+		type Header = bizinikiwi::BizinikiwiHeader<u32, bizinikiwi::BlakeTwo256>;
+		type ExtrinsicParams = BizinikiwiExtrinsicParams<Self>;
 		type AssetId = u32;
 	}
 

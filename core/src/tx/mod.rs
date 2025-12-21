@@ -9,7 +9,7 @@
 //! ```rust
 //! use pezkuwi_subxt_signer::sr25519::dev;
 //! use pezkuwi_subxt_macro::subxt;
-//! use pezkuwi_subxt_core::config::{PolkadotConfig, HashFor};
+//! use pezkuwi_subxt_core::config::{PezkuwiConfig, HashFor};
 //! use pezkuwi_subxt_core::config::DefaultExtrinsicParamsBuilder as Params;
 //! use pezkuwi_subxt_core::tx;
 //! use pezkuwi_subxt_core::utils::H256;
@@ -18,14 +18,14 @@
 //! // If we generate types without `subxt`, we need to point to `::pezkuwi_subxt_core`:
 //! #[subxt(
 //!     crate = "::pezkuwi_subxt_core",
-//!     runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale",
+//!     runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale",
 //! )]
-//! pub mod polkadot {}
+//! pub mod pezkuwi {}
 //!
 //! // Gather some other information about the chain that we'll need to construct valid extrinsics:
-//! let state = tx::ClientState::<PolkadotConfig> {
+//! let state = tx::ClientState::<PezkuwiConfig> {
 //!     metadata: {
-//!         let metadata_bytes = include_bytes!("../../../artifacts/polkadot_metadata_small.scale");
+//!         let metadata_bytes = include_bytes!("../../../artifacts/pezkuwi_metadata_small.scale");
 //!         Metadata::decode_from(&metadata_bytes[..]).unwrap()
 //!     },
 //!     genesis_hash: {
@@ -41,7 +41,7 @@
 //!
 //! // Now we can build a balance transfer extrinsic.
 //! let dest = dev::bob().public_key().into();
-//! let call = polkadot::tx().balances().transfer_allow_death(dest, 10_000);
+//! let call = pezkuwi::tx().balances().transfer_allow_death(dest, 10_000);
 //! let params = Params::new().tip(1_000).nonce(0).build();
 //!
 //! // We can validate that this lines up with the given metadata:

@@ -4,7 +4,7 @@ This example shows how to expose a small piece of Subxt functionality, in our ca
 
 ## Overview
 
-- We want to let non-Rust clients interact with any Substrate-based node (Polkadot in this example) via a tiny FFI layer.
+- We want to let non-Rust clients interact with any Bizinikiwi-based node (Pezkuwi in this example) via a tiny FFI layer.
 - Instead of exposing Subxt’s full, Rust-centric API, we build a thin **facade crate** that:
   1. Calls Subxt under the hood  
   2. Exposes just the functions we need via `pub extern "C" fn …`  
@@ -15,7 +15,7 @@ flowchart LR
   subgraph Rust side
     subxt[Subxt Public API]
     facade[Facade crate]
-    node[Substrate node]
+    node[Bizinikiwi node]
     cabi[C ABI library]
     subxt --> facade
     facade --> node
@@ -46,14 +46,14 @@ which does a single balance transfer and returns 0 on success, –1 on error.
 - Rust toolchain (with cargo)
 - Python 3
 - Node.js (for the JS example. Version 19 worked on my M2 Mac, but version 22 did not, so YMMV).
-- A running Substrate node (Polkadot) on ws://127.0.0.1:8000. One can use Chopsticks for a quick local Polkadot node:
+- A running Bizinikiwi node (Pezkuwi) on ws://127.0.0.1:8000. One can use Chopsticks for a quick local Pezkuwi node:
 
   ```shell
   npx @acala-network/chopsticks \
-    --config=https://raw.githubusercontent.com/AcalaNetwork/chopsticks/master/configs/polkadot.yml
+    --config=https://raw.githubusercontent.com/AcalaNetwork/chopsticks/master/configs/pezkuwi.yml
   ```
 
-  Or, if you have a `substrate-node` binary, just run `substrate-node --dev  --rpc-port 8000`.
+  Or, if you have a `bizinikiwi-node` binary, just run `bizinikiwi-node --dev  --rpc-port 8000`.
 - In our Python and Javascript files, we introduce a **dest** variable that represents the destination account for the transfer, we gave it a hard coded value (Bob's account public key) from the running Chopsticks node. Feel free to change it to any other account, or better yet, make it generic!
 
 If you run into any issues running the Node version, I found that I needed to run `brew install python-setuptools` too.

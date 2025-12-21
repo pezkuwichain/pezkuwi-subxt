@@ -4,15 +4,15 @@
 
 //! This module provides a [`Config`] type, which is used to define various
 //! types that are important in order to speak to a particular chain.
-//! [`SubstrateConfig`] provides a default set of these types suitable for the
-//! default Substrate node implementation, and [`PolkadotConfig`] for a
-//! Polkadot node.
+//! [`BizinikiwConfig`] provides a default set of these types suitable for the
+//! default Bizinikiwi node implementation, and [`PezkuwiConfig`] for a
+//! Pezkuwi node.
 
 mod default_extrinsic_params;
 mod extrinsic_params;
 
-pub mod polkadot;
-pub mod substrate;
+pub mod pezkuwi;
+pub mod bizinikiwi;
 pub mod transaction_extensions;
 
 use codec::{Decode, Encode};
@@ -24,8 +24,8 @@ use serde::{Serialize, de::DeserializeOwned};
 
 pub use default_extrinsic_params::{DefaultExtrinsicParams, DefaultExtrinsicParamsBuilder};
 pub use extrinsic_params::{ExtrinsicParams, ExtrinsicParamsEncoder};
-pub use polkadot::{PolkadotConfig, PolkadotExtrinsicParams, PolkadotExtrinsicParamsBuilder};
-pub use substrate::{SubstrateConfig, SubstrateExtrinsicParams, SubstrateExtrinsicParamsBuilder};
+pub use pezkuwi::{PezkuwiConfig, PezkuwiExtrinsicParams, PezkuwiExtrinsicParamsBuilder};
+pub use bizinikiwi::{BizinikiwConfig, BizinikiwiExtrinsicParams, BizinikiwiExtrinsicParamsBuilder};
 pub use transaction_extensions::TransactionExtension;
 
 /// Runtime types.

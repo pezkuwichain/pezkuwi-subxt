@@ -132,7 +132,7 @@ futures-timer = "3"
 web-time = { version = "1.1", default-features = false }
 tokio-util = "0.7.12"
 
-# Pezkuwi SDK crates (rebranded from Substrate) - using git deps:
+# Pezkuwi SDK crates (rebranded from Bizinikiwi) - using git deps:
 pezsc-executor = { git = "https://github.com/pezkuwichain/pezkuwi-sdk.git", branch = "main", default-features = false }
 pezsc-executor-common = { git = "https://github.com/pezkuwichain/pezkuwi-sdk.git", branch = "main", default-features = false }
 pezsp-crypto-hashing = { git = "https://github.com/pezkuwichain/pezkuwi-sdk.git", branch = "main", default-features = false }
@@ -155,7 +155,7 @@ pezkuwi-subxt-lightclient = { version = "0.44.0", path = "lightclient", default-
 pezkuwi-subxt-utils-fetchmetadata = { version = "0.44.0", path = "utils/fetch-metadata", default-features = false }
 pezkuwi-subxt-utils-stripmetadata = { version = "0.44.0", path = "utils/strip-metadata", default-features = false }
 test-runtime = { path = "testing/test-runtime" }
-bizinikiwi-runner = { path = "testing/substrate-runner" }
+bizinikiwi-runner = { path = "testing/bizinikiwi-runner" }
 
 # subxt-signer deps that I expect aren't useful anywhere else:
 bip39 = { version = "2.1.0", default-features = false }

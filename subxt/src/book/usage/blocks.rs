@@ -67,7 +67,7 @@
 //! If you are only interested in finding specific extrinsics in a block, you can also [iterate over all of them](crate::blocks::Extrinsics::find),
 //! get only [the first one](crate::blocks::Extrinsics::find_first), or [the last one](crate::blocks::Extrinsics::find_last).
 //!
-//! The following example monitors `TransferKeepAlive` extrinsics on the Polkadot network.
+//! The following example monitors `TransferKeepAlive` extrinsics on the Pezkuwi network.
 //! We statically decode them and access the [tip](crate::blocks::ExtrinsicTransactionExtensions::tip()) and
 //! [account nonce](crate::blocks::ExtrinsicTransactionExtensions::nonce()) transaction extensions.
 //! ```rust,ignore  
@@ -80,9 +80,9 @@
 //! have access to a statically generated interface module that contains the relevant Rust types. You can
 //! [decode ExtrinsicDetails dynamically](crate::blocks::ExtrinsicDetails::decode_as_fields()), which gives
 //! you access to it's fields as a [scale value composite](scale_value::Composite). The following example
-//! looks for signed extrinsics on the Polkadot network and retrieves their pallet name, variant name, data
+//! looks for signed extrinsics on the Pezkuwi network and retrieves their pallet name, variant name, data
 //! fields and transaction extensions dynamically. Notice how we do not need to use code generation via the
-//! subxt macro. The only fixed component we provide is the [PolkadotConfig](crate::config::PolkadotConfig).
+//! subxt macro. The only fixed component we provide is the [PezkuwiConfig](crate::config::PezkuwiConfig).
 //! Other than that it works in a chain-agnostic way:
 //! ```rust,ignore
 #![doc = include_str!("../../../examples/block_decoding_dynamic.rs")]

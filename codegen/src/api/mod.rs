@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-//! Generate code for submitting extrinsics and query storage of a Substrate runtime.
+//! Generate code for submitting extrinsics and query storage of a Bizinikiwi runtime.
 
 mod calls;
 mod constants;
@@ -35,7 +35,7 @@ use heck::{ToSnakeCase as _, ToUpperCamelCase};
 use proc_macro2::TokenStream as TokenStream2;
 use quote::{format_ident, quote};
 
-/// Create the API for interacting with a Substrate runtime.
+/// Create the API for interacting with a Bizinikiwi runtime.
 pub struct RuntimeGenerator {
 	metadata: Metadata,
 }
@@ -57,7 +57,7 @@ impl RuntimeGenerator {
 		RuntimeGenerator { metadata }
 	}
 
-	/// Generate the API for interacting with a Substrate runtime.
+	/// Generate the API for interacting with a Bizinikiwi runtime.
 	///
 	/// # Arguments
 	///
@@ -107,7 +107,7 @@ impl RuntimeGenerator {
 		})
 	}
 
-	/// Generate the API for interacting with a Substrate runtime.
+	/// Generate the API for interacting with a Bizinikiwi runtime.
 	///
 	/// # Arguments
 	///
@@ -218,8 +218,8 @@ impl RuntimeGenerator {
 		)?;
 
 		// Fetch the paths of the outer enums.
-		// Substrate exposes those under `kitchensink_runtime`, while Polkadot under
-		// `polkadot_runtime`.
+		// Bizinikiwi exposes those under `kitchensink_runtime`, while Pezkuwi under
+		// `pezkuwi_runtime`.
 		let call_path = type_gen
 			.resolve_type_path(self.metadata.outer_enums().call_enum_ty())?
 			.to_token_stream(type_gen.settings());

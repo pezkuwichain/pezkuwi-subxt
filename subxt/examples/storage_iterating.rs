@@ -1,18 +1,18 @@
 #![allow(missing_docs)]
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig, ext::futures::StreamExt};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig, ext::futures::StreamExt};
 
 // Generate an interface that we can use from the node's metadata.
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-	// Create a new API client, configured to talk to Polkadot nodes.
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	// Create a new API client, configured to talk to Pezkuwi nodes.
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 
 	// Build a storage query to access account information. Same as if we were
 	// fetching a single value from this entry.
-	let storage_query = polkadot::storage().system().account();
+	let storage_query = pezkuwi::storage().system().account();
 
 	// Use that query to access a storage entry, iterate over it and decode values.
 	let client_at = api.storage().at_latest().await?;

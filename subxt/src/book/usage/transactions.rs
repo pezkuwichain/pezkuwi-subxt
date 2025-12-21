@@ -26,11 +26,11 @@
 //! We can use the statically generated interface to build transaction payloads:
 //!
 //! ```rust,no_run,standalone_crate
-//! #[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-//! pub mod polkadot {}
+//! #[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+//! pub mod pezkuwi {}
 //!
 //! let remark = "Hello there".as_bytes().to_vec();
-//! let tx_payload = polkadot::tx().system().remark(remark);
+//! let tx_payload = pezkuwi::tx().system().remark(remark);
 //! ```
 //!
 //! > If you're not sure what types to import and use to build a given payload, you can use the
@@ -73,18 +73,18 @@
 //!    pattern.
 //!
 //! Going for 1 leads to fewer dependencies being imported and WASM compatibility out of the box via
-//! the `web` feature flag. Going for 2 is useful if you're already using the Substrate dependencies
+//! the `web` feature flag. Going for 2 is useful if you're already using the Bizinikiwi dependencies
 //! or need additional signing algorithms that `pezkuwi_subxt_signer` doesn't support, and don't
 //! care about WASM compatibility.
 //!
 //! Because 2 is more complex and require more code, we'll focus on 1 here.
-//! For 2, see the example in `subxt/examples/substrate_compat_signer.rs` how
+//! For 2, see the example in `subxt/examples/bizinikiwi_compat_signer.rs` how
 //! you can integrate things like sp_core's signer in subxt.
 //!
 //! Let's go through how to create a signer using the `pezkuwi_subxt_signer` crate:
 //!
 //! ```rust,standalone_crate
-//! use pezkuwi_subxt::config::PolkadotConfig;
+//! use pezkuwi_subxt::config::PezkuwiConfig;
 //! use std::str::FromStr;
 //!
 //! use pezkuwi_subxt_signer::{SecretUri, sr25519};
@@ -105,11 +105,11 @@
 //! # #[tokio::main]
 //! # async fn main() -> Result<(), Box<dyn std::error::Error>> {
 //! use pezkuwi_subxt::client::OnlineClient;
-//! use pezkuwi_subxt::config::PolkadotConfig;
+//! use pezkuwi_subxt::config::PezkuwiConfig;
 //! use pezkuwi_subxt::dynamic::Value;
 //!
 //! // Create client:
-//! let client = OnlineClient::<PolkadotConfig>::new().await?;
+//! let client = OnlineClient::<PezkuwiConfig>::new().await?;
 //!
 //! // Create a dummy tx payload to sign:
 //! let payload = pezkuwi_subxt::dynamic::tx("System", "remark", vec![

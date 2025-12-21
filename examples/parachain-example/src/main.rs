@@ -1,5 +1,5 @@
 use pezkuwi_subxt::{
-    PolkadotConfig,
+    PezkuwiConfig,
     utils::{AccountId32, MultiAddress},
     OnlineClient,
 };
@@ -8,9 +8,9 @@ use pezkuwi_subxt_signer::sr25519::dev::{self};
 #[pezkuwi_subxt::subxt(runtime_metadata_path = "statemint_metadata.scale")]
 pub mod statemint {}
 
-// PolkadotConfig or SubstrateConfig will suffice for this example at the moment,
-// but PolkadotConfig is a little more correct, having the right `Address` type.
-type StatemintConfig = PolkadotConfig;
+// PezkuwiConfig or BizinikiwConfig will suffice for this example at the moment,
+// but PezkuwiConfig is a little more correct, having the right `Address` type.
+type StatemintConfig = PezkuwiConfig;
 
 #[tokio::main]
 pub async fn main() {

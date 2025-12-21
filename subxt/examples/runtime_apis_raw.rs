@@ -1,19 +1,19 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt::{
-	OnlineClient, PolkadotConfig,
+	OnlineClient, PezkuwiConfig,
 	ext::{
 		codec::{Compact, Decode},
 		frame_metadata::RuntimeMetadataPrefixed,
 	},
 };
 
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	// Create a client to use:
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 
 	// Use runtime APIs at the latest block:
 	let runtime_apis = api.runtime_api().at_latest().await?;

@@ -101,11 +101,11 @@ pub mod api {
     #[doc = r" The error type that is returned when there is a runtime issue."]
     pub type DispatchError = runtime_types::sp_runtime::DispatchError;
     #[doc = r" The outer event enum."]
-    pub type Event = runtime_types::rococo_runtime::RuntimeEvent;
+    pub type Event = runtime_types::pezkuwichain_runtime::RuntimeEvent;
     #[doc = r" The outer extrinsic enum."]
-    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
     #[doc = r" The outer error enum represents the DispatchError's Module variant."]
-    pub type Error = runtime_types::rococo_runtime::RuntimeError;
+    pub type Error = runtime_types::pezkuwichain_runtime::RuntimeError;
     pub fn constants() -> ConstantsApi {
         ConstantsApi
     }
@@ -194,7 +194,7 @@ pub mod api {
         pub mod core {
             use super::root_mod;
             use super::runtime_types;
-            #[doc = " The `Core` runtime api that every Substrate runtime needs to implement."]
+            #[doc = " The `Core` runtime api that every Bizinikiwi runtime needs to implement."]
             pub struct Core;
             impl Core {
                 #[doc = " Returns the version of the runtime."]
@@ -265,7 +265,7 @@ pub mod api {
             pub mod execute_block {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Block = runtime_types :: sp_runtime :: generic :: block :: LazyBlock < runtime_types :: sp_runtime :: generic :: header :: Header < :: core :: primitive :: u32 > , :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: rococo_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > > ;
+                pub type Block = runtime_types :: sp_runtime :: generic :: block :: LazyBlock < runtime_types :: sp_runtime :: generic :: header :: Header < :: core :: primitive :: u32 > , :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: pezkuwichain_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > > ;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ();
@@ -526,14 +526,14 @@ pub mod api {
             pub mod dry_run_call {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Origin = runtime_types::rococo_runtime::OriginCaller;
-                pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                pub type Origin = runtime_types::pezkuwichain_runtime::OriginCaller;
+                pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 pub type ResultXcmsVersion = ::core::primitive::u32;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::result::Result<
                         runtime_types::xcm_runtime_apis::dry_run::CallDryRunEffects<
-                            runtime_types::rococo_runtime::RuntimeEvent,
+                            runtime_types::pezkuwichain_runtime::RuntimeEvent,
                         >,
                         runtime_types::xcm_runtime_apis::dry_run::Error,
                     >;
@@ -548,7 +548,7 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = ::core::result::Result<
                         runtime_types::xcm_runtime_apis::dry_run::XcmDryRunEffects<
-                            runtime_types::rococo_runtime::RuntimeEvent,
+                            runtime_types::pezkuwichain_runtime::RuntimeEvent,
                         >,
                         runtime_types::xcm_runtime_apis::dry_run::Error,
                     >;
@@ -783,7 +783,7 @@ pub mod api {
             pub mod apply_extrinsic {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Extrinsic = :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: rococo_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > ;
+                pub type Extrinsic = :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: pezkuwichain_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > ;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::result::Result<
@@ -807,13 +807,13 @@ pub mod api {
                 pub type Inherent = runtime_types::sp_inherents::InherentData;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: rococo_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > > ;
+                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: pezkuwichain_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > > ;
                 }
             }
             pub mod check_inherents {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Block = runtime_types :: sp_runtime :: generic :: block :: LazyBlock < runtime_types :: sp_runtime :: generic :: header :: Header < :: core :: primitive :: u32 > , :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: rococo_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > > ;
+                pub type Block = runtime_types :: sp_runtime :: generic :: block :: LazyBlock < runtime_types :: sp_runtime :: generic :: header :: Header < :: core :: primitive :: u32 > , :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: pezkuwichain_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > > ;
                 pub type Data = runtime_types::sp_inherents::InherentData;
                 pub mod output {
                     use super::runtime_types;
@@ -867,7 +867,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Source =
                     runtime_types::sp_runtime::transaction_validity::TransactionSource;
-                pub type Tx = :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: rococo_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > ;
+                pub type Tx = :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: pezkuwichain_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > ;
                 pub type BlockHash = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256;
                 pub mod output {
                     use super::runtime_types;
@@ -1667,7 +1667,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::validator_app::Public,
+                        runtime_types::pezkuwi_primitives::v9::validator_app::Public,
                     >;
                 }
             }
@@ -1679,10 +1679,10 @@ pub mod api {
                     pub type Output = (
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                                runtime_types::polkadot_primitives::v9::ValidatorIndex,
+                                runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
                             >,
                         >,
-                        runtime_types::polkadot_primitives::v9::GroupRotationInfo<
+                        runtime_types::pezkuwi_primitives::v9::GroupRotationInfo<
                             ::core::primitive::u32,
                         >,
                     );
@@ -1694,7 +1694,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::CoreState<
+                        runtime_types::pezkuwi_primitives::v9::CoreState<
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                             ::core::primitive::u32,
                         >,
@@ -1704,13 +1704,13 @@ pub mod api {
             pub mod persisted_validation_data {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Assumption =
-                    runtime_types::polkadot_primitives::v9::OccupiedCoreAssumption;
+                    runtime_types::pezkuwi_primitives::v9::OccupiedCoreAssumption;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::option::Option<
-                        runtime_types::polkadot_primitives::v9::PersistedValidationData<
+                        runtime_types::pezkuwi_primitives::v9::PersistedValidationData<
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                             ::core::primitive::u32,
                         >,
@@ -1720,19 +1720,19 @@ pub mod api {
             pub mod assumed_validation_data {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type ExpectedPersistedValidationDataHash =
                     ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = :: core :: option :: Option < (runtime_types :: polkadot_primitives :: v9 :: PersistedValidationData < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , :: core :: primitive :: u32 > , runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash ,) > ;
+                    pub type Output = :: core :: option :: Option < (runtime_types :: pezkuwi_primitives :: v9 :: PersistedValidationData < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , :: core :: primitive :: u32 > , runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash ,) > ;
                 }
             }
             pub mod check_validation_outputs {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
-                pub type Outputs = runtime_types::polkadot_primitives::v9::CandidateCommitments<
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
+                pub type Outputs = runtime_types::pezkuwi_primitives::v9::CandidateCommitments<
                     ::core::primitive::u32,
                 >;
                 pub mod output {
@@ -1751,24 +1751,24 @@ pub mod api {
             pub mod validation_code {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Assumption =
-                    runtime_types::polkadot_primitives::v9::OccupiedCoreAssumption;
+                    runtime_types::pezkuwi_primitives::v9::OccupiedCoreAssumption;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::option::Option<
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode,
                     >;
                 }
             }
             pub mod candidate_pending_availability {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::option::Option<
-                        runtime_types::polkadot_primitives::v9::CommittedCandidateReceiptV2<
+                        runtime_types::pezkuwi_primitives::v9::CommittedCandidateReceiptV2<
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                         >,
                     >;
@@ -1780,7 +1780,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::CandidateEvent<
+                        runtime_types::pezkuwi_primitives::v9::CandidateEvent<
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                         >,
                     >;
@@ -1789,11 +1789,11 @@ pub mod api {
             pub mod dmq_contents {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Recipient = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Recipient = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_core_primitives::InboundDownwardMessage<
+                        runtime_types::pezkuwi_core_primitives::InboundDownwardMessage<
                             ::core::primitive::u32,
                         >,
                     >;
@@ -1802,13 +1802,13 @@ pub mod api {
             pub mod inbound_hrmp_channels_contents {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Recipient = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Recipient = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::KeyedVec<
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                            runtime_types::polkadot_core_primitives::InboundHrmpMessage<
+                            runtime_types::pezkuwi_core_primitives::InboundHrmpMessage<
                                 ::core::primitive::u32,
                             >,
                         >,
@@ -1819,11 +1819,11 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Hash =
-                    runtime_types::polkadot_parachain_primitives::primitives::ValidationCodeHash;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCodeHash;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::option::Option<
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode,
                     >;
                 }
             }
@@ -1833,7 +1833,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::option::Option<
-                        runtime_types::polkadot_primitives::v9::ScrapedOnChainVotes<
+                        runtime_types::pezkuwi_primitives::v9::ScrapedOnChainVotes<
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                         >,
                     >;
@@ -1846,15 +1846,15 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        ::core::option::Option<runtime_types::polkadot_primitives::v9::SessionInfo>;
+                        ::core::option::Option<runtime_types::pezkuwi_primitives::v9::SessionInfo>;
                 }
             }
             pub mod submit_pvf_check_statement {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Stmt = runtime_types::polkadot_primitives::v9::PvfCheckStatement;
+                pub type Stmt = runtime_types::pezkuwi_primitives::v9::PvfCheckStatement;
                 pub type Signature =
-                    runtime_types::polkadot_primitives::v9::validator_app::Signature;
+                    runtime_types::pezkuwi_primitives::v9::validator_app::Signature;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ();
@@ -1865,18 +1865,18 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash > ;
+                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash > ;
                 }
             }
             pub mod validation_code_hash {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Assumption =
-                    runtime_types::polkadot_primitives::v9::OccupiedCoreAssumption;
+                    runtime_types::pezkuwi_primitives::v9::OccupiedCoreAssumption;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = :: core :: option :: Option < runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash > ;
+                    pub type Output = :: core :: option :: Option < runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash > ;
                 }
             }
             pub mod disputes {
@@ -1886,8 +1886,8 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
                         ::core::primitive::u32,
-                        runtime_types::polkadot_core_primitives::CandidateHash,
-                        runtime_types::polkadot_primitives::v9::DisputeState<
+                        runtime_types::pezkuwi_core_primitives::CandidateHash,
+                        runtime_types::pezkuwi_primitives::v9::DisputeState<
                             ::core::primitive::u32,
                         >,
                     )>;
@@ -1900,7 +1900,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::option::Option<
-                        runtime_types::polkadot_primitives::v9::executor_params::ExecutorParams,
+                        runtime_types::pezkuwi_primitives::v9::executor_params::ExecutorParams,
                     >;
                 }
             }
@@ -1911,8 +1911,8 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
                         ::core::primitive::u32,
-                        runtime_types::polkadot_core_primitives::CandidateHash,
-                        runtime_types::polkadot_primitives::v9::slashing::LegacyPendingSlashes,
+                        runtime_types::pezkuwi_core_primitives::CandidateHash,
+                        runtime_types::pezkuwi_primitives::v9::slashing::LegacyPendingSlashes,
                     )>;
                 }
             }
@@ -1920,11 +1920,11 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type ValidatorId =
-                    runtime_types::polkadot_primitives::v9::validator_app::Public;
+                    runtime_types::pezkuwi_primitives::v9::validator_app::Public;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::option::Option<
-                        runtime_types::polkadot_primitives::v9::slashing::OpaqueKeyOwnershipProof,
+                        runtime_types::pezkuwi_primitives::v9::slashing::OpaqueKeyOwnershipProof,
                     >;
                 }
             }
@@ -1932,9 +1932,9 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type DisputeProof =
-                    runtime_types::polkadot_primitives::v9::slashing::DisputeProof;
+                    runtime_types::pezkuwi_primitives::v9::slashing::DisputeProof;
                 pub type KeyOwnershipProof =
-                    runtime_types::polkadot_primitives::v9::slashing::OpaqueKeyOwnershipProof;
+                    runtime_types::pezkuwi_primitives::v9::slashing::OpaqueKeyOwnershipProof;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::option::Option<()>;
@@ -1952,11 +1952,11 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type RuntimeApiGeneratedName0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::option::Option<
-                        runtime_types::polkadot_primitives::v9::async_backing::BackingState<
+                        runtime_types::pezkuwi_primitives::v9::async_backing::BackingState<
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                             ::core::primitive::u32,
                         >,
@@ -1969,7 +1969,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_primitives::v9::async_backing::AsyncBackingParams;
+                        runtime_types::pezkuwi_primitives::v9::async_backing::AsyncBackingParams;
                 }
             }
             pub mod disabled_validators {
@@ -1978,7 +1978,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::ValidatorIndex,
+                        runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
                     >;
                 }
             }
@@ -1998,7 +1998,7 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_primitives::v9::ApprovalVotingParams;
+                    pub type Output = runtime_types::pezkuwi_primitives::v9::ApprovalVotingParams;
                 }
             }
             pub mod claim_queue {
@@ -2007,9 +2007,9 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::KeyedVec<
-                        runtime_types::polkadot_primitives::v9::CoreIndex,
+                        runtime_types::pezkuwi_primitives::v9::CoreIndex,
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                            runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         >,
                     >;
                 }
@@ -2017,11 +2017,11 @@ pub mod api {
             pub mod candidates_pending_availability {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::CommittedCandidateReceiptV2<
+                        runtime_types::pezkuwi_primitives::v9::CommittedCandidateReceiptV2<
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                         >,
                     >;
@@ -2038,11 +2038,11 @@ pub mod api {
             pub mod backing_constraints {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::option::Option<
-                        runtime_types::polkadot_primitives::v9::async_backing::Constraints<
+                        runtime_types::pezkuwi_primitives::v9::async_backing::Constraints<
                             ::core::primitive::u32,
                         >,
                     >;
@@ -2062,7 +2062,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                     >;
                 }
             }
@@ -2073,8 +2073,8 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
                         ::core::primitive::u32,
-                        runtime_types::polkadot_core_primitives::CandidateHash,
-                        runtime_types::polkadot_primitives::v9::slashing::PendingSlashes,
+                        runtime_types::pezkuwi_core_primitives::CandidateHash,
+                        runtime_types::pezkuwi_primitives::v9::slashing::PendingSlashes,
                     )>;
                 }
             }
@@ -3172,7 +3172,7 @@ pub mod api {
             pub mod query_info {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Uxt = :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: rococo_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > ;
+                pub type Uxt = :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: pezkuwichain_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > ;
                 pub type Len = ::core::primitive::u32;
                 pub mod output {
                     use super::runtime_types;
@@ -3186,7 +3186,7 @@ pub mod api {
             pub mod query_fee_details {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Uxt = :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: rococo_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > ;
+                pub type Uxt = :: subxt :: ext :: pezkuwi_subxt_core :: utils :: UncheckedExtrinsic < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: MultiAddress < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , () > , runtime_types :: pezkuwichain_runtime :: RuntimeCall , runtime_types :: sp_runtime :: MultiSignature , (runtime_types :: frame_system :: extensions :: authorize_call :: AuthorizeCall , runtime_types :: frame_system :: extensions :: check_non_zero_sender :: CheckNonZeroSender , runtime_types :: frame_system :: extensions :: check_spec_version :: CheckSpecVersion , runtime_types :: frame_system :: extensions :: check_tx_version :: CheckTxVersion , runtime_types :: frame_system :: extensions :: check_genesis :: CheckGenesis , runtime_types :: frame_system :: extensions :: check_mortality :: CheckMortality , runtime_types :: frame_system :: extensions :: check_nonce :: CheckNonce , runtime_types :: frame_system :: extensions :: check_weight :: CheckWeight , runtime_types :: pallet_transaction_payment :: ChargeTransactionPayment , runtime_types :: frame_metadata_hash_extension :: CheckMetadataHash , runtime_types :: frame_system :: extensions :: weight_reclaim :: WeightReclaim ,) > ;
                 pub type Len = ::core::primitive::u32;
                 pub mod output {
                     use super::runtime_types;
@@ -5157,7 +5157,7 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
                         runtime_types::frame_system::EventRecord<
-                            runtime_types::rococo_runtime::RuntimeEvent,
+                            runtime_types::pezkuwichain_runtime::RuntimeEvent,
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                         >,
                     >;
@@ -7934,7 +7934,7 @@ pub mod api {
             }
             pub mod held {
                 use super::runtime_types;
-                pub type Reason = runtime_types::rococo_runtime::RuntimeHoldReason;
+                pub type Reason = runtime_types::pezkuwichain_runtime::RuntimeHoldReason;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Amount = ::core::primitive::u128;
             }
@@ -7957,7 +7957,7 @@ pub mod api {
             }
             pub mod burned_held {
                 use super::runtime_types;
-                pub type Reason = runtime_types::rococo_runtime::RuntimeHoldReason;
+                pub type Reason = runtime_types::pezkuwichain_runtime::RuntimeHoldReason;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Amount = ::core::primitive::u128;
             }
@@ -7981,7 +7981,7 @@ pub mod api {
             }
             pub mod transfer_on_hold {
                 use super::runtime_types;
-                pub type Reason = runtime_types::rococo_runtime::RuntimeHoldReason;
+                pub type Reason = runtime_types::pezkuwichain_runtime::RuntimeHoldReason;
                 pub type Source = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Dest = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Amount = ::core::primitive::u128;
@@ -8006,7 +8006,7 @@ pub mod api {
             }
             pub mod transfer_and_hold {
                 use super::runtime_types;
-                pub type Reason = runtime_types::rococo_runtime::RuntimeHoldReason;
+                pub type Reason = runtime_types::pezkuwichain_runtime::RuntimeHoldReason;
                 pub type Source = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Dest = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Transferred = ::core::primitive::u128;
@@ -8030,7 +8030,7 @@ pub mod api {
             }
             pub mod released {
                 use super::runtime_types;
-                pub type Reason = runtime_types::rococo_runtime::RuntimeHoldReason;
+                pub type Reason = runtime_types::pezkuwichain_runtime::RuntimeHoldReason;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Amount = ::core::primitive::u128;
             }
@@ -8142,7 +8142,7 @@ pub mod api {
                 #[doc = " Any liquidity locks on some account balances."]
                 #[doc = " NOTE: Should only be accessed when setting, changing and freeing a lock."]
                 #[doc = ""]
-                #[doc = " Use of locks is deprecated in favour of freezes. See `https://github.com/paritytech/substrate/pull/12951/`"]
+                #[doc = " Use of locks is deprecated in favour of freezes. See `https://github.com/pezkuwichain/bizinikiwi/pull/12951/`"]
                 pub fn locks(
                     &self,
                 ) -> ::pezkuwi_subxt::ext::pezkuwi_subxt_core::storage::address::StaticAddress<
@@ -8163,7 +8163,7 @@ pub mod api {
                 }
                 #[doc = " Named reserves on some account balances."]
                 #[doc = ""]
-                #[doc = " Use of reserves is deprecated in favour of holds. See `https://github.com/paritytech/substrate/pull/12951/`"]
+                #[doc = " Use of reserves is deprecated in favour of holds. See `https://github.com/pezkuwichain/bizinikiwi/pull/12951/`"]
                 pub fn reserves(
                     &self,
                 ) -> ::pezkuwi_subxt::ext::pezkuwi_subxt_core::storage::address::StaticAddress<
@@ -8282,7 +8282,7 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = runtime_types::bounded_collections::bounded_vec::BoundedVec<
                         runtime_types::frame_support::traits::tokens::misc::IdAmount<
-                            runtime_types::rococo_runtime::RuntimeHoldReason,
+                            runtime_types::pezkuwichain_runtime::RuntimeHoldReason,
                             ::core::primitive::u128,
                         >,
                     >;
@@ -8333,7 +8333,7 @@ pub mod api {
                 #[doc = " The maximum number of locks that should exist on an account."]
                 #[doc = " Not strictly enforced, but used for weight estimation."]
                 #[doc = ""]
-                #[doc = " Use of locks is deprecated in favour of freezes. See `https://github.com/paritytech/substrate/pull/12951/`"]
+                #[doc = " Use of locks is deprecated in favour of freezes. See `https://github.com/pezkuwichain/bizinikiwi/pull/12951/`"]
                 pub fn max_locks(
                     &self,
                 ) -> ::pezkuwi_subxt::ext::pezkuwi_subxt_core::constants::address::StaticAddress<
@@ -8352,7 +8352,7 @@ pub mod api {
                 }
                 #[doc = " The maximum number of named reserves that can exist on an account."]
                 #[doc = ""]
-                #[doc = " Use of reserves is deprecated in favour of holds. See `https://github.com/paritytech/substrate/pull/12951/`"]
+                #[doc = " Use of reserves is deprecated in favour of holds. See `https://github.com/pezkuwichain/bizinikiwi/pull/12951/`"]
                 pub fn max_reserves(
                     &self,
                 ) -> ::pezkuwi_subxt::ext::pezkuwi_subxt_core::constants::address::StaticAddress<
@@ -8420,7 +8420,7 @@ pub mod api {
                 }
                 pub mod set_parameter {
                     use super::runtime_types;
-                    pub type KeyValue = runtime_types::rococo_runtime::RuntimeParameters;
+                    pub type KeyValue = runtime_types::pezkuwichain_runtime::RuntimeParameters;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SetParameter {
                     const PALLET: &'static str = "Parameters";
@@ -8472,11 +8472,11 @@ pub mod api {
             }
             pub mod updated {
                 use super::runtime_types;
-                pub type Key = runtime_types::rococo_runtime::RuntimeParametersKey;
+                pub type Key = runtime_types::pezkuwichain_runtime::RuntimeParametersKey;
                 pub type OldValue =
-                    ::core::option::Option<runtime_types::rococo_runtime::RuntimeParametersValue>;
+                    ::core::option::Option<runtime_types::pezkuwichain_runtime::RuntimeParametersValue>;
                 pub type NewValue =
-                    ::core::option::Option<runtime_types::rococo_runtime::RuntimeParametersValue>;
+                    ::core::option::Option<runtime_types::pezkuwichain_runtime::RuntimeParametersValue>;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Updated {
                 const PALLET: &'static str = "Parameters";
@@ -8511,10 +8511,10 @@ pub mod api {
             pub mod parameters {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::rococo_runtime::RuntimeParametersKey;
+                pub type Param0 = runtime_types::pezkuwichain_runtime::RuntimeParametersKey;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::rococo_runtime::RuntimeParametersValue;
+                    pub type Output = runtime_types::pezkuwichain_runtime::RuntimeParametersValue;
                 }
             }
         }
@@ -8974,7 +8974,7 @@ pub mod api {
                 }
                 pub mod set_keys {
                     use super::runtime_types;
-                    pub type Keys = runtime_types::rococo_runtime::SessionKeys;
+                    pub type Keys = runtime_types::pezkuwichain_runtime::SessionKeys;
                     pub type Proof =
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<::core::primitive::u8>;
                 }
@@ -9322,7 +9322,7 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
-                        runtime_types::rococo_runtime::SessionKeys,
+                        runtime_types::pezkuwichain_runtime::SessionKeys,
                     )>;
                 }
             }
@@ -9343,7 +9343,7 @@ pub mod api {
                 pub type Param0 = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::rococo_runtime::SessionKeys;
+                    pub type Output = runtime_types::pezkuwichain_runtime::SessionKeys;
                 }
             }
             pub mod key_owner {
@@ -10145,7 +10145,7 @@ pub mod api {
                 pub mod spend {
                     use super::runtime_types;
                     pub type AssetKind =
-                        runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset;
+                        runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset;
                     pub type Amount = ::core::primitive::u128;
                     pub type Beneficiary = runtime_types::xcm::VersionedLocation;
                     pub type ValidFrom = ::core::option::Option<::core::primitive::u32>;
@@ -10678,7 +10678,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Index = ::core::primitive::u32;
                 pub type AssetKind =
-                    runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset;
+                    runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset;
                 pub type Amount = ::core::primitive::u128;
                 pub type Beneficiary = runtime_types::xcm::VersionedLocation;
                 pub type ValidFrom = ::core::primitive::u32;
@@ -10776,7 +10776,7 @@ pub mod api {
             pub struct StorageApi;
             impl StorageApi {
                 #[doc = " DEPRECATED: associated with `spend_local` call and will be removed in May 2025."]
-                #[doc = " Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`."]
+                #[doc = " Refer to <https://github.com/pezkuwichain/pezkuwi-sdk/pull/5961> for migration to `spend`."]
                 #[doc = ""]
                 #[doc = " Number of proposals that have been made."]
                 pub fn proposal_count(
@@ -10798,7 +10798,7 @@ pub mod api {
                     )
                 }
                 #[doc = " DEPRECATED: associated with `spend_local` call and will be removed in May 2025."]
-                #[doc = " Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`."]
+                #[doc = " Refer to <https://github.com/pezkuwichain/pezkuwi-sdk/pull/5961> for migration to `spend`."]
                 #[doc = ""]
                 #[doc = " Proposals that have been made."]
                 pub fn proposals(
@@ -10837,7 +10837,7 @@ pub mod api {
                     )
                 }
                 #[doc = " DEPRECATED: associated with `spend_local` call and will be removed in May 2025."]
-                #[doc = " Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`."]
+                #[doc = " Refer to <https://github.com/pezkuwichain/pezkuwi-sdk/pull/5961> for migration to `spend`."]
                 #[doc = ""]
                 #[doc = " Proposal indices that have been approved but not yet awarded."]
                 pub fn approvals(
@@ -10968,7 +10968,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = runtime_types::pallet_treasury::SpendStatus<
-                        runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset,
+                        runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset,
                         ::core::primitive::u128,
                         runtime_types::xcm::VersionedLocation,
                         ::core::primitive::u32,
@@ -11039,7 +11039,7 @@ pub mod api {
                     )
                 }
                 #[doc = " DEPRECATED: associated with `spend_local` call and will be removed in May 2025."]
-                #[doc = " Refer to <https://github.com/paritytech/polkadot-sdk/pull/5961> for migration to `spend`."]
+                #[doc = " Refer to <https://github.com/pezkuwichain/pezkuwi-sdk/pull/5961> for migration to `spend`."]
                 #[doc = ""]
                 #[doc = " The maximum number of approvals that can wait in the spending queue."]
                 #[doc = ""]
@@ -11871,9 +11871,9 @@ pub mod api {
                 }
                 pub mod submit {
                     use super::runtime_types;
-                    pub type ProposalOrigin = runtime_types::rococo_runtime::OriginCaller;
+                    pub type ProposalOrigin = runtime_types::pezkuwichain_runtime::OriginCaller;
                     pub type Proposal = runtime_types::frame_support::traits::preimages::Bounded<
-                        runtime_types::rococo_runtime::RuntimeCall,
+                        runtime_types::pezkuwichain_runtime::RuntimeCall,
                         runtime_types::sp_runtime::traits::BlakeTwo256,
                     >;
                     pub type EnactmentMoment =
@@ -12369,7 +12369,7 @@ pub mod api {
                 pub type Index = ::core::primitive::u32;
                 pub type Track = ::core::primitive::u16;
                 pub type Proposal = runtime_types::frame_support::traits::preimages::Bounded<
-                    runtime_types::rococo_runtime::RuntimeCall,
+                    runtime_types::pezkuwichain_runtime::RuntimeCall,
                     runtime_types::sp_runtime::traits::BlakeTwo256,
                 >;
             }
@@ -12463,7 +12463,7 @@ pub mod api {
                 pub type Index = ::core::primitive::u32;
                 pub type Track = ::core::primitive::u16;
                 pub type Proposal = runtime_types::frame_support::traits::preimages::Bounded<
-                    runtime_types::rococo_runtime::RuntimeCall,
+                    runtime_types::pezkuwichain_runtime::RuntimeCall,
                     runtime_types::sp_runtime::traits::BlakeTwo256,
                 >;
                 pub type Tally =
@@ -12826,10 +12826,10 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = runtime_types::pallet_referenda::types::ReferendumInfo<
                         ::core::primitive::u16,
-                        runtime_types::rococo_runtime::OriginCaller,
+                        runtime_types::pezkuwichain_runtime::OriginCaller,
                         ::core::primitive::u32,
                         runtime_types::frame_support::traits::preimages::Bounded<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                             runtime_types::sp_runtime::traits::BlakeTwo256,
                         >,
                         ::core::primitive::u128,
@@ -13728,9 +13728,9 @@ pub mod api {
                 }
                 pub mod submit {
                     use super::runtime_types;
-                    pub type ProposalOrigin = runtime_types::rococo_runtime::OriginCaller;
+                    pub type ProposalOrigin = runtime_types::pezkuwichain_runtime::OriginCaller;
                     pub type Proposal = runtime_types::frame_support::traits::preimages::Bounded<
-                        runtime_types::rococo_runtime::RuntimeCall,
+                        runtime_types::pezkuwichain_runtime::RuntimeCall,
                         runtime_types::sp_runtime::traits::BlakeTwo256,
                     >;
                     pub type EnactmentMoment =
@@ -14226,7 +14226,7 @@ pub mod api {
                 pub type Index = ::core::primitive::u32;
                 pub type Track = ::core::primitive::u16;
                 pub type Proposal = runtime_types::frame_support::traits::preimages::Bounded<
-                    runtime_types::rococo_runtime::RuntimeCall,
+                    runtime_types::pezkuwichain_runtime::RuntimeCall,
                     runtime_types::sp_runtime::traits::BlakeTwo256,
                 >;
             }
@@ -14320,7 +14320,7 @@ pub mod api {
                 pub type Index = ::core::primitive::u32;
                 pub type Track = ::core::primitive::u16;
                 pub type Proposal = runtime_types::frame_support::traits::preimages::Bounded<
-                    runtime_types::rococo_runtime::RuntimeCall,
+                    runtime_types::pezkuwichain_runtime::RuntimeCall,
                     runtime_types::sp_runtime::traits::BlakeTwo256,
                 >;
                 pub type Tally = runtime_types::pallet_ranked_collective::Tally;
@@ -14676,10 +14676,10 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = runtime_types::pallet_referenda::types::ReferendumInfo<
                         ::core::primitive::u16,
-                        runtime_types::rococo_runtime::OriginCaller,
+                        runtime_types::pezkuwichain_runtime::OriginCaller,
                         ::core::primitive::u32,
                         runtime_types::frame_support::traits::preimages::Bounded<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                             runtime_types::sp_runtime::traits::BlakeTwo256,
                         >,
                         ::core::primitive::u128,
@@ -14927,7 +14927,7 @@ pub mod api {
                 }
                 pub mod dispatch_whitelisted_call_with_preimage {
                     use super::runtime_types;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for DispatchWhitelistedCallWithPreimage {
                     const PALLET: &'static str = "Whitelist";
@@ -15121,9 +15121,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_common::claims::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_common::claims::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_common::claims::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_common::claims::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -15173,7 +15173,7 @@ pub mod api {
                     use super::runtime_types;
                     pub type Dest = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                     pub type EthereumSignature =
-                        runtime_types::polkadot_runtime_common::claims::EcdsaSignature;
+                        runtime_types::pezkuwi_runtime_common::claims::EcdsaSignature;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Claim {
                     const PALLET: &'static str = "Claims";
@@ -15213,7 +15213,7 @@ pub mod api {
                 }
                 pub mod mint_claim {
                     use super::runtime_types;
-                    pub type Who = runtime_types::polkadot_runtime_common::claims::EthereumAddress;
+                    pub type Who = runtime_types::pezkuwi_runtime_common::claims::EthereumAddress;
                     pub type Value = ::core::primitive::u128;
                     pub type VestingSchedule = ::core::option::Option<(
                         ::core::primitive::u128,
@@ -15221,7 +15221,7 @@ pub mod api {
                         ::core::primitive::u32,
                     )>;
                     pub type Statement = ::core::option::Option<
-                        runtime_types::polkadot_runtime_common::claims::StatementKind,
+                        runtime_types::pezkuwi_runtime_common::claims::StatementKind,
                     >;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for MintClaim {
@@ -15275,7 +15275,7 @@ pub mod api {
                     use super::runtime_types;
                     pub type Dest = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                     pub type EthereumSignature =
-                        runtime_types::polkadot_runtime_common::claims::EcdsaSignature;
+                        runtime_types::pezkuwi_runtime_common::claims::EcdsaSignature;
                     pub type Statement =
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<::core::primitive::u8>;
                 }
@@ -15343,8 +15343,8 @@ pub mod api {
                 }
                 pub mod move_claim {
                     use super::runtime_types;
-                    pub type Old = runtime_types::polkadot_runtime_common::claims::EthereumAddress;
-                    pub type New = runtime_types::polkadot_runtime_common::claims::EthereumAddress;
+                    pub type Old = runtime_types::pezkuwi_runtime_common::claims::EthereumAddress;
+                    pub type New = runtime_types::pezkuwi_runtime_common::claims::EthereumAddress;
                     pub type MaybePreclaim =
                         ::core::option::Option<::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32>;
                 }
@@ -15550,7 +15550,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_common::claims::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_common::claims::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -15570,7 +15570,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type EthereumAddress =
-                    runtime_types::polkadot_runtime_common::claims::EthereumAddress;
+                    runtime_types::pezkuwi_runtime_common::claims::EthereumAddress;
                 pub type Amount = ::core::primitive::u128;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Claimed {
@@ -15681,7 +15681,7 @@ pub mod api {
             pub mod claims {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_runtime_common::claims::EthereumAddress;
+                pub type Param0 = runtime_types::pezkuwi_runtime_common::claims::EthereumAddress;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::primitive::u128;
@@ -15698,7 +15698,7 @@ pub mod api {
             pub mod vesting {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_runtime_common::claims::EthereumAddress;
+                pub type Param0 = runtime_types::pezkuwi_runtime_common::claims::EthereumAddress;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = (
@@ -15711,10 +15711,10 @@ pub mod api {
             pub mod signing {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_runtime_common::claims::EthereumAddress;
+                pub type Param0 = runtime_types::pezkuwi_runtime_common::claims::EthereumAddress;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_runtime_common::claims::StatementKind;
+                    pub type Output = runtime_types::pezkuwi_runtime_common::claims::StatementKind;
                 }
             }
             pub mod preclaims {
@@ -15724,7 +15724,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_runtime_common::claims::EthereumAddress;
+                        runtime_types::pezkuwi_runtime_common::claims::EthereumAddress;
                 }
             }
         }
@@ -15799,7 +15799,7 @@ pub mod api {
                 pub mod batch {
                     use super::runtime_types;
                     pub type Calls = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::rococo_runtime::RuntimeCall,
+                        runtime_types::pezkuwichain_runtime::RuntimeCall,
                     >;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Batch {
@@ -15837,7 +15837,7 @@ pub mod api {
                 pub mod as_derivative {
                     use super::runtime_types;
                     pub type Index = ::core::primitive::u16;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for AsDerivative {
                     const PALLET: &'static str = "Utility";
@@ -15873,7 +15873,7 @@ pub mod api {
                 pub mod batch_all {
                     use super::runtime_types;
                     pub type Calls = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::rococo_runtime::RuntimeCall,
+                        runtime_types::pezkuwichain_runtime::RuntimeCall,
                     >;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for BatchAll {
@@ -15904,8 +15904,8 @@ pub mod api {
                 }
                 pub mod dispatch_as {
                     use super::runtime_types;
-                    pub type AsOrigin = runtime_types::rococo_runtime::OriginCaller;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type AsOrigin = runtime_types::pezkuwichain_runtime::OriginCaller;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for DispatchAs {
                     const PALLET: &'static str = "Utility";
@@ -15941,7 +15941,7 @@ pub mod api {
                 pub mod force_batch {
                     use super::runtime_types;
                     pub type Calls = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::rococo_runtime::RuntimeCall,
+                        runtime_types::pezkuwichain_runtime::RuntimeCall,
                     >;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ForceBatch {
@@ -15971,7 +15971,7 @@ pub mod api {
                 }
                 pub mod with_weight {
                     use super::runtime_types;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                     pub type Weight = runtime_types::sp_weights::weight_v2::Weight;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for WithWeight {
@@ -16018,8 +16018,8 @@ pub mod api {
                 }
                 pub mod if_else {
                     use super::runtime_types;
-                    pub type Main = runtime_types::rococo_runtime::RuntimeCall;
-                    pub type Fallback = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Main = runtime_types::pezkuwichain_runtime::RuntimeCall;
+                    pub type Fallback = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for IfElse {
                     const PALLET: &'static str = "Utility";
@@ -16049,8 +16049,8 @@ pub mod api {
                 }
                 pub mod dispatch_as_fallible {
                     use super::runtime_types;
-                    pub type AsOrigin = runtime_types::rococo_runtime::OriginCaller;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type AsOrigin = runtime_types::pezkuwichain_runtime::OriginCaller;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for DispatchAsFallible {
                     const PALLET: &'static str = "Utility";
@@ -21165,7 +21165,7 @@ pub mod api {
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         (),
                     >;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for AsRecovered {
                     const PALLET: &'static str = "Recovery";
@@ -21953,7 +21953,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Kind = runtime_types::pallet_recovery::DepositKind<
-                    runtime_types::rococo_runtime::Runtime,
+                    runtime_types::pezkuwichain_runtime::Runtime,
                 >;
                 pub type OldDeposit = ::core::primitive::u128;
                 pub type NewDeposit = ::core::primitive::u128;
@@ -22809,7 +22809,7 @@ pub mod api {
                     pub type MaybePeriodic =
                         ::core::option::Option<(::core::primitive::u32, ::core::primitive::u32)>;
                     pub type Priority = ::core::primitive::u8;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Schedule {
                     const PALLET: &'static str = "Scheduler";
@@ -22869,7 +22869,7 @@ pub mod api {
                     pub type MaybePeriodic =
                         ::core::option::Option<(::core::primitive::u32, ::core::primitive::u32)>;
                     pub type Priority = ::core::primitive::u8;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ScheduleNamed {
                     const PALLET: &'static str = "Scheduler";
@@ -22922,7 +22922,7 @@ pub mod api {
                     pub type MaybePeriodic =
                         ::core::option::Option<(::core::primitive::u32, ::core::primitive::u32)>;
                     pub type Priority = ::core::primitive::u8;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ScheduleAfter {
                     const PALLET: &'static str = "Scheduler";
@@ -22955,7 +22955,7 @@ pub mod api {
                     pub type MaybePeriodic =
                         ::core::option::Option<(::core::primitive::u32, ::core::primitive::u32)>;
                     pub type Priority = ::core::primitive::u8;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ScheduleNamedAfter {
                     const PALLET: &'static str = "Scheduler";
@@ -23667,11 +23667,11 @@ pub mod api {
                             runtime_types::pallet_scheduler::Scheduled<
                                 [::core::primitive::u8; 32usize],
                                 runtime_types::frame_support::traits::preimages::Bounded<
-                                    runtime_types::rococo_runtime::RuntimeCall,
+                                    runtime_types::pezkuwichain_runtime::RuntimeCall,
                                     runtime_types::sp_runtime::traits::BlakeTwo256,
                                 >,
                                 ::core::primitive::u32,
-                                runtime_types::rococo_runtime::OriginCaller,
+                                runtime_types::pezkuwichain_runtime::OriginCaller,
                                 ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             >,
                         >,
@@ -23788,8 +23788,8 @@ pub mod api {
                         (),
                     >;
                     pub type ForceProxyType =
-                        ::core::option::Option<runtime_types::rococo_runtime::ProxyType>;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                        ::core::option::Option<runtime_types::pezkuwichain_runtime::ProxyType>;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Proxy {
                     const PALLET: &'static str = "Proxy";
@@ -23826,7 +23826,7 @@ pub mod api {
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         (),
                     >;
-                    pub type ProxyType = runtime_types::rococo_runtime::ProxyType;
+                    pub type ProxyType = runtime_types::pezkuwichain_runtime::ProxyType;
                     pub type Delay = ::core::primitive::u32;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for AddProxy {
@@ -23862,7 +23862,7 @@ pub mod api {
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         (),
                     >;
-                    pub type ProxyType = runtime_types::rococo_runtime::ProxyType;
+                    pub type ProxyType = runtime_types::pezkuwichain_runtime::ProxyType;
                     pub type Delay = ::core::primitive::u32;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for RemoveProxy {
@@ -23927,7 +23927,7 @@ pub mod api {
                 }
                 pub mod create_pure {
                     use super::runtime_types;
-                    pub type ProxyType = runtime_types::rococo_runtime::ProxyType;
+                    pub type ProxyType = runtime_types::pezkuwichain_runtime::ProxyType;
                     pub type Delay = ::core::primitive::u32;
                     pub type Index = ::core::primitive::u16;
                 }
@@ -23977,7 +23977,7 @@ pub mod api {
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         (),
                     >;
-                    pub type ProxyType = runtime_types::rococo_runtime::ProxyType;
+                    pub type ProxyType = runtime_types::pezkuwichain_runtime::ProxyType;
                     pub type Index = ::core::primitive::u16;
                     pub type Height = ::core::primitive::u32;
                     pub type ExtIndex = ::core::primitive::u32;
@@ -24141,8 +24141,8 @@ pub mod api {
                         (),
                     >;
                     pub type ForceProxyType =
-                        ::core::option::Option<runtime_types::rococo_runtime::ProxyType>;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                        ::core::option::Option<runtime_types::pezkuwichain_runtime::ProxyType>;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ProxyAnnounced {
                     const PALLET: &'static str = "Proxy";
@@ -24567,7 +24567,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Pure = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
-                pub type ProxyType = runtime_types::rococo_runtime::ProxyType;
+                pub type ProxyType = runtime_types::pezkuwichain_runtime::ProxyType;
                 pub type DisambiguationIndex = ::core::primitive::u16;
                 pub type At = ::core::primitive::u32;
                 pub type ExtrinsicIndex = ::core::primitive::u32;
@@ -24594,7 +24594,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Pure = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Spawner = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
-                pub type ProxyType = runtime_types::rococo_runtime::ProxyType;
+                pub type ProxyType = runtime_types::pezkuwichain_runtime::ProxyType;
                 pub type DisambiguationIndex = ::core::primitive::u16;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for PureKilled {
@@ -24642,7 +24642,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Delegator = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Delegatee = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
-                pub type ProxyType = runtime_types::rococo_runtime::ProxyType;
+                pub type ProxyType = runtime_types::pezkuwichain_runtime::ProxyType;
                 pub type Delay = ::core::primitive::u32;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for ProxyAdded {
@@ -24667,7 +24667,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Delegator = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Delegatee = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
-                pub type ProxyType = runtime_types::rococo_runtime::ProxyType;
+                pub type ProxyType = runtime_types::pezkuwichain_runtime::ProxyType;
                 pub type Delay = ::core::primitive::u32;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for ProxyRemoved {
@@ -24753,7 +24753,7 @@ pub mod api {
                         runtime_types::bounded_collections::bounded_vec::BoundedVec<
                             runtime_types::pallet_proxy::ProxyDefinition<
                                 ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
-                                runtime_types::rococo_runtime::ProxyType,
+                                runtime_types::pezkuwichain_runtime::ProxyType,
                                 ::core::primitive::u32,
                             >,
                         >,
@@ -24944,7 +24944,7 @@ pub mod api {
                     pub type OtherSignatories = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                     >;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for AsMultiThreshold1 {
                     const PALLET: &'static str = "Multisig";
@@ -25016,7 +25016,7 @@ pub mod api {
                     pub type MaybeTimepoint = ::core::option::Option<
                         runtime_types::pallet_multisig::Timepoint<::core::primitive::u32>,
                     >;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                     pub type MaxWeight = runtime_types::sp_weights::weight_v2::Weight;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for AsMulti {
@@ -26110,7 +26110,7 @@ pub mod api {
                 pub mod create {
                     use super::runtime_types;
                     pub type AssetKind =
-                        runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset;
+                        runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset;
                     pub type Rate = runtime_types::sp_arithmetic::fixed_point::FixedU128;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Create {
@@ -26139,7 +26139,7 @@ pub mod api {
                 pub mod update {
                     use super::runtime_types;
                     pub type AssetKind =
-                        runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset;
+                        runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset;
                     pub type Rate = runtime_types::sp_arithmetic::fixed_point::FixedU128;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Update {
@@ -26167,7 +26167,7 @@ pub mod api {
                 pub mod remove {
                     use super::runtime_types;
                     pub type AssetKind =
-                        runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset;
+                        runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Remove {
                     const PALLET: &'static str = "AssetRate";
@@ -26273,7 +26273,7 @@ pub mod api {
             pub mod asset_rate_created {
                 use super::runtime_types;
                 pub type AssetKind =
-                    runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset;
+                    runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset;
                 pub type Rate = runtime_types::sp_arithmetic::fixed_point::FixedU128;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for AssetRateCreated {
@@ -26293,7 +26293,7 @@ pub mod api {
             pub mod asset_rate_removed {
                 use super::runtime_types;
                 pub type AssetKind =
-                    runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset;
+                    runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for AssetRateRemoved {
                 const PALLET: &'static str = "AssetRate";
@@ -26314,7 +26314,7 @@ pub mod api {
             pub mod asset_rate_updated {
                 use super::runtime_types;
                 pub type AssetKind =
-                    runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset;
+                    runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset;
                 pub type Old = runtime_types::sp_arithmetic::fixed_point::FixedU128;
                 pub type New = runtime_types::sp_arithmetic::fixed_point::FixedU128;
             }
@@ -26353,7 +26353,7 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 =
-                    runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset;
+                    runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = runtime_types::sp_arithmetic::fixed_point::FixedU128;
@@ -30554,7 +30554,7 @@ pub mod api {
             }
             pub mod held {
                 use super::runtime_types;
-                pub type Reason = runtime_types::rococo_runtime::RuntimeHoldReason;
+                pub type Reason = runtime_types::pezkuwichain_runtime::RuntimeHoldReason;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Amount = ::core::primitive::u128;
             }
@@ -30577,7 +30577,7 @@ pub mod api {
             }
             pub mod burned_held {
                 use super::runtime_types;
-                pub type Reason = runtime_types::rococo_runtime::RuntimeHoldReason;
+                pub type Reason = runtime_types::pezkuwichain_runtime::RuntimeHoldReason;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Amount = ::core::primitive::u128;
             }
@@ -30601,7 +30601,7 @@ pub mod api {
             }
             pub mod transfer_on_hold {
                 use super::runtime_types;
-                pub type Reason = runtime_types::rococo_runtime::RuntimeHoldReason;
+                pub type Reason = runtime_types::pezkuwichain_runtime::RuntimeHoldReason;
                 pub type Source = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Dest = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Amount = ::core::primitive::u128;
@@ -30626,7 +30626,7 @@ pub mod api {
             }
             pub mod transfer_and_hold {
                 use super::runtime_types;
-                pub type Reason = runtime_types::rococo_runtime::RuntimeHoldReason;
+                pub type Reason = runtime_types::pezkuwichain_runtime::RuntimeHoldReason;
                 pub type Source = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Dest = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Transferred = ::core::primitive::u128;
@@ -30650,7 +30650,7 @@ pub mod api {
             }
             pub mod released {
                 use super::runtime_types;
-                pub type Reason = runtime_types::rococo_runtime::RuntimeHoldReason;
+                pub type Reason = runtime_types::pezkuwichain_runtime::RuntimeHoldReason;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Amount = ::core::primitive::u128;
             }
@@ -30762,7 +30762,7 @@ pub mod api {
                 #[doc = " Any liquidity locks on some account balances."]
                 #[doc = " NOTE: Should only be accessed when setting, changing and freeing a lock."]
                 #[doc = ""]
-                #[doc = " Use of locks is deprecated in favour of freezes. See `https://github.com/paritytech/substrate/pull/12951/`"]
+                #[doc = " Use of locks is deprecated in favour of freezes. See `https://github.com/pezkuwichain/bizinikiwi/pull/12951/`"]
                 pub fn locks(
                     &self,
                 ) -> ::pezkuwi_subxt::ext::pezkuwi_subxt_core::storage::address::StaticAddress<
@@ -30783,7 +30783,7 @@ pub mod api {
                 }
                 #[doc = " Named reserves on some account balances."]
                 #[doc = ""]
-                #[doc = " Use of reserves is deprecated in favour of holds. See `https://github.com/paritytech/substrate/pull/12951/`"]
+                #[doc = " Use of reserves is deprecated in favour of holds. See `https://github.com/pezkuwichain/bizinikiwi/pull/12951/`"]
                 pub fn reserves(
                     &self,
                 ) -> ::pezkuwi_subxt::ext::pezkuwi_subxt_core::storage::address::StaticAddress<
@@ -30902,7 +30902,7 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = runtime_types::bounded_collections::bounded_vec::BoundedVec<
                         runtime_types::frame_support::traits::tokens::misc::IdAmount<
-                            runtime_types::rococo_runtime::RuntimeHoldReason,
+                            runtime_types::pezkuwichain_runtime::RuntimeHoldReason,
                             ::core::primitive::u128,
                         >,
                     >;
@@ -30953,7 +30953,7 @@ pub mod api {
                 #[doc = " The maximum number of locks that should exist on an account."]
                 #[doc = " Not strictly enforced, but used for weight estimation."]
                 #[doc = ""]
-                #[doc = " Use of locks is deprecated in favour of freezes. See `https://github.com/paritytech/substrate/pull/12951/`"]
+                #[doc = " Use of locks is deprecated in favour of freezes. See `https://github.com/pezkuwichain/bizinikiwi/pull/12951/`"]
                 pub fn max_locks(
                     &self,
                 ) -> ::pezkuwi_subxt::ext::pezkuwi_subxt_core::constants::address::StaticAddress<
@@ -30972,7 +30972,7 @@ pub mod api {
                 }
                 #[doc = " The maximum number of named reserves that can exist on an account."]
                 #[doc = ""]
-                #[doc = " Use of reserves is deprecated in favour of holds. See `https://github.com/paritytech/substrate/pull/12951/`"]
+                #[doc = " Use of reserves is deprecated in favour of holds. See `https://github.com/pezkuwichain/bizinikiwi/pull/12951/`"]
                 pub fn max_reserves(
                     &self,
                 ) -> ::pezkuwi_subxt::ext::pezkuwi_subxt_core::constants::address::StaticAddress<
@@ -31017,9 +31017,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_parachains::configuration::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_parachains::configuration::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_parachains::configuration::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_parachains::configuration::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -31884,7 +31884,7 @@ pub mod api {
                 pub mod set_async_backing_params {
                     use super::runtime_types;
                     pub type New =
-                        runtime_types::polkadot_primitives::v9::async_backing::AsyncBackingParams;
+                        runtime_types::pezkuwi_primitives::v9::async_backing::AsyncBackingParams;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SetAsyncBackingParams {
                     const PALLET: &'static str = "Configuration";
@@ -31908,7 +31908,7 @@ pub mod api {
                 pub mod set_executor_params {
                     use super::runtime_types;
                     pub type New =
-                        runtime_types::polkadot_primitives::v9::executor_params::ExecutorParams;
+                        runtime_types::pezkuwi_primitives::v9::executor_params::ExecutorParams;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SetExecutorParams {
                     const PALLET: &'static str = "Configuration";
@@ -32071,7 +32071,7 @@ pub mod api {
                 }
                 pub mod set_approval_voting_params {
                     use super::runtime_types;
-                    pub type New = runtime_types::polkadot_primitives::v9::ApprovalVotingParams;
+                    pub type New = runtime_types::pezkuwi_primitives::v9::ApprovalVotingParams;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SetApprovalVotingParams {
                     const PALLET: &'static str = "Configuration";
@@ -32094,7 +32094,7 @@ pub mod api {
                 }
                 pub mod set_scheduler_params {
                     use super::runtime_types;
-                    pub type New = runtime_types::polkadot_primitives::v9::SchedulerParams<
+                    pub type New = runtime_types::pezkuwi_primitives::v9::SchedulerParams<
                         ::core::primitive::u32,
                     >;
                 }
@@ -33028,7 +33028,7 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_runtime_parachains :: configuration :: HostConfiguration < :: core :: primitive :: u32 > ;
+                    pub type Output = runtime_types :: pezkuwi_runtime_parachains :: configuration :: HostConfiguration < :: core :: primitive :: u32 > ;
                 }
             }
             pub mod pending_configs {
@@ -33036,7 +33036,7 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < (:: core :: primitive :: u32 , runtime_types :: polkadot_runtime_parachains :: configuration :: HostConfiguration < :: core :: primitive :: u32 > ,) > ;
+                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < (:: core :: primitive :: u32 , runtime_types :: pezkuwi_runtime_parachains :: configuration :: HostConfiguration < :: core :: primitive :: u32 > ,) > ;
                 }
             }
             pub mod bypass_consistency_check {
@@ -33053,7 +33053,7 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_parachains::shared::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_parachains::shared::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -33159,7 +33159,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::ValidatorIndex,
+                        runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
                     >;
                 }
             }
@@ -33169,7 +33169,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::validator_app::Public,
+                        runtime_types::pezkuwi_primitives::v9::validator_app::Public,
                     >;
                 }
             }
@@ -33178,7 +33178,7 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_runtime_parachains :: shared :: AllowedRelayParentsTracker < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , :: core :: primitive :: u32 > ;
+                    pub type Output = runtime_types :: pezkuwi_runtime_parachains :: shared :: AllowedRelayParentsTracker < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , :: core :: primitive :: u32 > ;
                 }
             }
         }
@@ -33187,9 +33187,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_parachains::inclusion::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_parachains::inclusion::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_parachains::inclusion::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_parachains::inclusion::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -33201,7 +33201,7 @@ pub mod api {
             impl TransactionApi {}
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_parachains::inclusion::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_parachains::inclusion::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -33220,13 +33220,13 @@ pub mod api {
             );
             pub mod candidate_backed {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_primitives::v9::CandidateReceiptV2<
+                pub type Field0 = runtime_types::pezkuwi_primitives::v9::CandidateReceiptV2<
                     ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                 >;
                 pub type Field1 =
-                    runtime_types::polkadot_parachain_primitives::primitives::HeadData;
-                pub type Field2 = runtime_types::polkadot_primitives::v9::CoreIndex;
-                pub type Field3 = runtime_types::polkadot_primitives::v9::GroupIndex;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::HeadData;
+                pub type Field2 = runtime_types::pezkuwi_primitives::v9::CoreIndex;
+                pub type Field3 = runtime_types::pezkuwi_primitives::v9::GroupIndex;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for CandidateBacked {
                 const PALLET: &'static str = "ParaInclusion";
@@ -33248,13 +33248,13 @@ pub mod api {
             );
             pub mod candidate_included {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_primitives::v9::CandidateReceiptV2<
+                pub type Field0 = runtime_types::pezkuwi_primitives::v9::CandidateReceiptV2<
                     ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                 >;
                 pub type Field1 =
-                    runtime_types::polkadot_parachain_primitives::primitives::HeadData;
-                pub type Field2 = runtime_types::polkadot_primitives::v9::CoreIndex;
-                pub type Field3 = runtime_types::polkadot_primitives::v9::GroupIndex;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::HeadData;
+                pub type Field2 = runtime_types::pezkuwi_primitives::v9::CoreIndex;
+                pub type Field3 = runtime_types::pezkuwi_primitives::v9::GroupIndex;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for CandidateIncluded {
                 const PALLET: &'static str = "ParaInclusion";
@@ -33275,12 +33275,12 @@ pub mod api {
             );
             pub mod candidate_timed_out {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_primitives::v9::CandidateReceiptV2<
+                pub type Field0 = runtime_types::pezkuwi_primitives::v9::CandidateReceiptV2<
                     ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                 >;
                 pub type Field1 =
-                    runtime_types::polkadot_parachain_primitives::primitives::HeadData;
-                pub type Field2 = runtime_types::polkadot_primitives::v9::CoreIndex;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::HeadData;
+                pub type Field2 = runtime_types::pezkuwi_primitives::v9::CoreIndex;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for CandidateTimedOut {
                 const PALLET: &'static str = "ParaInclusion";
@@ -33300,7 +33300,7 @@ pub mod api {
             }
             pub mod upward_messages_received {
                 use super::runtime_types;
-                pub type From = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type From = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Count = ::core::primitive::u32;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for UpwardMessagesReceived {
@@ -33339,10 +33339,10 @@ pub mod api {
             pub mod v1 {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: polkadot_runtime_parachains :: inclusion :: CandidatePendingAvailability < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , :: core :: primitive :: u32 > > ;
+                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: pezkuwi_runtime_parachains :: inclusion :: CandidatePendingAvailability < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , :: core :: primitive :: u32 > > ;
                 }
             }
         }
@@ -33351,9 +33351,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_parachains::paras_inherent::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_parachains::paras_inherent::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_parachains::paras_inherent::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_parachains::paras_inherent::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -33377,7 +33377,7 @@ pub mod api {
                 }
                 pub mod enter {
                     use super::runtime_types;
-                    pub type Data = runtime_types::polkadot_primitives::v9::InherentData<
+                    pub type Data = runtime_types::pezkuwi_primitives::v9::InherentData<
                         runtime_types::sp_runtime::generic::header::Header<::core::primitive::u32>,
                     >;
                 }
@@ -33467,7 +33467,7 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_primitives::v9::ScrapedOnChainVotes<
+                    pub type Output = runtime_types::pezkuwi_primitives::v9::ScrapedOnChainVotes<
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                     >;
                 }
@@ -33483,7 +33483,7 @@ pub mod api {
             pub struct StorageApi;
             impl StorageApi {
                 #[doc = " All the validator groups. One for each core. Indices are into `ActiveValidators` - not the"]
-                #[doc = " broader set of Polkadot validators, but instead just the subset used for parachains during"]
+                #[doc = " broader set of Pezkuwi validators, but instead just the subset used for parachains during"]
                 #[doc = " this session."]
                 #[doc = ""]
                 #[doc = " Bound: The number of cores is the sum of the numbers of parachains and parathread"]
@@ -33558,7 +33558,7 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                            runtime_types::polkadot_primitives::v9::ValidatorIndex,
+                            runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
                         >,
                     >;
                 }
@@ -33576,7 +33576,7 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: utils :: KeyedVec < runtime_types :: polkadot_primitives :: v9 :: CoreIndex , :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: polkadot_runtime_parachains :: scheduler :: common :: Assignment > > ;
+                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: utils :: KeyedVec < runtime_types :: pezkuwi_primitives :: v9 :: CoreIndex , :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: pezkuwi_runtime_parachains :: scheduler :: common :: Assignment > > ;
                 }
             }
         }
@@ -33585,9 +33585,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_parachains::paras::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_parachains::paras::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_parachains::paras::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_parachains::paras::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -33612,9 +33612,9 @@ pub mod api {
                 }
                 pub mod force_set_current_code {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type NewCode =
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ForceSetCurrentCode {
                     const PALLET: &'static str = "Paras";
@@ -33638,9 +33638,9 @@ pub mod api {
                 }
                 pub mod force_set_current_head {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type NewHead =
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ForceSetCurrentHead {
                     const PALLET: &'static str = "Paras";
@@ -33665,9 +33665,9 @@ pub mod api {
                 }
                 pub mod force_schedule_code_upgrade {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type NewCode =
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode;
                     pub type RelayParentNumber = ::core::primitive::u32;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ForceScheduleCodeUpgrade {
@@ -33692,9 +33692,9 @@ pub mod api {
                 }
                 pub mod force_note_new_head {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type NewHead =
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ForceNoteNewHead {
                     const PALLET: &'static str = "Paras";
@@ -33719,7 +33719,7 @@ pub mod api {
                 }
                 pub mod force_queue_action {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ForceQueueAction {
                     const PALLET: &'static str = "Paras";
@@ -33756,7 +33756,7 @@ pub mod api {
                 pub mod add_trusted_validation_code {
                     use super::runtime_types;
                     pub type ValidationCode =
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for AddTrustedValidationCode {
                     const PALLET: &'static str = "Paras";
@@ -33783,7 +33783,7 @@ pub mod api {
                 }
                 pub mod poke_unused_validation_code {
                     use super::runtime_types;
-                    pub type ValidationCodeHash = runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash ;
+                    pub type ValidationCodeHash = runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash ;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for PokeUnusedValidationCode {
                     const PALLET: &'static str = "Paras";
@@ -33808,9 +33808,9 @@ pub mod api {
                 }
                 pub mod include_pvf_check_statement {
                     use super::runtime_types;
-                    pub type Stmt = runtime_types::polkadot_primitives::v9::PvfCheckStatement;
+                    pub type Stmt = runtime_types::pezkuwi_primitives::v9::PvfCheckStatement;
                     pub type Signature =
-                        runtime_types::polkadot_primitives::v9::validator_app::Signature;
+                        runtime_types::pezkuwi_primitives::v9::validator_app::Signature;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for IncludePvfCheckStatement {
                     const PALLET: &'static str = "Paras";
@@ -33834,7 +33834,7 @@ pub mod api {
                 }
                 pub mod force_set_most_recent_context {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Context = ::core::primitive::u32;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ForceSetMostRecentContext {
@@ -33861,7 +33861,7 @@ pub mod api {
                 }
                 pub mod remove_upgrade_cooldown {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for RemoveUpgradeCooldown {
                     const PALLET: &'static str = "Paras";
@@ -33896,8 +33896,8 @@ pub mod api {
                 }
                 pub mod authorize_force_set_current_code_hash {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
-                    pub type NewCodeHash = runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash ;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
+                    pub type NewCodeHash = runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash ;
                     pub type ValidPeriod = ::core::primitive::u32;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for AuthorizeForceSetCurrentCodeHash {
@@ -33923,9 +33923,9 @@ pub mod api {
                 }
                 pub mod apply_authorized_force_set_current_code {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type NewCode =
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ApplyAuthorizedForceSetCurrentCode {
                     const PALLET: &'static str = "Paras";
@@ -34208,7 +34208,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_parachains::paras::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_parachains::paras::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -34222,7 +34222,7 @@ pub mod api {
             pub struct CurrentCodeUpdated(pub current_code_updated::Field0);
             pub mod current_code_updated {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Field0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for CurrentCodeUpdated {
                 const PALLET: &'static str = "Paras";
@@ -34239,7 +34239,7 @@ pub mod api {
             pub struct CurrentHeadUpdated(pub current_head_updated::Field0);
             pub mod current_head_updated {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Field0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for CurrentHeadUpdated {
                 const PALLET: &'static str = "Paras";
@@ -34256,7 +34256,7 @@ pub mod api {
             pub struct CodeUpgradeScheduled(pub code_upgrade_scheduled::Field0);
             pub mod code_upgrade_scheduled {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Field0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for CodeUpgradeScheduled {
                 const PALLET: &'static str = "Paras";
@@ -34273,7 +34273,7 @@ pub mod api {
             pub struct NewHeadNoted(pub new_head_noted::Field0);
             pub mod new_head_noted {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Field0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for NewHeadNoted {
                 const PALLET: &'static str = "Paras";
@@ -34290,7 +34290,7 @@ pub mod api {
             pub struct ActionQueued(pub action_queued::Field0, pub action_queued::Field1);
             pub mod action_queued {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Field0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Field1 = ::core::primitive::u32;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for ActionQueued {
@@ -34313,8 +34313,8 @@ pub mod api {
             pub mod pvf_check_started {
                 use super::runtime_types;
                 pub type Field0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::ValidationCodeHash;
-                pub type Field1 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCodeHash;
+                pub type Field1 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for PvfCheckStarted {
                 const PALLET: &'static str = "Paras";
@@ -34336,8 +34336,8 @@ pub mod api {
             pub mod pvf_check_accepted {
                 use super::runtime_types;
                 pub type Field0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::ValidationCodeHash;
-                pub type Field1 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCodeHash;
+                pub type Field1 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for PvfCheckAccepted {
                 const PALLET: &'static str = "Paras";
@@ -34359,8 +34359,8 @@ pub mod api {
             pub mod pvf_check_rejected {
                 use super::runtime_types;
                 pub type Field0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::ValidationCodeHash;
-                pub type Field1 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCodeHash;
+                pub type Field1 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for PvfCheckRejected {
                 const PALLET: &'static str = "Paras";
@@ -34379,7 +34379,7 @@ pub mod api {
             }
             pub mod upgrade_cooldown_removed {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for UpgradeCooldownRemoved {
                 const PALLET: &'static str = "Paras";
@@ -34400,9 +34400,9 @@ pub mod api {
             }
             pub mod code_authorized {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type CodeHash =
-                    runtime_types::polkadot_parachain_primitives::primitives::ValidationCodeHash;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCodeHash;
                 pub type ExpireAt = ::core::primitive::u32;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for CodeAuthorized {
@@ -34890,11 +34890,11 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::ValidationCodeHash;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCodeHash;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_runtime_parachains::paras::PvfCheckActiveVoteState<
+                        runtime_types::pezkuwi_runtime_parachains::paras::PvfCheckActiveVoteState<
                             ::core::primitive::u32,
                         >;
                 }
@@ -34904,7 +34904,7 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash > ;
+                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash > ;
                 }
             }
             pub mod parachains {
@@ -34913,34 +34913,34 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                     >;
                 }
             }
             pub mod para_lifecycles {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_runtime_parachains::paras::ParaLifecycle;
+                        runtime_types::pezkuwi_runtime_parachains::paras::ParaLifecycle;
                 }
             }
             pub mod heads {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData;
                 }
             }
             pub mod most_recent_context {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::primitive::u32;
@@ -34949,32 +34949,32 @@ pub mod api {
             pub mod current_code_hash {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash ;
+                    pub type Output = runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash ;
                 }
             }
             pub mod past_code_hash {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 = (
-                    runtime_types::polkadot_parachain_primitives::primitives::Id,
+                    runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                     ::core::primitive::u32,
                 );
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash ;
+                    pub type Output = runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash ;
                 }
             }
             pub mod past_code_meta {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_runtime_parachains::paras::ParaPastCodeMeta<
+                        runtime_types::pezkuwi_runtime_parachains::paras::ParaPastCodeMeta<
                             ::core::primitive::u32,
                         >;
                 }
@@ -34985,7 +34985,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         ::core::primitive::u32,
                     )>;
                 }
@@ -34993,7 +34993,7 @@ pub mod api {
             pub mod future_code_upgrades {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::primitive::u32;
@@ -35005,7 +35005,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         ::core::primitive::u32,
                     )>;
                 }
@@ -35013,37 +35013,37 @@ pub mod api {
             pub mod future_code_hash {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash ;
+                    pub type Output = runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash ;
                 }
             }
             pub mod authorized_code_hash {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_runtime_parachains :: paras :: AuthorizedCodeHashAndExpiry < :: core :: primitive :: u32 > ;
+                    pub type Output = runtime_types :: pezkuwi_runtime_parachains :: paras :: AuthorizedCodeHashAndExpiry < :: core :: primitive :: u32 > ;
                 }
             }
             pub mod upgrade_go_ahead_signal {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_primitives::v9::UpgradeGoAhead;
+                    pub type Output = runtime_types::pezkuwi_primitives::v9::UpgradeGoAhead;
                 }
             }
             pub mod upgrade_restriction_signal {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_primitives::v9::UpgradeRestriction;
+                    pub type Output = runtime_types::pezkuwi_primitives::v9::UpgradeRestriction;
                 }
             }
             pub mod upgrade_cooldowns {
@@ -35052,7 +35052,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         ::core::primitive::u32,
                     )>;
                 }
@@ -35063,7 +35063,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         ::core::primitive::u32,
                     )>;
                 }
@@ -35075,25 +35075,25 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                     >;
                 }
             }
             pub mod upcoming_paras_genesis {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_runtime_parachains::paras::ParaGenesisArgs;
+                        runtime_types::pezkuwi_runtime_parachains::paras::ParaGenesisArgs;
                 }
             }
             pub mod code_by_hash_refs {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::ValidationCodeHash;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCodeHash;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::primitive::u32;
@@ -35103,11 +35103,11 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::ValidationCodeHash;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCodeHash;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode;
                 }
             }
         }
@@ -35138,7 +35138,7 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_parachains::initializer::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_parachains::initializer::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -35264,7 +35264,7 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: polkadot_runtime_parachains :: initializer :: BufferedSessionChange > ;
+                    pub type Output = :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: pezkuwi_runtime_parachains :: initializer :: BufferedSessionChange > ;
                 }
             }
         }
@@ -35342,11 +35342,11 @@ pub mod api {
             pub mod downward_message_queues {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_core_primitives::InboundDownwardMessage<
+                        runtime_types::pezkuwi_core_primitives::InboundDownwardMessage<
                             ::core::primitive::u32,
                         >,
                     >;
@@ -35355,7 +35355,7 @@ pub mod api {
             pub mod downward_message_queue_heads {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256;
@@ -35364,7 +35364,7 @@ pub mod api {
             pub mod delivery_fee_factor {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = runtime_types::sp_arithmetic::fixed_point::FixedU128;
@@ -35376,9 +35376,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_parachains::hrmp::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_parachains::hrmp::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_parachains::hrmp::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_parachains::hrmp::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -35414,7 +35414,7 @@ pub mod api {
                 pub mod hrmp_init_open_channel {
                     use super::runtime_types;
                     pub type Recipient =
-                        runtime_types::polkadot_parachain_primitives::primitives::Id;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type ProposedMaxCapacity = ::core::primitive::u32;
                     pub type ProposedMaxMessageSize = ::core::primitive::u32;
                 }
@@ -35441,7 +35441,7 @@ pub mod api {
                 }
                 pub mod hrmp_accept_open_channel {
                     use super::runtime_types;
-                    pub type Sender = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Sender = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for HrmpAcceptOpenChannel {
                     const PALLET: &'static str = "Hrmp";
@@ -35468,7 +35468,7 @@ pub mod api {
                 pub mod hrmp_close_channel {
                     use super::runtime_types;
                     pub type ChannelId =
-                        runtime_types::polkadot_parachain_primitives::primitives::HrmpChannelId;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HrmpChannelId;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for HrmpCloseChannel {
                     const PALLET: &'static str = "Hrmp";
@@ -35499,7 +35499,7 @@ pub mod api {
                 }
                 pub mod force_clean_hrmp {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type NumInbound = ::core::primitive::u32;
                     pub type NumOutbound = ::core::primitive::u32;
                 }
@@ -35593,7 +35593,7 @@ pub mod api {
                 pub mod hrmp_cancel_open_request {
                     use super::runtime_types;
                     pub type ChannelId =
-                        runtime_types::polkadot_parachain_primitives::primitives::HrmpChannelId;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HrmpChannelId;
                     pub type OpenRequests = ::core::primitive::u32;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for HrmpCancelOpenRequest {
@@ -35627,9 +35627,9 @@ pub mod api {
                 }
                 pub mod force_open_hrmp_channel {
                     use super::runtime_types;
-                    pub type Sender = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Sender = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Recipient =
-                        runtime_types::polkadot_parachain_primitives::primitives::Id;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type MaxCapacity = ::core::primitive::u32;
                     pub type MaxMessageSize = ::core::primitive::u32;
                 }
@@ -35666,9 +35666,9 @@ pub mod api {
                 }
                 pub mod establish_system_channel {
                     use super::runtime_types;
-                    pub type Sender = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Sender = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Recipient =
-                        runtime_types::polkadot_parachain_primitives::primitives::Id;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for EstablishSystemChannel {
                     const PALLET: &'static str = "Hrmp";
@@ -35700,9 +35700,9 @@ pub mod api {
                 }
                 pub mod poke_channel_deposits {
                     use super::runtime_types;
-                    pub type Sender = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Sender = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Recipient =
-                        runtime_types::polkadot_parachain_primitives::primitives::Id;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for PokeChannelDeposits {
                     const PALLET: &'static str = "Hrmp";
@@ -35732,7 +35732,7 @@ pub mod api {
                 pub mod establish_channel_with_system {
                     use super::runtime_types;
                     pub type TargetSystemChain =
-                        runtime_types::polkadot_parachain_primitives::primitives::Id;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for EstablishChannelWithSystem {
                     const PALLET: &'static str = "Hrmp";
@@ -36041,7 +36041,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_parachains::hrmp::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_parachains::hrmp::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -36060,8 +36060,8 @@ pub mod api {
             }
             pub mod open_channel_requested {
                 use super::runtime_types;
-                pub type Sender = runtime_types::polkadot_parachain_primitives::primitives::Id;
-                pub type Recipient = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Sender = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
+                pub type Recipient = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type ProposedMaxCapacity = ::core::primitive::u32;
                 pub type ProposedMaxMessageSize = ::core::primitive::u32;
             }
@@ -36083,9 +36083,9 @@ pub mod api {
             }
             pub mod open_channel_canceled {
                 use super::runtime_types;
-                pub type ByParachain = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ByParachain = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type ChannelId =
-                    runtime_types::polkadot_parachain_primitives::primitives::HrmpChannelId;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::HrmpChannelId;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for OpenChannelCanceled {
                 const PALLET: &'static str = "Hrmp";
@@ -36105,8 +36105,8 @@ pub mod api {
             }
             pub mod open_channel_accepted {
                 use super::runtime_types;
-                pub type Sender = runtime_types::polkadot_parachain_primitives::primitives::Id;
-                pub type Recipient = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Sender = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
+                pub type Recipient = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for OpenChannelAccepted {
                 const PALLET: &'static str = "Hrmp";
@@ -36126,9 +36126,9 @@ pub mod api {
             }
             pub mod channel_closed {
                 use super::runtime_types;
-                pub type ByParachain = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ByParachain = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type ChannelId =
-                    runtime_types::polkadot_parachain_primitives::primitives::HrmpChannelId;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::HrmpChannelId;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for ChannelClosed {
                 const PALLET: &'static str = "Hrmp";
@@ -36150,8 +36150,8 @@ pub mod api {
             }
             pub mod hrmp_channel_force_opened {
                 use super::runtime_types;
-                pub type Sender = runtime_types::polkadot_parachain_primitives::primitives::Id;
-                pub type Recipient = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Sender = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
+                pub type Recipient = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type ProposedMaxCapacity = ::core::primitive::u32;
                 pub type ProposedMaxMessageSize = ::core::primitive::u32;
             }
@@ -36175,8 +36175,8 @@ pub mod api {
             }
             pub mod hrmp_system_channel_opened {
                 use super::runtime_types;
-                pub type Sender = runtime_types::polkadot_parachain_primitives::primitives::Id;
-                pub type Recipient = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Sender = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
+                pub type Recipient = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type ProposedMaxCapacity = ::core::primitive::u32;
                 pub type ProposedMaxMessageSize = ::core::primitive::u32;
             }
@@ -36198,8 +36198,8 @@ pub mod api {
             }
             pub mod open_channel_deposits_updated {
                 use super::runtime_types;
-                pub type Sender = runtime_types::polkadot_parachain_primitives::primitives::Id;
-                pub type Recipient = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Sender = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
+                pub type Recipient = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for OpenChannelDepositsUpdated {
                 const PALLET: &'static str = "Hrmp";
@@ -36472,11 +36472,11 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::HrmpChannelId;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::HrmpChannelId;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_runtime_parachains::hrmp::HrmpOpenChannelRequest;
+                        runtime_types::pezkuwi_runtime_parachains::hrmp::HrmpOpenChannelRequest;
                 }
             }
             pub mod hrmp_open_channel_requests_list {
@@ -36485,14 +36485,14 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_parachain_primitives::primitives::HrmpChannelId,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HrmpChannelId,
                     >;
                 }
             }
             pub mod hrmp_open_channel_request_count {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::primitive::u32;
@@ -36501,7 +36501,7 @@ pub mod api {
             pub mod hrmp_accepted_channel_request_count {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::primitive::u32;
@@ -36511,7 +36511,7 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::HrmpChannelId;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::HrmpChannelId;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ();
@@ -36523,14 +36523,14 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_parachain_primitives::primitives::HrmpChannelId,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HrmpChannelId,
                     >;
                 }
             }
             pub mod hrmp_watermarks {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::primitive::u32;
@@ -36540,31 +36540,31 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::HrmpChannelId;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::HrmpChannelId;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_runtime_parachains::hrmp::HrmpChannel;
+                    pub type Output = runtime_types::pezkuwi_runtime_parachains::hrmp::HrmpChannel;
                 }
             }
             pub mod hrmp_ingress_channels_index {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                     >;
                 }
             }
             pub mod hrmp_egress_channels_index {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                     >;
                 }
             }
@@ -36572,11 +36572,11 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 =
-                    runtime_types::polkadot_parachain_primitives::primitives::HrmpChannelId;
+                    runtime_types::pezkuwi_parachain_primitives::primitives::HrmpChannelId;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_core_primitives::InboundHrmpMessage<
+                        runtime_types::pezkuwi_core_primitives::InboundHrmpMessage<
                             ::core::primitive::u32,
                         >,
                     >;
@@ -36585,13 +36585,13 @@ pub mod api {
             pub mod hrmp_channel_digests {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
                         ::core::primitive::u32,
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                            runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         >,
                     )>;
                 }
@@ -36712,7 +36712,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::assignment_app::Public,
+                        runtime_types::pezkuwi_primitives::v9::assignment_app::Public,
                     >;
                 }
             }
@@ -36730,7 +36730,7 @@ pub mod api {
                 pub type Param0 = ::core::primitive::u32;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_primitives::v9::SessionInfo;
+                    pub type Output = runtime_types::pezkuwi_primitives::v9::SessionInfo;
                 }
             }
             pub mod account_keys {
@@ -36751,7 +36751,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_primitives::v9::executor_params::ExecutorParams;
+                        runtime_types::pezkuwi_primitives::v9::executor_params::ExecutorParams;
                 }
             }
         }
@@ -36760,9 +36760,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_parachains::disputes::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_parachains::disputes::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_parachains::disputes::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_parachains::disputes::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -36806,7 +36806,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_parachains::disputes::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_parachains::disputes::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -36823,9 +36823,9 @@ pub mod api {
             );
             pub mod dispute_initiated {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_core_primitives::CandidateHash;
+                pub type Field0 = runtime_types::pezkuwi_core_primitives::CandidateHash;
                 pub type Field1 =
-                    runtime_types::polkadot_runtime_parachains::disputes::DisputeLocation;
+                    runtime_types::pezkuwi_runtime_parachains::disputes::DisputeLocation;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for DisputeInitiated {
                 const PALLET: &'static str = "ParasDisputes";
@@ -36846,9 +36846,9 @@ pub mod api {
             );
             pub mod dispute_concluded {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_core_primitives::CandidateHash;
+                pub type Field0 = runtime_types::pezkuwi_core_primitives::CandidateHash;
                 pub type Field1 =
-                    runtime_types::polkadot_runtime_parachains::disputes::DisputeResult;
+                    runtime_types::pezkuwi_runtime_parachains::disputes::DisputeResult;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for DisputeConcluded {
                 const PALLET: &'static str = "ParasDisputes";
@@ -36993,10 +36993,10 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 = ::core::primitive::u32;
-                pub type Param1 = runtime_types::polkadot_core_primitives::CandidateHash;
+                pub type Param1 = runtime_types::pezkuwi_core_primitives::CandidateHash;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_primitives::v9::DisputeState<
+                    pub type Output = runtime_types::pezkuwi_primitives::v9::DisputeState<
                         ::core::primitive::u32,
                     >;
                 }
@@ -37005,11 +37005,11 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 = ::core::primitive::u32;
-                pub type Param1 = runtime_types::polkadot_core_primitives::CandidateHash;
+                pub type Param1 = runtime_types::pezkuwi_core_primitives::CandidateHash;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::ValidatorIndex,
+                        runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
                     >;
                 }
             }
@@ -37017,7 +37017,7 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 = ::core::primitive::u32;
-                pub type Param1 = runtime_types::polkadot_core_primitives::CandidateHash;
+                pub type Param1 = runtime_types::pezkuwi_core_primitives::CandidateHash;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::core::primitive::u32;
@@ -37038,10 +37038,10 @@ pub mod api {
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
         pub type Error =
-            runtime_types::polkadot_runtime_parachains::disputes::slashing::pallet::Error;
+            runtime_types::pezkuwi_runtime_parachains::disputes::slashing::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
         pub type Call =
-            runtime_types::polkadot_runtime_parachains::disputes::slashing::pallet::Call;
+            runtime_types::pezkuwi_runtime_parachains::disputes::slashing::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -37068,7 +37068,7 @@ pub mod api {
                 pub mod report_dispute_lost_unsigned {
                     use super::runtime_types;
                     pub type DisputeProof =
-                        runtime_types::polkadot_primitives::v9::slashing::DisputeProof;
+                        runtime_types::pezkuwi_primitives::v9::slashing::DisputeProof;
                     pub type KeyOwnerProof = runtime_types::sp_session::MembershipProof;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ReportDisputeLostUnsigned {
@@ -37149,11 +37149,11 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 = ::core::primitive::u32;
-                pub type Param1 = runtime_types::polkadot_core_primitives::CandidateHash;
+                pub type Param1 = runtime_types::pezkuwi_core_primitives::CandidateHash;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_primitives::v9::slashing::PendingSlashes;
+                        runtime_types::pezkuwi_primitives::v9::slashing::PendingSlashes;
                 }
             }
             pub mod validator_set_counts {
@@ -37198,7 +37198,7 @@ pub mod api {
                 }
                 pub mod reap_page {
                     use super::runtime_types;
-                    pub type MessageOrigin = runtime_types :: polkadot_runtime_parachains :: inclusion :: AggregateMessageOrigin ;
+                    pub type MessageOrigin = runtime_types :: pezkuwi_runtime_parachains :: inclusion :: AggregateMessageOrigin ;
                     pub type PageIndex = ::core::primitive::u32;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ReapPage {
@@ -37237,7 +37237,7 @@ pub mod api {
                 }
                 pub mod execute_overweight {
                     use super::runtime_types;
-                    pub type MessageOrigin = runtime_types :: polkadot_runtime_parachains :: inclusion :: AggregateMessageOrigin ;
+                    pub type MessageOrigin = runtime_types :: pezkuwi_runtime_parachains :: inclusion :: AggregateMessageOrigin ;
                     pub type Page = ::core::primitive::u32;
                     pub type Index = ::core::primitive::u32;
                     pub type WeightLimit = runtime_types::sp_weights::weight_v2::Weight;
@@ -37331,7 +37331,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Id = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256;
                 pub type Origin =
-                    runtime_types::polkadot_runtime_parachains::inclusion::AggregateMessageOrigin;
+                    runtime_types::pezkuwi_runtime_parachains::inclusion::AggregateMessageOrigin;
                 pub type Error =
                     runtime_types::frame_support::traits::messages::ProcessMessageError;
             }
@@ -37357,7 +37357,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Id = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256;
                 pub type Origin =
-                    runtime_types::polkadot_runtime_parachains::inclusion::AggregateMessageOrigin;
+                    runtime_types::pezkuwi_runtime_parachains::inclusion::AggregateMessageOrigin;
                 pub type WeightUsed = runtime_types::sp_weights::weight_v2::Weight;
                 pub type Success = ::core::primitive::bool;
             }
@@ -37383,7 +37383,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Id = [::core::primitive::u8; 32usize];
                 pub type Origin =
-                    runtime_types::polkadot_runtime_parachains::inclusion::AggregateMessageOrigin;
+                    runtime_types::pezkuwi_runtime_parachains::inclusion::AggregateMessageOrigin;
                 pub type PageIndex = ::core::primitive::u32;
                 pub type MessageIndex = ::core::primitive::u32;
             }
@@ -37406,7 +37406,7 @@ pub mod api {
             pub mod page_reaped {
                 use super::runtime_types;
                 pub type Origin =
-                    runtime_types::polkadot_runtime_parachains::inclusion::AggregateMessageOrigin;
+                    runtime_types::pezkuwi_runtime_parachains::inclusion::AggregateMessageOrigin;
                 pub type Index = ::core::primitive::u32;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for PageReaped {
@@ -37479,10 +37479,10 @@ pub mod api {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 =
-                    runtime_types::polkadot_runtime_parachains::inclusion::AggregateMessageOrigin;
+                    runtime_types::pezkuwi_runtime_parachains::inclusion::AggregateMessageOrigin;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: pallet_message_queue :: BookState < runtime_types :: polkadot_runtime_parachains :: inclusion :: AggregateMessageOrigin > ;
+                    pub type Output = runtime_types :: pallet_message_queue :: BookState < runtime_types :: pezkuwi_runtime_parachains :: inclusion :: AggregateMessageOrigin > ;
                 }
             }
             pub mod service_head {
@@ -37490,14 +37490,14 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_runtime_parachains :: inclusion :: AggregateMessageOrigin ;
+                    pub type Output = runtime_types :: pezkuwi_runtime_parachains :: inclusion :: AggregateMessageOrigin ;
                 }
             }
             pub mod pages {
                 use super::root_mod;
                 use super::runtime_types;
                 pub type Param0 =
-                    runtime_types::polkadot_runtime_parachains::inclusion::AggregateMessageOrigin;
+                    runtime_types::pezkuwi_runtime_parachains::inclusion::AggregateMessageOrigin;
                 pub type Param1 = ::core::primitive::u32;
                 pub mod output {
                     use super::runtime_types;
@@ -37598,9 +37598,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_parachains::on_demand::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_parachains::on_demand::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_parachains::on_demand::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_parachains::on_demand::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -37640,7 +37640,7 @@ pub mod api {
                 pub mod place_order_allow_death {
                     use super::runtime_types;
                     pub type MaxAmount = ::core::primitive::u128;
-                    pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for PlaceOrderAllowDeath {
                     const PALLET: &'static str = "OnDemandAssignmentProvider";
@@ -37679,7 +37679,7 @@ pub mod api {
                 pub mod place_order_keep_alive {
                     use super::runtime_types;
                     pub type MaxAmount = ::core::primitive::u128;
-                    pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for PlaceOrderKeepAlive {
                     const PALLET: &'static str = "OnDemandAssignmentProvider";
@@ -37720,7 +37720,7 @@ pub mod api {
                 pub mod place_order_with_credits {
                     use super::runtime_types;
                     pub type MaxAmount = ::core::primitive::u128;
-                    pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for PlaceOrderWithCredits {
                     const PALLET: &'static str = "OnDemandAssignmentProvider";
@@ -37842,7 +37842,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_parachains::on_demand::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_parachains::on_demand::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -37860,7 +37860,7 @@ pub mod api {
             }
             pub mod on_demand_order_placed {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type SpotPrice = ::core::primitive::u128;
                 pub type OrderedBy = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
             }
@@ -38030,10 +38030,10 @@ pub mod api {
             pub mod para_id_affinity {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_runtime_parachains :: on_demand :: types :: CoreAffinityCount ;
+                    pub type Output = runtime_types :: pezkuwi_runtime_parachains :: on_demand :: types :: CoreAffinityCount ;
                 }
             }
             pub mod queue_status {
@@ -38041,7 +38041,7 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_runtime_parachains :: on_demand :: types :: QueueStatusType ;
+                    pub type Output = runtime_types :: pezkuwi_runtime_parachains :: on_demand :: types :: QueueStatusType ;
                 }
             }
             pub mod free_entries {
@@ -38050,18 +38050,18 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_runtime_parachains::on_demand::types::EnqueuedOrder,
+                        runtime_types::pezkuwi_runtime_parachains::on_demand::types::EnqueuedOrder,
                     >;
                 }
             }
             pub mod affinity_entries {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_primitives::v9::CoreIndex;
+                pub type Param0 = runtime_types::pezkuwi_primitives::v9::CoreIndex;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_runtime_parachains::on_demand::types::EnqueuedOrder,
+                        runtime_types::pezkuwi_runtime_parachains::on_demand::types::EnqueuedOrder,
                     >;
                 }
             }
@@ -38148,7 +38148,7 @@ pub mod api {
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
         pub type Error =
-            runtime_types::polkadot_runtime_parachains::assigner_coretime::pallet::Error;
+            runtime_types::pezkuwi_runtime_parachains::assigner_coretime::pallet::Error;
         pub mod storage {
             use super::root_mod;
             use super::runtime_types;
@@ -38203,12 +38203,12 @@ pub mod api {
                 use super::runtime_types;
                 pub type Param0 = (
                     ::core::primitive::u32,
-                    runtime_types::polkadot_primitives::v9::CoreIndex,
+                    runtime_types::pezkuwi_primitives::v9::CoreIndex,
                 );
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_runtime_parachains::assigner_coretime::Schedule<
+                        runtime_types::pezkuwi_runtime_parachains::assigner_coretime::Schedule<
                             ::core::primitive::u32,
                         >;
                 }
@@ -38216,10 +38216,10 @@ pub mod api {
             pub mod core_descriptors {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_primitives::v9::CoreIndex;
+                pub type Param0 = runtime_types::pezkuwi_primitives::v9::CoreIndex;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_runtime_parachains :: assigner_coretime :: CoreDescriptor < :: core :: primitive :: u32 > ;
+                    pub type Output = runtime_types :: pezkuwi_runtime_parachains :: assigner_coretime :: CoreDescriptor < :: core :: primitive :: u32 > ;
                 }
             }
         }
@@ -38228,9 +38228,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_common::paras_registrar::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_common::paras_registrar::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_common::paras_registrar::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_common::paras_registrar::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -38275,11 +38275,11 @@ pub mod api {
                 }
                 pub mod register {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type GenesisHead =
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData;
                     pub type ValidationCode =
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Register {
                     const PALLET: &'static str = "Registrar";
@@ -38313,11 +38313,11 @@ pub mod api {
                     use super::runtime_types;
                     pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                     pub type Deposit = ::core::primitive::u128;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type GenesisHead =
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData;
                     pub type ValidationCode =
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ForceRegister {
                     const PALLET: &'static str = "Registrar";
@@ -38343,7 +38343,7 @@ pub mod api {
                 }
                 pub mod deregister {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Deregister {
                     const PALLET: &'static str = "Registrar";
@@ -38378,8 +38378,8 @@ pub mod api {
                 }
                 pub mod swap {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
-                    pub type Other = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
+                    pub type Other = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Swap {
                     const PALLET: &'static str = "Registrar";
@@ -38405,7 +38405,7 @@ pub mod api {
                 }
                 pub mod remove_lock {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for RemoveLock {
                     const PALLET: &'static str = "Registrar";
@@ -38465,7 +38465,7 @@ pub mod api {
                 }
                 pub mod add_lock {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for AddLock {
                     const PALLET: &'static str = "Registrar";
@@ -38499,9 +38499,9 @@ pub mod api {
                 }
                 pub mod schedule_code_upgrade {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type NewCode =
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ScheduleCodeUpgrade {
                     const PALLET: &'static str = "Registrar";
@@ -38528,9 +38528,9 @@ pub mod api {
                 }
                 pub mod set_current_head {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type NewHead =
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SetCurrentHead {
                     const PALLET: &'static str = "Registrar";
@@ -38791,7 +38791,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_common::paras_registrar::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_common::paras_registrar::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -38807,7 +38807,7 @@ pub mod api {
             }
             pub mod registered {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Manager = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Registered {
@@ -38826,7 +38826,7 @@ pub mod api {
             }
             pub mod deregistered {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Deregistered {
                 const PALLET: &'static str = "Registrar";
@@ -38845,7 +38845,7 @@ pub mod api {
             }
             pub mod reserved {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Reserved {
@@ -38865,8 +38865,8 @@ pub mod api {
             }
             pub mod swapped {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
-                pub type OtherId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
+                pub type OtherId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Swapped {
                 const PALLET: &'static str = "Registrar";
@@ -38941,20 +38941,20 @@ pub mod api {
             pub mod pending_swap {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Output = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
             }
             pub mod paras {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output =
-                        runtime_types::polkadot_runtime_common::paras_registrar::ParaInfo<
+                        runtime_types::pezkuwi_runtime_common::paras_registrar::ParaInfo<
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             ::core::primitive::u128,
                         >;
@@ -38965,7 +38965,7 @@ pub mod api {
                 use super::runtime_types;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Output = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
             }
         }
@@ -39013,9 +39013,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_common::slots::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_common::slots::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_common::slots::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_common::slots::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -39046,7 +39046,7 @@ pub mod api {
                 }
                 pub mod force_lease {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Leaser = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                     pub type Amount = ::core::primitive::u128;
                     pub type PeriodBegin = ::core::primitive::u32;
@@ -39075,7 +39075,7 @@ pub mod api {
                 }
                 pub mod clear_all_leases {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for ClearAllLeases {
                     const PALLET: &'static str = "Slots";
@@ -39104,7 +39104,7 @@ pub mod api {
                 }
                 pub mod trigger_onboard {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for TriggerOnboard {
                     const PALLET: &'static str = "Slots";
@@ -39189,7 +39189,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_common::slots::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_common::slots::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -39231,7 +39231,7 @@ pub mod api {
             }
             pub mod leased {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Leaser = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type PeriodBegin = ::core::primitive::u32;
                 pub type PeriodCount = ::core::primitive::u32;
@@ -39286,7 +39286,7 @@ pub mod api {
             pub mod leases {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
@@ -39343,9 +39343,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_common::auctions::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_common::auctions::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_common::auctions::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_common::auctions::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -39424,7 +39424,7 @@ pub mod api {
                 }
                 pub mod bid {
                     use super::runtime_types;
-                    pub type Para = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Para = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type AuctionIndex = ::core::primitive::u32;
                     pub type FirstSlot = ::core::primitive::u32;
                     pub type LastSlot = ::core::primitive::u32;
@@ -39545,7 +39545,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_common::auctions::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_common::auctions::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -39652,7 +39652,7 @@ pub mod api {
             }
             pub mod reserve_confiscated {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Leaser = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
                 pub type Amount = ::core::primitive::u128;
             }
@@ -39678,7 +39678,7 @@ pub mod api {
             pub mod bid_accepted {
                 use super::runtime_types;
                 pub type Bidder = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Amount = ::core::primitive::u128;
                 pub type FirstSlot = ::core::primitive::u32;
                 pub type LastSlot = ::core::primitive::u32;
@@ -39817,7 +39817,7 @@ pub mod api {
                 use super::runtime_types;
                 pub type Param0 = (
                     ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
-                    runtime_types::polkadot_parachain_primitives::primitives::Id,
+                    runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                 );
                 pub mod output {
                     use super::runtime_types;
@@ -39832,7 +39832,7 @@ pub mod api {
                     use super::runtime_types;
                     pub type Output = [::core::option::Option<(
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         ::core::primitive::u128,
                     )>; 36usize];
                 }
@@ -39917,9 +39917,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_common::crowdloan::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_common::crowdloan::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_common::crowdloan::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_common::crowdloan::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -39957,7 +39957,7 @@ pub mod api {
                 }
                 pub mod create {
                     use super::runtime_types;
-                    pub type Index = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Index = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Cap = ::core::primitive::u128;
                     pub type FirstPeriod = ::core::primitive::u32;
                     pub type LastPeriod = ::core::primitive::u32;
@@ -39991,7 +39991,7 @@ pub mod api {
                 }
                 pub mod contribute {
                     use super::runtime_types;
-                    pub type Index = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Index = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Value = ::core::primitive::u128;
                     pub type Signature =
                         ::core::option::Option<runtime_types::sp_runtime::MultiSignature>;
@@ -40036,7 +40036,7 @@ pub mod api {
                 pub mod withdraw {
                     use super::runtime_types;
                     pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
-                    pub type Index = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Index = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Withdraw {
                     const PALLET: &'static str = "Crowdloan";
@@ -40064,7 +40064,7 @@ pub mod api {
                 }
                 pub mod refund {
                     use super::runtime_types;
-                    pub type Index = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Index = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Refund {
                     const PALLET: &'static str = "Crowdloan";
@@ -40088,7 +40088,7 @@ pub mod api {
                 }
                 pub mod dissolve {
                     use super::runtime_types;
-                    pub type Index = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Index = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Dissolve {
                     const PALLET: &'static str = "Crowdloan";
@@ -40123,7 +40123,7 @@ pub mod api {
                 }
                 pub mod edit {
                     use super::runtime_types;
-                    pub type Index = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Index = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Cap = ::core::primitive::u128;
                     pub type FirstPeriod = ::core::primitive::u32;
                     pub type LastPeriod = ::core::primitive::u32;
@@ -40155,7 +40155,7 @@ pub mod api {
                 }
                 pub mod add_memo {
                     use super::runtime_types;
-                    pub type Index = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Index = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Memo =
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<::core::primitive::u8>;
                 }
@@ -40182,7 +40182,7 @@ pub mod api {
                 }
                 pub mod poke {
                     use super::runtime_types;
-                    pub type Index = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Index = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Poke {
                     const PALLET: &'static str = "Crowdloan";
@@ -40209,7 +40209,7 @@ pub mod api {
                 }
                 pub mod contribute_all {
                     use super::runtime_types;
-                    pub type Index = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Index = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Signature =
                         ::core::option::Option<runtime_types::sp_runtime::MultiSignature>;
                 }
@@ -40447,7 +40447,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_common::crowdloan::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_common::crowdloan::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -40463,7 +40463,7 @@ pub mod api {
             }
             pub mod created {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Created {
                 const PALLET: &'static str = "Crowdloan";
@@ -40485,7 +40485,7 @@ pub mod api {
             pub mod contributed {
                 use super::runtime_types;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
-                pub type FundIndex = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type FundIndex = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Amount = ::core::primitive::u128;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Contributed {
@@ -40508,7 +40508,7 @@ pub mod api {
             pub mod withdrew {
                 use super::runtime_types;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
-                pub type FundIndex = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type FundIndex = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Amount = ::core::primitive::u128;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Withdrew {
@@ -40529,7 +40529,7 @@ pub mod api {
             }
             pub mod partially_refunded {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for PartiallyRefunded {
                 const PALLET: &'static str = "Crowdloan";
@@ -40548,7 +40548,7 @@ pub mod api {
             }
             pub mod all_refunded {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for AllRefunded {
                 const PALLET: &'static str = "Crowdloan";
@@ -40567,7 +40567,7 @@ pub mod api {
             }
             pub mod dissolved {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Dissolved {
                 const PALLET: &'static str = "Crowdloan";
@@ -40587,7 +40587,7 @@ pub mod api {
             }
             pub mod handle_bid_result {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Result =
                     ::core::result::Result<(), runtime_types::sp_runtime::DispatchError>;
             }
@@ -40608,7 +40608,7 @@ pub mod api {
             }
             pub mod edited {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for Edited {
                 const PALLET: &'static str = "Crowdloan";
@@ -40630,7 +40630,7 @@ pub mod api {
             pub mod memo_updated {
                 use super::runtime_types;
                 pub type Who = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub type Memo = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<::core::primitive::u8>;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for MemoUpdated {
@@ -40650,7 +40650,7 @@ pub mod api {
             }
             pub mod added_to_new_raise {
                 use super::runtime_types;
-                pub type ParaId = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type ParaId = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for AddedToNewRaise {
                 const PALLET: &'static str = "Crowdloan";
@@ -40740,10 +40740,10 @@ pub mod api {
             pub mod funds {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types::polkadot_runtime_common::crowdloan::FundInfo<
+                    pub type Output = runtime_types::pezkuwi_runtime_common::crowdloan::FundInfo<
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         ::core::primitive::u128,
                         ::core::primitive::u32,
@@ -40757,7 +40757,7 @@ pub mod api {
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                     >;
                 }
             }
@@ -40840,9 +40840,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_parachains::coretime::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_parachains::coretime::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_parachains::coretime::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_parachains::coretime::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -40959,7 +40959,7 @@ pub mod api {
                     pub type Begin = ::core::primitive::u32;
                     pub type Assignment = ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
                         runtime_types::pallet_broker::coretime_interface::CoreAssignment,
-                        runtime_types::polkadot_runtime_parachains::assigner_coretime::PartsOf57600,
+                        runtime_types::pezkuwi_runtime_parachains::assigner_coretime::PartsOf57600,
                     )>;
                     pub type EndHint = ::core::option::Option<::core::primitive::u32>;
                 }
@@ -41068,7 +41068,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_parachains::coretime::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_parachains::coretime::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -41103,7 +41103,7 @@ pub mod api {
             }
             pub mod core_assigned {
                 use super::runtime_types;
-                pub type Core = runtime_types::polkadot_primitives::v9::CoreIndex;
+                pub type Core = runtime_types::pezkuwi_primitives::v9::CoreIndex;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for CoreAssigned {
                 const PALLET: &'static str = "Coretime";
@@ -45069,7 +45069,7 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_common::identity_migrator::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_common::identity_migrator::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -45168,7 +45168,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_common::identity_migrator::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_common::identity_migrator::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -45220,9 +45220,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_common::paras_sudo_wrapper::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_common::paras_sudo_wrapper::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_common::paras_sudo_wrapper::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_common::paras_sudo_wrapper::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -45251,9 +45251,9 @@ pub mod api {
                 }
                 pub mod sudo_schedule_para_initialize {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Genesis =
-                        runtime_types::polkadot_runtime_parachains::paras::ParaGenesisArgs;
+                        runtime_types::pezkuwi_runtime_parachains::paras::ParaGenesisArgs;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SudoScheduleParaInitialize {
                     const PALLET: &'static str = "ParasSudoWrapper";
@@ -45276,7 +45276,7 @@ pub mod api {
                 }
                 pub mod sudo_schedule_para_cleanup {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SudoScheduleParaCleanup {
                     const PALLET: &'static str = "ParasSudoWrapper";
@@ -45299,7 +45299,7 @@ pub mod api {
                 }
                 pub mod sudo_schedule_parathread_upgrade {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SudoScheduleParathreadUpgrade {
                     const PALLET: &'static str = "ParasSudoWrapper";
@@ -45322,7 +45322,7 @@ pub mod api {
                 }
                 pub mod sudo_schedule_parachain_downgrade {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SudoScheduleParachainDowngrade {
                     const PALLET: &'static str = "ParasSudoWrapper";
@@ -45350,7 +45350,7 @@ pub mod api {
                 }
                 pub mod sudo_queue_downward_xcm {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Xcm = runtime_types::xcm::VersionedXcm;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SudoQueueDownwardXcm {
@@ -45380,9 +45380,9 @@ pub mod api {
                 }
                 pub mod sudo_establish_hrmp_channel {
                     use super::runtime_types;
-                    pub type Sender = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Sender = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type Recipient =
-                        runtime_types::polkadot_parachain_primitives::primitives::Id;
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                     pub type MaxCapacity = ::core::primitive::u32;
                     pub type MaxMessageSize = ::core::primitive::u32;
                 }
@@ -45532,9 +45532,9 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "The `Error` enum of this pallet."]
-        pub type Error = runtime_types::polkadot_runtime_common::assigned_slots::pallet::Error;
+        pub type Error = runtime_types::pezkuwi_runtime_common::assigned_slots::pallet::Error;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::polkadot_runtime_common::assigned_slots::pallet::Call;
+        pub type Call = runtime_types::pezkuwi_runtime_common::assigned_slots::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -45558,7 +45558,7 @@ pub mod api {
                 }
                 pub mod assign_perm_parachain_slot {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for AssignPermParachainSlot {
                     const PALLET: &'static str = "AssignedSlots";
@@ -45584,8 +45584,8 @@ pub mod api {
                 }
                 pub mod assign_temp_parachain_slot {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
-                    pub type LeasePeriodStart = runtime_types :: polkadot_runtime_common :: assigned_slots :: SlotLeasePeriodStart ;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
+                    pub type LeasePeriodStart = runtime_types :: pezkuwi_runtime_common :: assigned_slots :: SlotLeasePeriodStart ;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for AssignTempParachainSlot {
                     const PALLET: &'static str = "AssignedSlots";
@@ -45608,7 +45608,7 @@ pub mod api {
                 }
                 pub mod unassign_parachain_slot {
                     use super::runtime_types;
-                    pub type Id = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                    pub type Id = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for UnassignParachainSlot {
                     const PALLET: &'static str = "AssignedSlots";
@@ -45763,7 +45763,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::polkadot_runtime_common::assigned_slots::pallet::Event;
+        pub type Event = runtime_types::pezkuwi_runtime_common::assigned_slots::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -45777,7 +45777,7 @@ pub mod api {
             pub struct PermanentSlotAssigned(pub permanent_slot_assigned::Field0);
             pub mod permanent_slot_assigned {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Field0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for PermanentSlotAssigned {
                 const PALLET: &'static str = "AssignedSlots";
@@ -45794,7 +45794,7 @@ pub mod api {
             pub struct TemporarySlotAssigned(pub temporary_slot_assigned::Field0);
             pub mod temporary_slot_assigned {
                 use super::runtime_types;
-                pub type Field0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Field0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
             }
             impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::events::StaticEvent for TemporarySlotAssigned {
                 const PALLET: &'static str = "AssignedSlots";
@@ -45978,7 +45978,7 @@ pub mod api {
             pub mod permanent_slots {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
                     pub type Output = (::core::primitive::u32, ::core::primitive::u32);
@@ -45995,10 +45995,10 @@ pub mod api {
             pub mod temporary_slots {
                 use super::root_mod;
                 use super::runtime_types;
-                pub type Param0 = runtime_types::polkadot_parachain_primitives::primitives::Id;
+                pub type Param0 = runtime_types::pezkuwi_parachain_primitives::primitives::Id;
                 pub mod output {
                     use super::runtime_types;
-                    pub type Output = runtime_types :: polkadot_runtime_common :: assigned_slots :: ParachainTemporarySlot < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , :: core :: primitive :: u32 > ;
+                    pub type Output = runtime_types :: pezkuwi_runtime_common :: assigned_slots :: ParachainTemporarySlot < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , :: core :: primitive :: u32 > ;
                 }
             }
             pub mod temporary_slot_count {
@@ -46096,7 +46096,7 @@ pub mod api {
         use super::root_mod;
         use super::runtime_types;
         #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
-        pub type Call = runtime_types::rococo_runtime::validator_manager::pallet::Call;
+        pub type Call = runtime_types::pezkuwichain_runtime::validator_manager::pallet::Call;
         pub mod calls {
             use super::root_mod;
             use super::runtime_types;
@@ -46203,7 +46203,7 @@ pub mod api {
             }
         }
         #[doc = "The `Event` enum of this pallet"]
-        pub type Event = runtime_types::rococo_runtime::validator_manager::pallet::Event;
+        pub type Event = runtime_types::pezkuwichain_runtime::validator_manager::pallet::Event;
         pub mod events {
             use super::runtime_types;
             #[derive(
@@ -46881,7 +46881,7 @@ pub mod api {
                 #[doc = " keys which are then hashed and concatenated, resulting in arbitrarily long keys."]
                 #[doc = ""]
                 #[doc = " Use the *state migration RPC* to retrieve the length of the longest key in your"]
-                #[doc = " storage: <https://github.com/paritytech/substrate/issues/11642>"]
+                #[doc = " storage: <https://github.com/pezkuwichain/bizinikiwi/issues/11642>"]
                 #[doc = ""]
                 #[doc = " The migration will halt with a `Halted` event if this value is too small."]
                 #[doc = " Since there is no real penalty from over-estimating, it is advised to use a large"]
@@ -46893,7 +46893,7 @@ pub mod api {
                 #[doc = " - [`frame_support::storage::StorageDoubleMap`]: 96 byte"]
                 #[doc = ""]
                 #[doc = " For more info see"]
-                #[doc = " <https://www.shawntabrizi.com/blog/substrate/querying-substrate-storage-via-rpc/>"]
+                #[doc = " <https://www.shawntabrizi.com/blog/bizinikiwi/querying-bizinikiwi-storage-via-rpc/>"]
                 pub fn max_key_len(
                     &self,
                 ) -> ::pezkuwi_subxt::ext::pezkuwi_subxt_core::constants::address::StaticAddress<
@@ -47050,7 +47050,7 @@ pub mod api {
                 }
                 pub mod sudo {
                     use super::runtime_types;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for Sudo {
                     const PALLET: &'static str = "Sudo";
@@ -47079,7 +47079,7 @@ pub mod api {
                 }
                 pub mod sudo_unchecked_weight {
                     use super::runtime_types;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                     pub type Weight = runtime_types::sp_weights::weight_v2::Weight;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SudoUncheckedWeight {
@@ -47138,7 +47138,7 @@ pub mod api {
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         (),
                     >;
-                    pub type Call = runtime_types::rococo_runtime::RuntimeCall;
+                    pub type Call = runtime_types::pezkuwichain_runtime::RuntimeCall;
                 }
                 impl ::pezkuwi_subxt::ext::pezkuwi_subxt_core::blocks::StaticExtrinsic for SudoAs {
                     const PALLET: &'static str = "Sudo";
@@ -48271,7 +48271,7 @@ pub mod api {
                     #[doc = "- O(1)"]
                     create {
                         asset_kind: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset,
+                            runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset,
                         >,
                         rate: runtime_types::sp_arithmetic::fixed_point::FixedU128,
                     },
@@ -48282,7 +48282,7 @@ pub mod api {
                     #[doc = "- O(1)"]
                     update {
                         asset_kind: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset,
+                            runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset,
                         >,
                         rate: runtime_types::sp_arithmetic::fixed_point::FixedU128,
                     },
@@ -48293,7 +48293,7 @@ pub mod api {
                     #[doc = "- O(1)"]
                     remove {
                         asset_kind: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset,
+                            runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset,
                         >,
                     },
                 }
@@ -48336,18 +48336,18 @@ pub mod api {
                     #[codec(index = 0)]
                     AssetRateCreated {
                         asset_kind:
-                            runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset,
+                            runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset,
                         rate: runtime_types::sp_arithmetic::fixed_point::FixedU128,
                     },
                     #[codec(index = 1)]
                     AssetRateRemoved {
                         asset_kind:
-                            runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset,
+                            runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset,
                     },
                     #[codec(index = 2)]
                     AssetRateUpdated {
                         asset_kind:
-                            runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset,
+                            runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset,
                         old: runtime_types::sp_arithmetic::fixed_point::FixedU128,
                         new: runtime_types::sp_arithmetic::fixed_point::FixedU128,
                     },
@@ -48795,21 +48795,21 @@ pub mod api {
                     #[codec(index = 24)]
                     #[doc = "Some balance was placed on hold."]
                     Held {
-                        reason: runtime_types::rococo_runtime::RuntimeHoldReason,
+                        reason: runtime_types::pezkuwichain_runtime::RuntimeHoldReason,
                         who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         amount: ::core::primitive::u128,
                     },
                     #[codec(index = 25)]
                     #[doc = "Held balance was burned from an account."]
                     BurnedHeld {
-                        reason: runtime_types::rococo_runtime::RuntimeHoldReason,
+                        reason: runtime_types::pezkuwichain_runtime::RuntimeHoldReason,
                         who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         amount: ::core::primitive::u128,
                     },
                     #[codec(index = 26)]
                     #[doc = "A transfer of `amount` on hold from `source` to `dest` was initiated."]
                     TransferOnHold {
-                        reason: runtime_types::rococo_runtime::RuntimeHoldReason,
+                        reason: runtime_types::pezkuwichain_runtime::RuntimeHoldReason,
                         source: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         dest: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         amount: ::core::primitive::u128,
@@ -48817,7 +48817,7 @@ pub mod api {
                     #[codec(index = 27)]
                     #[doc = "The `transferred` balance is placed on hold at the `dest` account."]
                     TransferAndHold {
-                        reason: runtime_types::rococo_runtime::RuntimeHoldReason,
+                        reason: runtime_types::pezkuwichain_runtime::RuntimeHoldReason,
                         source: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         dest: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         transferred: ::core::primitive::u128,
@@ -48825,7 +48825,7 @@ pub mod api {
                     #[codec(index = 28)]
                     #[doc = "Some balance was released from hold."]
                     Released {
-                        reason: runtime_types::rococo_runtime::RuntimeHoldReason,
+                        reason: runtime_types::pezkuwichain_runtime::RuntimeHoldReason,
                         who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         amount: ::core::primitive::u128,
                     },
@@ -51491,7 +51491,7 @@ pub mod api {
                 )]
                 #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
                 pub enum Call {
-                    # [codec (index = 0)] # [doc = "Remove a page which has no more messages remaining to be processed or is stale."] reap_page { message_origin : runtime_types :: polkadot_runtime_parachains :: inclusion :: AggregateMessageOrigin , page_index : :: core :: primitive :: u32 , } , # [codec (index = 1)] # [doc = "Execute an overweight message."] # [doc = ""] # [doc = "Temporary processing errors will be propagated whereas permanent errors are treated"] # [doc = "as success condition."] # [doc = ""] # [doc = "- `origin`: Must be `Signed`."] # [doc = "- `message_origin`: The origin from which the message to be executed arrived."] # [doc = "- `page`: The page in the queue in which the message to be executed is sitting."] # [doc = "- `index`: The index into the queue of the message to be executed."] # [doc = "- `weight_limit`: The maximum amount of weight allowed to be consumed in the execution"] # [doc = "  of the message."] # [doc = ""] # [doc = "Benchmark complexity considerations: O(index + weight_limit)."] execute_overweight { message_origin : runtime_types :: polkadot_runtime_parachains :: inclusion :: AggregateMessageOrigin , page : :: core :: primitive :: u32 , index : :: core :: primitive :: u32 , weight_limit : runtime_types :: sp_weights :: weight_v2 :: Weight , } , }
+                    # [codec (index = 0)] # [doc = "Remove a page which has no more messages remaining to be processed or is stale."] reap_page { message_origin : runtime_types :: pezkuwi_runtime_parachains :: inclusion :: AggregateMessageOrigin , page_index : :: core :: primitive :: u32 , } , # [codec (index = 1)] # [doc = "Execute an overweight message."] # [doc = ""] # [doc = "Temporary processing errors will be propagated whereas permanent errors are treated"] # [doc = "as success condition."] # [doc = ""] # [doc = "- `origin`: Must be `Signed`."] # [doc = "- `message_origin`: The origin from which the message to be executed arrived."] # [doc = "- `page`: The page in the queue in which the message to be executed is sitting."] # [doc = "- `index`: The index into the queue of the message to be executed."] # [doc = "- `weight_limit`: The maximum amount of weight allowed to be consumed in the execution"] # [doc = "  of the message."] # [doc = ""] # [doc = "Benchmark complexity considerations: O(index + weight_limit)."] execute_overweight { message_origin : runtime_types :: pezkuwi_runtime_parachains :: inclusion :: AggregateMessageOrigin , page : :: core :: primitive :: u32 , index : :: core :: primitive :: u32 , weight_limit : runtime_types :: sp_weights :: weight_v2 :: Weight , } , }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -51552,7 +51552,7 @@ pub mod api {
                 )]
                 #[doc = "The `Event` enum of this pallet"]
                 pub enum Event {
-                    # [codec (index = 0)] # [doc = "Message discarded due to an error in the `MessageProcessor` (usually a format error)."] ProcessingFailed { id : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , origin : runtime_types :: polkadot_runtime_parachains :: inclusion :: AggregateMessageOrigin , error : runtime_types :: frame_support :: traits :: messages :: ProcessMessageError , } , # [codec (index = 1)] # [doc = "Message is processed."] Processed { id : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , origin : runtime_types :: polkadot_runtime_parachains :: inclusion :: AggregateMessageOrigin , weight_used : runtime_types :: sp_weights :: weight_v2 :: Weight , success : :: core :: primitive :: bool , } , # [codec (index = 2)] # [doc = "Message placed in overweight queue."] OverweightEnqueued { id : [:: core :: primitive :: u8 ; 32usize] , origin : runtime_types :: polkadot_runtime_parachains :: inclusion :: AggregateMessageOrigin , page_index : :: core :: primitive :: u32 , message_index : :: core :: primitive :: u32 , } , # [codec (index = 3)] # [doc = "This page was reaped."] PageReaped { origin : runtime_types :: polkadot_runtime_parachains :: inclusion :: AggregateMessageOrigin , index : :: core :: primitive :: u32 , } , }
+                    # [codec (index = 0)] # [doc = "Message discarded due to an error in the `MessageProcessor` (usually a format error)."] ProcessingFailed { id : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , origin : runtime_types :: pezkuwi_runtime_parachains :: inclusion :: AggregateMessageOrigin , error : runtime_types :: frame_support :: traits :: messages :: ProcessMessageError , } , # [codec (index = 1)] # [doc = "Message is processed."] Processed { id : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , origin : runtime_types :: pezkuwi_runtime_parachains :: inclusion :: AggregateMessageOrigin , weight_used : runtime_types :: sp_weights :: weight_v2 :: Weight , success : :: core :: primitive :: bool , } , # [codec (index = 2)] # [doc = "Message placed in overweight queue."] OverweightEnqueued { id : [:: core :: primitive :: u8 ; 32usize] , origin : runtime_types :: pezkuwi_runtime_parachains :: inclusion :: AggregateMessageOrigin , page_index : :: core :: primitive :: u32 , message_index : :: core :: primitive :: u32 , } , # [codec (index = 3)] # [doc = "This page was reaped."] PageReaped { origin : runtime_types :: pezkuwi_runtime_parachains :: inclusion :: AggregateMessageOrigin , index : :: core :: primitive :: u32 , } , }
             }
             #[derive(
                 :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -51824,7 +51824,7 @@ pub mod api {
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         >,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 1)]
@@ -51876,7 +51876,7 @@ pub mod api {
                             runtime_types::pallet_multisig::Timepoint<::core::primitive::u32>,
                         >,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                         max_weight: runtime_types::sp_weights::weight_v2::Weight,
                     },
@@ -52448,7 +52448,7 @@ pub mod api {
                     #[doc = "The dispatch origin of this call must be `AdminOrigin` for the given `key`. Values be"]
                     #[doc = "deleted by setting them to `None`."]
                     set_parameter {
-                        key_value: runtime_types::rococo_runtime::RuntimeParameters,
+                        key_value: runtime_types::pezkuwichain_runtime::RuntimeParameters,
                     },
                 }
                 #[derive(
@@ -52469,12 +52469,12 @@ pub mod api {
                     #[doc = ""]
                     #[doc = "Is also emitted when the value was not changed."]
                     Updated {
-                        key: runtime_types::rococo_runtime::RuntimeParametersKey,
+                        key: runtime_types::pezkuwichain_runtime::RuntimeParametersKey,
                         old_value: ::core::option::Option<
-                            runtime_types::rococo_runtime::RuntimeParametersValue,
+                            runtime_types::pezkuwichain_runtime::RuntimeParametersValue,
                         >,
                         new_value: ::core::option::Option<
-                            runtime_types::rococo_runtime::RuntimeParametersValue,
+                            runtime_types::pezkuwichain_runtime::RuntimeParametersValue,
                         >,
                     },
                 }
@@ -52697,9 +52697,9 @@ pub mod api {
                             (),
                         >,
                         force_proxy_type:
-                            ::core::option::Option<runtime_types::rococo_runtime::ProxyType>,
+                            ::core::option::Option<runtime_types::pezkuwichain_runtime::ProxyType>,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 1)]
@@ -52717,7 +52717,7 @@ pub mod api {
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             (),
                         >,
-                        proxy_type: runtime_types::rococo_runtime::ProxyType,
+                        proxy_type: runtime_types::pezkuwichain_runtime::ProxyType,
                         delay: ::core::primitive::u32,
                     },
                     #[codec(index = 2)]
@@ -52733,7 +52733,7 @@ pub mod api {
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             (),
                         >,
-                        proxy_type: runtime_types::rococo_runtime::ProxyType,
+                        proxy_type: runtime_types::pezkuwichain_runtime::ProxyType,
                         delay: ::core::primitive::u32,
                     },
                     #[codec(index = 3)]
@@ -52764,7 +52764,7 @@ pub mod api {
                     #[doc = ""]
                     #[doc = "Fails if there are insufficient funds to pay for deposit."]
                     create_pure {
-                        proxy_type: runtime_types::rococo_runtime::ProxyType,
+                        proxy_type: runtime_types::pezkuwichain_runtime::ProxyType,
                         delay: ::core::primitive::u32,
                         index: ::core::primitive::u16,
                     },
@@ -52790,7 +52790,7 @@ pub mod api {
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             (),
                         >,
-                        proxy_type: runtime_types::rococo_runtime::ProxyType,
+                        proxy_type: runtime_types::pezkuwichain_runtime::ProxyType,
                         index: ::core::primitive::u16,
                         #[codec(compact)]
                         height: ::core::primitive::u32,
@@ -52878,9 +52878,9 @@ pub mod api {
                             (),
                         >,
                         force_proxy_type:
-                            ::core::option::Option<runtime_types::rococo_runtime::ProxyType>,
+                            ::core::option::Option<runtime_types::pezkuwichain_runtime::ProxyType>,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 10)]
@@ -52957,7 +52957,7 @@ pub mod api {
                     PureCreated {
                         pure: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
-                        proxy_type: runtime_types::rococo_runtime::ProxyType,
+                        proxy_type: runtime_types::pezkuwichain_runtime::ProxyType,
                         disambiguation_index: ::core::primitive::u16,
                         at: ::core::primitive::u32,
                         extrinsic_index: ::core::primitive::u32,
@@ -52967,7 +52967,7 @@ pub mod api {
                     PureKilled {
                         pure: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         spawner: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
-                        proxy_type: runtime_types::rococo_runtime::ProxyType,
+                        proxy_type: runtime_types::pezkuwichain_runtime::ProxyType,
                         disambiguation_index: ::core::primitive::u16,
                     },
                     #[codec(index = 3)]
@@ -52982,7 +52982,7 @@ pub mod api {
                     ProxyAdded {
                         delegator: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         delegatee: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
-                        proxy_type: runtime_types::rococo_runtime::ProxyType,
+                        proxy_type: runtime_types::pezkuwichain_runtime::ProxyType,
                         delay: ::core::primitive::u32,
                     },
                     #[codec(index = 5)]
@@ -52990,7 +52990,7 @@ pub mod api {
                     ProxyRemoved {
                         delegator: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         delegatee: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
-                        proxy_type: runtime_types::rococo_runtime::ProxyType,
+                        proxy_type: runtime_types::pezkuwichain_runtime::ProxyType,
                         delay: ::core::primitive::u32,
                     },
                     #[codec(index = 6)]
@@ -53323,7 +53323,7 @@ pub mod api {
                             (),
                         >,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 1)]
@@ -53619,7 +53619,7 @@ pub mod api {
                     DepositPoked {
                         who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         kind: runtime_types::pallet_recovery::DepositKind<
-                            runtime_types::rococo_runtime::Runtime,
+                            runtime_types::pezkuwichain_runtime::Runtime,
                         >,
                         old_deposit: ::core::primitive::u128,
                         new_deposit: ::core::primitive::u128,
@@ -53695,10 +53695,10 @@ pub mod api {
                     #[doc = "Emits `Submitted`."]
                     submit {
                         proposal_origin: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::OriginCaller,
+                            runtime_types::pezkuwichain_runtime::OriginCaller,
                         >,
                         proposal: runtime_types::frame_support::traits::preimages::Bounded<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                             runtime_types::sp_runtime::traits::BlakeTwo256,
                         >,
                         enactment_moment:
@@ -53855,7 +53855,7 @@ pub mod api {
                         index: ::core::primitive::u32,
                         track: ::core::primitive::u16,
                         proposal: runtime_types::frame_support::traits::preimages::Bounded<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                             runtime_types::sp_runtime::traits::BlakeTwo256,
                         >,
                     },
@@ -53885,7 +53885,7 @@ pub mod api {
                         index: ::core::primitive::u32,
                         track: ::core::primitive::u16,
                         proposal: runtime_types::frame_support::traits::preimages::Bounded<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                             runtime_types::sp_runtime::traits::BlakeTwo256,
                         >,
                         tally: runtime_types::pallet_conviction_voting::types::Tally<
@@ -53978,7 +53978,7 @@ pub mod api {
                         index: ::core::primitive::u32,
                         track: ::core::primitive::u16,
                         proposal: runtime_types::frame_support::traits::preimages::Bounded<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                             runtime_types::sp_runtime::traits::BlakeTwo256,
                         >,
                     },
@@ -54008,7 +54008,7 @@ pub mod api {
                         index: ::core::primitive::u32,
                         track: ::core::primitive::u16,
                         proposal: runtime_types::frame_support::traits::preimages::Bounded<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                             runtime_types::sp_runtime::traits::BlakeTwo256,
                         >,
                         tally: runtime_types::pallet_ranked_collective::Tally,
@@ -54326,7 +54326,7 @@ pub mod api {
                         )>,
                         priority: ::core::primitive::u8,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 1)]
@@ -54349,7 +54349,7 @@ pub mod api {
                         )>,
                         priority: ::core::primitive::u8,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 3)]
@@ -54367,7 +54367,7 @@ pub mod api {
                         )>,
                         priority: ::core::primitive::u8,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 5)]
@@ -54381,7 +54381,7 @@ pub mod api {
                         )>,
                         priority: ::core::primitive::u8,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 6)]
@@ -54624,7 +54624,7 @@ pub mod api {
                     #[doc = "- `O(1)`. Actual cost depends on the number of length of `T::Keys::key_ids()` which is"]
                     #[doc = "  fixed."]
                     set_keys {
-                        keys: runtime_types::rococo_runtime::SessionKeys,
+                        keys: runtime_types::pezkuwichain_runtime::SessionKeys,
                         proof: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<::core::primitive::u8>,
                     },
                     #[codec(index = 1)]
@@ -55619,7 +55619,7 @@ pub mod api {
                     #[doc = "Authenticates the sudo key and dispatches a function call with `Root` origin."]
                     sudo {
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 1)]
@@ -55630,7 +55630,7 @@ pub mod api {
                     #[doc = "The dispatch origin for this call must be _Signed_."]
                     sudo_unchecked_weight {
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                         weight: runtime_types::sp_weights::weight_v2::Weight,
                     },
@@ -55654,7 +55654,7 @@ pub mod api {
                             (),
                         >,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 4)]
@@ -55960,7 +55960,7 @@ pub mod api {
                     #[doc = "Emits [`Event::AssetSpendApproved`] if successful."]
                     spend {
                         asset_kind: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset,
+                            runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset,
                         >,
                         #[codec(compact)]
                         amount: ::core::primitive::u128,
@@ -56134,7 +56134,7 @@ pub mod api {
                     AssetSpendApproved {
                         index: ::core::primitive::u32,
                         asset_kind:
-                            runtime_types::polkadot_runtime_common::impls::VersionedLocatableAsset,
+                            runtime_types::pezkuwi_runtime_common::impls::VersionedLocatableAsset,
                         amount: ::core::primitive::u128,
                         beneficiary: runtime_types::xcm::VersionedLocation,
                         valid_from: ::core::primitive::u32,
@@ -56243,7 +56243,7 @@ pub mod api {
                     #[doc = "event is deposited."]
                     batch {
                         calls: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 1)]
@@ -56263,7 +56263,7 @@ pub mod api {
                     as_derivative {
                         index: ::core::primitive::u16,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 2)]
@@ -56282,7 +56282,7 @@ pub mod api {
                     #[doc = "- O(C) where C is the number of calls to be batched."]
                     batch_all {
                         calls: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 3)]
@@ -56294,10 +56294,10 @@ pub mod api {
                     #[doc = "- O(1)."]
                     dispatch_as {
                         as_origin: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::OriginCaller,
+                            runtime_types::pezkuwichain_runtime::OriginCaller,
                         >,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 4)]
@@ -56316,7 +56316,7 @@ pub mod api {
                     #[doc = "- O(C) where C is the number of calls to be batched."]
                     force_batch {
                         calls: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 5)]
@@ -56328,7 +56328,7 @@ pub mod api {
                     #[doc = "The dispatch origin for this call must be _Root_."]
                     with_weight {
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                         weight: runtime_types::sp_weights::weight_v2::Weight,
                     },
@@ -56358,10 +56358,10 @@ pub mod api {
                     #[doc = "  or both."]
                     if_else {
                         main: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                         fallback: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                     #[codec(index = 7)]
@@ -56372,10 +56372,10 @@ pub mod api {
                     #[doc = "The dispatch origin for this call must be _Root_."]
                     dispatch_as_fallible {
                         as_origin: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::OriginCaller,
+                            runtime_types::pezkuwichain_runtime::OriginCaller,
                         >,
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                 }
@@ -56717,7 +56717,7 @@ pub mod api {
                     #[codec(index = 3)]
                     dispatch_whitelisted_call_with_preimage {
                         call: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                            runtime_types::rococo_runtime::RuntimeCall,
+                            runtime_types::pezkuwichain_runtime::RuntimeCall,
                         >,
                     },
                 }
@@ -57383,7 +57383,7 @@ pub mod api {
                 pub __ignore: ::core::marker::PhantomData<_1>,
             }
         }
-        pub mod polkadot_core_primitives {
+        pub mod pezkuwi_core_primitives {
             use super::runtime_types;
             #[derive(
                 :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -57427,7 +57427,7 @@ pub mod api {
                 pub data: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<::core::primitive::u8>,
             }
         }
-        pub mod polkadot_parachain_primitives {
+        pub mod pezkuwi_parachain_primitives {
             use super::runtime_types;
             pub mod primitives {
                 use super::runtime_types;
@@ -57457,8 +57457,8 @@ pub mod api {
                     crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                 )]
                 pub struct HrmpChannelId {
-                    pub sender: runtime_types::polkadot_parachain_primitives::primitives::Id,
-                    pub recipient: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                    pub sender: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
+                    pub recipient: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                 }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -57500,7 +57500,7 @@ pub mod api {
                 pub struct ValidationCodeHash(pub ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256);
             }
         }
-        pub mod polkadot_primitives {
+        pub mod pezkuwi_primitives {
             use super::runtime_types;
             pub mod v9 {
                 use super::runtime_types;
@@ -57547,7 +57547,7 @@ pub mod api {
                     #[encode_as_type(
                         crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                     )]
-                    pub struct BackingState < _0 , _1 > { pub constraints : runtime_types :: polkadot_primitives :: v9 :: async_backing :: Constraints < _1 > , pub pending_availability : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: polkadot_primitives :: v9 :: async_backing :: CandidatePendingAvailability < _0 , _1 > > , }
+                    pub struct BackingState < _0 , _1 > { pub constraints : runtime_types :: pezkuwi_primitives :: v9 :: async_backing :: Constraints < _1 > , pub pending_availability : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: pezkuwi_primitives :: v9 :: async_backing :: CandidatePendingAvailability < _0 , _1 > > , }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -57560,11 +57560,11 @@ pub mod api {
                         crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                     )]
                     pub struct CandidatePendingAvailability<_0, _1> {
-                        pub candidate_hash: runtime_types::polkadot_core_primitives::CandidateHash,
+                        pub candidate_hash: runtime_types::pezkuwi_core_primitives::CandidateHash,
                         pub descriptor:
-                            runtime_types::polkadot_primitives::v9::CandidateDescriptorV2<_0>,
+                            runtime_types::pezkuwi_primitives::v9::CandidateDescriptorV2<_0>,
                         pub commitments:
-                            runtime_types::polkadot_primitives::v9::CandidateCommitments<_1>,
+                            runtime_types::pezkuwi_primitives::v9::CandidateCommitments<_1>,
                         pub relay_parent_number: _1,
                         pub max_pov_size: ::core::primitive::u32,
                     }
@@ -57579,7 +57579,7 @@ pub mod api {
                     #[encode_as_type(
                         crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                     )]
-                    pub struct Constraints < _0 > { pub min_relay_parent_number : _0 , pub max_pov_size : :: core :: primitive :: u32 , pub max_code_size : :: core :: primitive :: u32 , pub max_head_data_size : :: core :: primitive :: u32 , pub ump_remaining : :: core :: primitive :: u32 , pub ump_remaining_bytes : :: core :: primitive :: u32 , pub max_ump_num_per_candidate : :: core :: primitive :: u32 , pub dmp_remaining_messages : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < _0 > , pub hrmp_inbound : runtime_types :: polkadot_primitives :: v9 :: async_backing :: InboundHrmpLimitations < _0 > , pub hrmp_channels_out : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < (runtime_types :: polkadot_parachain_primitives :: primitives :: Id , runtime_types :: polkadot_primitives :: v9 :: async_backing :: OutboundHrmpChannelLimitations ,) > , pub max_hrmp_num_per_candidate : :: core :: primitive :: u32 , pub required_parent : runtime_types :: polkadot_parachain_primitives :: primitives :: HeadData , pub validation_code_hash : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash , pub upgrade_restriction : :: core :: option :: Option < runtime_types :: polkadot_primitives :: v9 :: UpgradeRestriction > , pub future_validation_code : :: core :: option :: Option < (_0 , runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash ,) > , }
+                    pub struct Constraints < _0 > { pub min_relay_parent_number : _0 , pub max_pov_size : :: core :: primitive :: u32 , pub max_code_size : :: core :: primitive :: u32 , pub max_head_data_size : :: core :: primitive :: u32 , pub ump_remaining : :: core :: primitive :: u32 , pub ump_remaining_bytes : :: core :: primitive :: u32 , pub max_ump_num_per_candidate : :: core :: primitive :: u32 , pub dmp_remaining_messages : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < _0 > , pub hrmp_inbound : runtime_types :: pezkuwi_primitives :: v9 :: async_backing :: InboundHrmpLimitations < _0 > , pub hrmp_channels_out : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < (runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , runtime_types :: pezkuwi_primitives :: v9 :: async_backing :: OutboundHrmpChannelLimitations ,) > , pub max_hrmp_num_per_candidate : :: core :: primitive :: u32 , pub required_parent : runtime_types :: pezkuwi_parachain_primitives :: primitives :: HeadData , pub validation_code_hash : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash , pub upgrade_restriction : :: core :: option :: Option < runtime_types :: pezkuwi_primitives :: v9 :: UpgradeRestriction > , pub future_validation_code : :: core :: option :: Option < (_0 , runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash ,) > , }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -57649,12 +57649,12 @@ pub mod api {
                         PrecheckingMaxMemory(::core::primitive::u64),
                         #[codec(index = 5)]
                         PvfPrepTimeout(
-                            runtime_types::polkadot_primitives::v9::PvfPrepKind,
+                            runtime_types::pezkuwi_primitives::v9::PvfPrepKind,
                             ::core::primitive::u64,
                         ),
                         #[codec(index = 6)]
                         PvfExecTimeout(
-                            runtime_types::polkadot_primitives::v9::PvfExecKind,
+                            runtime_types::pezkuwi_primitives::v9::PvfExecKind,
                             ::core::primitive::u64,
                         ),
                         #[codec(index = 7)]
@@ -57673,7 +57673,7 @@ pub mod api {
                     )]
                     pub struct ExecutorParams(
                         pub  ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                            runtime_types::polkadot_primitives::v9::executor_params::ExecutorParam,
+                            runtime_types::pezkuwi_primitives::v9::executor_params::ExecutorParam,
                         >,
                     );
                 }
@@ -57692,9 +57692,9 @@ pub mod api {
                     )]
                     pub struct UncheckedSigned<_0, _1> {
                         pub payload: _0,
-                        pub validator_index: runtime_types::polkadot_primitives::v9::ValidatorIndex,
+                        pub validator_index: runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
                         pub signature:
-                            runtime_types::polkadot_primitives::v9::validator_app::Signature,
+                            runtime_types::pezkuwi_primitives::v9::validator_app::Signature,
                         #[codec(skip)]
                         pub __ignore: ::core::marker::PhantomData<_1>,
                     }
@@ -57714,11 +57714,11 @@ pub mod api {
                     )]
                     pub struct DisputeProof {
                         pub time_slot:
-                            runtime_types::polkadot_primitives::v9::slashing::DisputesTimeSlot,
-                        pub kind: runtime_types::polkadot_primitives::v9::DisputeOffenceKind,
-                        pub validator_index: runtime_types::polkadot_primitives::v9::ValidatorIndex,
+                            runtime_types::pezkuwi_primitives::v9::slashing::DisputesTimeSlot,
+                        pub kind: runtime_types::pezkuwi_primitives::v9::DisputeOffenceKind,
+                        pub validator_index: runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
                         pub validator_id:
-                            runtime_types::polkadot_primitives::v9::validator_app::Public,
+                            runtime_types::pezkuwi_primitives::v9::validator_app::Public,
                     }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -57733,7 +57733,7 @@ pub mod api {
                     )]
                     pub struct DisputesTimeSlot {
                         pub session_index: ::core::primitive::u32,
-                        pub candidate_hash: runtime_types::polkadot_core_primitives::CandidateHash,
+                        pub candidate_hash: runtime_types::pezkuwi_core_primitives::CandidateHash,
                     }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -57748,11 +57748,11 @@ pub mod api {
                     )]
                     pub struct LegacyPendingSlashes {
                         pub keys: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::KeyedVec<
-                            runtime_types::polkadot_primitives::v9::ValidatorIndex,
-                            runtime_types::polkadot_primitives::v9::validator_app::Public,
+                            runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
+                            runtime_types::pezkuwi_primitives::v9::validator_app::Public,
                         >,
                         pub kind:
-                            runtime_types::polkadot_primitives::v9::slashing::SlashingOffenceKind,
+                            runtime_types::pezkuwi_primitives::v9::slashing::SlashingOffenceKind,
                     }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -57781,10 +57781,10 @@ pub mod api {
                     )]
                     pub struct PendingSlashes {
                         pub keys: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::KeyedVec<
-                            runtime_types::polkadot_primitives::v9::ValidatorIndex,
-                            runtime_types::polkadot_primitives::v9::validator_app::Public,
+                            runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
+                            runtime_types::pezkuwi_primitives::v9::validator_app::Public,
                         >,
-                        pub kind: runtime_types::polkadot_primitives::v9::DisputeOffenceKind,
+                        pub kind: runtime_types::pezkuwi_primitives::v9::DisputeOffenceKind,
                     }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -57875,9 +57875,9 @@ pub mod api {
                 )]
                 pub struct BackedCandidate<_0> {
                     pub candidate:
-                        runtime_types::polkadot_primitives::v9::CommittedCandidateReceiptV2<_0>,
+                        runtime_types::pezkuwi_primitives::v9::CommittedCandidateReceiptV2<_0>,
                     pub validity_votes: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::ValidityAttestation,
+                        runtime_types::pezkuwi_primitives::v9::ValidityAttestation,
                     >,
                     pub validator_indices: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::bits::DecodedBits<
                         ::core::primitive::u8,
@@ -57902,15 +57902,15 @@ pub mod api {
                         >,
                     pub horizontal_messages:
                         runtime_types::bounded_collections::bounded_vec::BoundedVec<
-                            runtime_types::polkadot_core_primitives::OutboundHrmpMessage<
-                                runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            runtime_types::pezkuwi_core_primitives::OutboundHrmpMessage<
+                                runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             >,
                         >,
                     pub new_validation_code: ::core::option::Option<
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode,
                     >,
                     pub head_data:
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData,
                     pub processed_downward_messages: ::core::primitive::u32,
                     pub hrmp_watermark: _0,
                 }
@@ -57925,7 +57925,7 @@ pub mod api {
                 #[encode_as_type(
                     crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                 )]
-                pub struct CandidateDescriptorV2 < _0 > { pub para_id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , pub relay_parent : _0 , pub version : runtime_types :: polkadot_primitives :: v9 :: InternalVersion , pub core_index : :: core :: primitive :: u16 , pub session_index : :: core :: primitive :: u32 , pub reserved1 : [:: core :: primitive :: u8 ; 25usize] , pub persisted_validation_data_hash : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , pub pov_hash : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , pub erasure_root : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , pub reserved2 : [:: core :: primitive :: u8 ; 64usize] , pub para_head : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , pub validation_code_hash : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash , }
+                pub struct CandidateDescriptorV2 < _0 > { pub para_id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , pub relay_parent : _0 , pub version : runtime_types :: pezkuwi_primitives :: v9 :: InternalVersion , pub core_index : :: core :: primitive :: u16 , pub session_index : :: core :: primitive :: u32 , pub reserved1 : [:: core :: primitive :: u8 ; 25usize] , pub persisted_validation_data_hash : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , pub pov_hash : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , pub erasure_root : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , pub reserved2 : [:: core :: primitive :: u8 ; 64usize] , pub para_head : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: H256 , pub validation_code_hash : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash , }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -57940,23 +57940,23 @@ pub mod api {
                 pub enum CandidateEvent<_0> {
                     #[codec(index = 0)]
                     CandidateBacked(
-                        runtime_types::polkadot_primitives::v9::CandidateReceiptV2<_0>,
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData,
-                        runtime_types::polkadot_primitives::v9::CoreIndex,
-                        runtime_types::polkadot_primitives::v9::GroupIndex,
+                        runtime_types::pezkuwi_primitives::v9::CandidateReceiptV2<_0>,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData,
+                        runtime_types::pezkuwi_primitives::v9::CoreIndex,
+                        runtime_types::pezkuwi_primitives::v9::GroupIndex,
                     ),
                     #[codec(index = 1)]
                     CandidateIncluded(
-                        runtime_types::polkadot_primitives::v9::CandidateReceiptV2<_0>,
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData,
-                        runtime_types::polkadot_primitives::v9::CoreIndex,
-                        runtime_types::polkadot_primitives::v9::GroupIndex,
+                        runtime_types::pezkuwi_primitives::v9::CandidateReceiptV2<_0>,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData,
+                        runtime_types::pezkuwi_primitives::v9::CoreIndex,
+                        runtime_types::pezkuwi_primitives::v9::GroupIndex,
                     ),
                     #[codec(index = 2)]
                     CandidateTimedOut(
-                        runtime_types::polkadot_primitives::v9::CandidateReceiptV2<_0>,
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData,
-                        runtime_types::polkadot_primitives::v9::CoreIndex,
+                        runtime_types::pezkuwi_primitives::v9::CandidateReceiptV2<_0>,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData,
+                        runtime_types::pezkuwi_primitives::v9::CoreIndex,
                     ),
                 }
                 #[derive(
@@ -57972,7 +57972,7 @@ pub mod api {
                 )]
                 pub struct CandidateReceiptV2<_0> {
                     pub descriptor:
-                        runtime_types::polkadot_primitives::v9::CandidateDescriptorV2<_0>,
+                        runtime_types::pezkuwi_primitives::v9::CandidateDescriptorV2<_0>,
                     pub commitments_hash: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                 }
                 #[derive(
@@ -57988,8 +57988,8 @@ pub mod api {
                 )]
                 pub struct CommittedCandidateReceiptV2<_0> {
                     pub descriptor:
-                        runtime_types::polkadot_primitives::v9::CandidateDescriptorV2<_0>,
-                    pub commitments: runtime_types::polkadot_primitives::v9::CandidateCommitments<
+                        runtime_types::pezkuwi_primitives::v9::CandidateDescriptorV2<_0>,
+                    pub commitments: runtime_types::pezkuwi_primitives::v9::CandidateCommitments<
                         ::core::primitive::u32,
                     >,
                 }
@@ -58018,9 +58018,9 @@ pub mod api {
                 )]
                 pub enum CoreState<_0, _1> {
                     #[codec(index = 0)]
-                    Occupied(runtime_types::polkadot_primitives::v9::OccupiedCore<_0, _1>),
+                    Occupied(runtime_types::pezkuwi_primitives::v9::OccupiedCore<_0, _1>),
                     #[codec(index = 1)]
-                    Scheduled(runtime_types::polkadot_primitives::v9::ScheduledCore),
+                    Scheduled(runtime_types::pezkuwi_primitives::v9::ScheduledCore),
                     #[codec(index = 2)]
                     Free,
                 }
@@ -58079,9 +58079,9 @@ pub mod api {
                 )]
                 pub enum DisputeStatement {
                     #[codec(index = 0)]
-                    Valid(runtime_types::polkadot_primitives::v9::ValidDisputeStatementKind),
+                    Valid(runtime_types::pezkuwi_primitives::v9::ValidDisputeStatementKind),
                     #[codec(index = 1)]
-                    Invalid(runtime_types::polkadot_primitives::v9::InvalidDisputeStatementKind),
+                    Invalid(runtime_types::pezkuwi_primitives::v9::InvalidDisputeStatementKind),
                 }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -58095,12 +58095,12 @@ pub mod api {
                     crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                 )]
                 pub struct DisputeStatementSet {
-                    pub candidate_hash: runtime_types::polkadot_core_primitives::CandidateHash,
+                    pub candidate_hash: runtime_types::pezkuwi_core_primitives::CandidateHash,
                     pub session: ::core::primitive::u32,
                     pub statements: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
-                        runtime_types::polkadot_primitives::v9::DisputeStatement,
-                        runtime_types::polkadot_primitives::v9::ValidatorIndex,
-                        runtime_types::polkadot_primitives::v9::validator_app::Signature,
+                        runtime_types::pezkuwi_primitives::v9::DisputeStatement,
+                        runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
+                        runtime_types::pezkuwi_primitives::v9::validator_app::Signature,
                     )>,
                 }
                 #[derive(
@@ -58159,18 +58159,18 @@ pub mod api {
                 )]
                 pub struct InherentData<_0> {
                     pub bitfields: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::signed::UncheckedSigned<
-                            runtime_types::polkadot_primitives::v9::AvailabilityBitfield,
-                            runtime_types::polkadot_primitives::v9::AvailabilityBitfield,
+                        runtime_types::pezkuwi_primitives::v9::signed::UncheckedSigned<
+                            runtime_types::pezkuwi_primitives::v9::AvailabilityBitfield,
+                            runtime_types::pezkuwi_primitives::v9::AvailabilityBitfield,
                         >,
                     >,
                     pub backed_candidates: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::BackedCandidate<
+                        runtime_types::pezkuwi_primitives::v9::BackedCandidate<
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                         >,
                     >,
                     pub disputes: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::DisputeStatementSet,
+                        runtime_types::pezkuwi_primitives::v9::DisputeStatementSet,
                     >,
                     pub parent_header: _0,
                 }
@@ -58214,21 +58214,21 @@ pub mod api {
                 )]
                 pub struct OccupiedCore<_0, _1> {
                     pub next_up_on_available: ::core::option::Option<
-                        runtime_types::polkadot_primitives::v9::ScheduledCore,
+                        runtime_types::pezkuwi_primitives::v9::ScheduledCore,
                     >,
                     pub occupied_since: _1,
                     pub time_out_at: _1,
                     pub next_up_on_time_out: ::core::option::Option<
-                        runtime_types::polkadot_primitives::v9::ScheduledCore,
+                        runtime_types::pezkuwi_primitives::v9::ScheduledCore,
                     >,
                     pub availability: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::bits::DecodedBits<
                         ::core::primitive::u8,
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::bits::Lsb0,
                     >,
-                    pub group_responsible: runtime_types::polkadot_primitives::v9::GroupIndex,
-                    pub candidate_hash: runtime_types::polkadot_core_primitives::CandidateHash,
+                    pub group_responsible: runtime_types::pezkuwi_primitives::v9::GroupIndex,
+                    pub candidate_hash: runtime_types::pezkuwi_core_primitives::CandidateHash,
                     pub candidate_descriptor:
-                        runtime_types::polkadot_primitives::v9::CandidateDescriptorV2<_0>,
+                        runtime_types::pezkuwi_primitives::v9::CandidateDescriptorV2<_0>,
                 }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -58262,7 +58262,7 @@ pub mod api {
                 )]
                 pub struct PersistedValidationData<_0, _1> {
                     pub parent_head:
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData,
                     pub relay_parent_number: _1,
                     pub relay_parent_storage_root: _0,
                     pub max_pov_size: ::core::primitive::u32,
@@ -58278,7 +58278,7 @@ pub mod api {
                 #[encode_as_type(
                     crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                 )]
-                pub struct PvfCheckStatement { pub accept : :: core :: primitive :: bool , pub subject : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash , pub session_index : :: core :: primitive :: u32 , pub validator_index : runtime_types :: polkadot_primitives :: v9 :: ValidatorIndex , }
+                pub struct PvfCheckStatement { pub accept : :: core :: primitive :: bool , pub subject : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash , pub session_index : :: core :: primitive :: u32 , pub validator_index : runtime_types :: pezkuwi_primitives :: v9 :: ValidatorIndex , }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -58325,9 +58325,9 @@ pub mod api {
                     crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                 )]
                 pub struct ScheduledCore {
-                    pub para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                    pub para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                     pub collator: ::core::option::Option<
-                        runtime_types::polkadot_primitives::v9::collator_app::Public,
+                        runtime_types::pezkuwi_primitives::v9::collator_app::Public,
                     >,
                 }
                 #[derive(
@@ -58371,14 +58371,14 @@ pub mod api {
                     pub session: ::core::primitive::u32,
                     pub backing_validators_per_candidate:
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
-                            runtime_types::polkadot_primitives::v9::CandidateReceiptV2<_0>,
+                            runtime_types::pezkuwi_primitives::v9::CandidateReceiptV2<_0>,
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
-                                runtime_types::polkadot_primitives::v9::ValidatorIndex,
-                                runtime_types::polkadot_primitives::v9::ValidityAttestation,
+                                runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
+                                runtime_types::pezkuwi_primitives::v9::ValidityAttestation,
                             )>,
                         )>,
                     pub disputes: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::DisputeStatementSet,
+                        runtime_types::pezkuwi_primitives::v9::DisputeStatementSet,
                     >,
                 }
                 #[derive(
@@ -58394,24 +58394,24 @@ pub mod api {
                 )]
                 pub struct SessionInfo {
                     pub active_validator_indices: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::ValidatorIndex,
+                        runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
                     >,
                     pub random_seed: [::core::primitive::u8; 32usize],
                     pub dispute_period: ::core::primitive::u32,
-                    pub validators: runtime_types::polkadot_primitives::v9::IndexedVec<
-                        runtime_types::polkadot_primitives::v9::ValidatorIndex,
-                        runtime_types::polkadot_primitives::v9::validator_app::Public,
+                    pub validators: runtime_types::pezkuwi_primitives::v9::IndexedVec<
+                        runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
+                        runtime_types::pezkuwi_primitives::v9::validator_app::Public,
                     >,
                     pub discovery_keys: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
                         runtime_types::sp_authority_discovery::app::Public,
                     >,
                     pub assignment_keys: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::assignment_app::Public,
+                        runtime_types::pezkuwi_primitives::v9::assignment_app::Public,
                     >,
-                    pub validator_groups: runtime_types::polkadot_primitives::v9::IndexedVec<
-                        runtime_types::polkadot_primitives::v9::GroupIndex,
+                    pub validator_groups: runtime_types::pezkuwi_primitives::v9::IndexedVec<
+                        runtime_types::pezkuwi_primitives::v9::GroupIndex,
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                            runtime_types::polkadot_primitives::v9::ValidatorIndex,
+                            runtime_types::pezkuwi_primitives::v9::ValidatorIndex,
                         >,
                     >,
                     pub n_cores: ::core::primitive::u32,
@@ -58476,7 +58476,7 @@ pub mod api {
                     #[codec(index = 4)]
                     ApprovalCheckingMultipleCandidates(
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                            runtime_types::polkadot_core_primitives::CandidateHash,
+                            runtime_types::pezkuwi_core_primitives::CandidateHash,
                         >,
                     ),
                 }
@@ -58505,13 +58505,13 @@ pub mod api {
                 )]
                 pub enum ValidityAttestation {
                     #[codec(index = 1)]
-                    Implicit(runtime_types::polkadot_primitives::v9::validator_app::Signature),
+                    Implicit(runtime_types::pezkuwi_primitives::v9::validator_app::Signature),
                     #[codec(index = 2)]
-                    Explicit(runtime_types::polkadot_primitives::v9::validator_app::Signature),
+                    Explicit(runtime_types::pezkuwi_primitives::v9::validator_app::Signature),
                 }
             }
         }
-        pub mod polkadot_runtime_common {
+        pub mod pezkuwi_runtime_common {
             use super::runtime_types;
             pub mod assigned_slots {
                 use super::runtime_types;
@@ -58530,7 +58530,7 @@ pub mod api {
                     )]
                     #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
                     pub enum Call {
-                        # [codec (index = 0)] # [doc = "Assign a permanent parachain slot and immediately create a lease for it."] assign_perm_parachain_slot { id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 1)] # [doc = "Assign a temporary parachain slot. The function tries to create a lease for it"] # [doc = "immediately if `SlotLeasePeriodStart::Current` is specified, and if the number"] # [doc = "of currently active temporary slots is below `MaxTemporarySlotPerLeasePeriod`."] assign_temp_parachain_slot { id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , lease_period_start : runtime_types :: polkadot_runtime_common :: assigned_slots :: SlotLeasePeriodStart , } , # [codec (index = 2)] # [doc = "Unassign a permanent or temporary parachain slot"] unassign_parachain_slot { id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 3)] # [doc = "Sets the storage value [`MaxPermanentSlots`]."] set_max_permanent_slots { slots : :: core :: primitive :: u32 , } , # [codec (index = 4)] # [doc = "Sets the storage value [`MaxTemporarySlots`]."] set_max_temporary_slots { slots : :: core :: primitive :: u32 , } , }
+                        # [codec (index = 0)] # [doc = "Assign a permanent parachain slot and immediately create a lease for it."] assign_perm_parachain_slot { id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 1)] # [doc = "Assign a temporary parachain slot. The function tries to create a lease for it"] # [doc = "immediately if `SlotLeasePeriodStart::Current` is specified, and if the number"] # [doc = "of currently active temporary slots is below `MaxTemporarySlotPerLeasePeriod`."] assign_temp_parachain_slot { id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , lease_period_start : runtime_types :: pezkuwi_runtime_common :: assigned_slots :: SlotLeasePeriodStart , } , # [codec (index = 2)] # [doc = "Unassign a permanent or temporary parachain slot"] unassign_parachain_slot { id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 3)] # [doc = "Sets the storage value [`MaxPermanentSlots`]."] set_max_permanent_slots { slots : :: core :: primitive :: u32 , } , # [codec (index = 4)] # [doc = "Sets the storage value [`MaxTemporarySlots`]."] set_max_temporary_slots { slots : :: core :: primitive :: u32 , } , }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -58588,12 +58588,12 @@ pub mod api {
                         #[codec(index = 0)]
                         #[doc = "A parachain was assigned a permanent parachain slot"]
                         PermanentSlotAssigned(
-                            runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         ),
                         #[codec(index = 1)]
                         #[doc = "A parachain was assigned a temporary parachain slot"]
                         TemporarySlotAssigned(
-                            runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         ),
                         #[codec(index = 2)]
                         #[doc = "The maximum number of permanent slots has been changed"]
@@ -58687,7 +58687,7 @@ pub mod api {
                         #[doc = "bid win. This amount is held throughout the range."]
                         bid {
                             #[codec(compact)]
-                            para: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             #[codec(compact)]
                             auction_index: ::core::primitive::u32,
                             #[codec(compact)]
@@ -58782,7 +58782,7 @@ pub mod api {
                         #[doc = "Someone attempted to lease the same slot twice for a parachain. The amount is held in"]
                         #[doc = "reserve but no parachain slot has been leased."]
                         ReserveConfiscated {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             leaser: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             amount: ::core::primitive::u128,
                         },
@@ -58790,7 +58790,7 @@ pub mod api {
                         #[doc = "A new bid has been accepted as the current winner."]
                         BidAccepted {
                             bidder: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             amount: ::core::primitive::u128,
                             first_slot: ::core::primitive::u32,
                             last_slot: ::core::primitive::u32,
@@ -58850,7 +58850,7 @@ pub mod api {
                         claim {
                             dest: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             ethereum_signature:
-                                runtime_types::polkadot_runtime_common::claims::EcdsaSignature,
+                                runtime_types::pezkuwi_runtime_common::claims::EcdsaSignature,
                         },
                         #[codec(index = 1)]
                         #[doc = "Mint a new claim to collect DOTs."]
@@ -58869,7 +58869,7 @@ pub mod api {
                         #[doc = "Total Complexity: O(1)"]
                         #[doc = "</weight>"]
                         mint_claim {
-                            who: runtime_types::polkadot_runtime_common::claims::EthereumAddress,
+                            who: runtime_types::pezkuwi_runtime_common::claims::EthereumAddress,
                             value: ::core::primitive::u128,
                             vesting_schedule: ::core::option::Option<(
                                 ::core::primitive::u128,
@@ -58877,7 +58877,7 @@ pub mod api {
                                 ::core::primitive::u32,
                             )>,
                             statement: ::core::option::Option<
-                                runtime_types::polkadot_runtime_common::claims::StatementKind,
+                                runtime_types::pezkuwi_runtime_common::claims::StatementKind,
                             >,
                         },
                         #[codec(index = 2)]
@@ -58911,7 +58911,7 @@ pub mod api {
                         claim_attest {
                             dest: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             ethereum_signature:
-                                runtime_types::polkadot_runtime_common::claims::EcdsaSignature,
+                                runtime_types::pezkuwi_runtime_common::claims::EcdsaSignature,
                             statement:
                                 ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<::core::primitive::u8>,
                         },
@@ -58941,8 +58941,8 @@ pub mod api {
                         },
                         #[codec(index = 4)]
                         move_claim {
-                            old: runtime_types::polkadot_runtime_common::claims::EthereumAddress,
-                            new: runtime_types::polkadot_runtime_common::claims::EthereumAddress,
+                            old: runtime_types::pezkuwi_runtime_common::claims::EthereumAddress,
+                            new: runtime_types::pezkuwi_runtime_common::claims::EthereumAddress,
                             maybe_preclaim: ::core::option::Option<
                                 ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             >,
@@ -58999,7 +58999,7 @@ pub mod api {
                         Claimed {
                             who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             ethereum_address:
-                                runtime_types::polkadot_runtime_common::claims::EthereumAddress,
+                                runtime_types::pezkuwi_runtime_common::claims::EthereumAddress,
                             amount: ::core::primitive::u128,
                         },
                     }
@@ -59071,7 +59071,7 @@ pub mod api {
                         #[doc = "by the parachain manager."]
                         create {
                             #[codec(compact)]
-                            index: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            index: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             #[codec(compact)]
                             cap: ::core::primitive::u128,
                             #[codec(compact)]
@@ -59088,7 +59088,7 @@ pub mod api {
                         #[doc = "slot. It will be withdrawable when the crowdloan has ended and the funds are unused."]
                         contribute {
                             #[codec(compact)]
-                            index: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            index: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             #[codec(compact)]
                             value: ::core::primitive::u128,
                             signature:
@@ -59115,7 +59115,7 @@ pub mod api {
                         withdraw {
                             who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             #[codec(compact)]
-                            index: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            index: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 3)]
                         #[doc = "Automatically refund contributors of an ended crowdloan."]
@@ -59125,13 +59125,13 @@ pub mod api {
                         #[doc = "Origin must be signed, but can come from anyone."]
                         refund {
                             #[codec(compact)]
-                            index: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            index: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 4)]
                         #[doc = "Remove a fund after the retirement period has ended and all funds have been returned."]
                         dissolve {
                             #[codec(compact)]
-                            index: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            index: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 5)]
                         #[doc = "Edit the configuration for an in-progress crowdloan."]
@@ -59139,7 +59139,7 @@ pub mod api {
                         #[doc = "Can only be called by Root origin."]
                         edit {
                             #[codec(compact)]
-                            index: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            index: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             #[codec(compact)]
                             cap: ::core::primitive::u128,
                             #[codec(compact)]
@@ -59156,7 +59156,7 @@ pub mod api {
                         #[doc = ""]
                         #[doc = "Origin must be Signed, and the user must have contributed to the crowdloan."]
                         add_memo {
-                            index: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            index: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             memo: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<::core::primitive::u8>,
                         },
                         #[codec(index = 7)]
@@ -59164,7 +59164,7 @@ pub mod api {
                         #[doc = ""]
                         #[doc = "Origin must be Signed, and the fund has non-zero raise."]
                         poke {
-                            index: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            index: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 8)]
                         #[doc = "Contribute your entire balance to a crowd sale. This will transfer the entire balance of"]
@@ -59172,7 +59172,7 @@ pub mod api {
                         #[doc = "ended and the funds are unused."]
                         contribute_all {
                             #[codec(compact)]
-                            index: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            index: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             signature:
                                 ::core::option::Option<runtime_types::sp_runtime::MultiSignature>,
                         },
@@ -59277,14 +59277,14 @@ pub mod api {
                         #[codec(index = 0)]
                         #[doc = "Create a new crowdloaning campaign."]
                         Created {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 1)]
                         #[doc = "Contributed to a crowd sale."]
                         Contributed {
                             who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             fund_index:
-                                runtime_types::polkadot_parachain_primitives::primitives::Id,
+                                runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             amount: ::core::primitive::u128,
                         },
                         #[codec(index = 2)]
@@ -59292,29 +59292,29 @@ pub mod api {
                         Withdrew {
                             who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             fund_index:
-                                runtime_types::polkadot_parachain_primitives::primitives::Id,
+                                runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             amount: ::core::primitive::u128,
                         },
                         #[codec(index = 3)]
                         #[doc = "The loans in a fund have been partially dissolved, i.e. there are some left"]
                         #[doc = "over child keys that still need to be killed."]
                         PartiallyRefunded {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 4)]
                         #[doc = "All loans in a fund have been refunded."]
                         AllRefunded {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 5)]
                         #[doc = "Fund is dissolved."]
                         Dissolved {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 6)]
                         #[doc = "The result of trying to submit a new bid to the Slots pallet."]
                         HandleBidResult {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             result: ::core::result::Result<
                                 (),
                                 runtime_types::sp_runtime::DispatchError,
@@ -59323,19 +59323,19 @@ pub mod api {
                         #[codec(index = 7)]
                         #[doc = "The configuration to a crowdloan has been edited."]
                         Edited {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 8)]
                         #[doc = "A memo has been updated."]
                         MemoUpdated {
                             who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             memo: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<::core::primitive::u8>,
                         },
                         #[codec(index = 9)]
                         #[doc = "A parachain has been moved to `NewRaise`"]
                         AddedToNewRaise {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                     }
                 }
@@ -59358,7 +59358,7 @@ pub mod api {
                     pub end: _2,
                     pub cap: _1,
                     pub last_contribution:
-                        runtime_types::polkadot_runtime_common::crowdloan::LastContribution<_2>,
+                        runtime_types::pezkuwi_runtime_common::crowdloan::LastContribution<_2>,
                     pub first_period: _3,
                     pub last_period: _3,
                     pub fund_index: ::core::primitive::u32,
@@ -59490,7 +59490,7 @@ pub mod api {
                     )]
                     #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
                     pub enum Call {
-                        # [codec (index = 0)] # [doc = "Register head data and validation code for a reserved Para Id."] # [doc = ""] # [doc = "## Arguments"] # [doc = "- `origin`: Must be called by a `Signed` origin."] # [doc = "- `id`: The para ID. Must be owned/managed by the `origin` signing account."] # [doc = "- `genesis_head`: The genesis head data of the parachain/thread."] # [doc = "- `validation_code`: The initial validation code of the parachain/thread."] # [doc = ""] # [doc = "## Deposits/Fees"] # [doc = "The account with the originating signature must reserve a deposit."] # [doc = ""] # [doc = "The deposit is required to cover the costs associated with storing the genesis head"] # [doc = "data and the validation code."] # [doc = "This accounts for the potential to store validation code of a size up to the"] # [doc = "`max_code_size`, as defined in the configuration pallet"] # [doc = ""] # [doc = "Anything already reserved previously for this para ID is accounted for."] # [doc = ""] # [doc = "## Events"] # [doc = "The `Registered` event is emitted in case of success."] register { id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , genesis_head : runtime_types :: polkadot_parachain_primitives :: primitives :: HeadData , validation_code : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCode , } , # [codec (index = 1)] # [doc = "Force the registration of a Para Id on the relay chain."] # [doc = ""] # [doc = "This function must be called by a Root origin."] # [doc = ""] # [doc = "The deposit taken can be specified for this registration. Any `ParaId`"] # [doc = "can be registered, including sub-1000 IDs which are System Parachains."] force_register { who : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , deposit : :: core :: primitive :: u128 , id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , genesis_head : runtime_types :: polkadot_parachain_primitives :: primitives :: HeadData , validation_code : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCode , } , # [codec (index = 2)] # [doc = "Deregister a Para Id, freeing all data and returning any deposit."] # [doc = ""] # [doc = "The caller must be Root, the `para` owner, or the `para` itself. The para must be an"] # [doc = "on-demand parachain."] deregister { id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 3)] # [doc = "Swap a lease holding parachain with another parachain, either on-demand or lease"] # [doc = "holding."] # [doc = ""] # [doc = "The origin must be Root, the `para` owner, or the `para` itself."] # [doc = ""] # [doc = "The swap will happen only if there is already an opposite swap pending. If there is not,"] # [doc = "the swap will be stored in the pending swaps map, ready for a later confirmatory swap."] # [doc = ""] # [doc = "The `ParaId`s remain mapped to the same head data and code so external code can rely on"] # [doc = "`ParaId` to be a long-term identifier of a notional \"parachain\". However, their"] # [doc = "scheduling info (i.e. whether they're an on-demand parachain or lease holding"] # [doc = "parachain), auction information and the auction deposit are switched."] swap { id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , other : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 4)] # [doc = "Remove a manager lock from a para. This will allow the manager of a"] # [doc = "previously locked para to deregister or swap a para without using governance."] # [doc = ""] # [doc = "Can only be called by the Root origin or the parachain."] remove_lock { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 5)] # [doc = "Reserve a Para Id on the relay chain."] # [doc = ""] # [doc = "This function will reserve a new Para Id to be owned/managed by the origin account."] # [doc = "The origin account is able to register head data and validation code using `register` to"] # [doc = "create an on-demand parachain. Using the Slots pallet, an on-demand parachain can then"] # [doc = "be upgraded to a lease holding parachain."] # [doc = ""] # [doc = "## Arguments"] # [doc = "- `origin`: Must be called by a `Signed` origin. Becomes the manager/owner of the new"] # [doc = "  para ID."] # [doc = ""] # [doc = "## Deposits/Fees"] # [doc = "The origin must reserve a deposit of `ParaDeposit` for the registration."] # [doc = ""] # [doc = "## Events"] # [doc = "The `Reserved` event is emitted in case of success, which provides the ID reserved for"] # [doc = "use."] reserve , # [codec (index = 6)] # [doc = "Add a manager lock from a para. This will prevent the manager of a"] # [doc = "para to deregister or swap a para."] # [doc = ""] # [doc = "Can be called by Root, the parachain, or the parachain manager if the parachain is"] # [doc = "unlocked."] add_lock { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 7)] # [doc = "Schedule a parachain upgrade."] # [doc = ""] # [doc = "This will kick off a check of `new_code` by all validators. After the majority of the"] # [doc = "validators have reported on the validity of the code, the code will either be enacted"] # [doc = "or the upgrade will be rejected. If the code will be enacted, the current code of the"] # [doc = "parachain will be overwritten directly. This means that any PoV will be checked by this"] # [doc = "new code. The parachain itself will not be informed explicitly that the validation code"] # [doc = "has changed."] # [doc = ""] # [doc = "Can be called by Root, the parachain, or the parachain manager if the parachain is"] # [doc = "unlocked."] schedule_code_upgrade { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , new_code : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCode , } , # [codec (index = 8)] # [doc = "Set the parachain's current head."] # [doc = ""] # [doc = "Can be called by Root, the parachain, or the parachain manager if the parachain is"] # [doc = "unlocked."] set_current_head { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , new_head : runtime_types :: polkadot_parachain_primitives :: primitives :: HeadData , } , }
+                        # [codec (index = 0)] # [doc = "Register head data and validation code for a reserved Para Id."] # [doc = ""] # [doc = "## Arguments"] # [doc = "- `origin`: Must be called by a `Signed` origin."] # [doc = "- `id`: The para ID. Must be owned/managed by the `origin` signing account."] # [doc = "- `genesis_head`: The genesis head data of the parachain/thread."] # [doc = "- `validation_code`: The initial validation code of the parachain/thread."] # [doc = ""] # [doc = "## Deposits/Fees"] # [doc = "The account with the originating signature must reserve a deposit."] # [doc = ""] # [doc = "The deposit is required to cover the costs associated with storing the genesis head"] # [doc = "data and the validation code."] # [doc = "This accounts for the potential to store validation code of a size up to the"] # [doc = "`max_code_size`, as defined in the configuration pallet"] # [doc = ""] # [doc = "Anything already reserved previously for this para ID is accounted for."] # [doc = ""] # [doc = "## Events"] # [doc = "The `Registered` event is emitted in case of success."] register { id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , genesis_head : runtime_types :: pezkuwi_parachain_primitives :: primitives :: HeadData , validation_code : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCode , } , # [codec (index = 1)] # [doc = "Force the registration of a Para Id on the relay chain."] # [doc = ""] # [doc = "This function must be called by a Root origin."] # [doc = ""] # [doc = "The deposit taken can be specified for this registration. Any `ParaId`"] # [doc = "can be registered, including sub-1000 IDs which are System Parachains."] force_register { who : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , deposit : :: core :: primitive :: u128 , id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , genesis_head : runtime_types :: pezkuwi_parachain_primitives :: primitives :: HeadData , validation_code : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCode , } , # [codec (index = 2)] # [doc = "Deregister a Para Id, freeing all data and returning any deposit."] # [doc = ""] # [doc = "The caller must be Root, the `para` owner, or the `para` itself. The para must be an"] # [doc = "on-demand parachain."] deregister { id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 3)] # [doc = "Swap a lease holding parachain with another parachain, either on-demand or lease"] # [doc = "holding."] # [doc = ""] # [doc = "The origin must be Root, the `para` owner, or the `para` itself."] # [doc = ""] # [doc = "The swap will happen only if there is already an opposite swap pending. If there is not,"] # [doc = "the swap will be stored in the pending swaps map, ready for a later confirmatory swap."] # [doc = ""] # [doc = "The `ParaId`s remain mapped to the same head data and code so external code can rely on"] # [doc = "`ParaId` to be a long-term identifier of a notional \"parachain\". However, their"] # [doc = "scheduling info (i.e. whether they're an on-demand parachain or lease holding"] # [doc = "parachain), auction information and the auction deposit are switched."] swap { id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , other : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 4)] # [doc = "Remove a manager lock from a para. This will allow the manager of a"] # [doc = "previously locked para to deregister or swap a para without using governance."] # [doc = ""] # [doc = "Can only be called by the Root origin or the parachain."] remove_lock { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 5)] # [doc = "Reserve a Para Id on the relay chain."] # [doc = ""] # [doc = "This function will reserve a new Para Id to be owned/managed by the origin account."] # [doc = "The origin account is able to register head data and validation code using `register` to"] # [doc = "create an on-demand parachain. Using the Slots pallet, an on-demand parachain can then"] # [doc = "be upgraded to a lease holding parachain."] # [doc = ""] # [doc = "## Arguments"] # [doc = "- `origin`: Must be called by a `Signed` origin. Becomes the manager/owner of the new"] # [doc = "  para ID."] # [doc = ""] # [doc = "## Deposits/Fees"] # [doc = "The origin must reserve a deposit of `ParaDeposit` for the registration."] # [doc = ""] # [doc = "## Events"] # [doc = "The `Reserved` event is emitted in case of success, which provides the ID reserved for"] # [doc = "use."] reserve , # [codec (index = 6)] # [doc = "Add a manager lock from a para. This will prevent the manager of a"] # [doc = "para to deregister or swap a para."] # [doc = ""] # [doc = "Can be called by Root, the parachain, or the parachain manager if the parachain is"] # [doc = "unlocked."] add_lock { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 7)] # [doc = "Schedule a parachain upgrade."] # [doc = ""] # [doc = "This will kick off a check of `new_code` by all validators. After the majority of the"] # [doc = "validators have reported on the validity of the code, the code will either be enacted"] # [doc = "or the upgrade will be rejected. If the code will be enacted, the current code of the"] # [doc = "parachain will be overwritten directly. This means that any PoV will be checked by this"] # [doc = "new code. The parachain itself will not be informed explicitly that the validation code"] # [doc = "has changed."] # [doc = ""] # [doc = "Can be called by Root, the parachain, or the parachain manager if the parachain is"] # [doc = "unlocked."] schedule_code_upgrade { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , new_code : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCode , } , # [codec (index = 8)] # [doc = "Set the parachain's current head."] # [doc = ""] # [doc = "Can be called by Root, the parachain, or the parachain manager if the parachain is"] # [doc = "unlocked."] set_current_head { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , new_head : runtime_types :: pezkuwi_parachain_primitives :: primitives :: HeadData , } , }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -59564,22 +59564,22 @@ pub mod api {
                     pub enum Event {
                         #[codec(index = 0)]
                         Registered {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             manager: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         },
                         #[codec(index = 1)]
                         Deregistered {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 2)]
                         Reserved {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             who: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         },
                         #[codec(index = 3)]
                         Swapped {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
-                            other_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
+                            other_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                     }
                 }
@@ -59624,24 +59624,24 @@ pub mod api {
                         #[doc = "assigns Coretime to the chain and increases the number of cores. Thus, there is no"]
                         #[doc = "running coretime chain required."]
                         sudo_schedule_para_initialize {
-                            id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             genesis:
-                                runtime_types::polkadot_runtime_parachains::paras::ParaGenesisArgs,
+                                runtime_types::pezkuwi_runtime_parachains::paras::ParaGenesisArgs,
                         },
                         #[codec(index = 1)]
                         #[doc = "Schedule a para to be cleaned up at the start of the next session."]
                         sudo_schedule_para_cleanup {
-                            id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 2)]
                         #[doc = "Upgrade a parathread (on-demand parachain) to a lease holding parachain"]
                         sudo_schedule_parathread_upgrade {
-                            id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 3)]
                         #[doc = "Downgrade a lease holding parachain to an on-demand parachain"]
                         sudo_schedule_parachain_downgrade {
-                            id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 4)]
                         #[doc = "Send a downward XCM to the given para."]
@@ -59649,7 +59649,7 @@ pub mod api {
                         #[doc = "The given parachain should exist and the payload should not exceed the preconfigured"]
                         #[doc = "size `config.max_downward_message_size`."]
                         sudo_queue_downward_xcm {
-                            id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             xcm: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
                                 runtime_types::xcm::VersionedXcm,
                             >,
@@ -59660,8 +59660,8 @@ pub mod api {
                         #[doc = "This is equivalent to sending an `Hrmp::hrmp_init_open_channel` extrinsic followed by"]
                         #[doc = "`Hrmp::hrmp_accept_open_channel`."]
                         sudo_establish_hrmp_channel {
-                            sender: runtime_types::polkadot_parachain_primitives::primitives::Id,
-                            recipient: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            sender: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
+                            recipient: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             max_capacity: ::core::primitive::u32,
                             max_message_size: ::core::primitive::u32,
                         },
@@ -59736,7 +59736,7 @@ pub mod api {
                         #[doc = ""]
                         #[doc = "The dispatch origin for this call must match `T::ForceOrigin`."]
                         force_lease {
-                            para: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             leaser: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             amount: ::core::primitive::u128,
                             period_begin: ::core::primitive::u32,
@@ -59747,7 +59747,7 @@ pub mod api {
                         #[doc = ""]
                         #[doc = "The dispatch origin for this call must match `T::ForceOrigin`."]
                         clear_all_leases {
-                            para: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 2)]
                         #[doc = "Try to onboard a parachain that has a lease for the current lease period."]
@@ -59758,7 +59758,7 @@ pub mod api {
                         #[doc = ""]
                         #[doc = "Origin must be signed, but can be called by anyone."]
                         trigger_onboard {
-                            para: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                     }
                     #[derive(
@@ -59804,7 +59804,7 @@ pub mod api {
                         #[doc = "First balance is any extra amount reserved on top of the para's existing deposit."]
                         #[doc = "Second balance is the total amount reserved."]
                         Leased {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             leaser: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                             period_begin: ::core::primitive::u32,
                             period_count: ::core::primitive::u32,
@@ -59815,7 +59815,7 @@ pub mod api {
                 }
             }
         }
-        pub mod polkadot_runtime_parachains {
+        pub mod pezkuwi_runtime_parachains {
             use super::runtime_types;
             pub mod assigner_coretime {
                 use super::runtime_types;
@@ -59855,9 +59855,9 @@ pub mod api {
                 )]
                 pub struct AssignmentState {
                     pub ratio:
-                        runtime_types::polkadot_runtime_parachains::assigner_coretime::PartsOf57600,
+                        runtime_types::pezkuwi_runtime_parachains::assigner_coretime::PartsOf57600,
                     pub remaining:
-                        runtime_types::polkadot_runtime_parachains::assigner_coretime::PartsOf57600,
+                        runtime_types::pezkuwi_runtime_parachains::assigner_coretime::PartsOf57600,
                 }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -59870,7 +59870,7 @@ pub mod api {
                 #[encode_as_type(
                     crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                 )]
-                pub struct CoreDescriptor < _0 > { pub queue : :: core :: option :: Option < runtime_types :: polkadot_runtime_parachains :: assigner_coretime :: QueueDescriptor < _0 > > , pub current_work : :: core :: option :: Option < runtime_types :: polkadot_runtime_parachains :: assigner_coretime :: WorkState < _0 > > , }
+                pub struct CoreDescriptor < _0 > { pub queue : :: core :: option :: Option < runtime_types :: pezkuwi_runtime_parachains :: assigner_coretime :: QueueDescriptor < _0 > > , pub current_work : :: core :: option :: Option < runtime_types :: pezkuwi_runtime_parachains :: assigner_coretime :: WorkState < _0 > > , }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -59912,7 +59912,7 @@ pub mod api {
                 pub struct Schedule<_0> {
                     pub assignments: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<(
                         runtime_types::pallet_broker::coretime_interface::CoreAssignment,
-                        runtime_types::polkadot_runtime_parachains::assigner_coretime::PartsOf57600,
+                        runtime_types::pezkuwi_runtime_parachains::assigner_coretime::PartsOf57600,
                     )>,
                     pub end_hint: ::core::option::Option<_0>,
                     pub next_schedule: ::core::option::Option<_0>,
@@ -59928,7 +59928,7 @@ pub mod api {
                 #[encode_as_type(
                     crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                 )]
-                pub struct WorkState < _0 > { pub assignments : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < (runtime_types :: pallet_broker :: coretime_interface :: CoreAssignment , runtime_types :: polkadot_runtime_parachains :: assigner_coretime :: AssignmentState ,) > , pub end_hint : :: core :: option :: Option < _0 > , pub pos : :: core :: primitive :: u16 , pub step : runtime_types :: polkadot_runtime_parachains :: assigner_coretime :: PartsOf57600 , }
+                pub struct WorkState < _0 > { pub assignments : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < (runtime_types :: pallet_broker :: coretime_interface :: CoreAssignment , runtime_types :: pezkuwi_runtime_parachains :: assigner_coretime :: AssignmentState ,) > , pub end_hint : :: core :: option :: Option < _0 > , pub pos : :: core :: primitive :: u16 , pub step : runtime_types :: pezkuwi_runtime_parachains :: assigner_coretime :: PartsOf57600 , }
             }
             pub mod configuration {
                 use super::runtime_types;
@@ -59947,7 +59947,7 @@ pub mod api {
                     )]
                     #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
                     pub enum Call {
-                        # [codec (index = 0)] # [doc = "Set the validation upgrade cooldown."] set_validation_upgrade_cooldown { new : :: core :: primitive :: u32 , } , # [codec (index = 1)] # [doc = "Set the validation upgrade delay."] set_validation_upgrade_delay { new : :: core :: primitive :: u32 , } , # [codec (index = 2)] # [doc = "Set the acceptance period for an included candidate."] set_code_retention_period { new : :: core :: primitive :: u32 , } , # [codec (index = 3)] # [doc = "Set the max validation code size for incoming upgrades."] set_max_code_size { new : :: core :: primitive :: u32 , } , # [codec (index = 4)] # [doc = "Set the max POV block size for incoming upgrades."] set_max_pov_size { new : :: core :: primitive :: u32 , } , # [codec (index = 5)] # [doc = "Set the max head data size for paras."] set_max_head_data_size { new : :: core :: primitive :: u32 , } , # [codec (index = 6)] # [doc = "Set the number of coretime execution cores."] # [doc = ""] # [doc = "NOTE: that this configuration is managed by the coretime chain. Only manually change"] # [doc = "this, if you really know what you are doing!"] set_coretime_cores { new : :: core :: primitive :: u32 , } , # [codec (index = 8)] # [doc = "Set the parachain validator-group rotation frequency"] set_group_rotation_frequency { new : :: core :: primitive :: u32 , } , # [codec (index = 9)] # [doc = "Set the availability period for paras."] set_paras_availability_period { new : :: core :: primitive :: u32 , } , # [codec (index = 11)] # [doc = "Set the scheduling lookahead, in expected number of blocks at peak throughput."] set_scheduling_lookahead { new : :: core :: primitive :: u32 , } , # [codec (index = 12)] # [doc = "Set the maximum number of validators to assign to any core."] set_max_validators_per_core { new : :: core :: option :: Option < :: core :: primitive :: u32 > , } , # [codec (index = 13)] # [doc = "Set the maximum number of validators to use in parachain consensus."] set_max_validators { new : :: core :: option :: Option < :: core :: primitive :: u32 > , } , # [codec (index = 14)] # [doc = "Set the dispute period, in number of sessions to keep for disputes."] set_dispute_period { new : :: core :: primitive :: u32 , } , # [codec (index = 15)] # [doc = "Set the dispute post conclusion acceptance period."] set_dispute_post_conclusion_acceptance_period { new : :: core :: primitive :: u32 , } , # [codec (index = 18)] # [doc = "Set the no show slots, in number of number of consensus slots."] # [doc = "Must be at least 1."] set_no_show_slots { new : :: core :: primitive :: u32 , } , # [codec (index = 19)] # [doc = "Set the total number of delay tranches."] set_n_delay_tranches { new : :: core :: primitive :: u32 , } , # [codec (index = 20)] # [doc = "Set the zeroth delay tranche width."] set_zeroth_delay_tranche_width { new : :: core :: primitive :: u32 , } , # [codec (index = 21)] # [doc = "Set the number of validators needed to approve a block."] set_needed_approvals { new : :: core :: primitive :: u32 , } , # [codec (index = 22)] # [doc = "Set the number of samples to do of the `RelayVRFModulo` approval assignment criterion."] set_relay_vrf_modulo_samples { new : :: core :: primitive :: u32 , } , # [codec (index = 23)] # [doc = "Sets the maximum items that can present in a upward dispatch queue at once."] set_max_upward_queue_count { new : :: core :: primitive :: u32 , } , # [codec (index = 24)] # [doc = "Sets the maximum total size of items that can present in a upward dispatch queue at"] # [doc = "once."] set_max_upward_queue_size { new : :: core :: primitive :: u32 , } , # [codec (index = 25)] # [doc = "Set the critical downward message size."] set_max_downward_message_size { new : :: core :: primitive :: u32 , } , # [codec (index = 27)] # [doc = "Sets the maximum size of an upward message that can be sent by a candidate."] set_max_upward_message_size { new : :: core :: primitive :: u32 , } , # [codec (index = 28)] # [doc = "Sets the maximum number of messages that a candidate can contain."] set_max_upward_message_num_per_candidate { new : :: core :: primitive :: u32 , } , # [codec (index = 29)] # [doc = "Sets the number of sessions after which an HRMP open channel request expires."] set_hrmp_open_request_ttl { new : :: core :: primitive :: u32 , } , # [codec (index = 30)] # [doc = "Sets the amount of funds that the sender should provide for opening an HRMP channel."] set_hrmp_sender_deposit { new : :: core :: primitive :: u128 , } , # [codec (index = 31)] # [doc = "Sets the amount of funds that the recipient should provide for accepting opening an HRMP"] # [doc = "channel."] set_hrmp_recipient_deposit { new : :: core :: primitive :: u128 , } , # [codec (index = 32)] # [doc = "Sets the maximum number of messages allowed in an HRMP channel at once."] set_hrmp_channel_max_capacity { new : :: core :: primitive :: u32 , } , # [codec (index = 33)] # [doc = "Sets the maximum total size of messages in bytes allowed in an HRMP channel at once."] set_hrmp_channel_max_total_size { new : :: core :: primitive :: u32 , } , # [codec (index = 34)] # [doc = "Sets the maximum number of inbound HRMP channels a parachain is allowed to accept."] set_hrmp_max_parachain_inbound_channels { new : :: core :: primitive :: u32 , } , # [codec (index = 36)] # [doc = "Sets the maximum size of a message that could ever be put into an HRMP channel."] set_hrmp_channel_max_message_size { new : :: core :: primitive :: u32 , } , # [codec (index = 37)] # [doc = "Sets the maximum number of outbound HRMP channels a parachain is allowed to open."] set_hrmp_max_parachain_outbound_channels { new : :: core :: primitive :: u32 , } , # [codec (index = 39)] # [doc = "Sets the maximum number of outbound HRMP messages can be sent by a candidate."] set_hrmp_max_message_num_per_candidate { new : :: core :: primitive :: u32 , } , # [codec (index = 42)] # [doc = "Set the number of session changes after which a PVF pre-checking voting is rejected."] set_pvf_voting_ttl { new : :: core :: primitive :: u32 , } , # [codec (index = 43)] # [doc = "Sets the minimum delay between announcing the upgrade block for a parachain until the"] # [doc = "upgrade taking place."] # [doc = ""] # [doc = "See the field documentation for information and constraints for the new value."] set_minimum_validation_upgrade_delay { new : :: core :: primitive :: u32 , } , # [codec (index = 44)] # [doc = "Setting this to true will disable consistency checks for the configuration setters."] # [doc = "Use with caution."] set_bypass_consistency_check { new : :: core :: primitive :: bool , } , # [codec (index = 45)] # [doc = "Set the asynchronous backing parameters."] set_async_backing_params { new : runtime_types :: polkadot_primitives :: v9 :: async_backing :: AsyncBackingParams , } , # [codec (index = 46)] # [doc = "Set PVF executor parameters."] set_executor_params { new : runtime_types :: polkadot_primitives :: v9 :: executor_params :: ExecutorParams , } , # [codec (index = 47)] # [doc = "Set the on demand (parathreads) base fee."] set_on_demand_base_fee { new : :: core :: primitive :: u128 , } , # [codec (index = 48)] # [doc = "Set the on demand (parathreads) fee variability."] set_on_demand_fee_variability { new : runtime_types :: sp_arithmetic :: per_things :: Perbill , } , # [codec (index = 49)] # [doc = "Set the on demand (parathreads) queue max size."] set_on_demand_queue_max_size { new : :: core :: primitive :: u32 , } , # [codec (index = 50)] # [doc = "Set the on demand (parathreads) fee variability."] set_on_demand_target_queue_utilization { new : runtime_types :: sp_arithmetic :: per_things :: Perbill , } , # [codec (index = 52)] # [doc = "Set the minimum backing votes threshold."] set_minimum_backing_votes { new : :: core :: primitive :: u32 , } , # [codec (index = 53)] # [doc = "Set/Unset a node feature."] set_node_feature { index : :: core :: primitive :: u8 , value : :: core :: primitive :: bool , } , # [codec (index = 54)] # [doc = "Set approval-voting-params."] set_approval_voting_params { new : runtime_types :: polkadot_primitives :: v9 :: ApprovalVotingParams , } , # [codec (index = 55)] # [doc = "Set scheduler-params."] set_scheduler_params { new : runtime_types :: polkadot_primitives :: v9 :: SchedulerParams < :: core :: primitive :: u32 > , } , }
+                        # [codec (index = 0)] # [doc = "Set the validation upgrade cooldown."] set_validation_upgrade_cooldown { new : :: core :: primitive :: u32 , } , # [codec (index = 1)] # [doc = "Set the validation upgrade delay."] set_validation_upgrade_delay { new : :: core :: primitive :: u32 , } , # [codec (index = 2)] # [doc = "Set the acceptance period for an included candidate."] set_code_retention_period { new : :: core :: primitive :: u32 , } , # [codec (index = 3)] # [doc = "Set the max validation code size for incoming upgrades."] set_max_code_size { new : :: core :: primitive :: u32 , } , # [codec (index = 4)] # [doc = "Set the max POV block size for incoming upgrades."] set_max_pov_size { new : :: core :: primitive :: u32 , } , # [codec (index = 5)] # [doc = "Set the max head data size for paras."] set_max_head_data_size { new : :: core :: primitive :: u32 , } , # [codec (index = 6)] # [doc = "Set the number of coretime execution cores."] # [doc = ""] # [doc = "NOTE: that this configuration is managed by the coretime chain. Only manually change"] # [doc = "this, if you really know what you are doing!"] set_coretime_cores { new : :: core :: primitive :: u32 , } , # [codec (index = 8)] # [doc = "Set the parachain validator-group rotation frequency"] set_group_rotation_frequency { new : :: core :: primitive :: u32 , } , # [codec (index = 9)] # [doc = "Set the availability period for paras."] set_paras_availability_period { new : :: core :: primitive :: u32 , } , # [codec (index = 11)] # [doc = "Set the scheduling lookahead, in expected number of blocks at peak throughput."] set_scheduling_lookahead { new : :: core :: primitive :: u32 , } , # [codec (index = 12)] # [doc = "Set the maximum number of validators to assign to any core."] set_max_validators_per_core { new : :: core :: option :: Option < :: core :: primitive :: u32 > , } , # [codec (index = 13)] # [doc = "Set the maximum number of validators to use in parachain consensus."] set_max_validators { new : :: core :: option :: Option < :: core :: primitive :: u32 > , } , # [codec (index = 14)] # [doc = "Set the dispute period, in number of sessions to keep for disputes."] set_dispute_period { new : :: core :: primitive :: u32 , } , # [codec (index = 15)] # [doc = "Set the dispute post conclusion acceptance period."] set_dispute_post_conclusion_acceptance_period { new : :: core :: primitive :: u32 , } , # [codec (index = 18)] # [doc = "Set the no show slots, in number of number of consensus slots."] # [doc = "Must be at least 1."] set_no_show_slots { new : :: core :: primitive :: u32 , } , # [codec (index = 19)] # [doc = "Set the total number of delay tranches."] set_n_delay_tranches { new : :: core :: primitive :: u32 , } , # [codec (index = 20)] # [doc = "Set the zeroth delay tranche width."] set_zeroth_delay_tranche_width { new : :: core :: primitive :: u32 , } , # [codec (index = 21)] # [doc = "Set the number of validators needed to approve a block."] set_needed_approvals { new : :: core :: primitive :: u32 , } , # [codec (index = 22)] # [doc = "Set the number of samples to do of the `RelayVRFModulo` approval assignment criterion."] set_relay_vrf_modulo_samples { new : :: core :: primitive :: u32 , } , # [codec (index = 23)] # [doc = "Sets the maximum items that can present in a upward dispatch queue at once."] set_max_upward_queue_count { new : :: core :: primitive :: u32 , } , # [codec (index = 24)] # [doc = "Sets the maximum total size of items that can present in a upward dispatch queue at"] # [doc = "once."] set_max_upward_queue_size { new : :: core :: primitive :: u32 , } , # [codec (index = 25)] # [doc = "Set the critical downward message size."] set_max_downward_message_size { new : :: core :: primitive :: u32 , } , # [codec (index = 27)] # [doc = "Sets the maximum size of an upward message that can be sent by a candidate."] set_max_upward_message_size { new : :: core :: primitive :: u32 , } , # [codec (index = 28)] # [doc = "Sets the maximum number of messages that a candidate can contain."] set_max_upward_message_num_per_candidate { new : :: core :: primitive :: u32 , } , # [codec (index = 29)] # [doc = "Sets the number of sessions after which an HRMP open channel request expires."] set_hrmp_open_request_ttl { new : :: core :: primitive :: u32 , } , # [codec (index = 30)] # [doc = "Sets the amount of funds that the sender should provide for opening an HRMP channel."] set_hrmp_sender_deposit { new : :: core :: primitive :: u128 , } , # [codec (index = 31)] # [doc = "Sets the amount of funds that the recipient should provide for accepting opening an HRMP"] # [doc = "channel."] set_hrmp_recipient_deposit { new : :: core :: primitive :: u128 , } , # [codec (index = 32)] # [doc = "Sets the maximum number of messages allowed in an HRMP channel at once."] set_hrmp_channel_max_capacity { new : :: core :: primitive :: u32 , } , # [codec (index = 33)] # [doc = "Sets the maximum total size of messages in bytes allowed in an HRMP channel at once."] set_hrmp_channel_max_total_size { new : :: core :: primitive :: u32 , } , # [codec (index = 34)] # [doc = "Sets the maximum number of inbound HRMP channels a parachain is allowed to accept."] set_hrmp_max_parachain_inbound_channels { new : :: core :: primitive :: u32 , } , # [codec (index = 36)] # [doc = "Sets the maximum size of a message that could ever be put into an HRMP channel."] set_hrmp_channel_max_message_size { new : :: core :: primitive :: u32 , } , # [codec (index = 37)] # [doc = "Sets the maximum number of outbound HRMP channels a parachain is allowed to open."] set_hrmp_max_parachain_outbound_channels { new : :: core :: primitive :: u32 , } , # [codec (index = 39)] # [doc = "Sets the maximum number of outbound HRMP messages can be sent by a candidate."] set_hrmp_max_message_num_per_candidate { new : :: core :: primitive :: u32 , } , # [codec (index = 42)] # [doc = "Set the number of session changes after which a PVF pre-checking voting is rejected."] set_pvf_voting_ttl { new : :: core :: primitive :: u32 , } , # [codec (index = 43)] # [doc = "Sets the minimum delay between announcing the upgrade block for a parachain until the"] # [doc = "upgrade taking place."] # [doc = ""] # [doc = "See the field documentation for information and constraints for the new value."] set_minimum_validation_upgrade_delay { new : :: core :: primitive :: u32 , } , # [codec (index = 44)] # [doc = "Setting this to true will disable consistency checks for the configuration setters."] # [doc = "Use with caution."] set_bypass_consistency_check { new : :: core :: primitive :: bool , } , # [codec (index = 45)] # [doc = "Set the asynchronous backing parameters."] set_async_backing_params { new : runtime_types :: pezkuwi_primitives :: v9 :: async_backing :: AsyncBackingParams , } , # [codec (index = 46)] # [doc = "Set PVF executor parameters."] set_executor_params { new : runtime_types :: pezkuwi_primitives :: v9 :: executor_params :: ExecutorParams , } , # [codec (index = 47)] # [doc = "Set the on demand (parathreads) base fee."] set_on_demand_base_fee { new : :: core :: primitive :: u128 , } , # [codec (index = 48)] # [doc = "Set the on demand (parathreads) fee variability."] set_on_demand_fee_variability { new : runtime_types :: sp_arithmetic :: per_things :: Perbill , } , # [codec (index = 49)] # [doc = "Set the on demand (parathreads) queue max size."] set_on_demand_queue_max_size { new : :: core :: primitive :: u32 , } , # [codec (index = 50)] # [doc = "Set the on demand (parathreads) fee variability."] set_on_demand_target_queue_utilization { new : runtime_types :: sp_arithmetic :: per_things :: Perbill , } , # [codec (index = 52)] # [doc = "Set the minimum backing votes threshold."] set_minimum_backing_votes { new : :: core :: primitive :: u32 , } , # [codec (index = 53)] # [doc = "Set/Unset a node feature."] set_node_feature { index : :: core :: primitive :: u8 , value : :: core :: primitive :: bool , } , # [codec (index = 54)] # [doc = "Set approval-voting-params."] set_approval_voting_params { new : runtime_types :: pezkuwi_primitives :: v9 :: ApprovalVotingParams , } , # [codec (index = 55)] # [doc = "Set scheduler-params."] set_scheduler_params { new : runtime_types :: pezkuwi_primitives :: v9 :: SchedulerParams < :: core :: primitive :: u32 > , } , }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -59988,7 +59988,7 @@ pub mod api {
                     pub validation_upgrade_cooldown: _0,
                     pub validation_upgrade_delay: _0,
                     pub async_backing_params:
-                        runtime_types::polkadot_primitives::v9::async_backing::AsyncBackingParams,
+                        runtime_types::pezkuwi_primitives::v9::async_backing::AsyncBackingParams,
                     pub max_pov_size: ::core::primitive::u32,
                     pub max_downward_message_size: ::core::primitive::u32,
                     pub hrmp_max_parachain_outbound_channels: ::core::primitive::u32,
@@ -59999,7 +59999,7 @@ pub mod api {
                     pub hrmp_max_parachain_inbound_channels: ::core::primitive::u32,
                     pub hrmp_channel_max_message_size: ::core::primitive::u32,
                     pub executor_params:
-                        runtime_types::polkadot_primitives::v9::executor_params::ExecutorParams,
+                        runtime_types::pezkuwi_primitives::v9::executor_params::ExecutorParams,
                     pub code_retention_period: _0,
                     pub max_validators: ::core::option::Option<_0>,
                     pub dispute_period: ::core::primitive::u32,
@@ -60017,9 +60017,9 @@ pub mod api {
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::bits::Lsb0,
                     >,
                     pub approval_voting_params:
-                        runtime_types::polkadot_primitives::v9::ApprovalVotingParams,
+                        runtime_types::pezkuwi_primitives::v9::ApprovalVotingParams,
                     pub scheduler_params:
-                        runtime_types::polkadot_primitives::v9::SchedulerParams<_0>,
+                        runtime_types::pezkuwi_primitives::v9::SchedulerParams<_0>,
                 }
             }
             pub mod coretime {
@@ -60039,7 +60039,7 @@ pub mod api {
                     )]
                     #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
                     pub enum Call {
-                        # [codec (index = 1)] # [doc = "Request the configuration to be updated with the specified number of cores. Warning:"] # [doc = "Since this only schedules a configuration update, it takes two sessions to come into"] # [doc = "effect."] # [doc = ""] # [doc = "- `origin`: Root or the Coretime Chain"] # [doc = "- `count`: total number of cores"] request_core_count { count : :: core :: primitive :: u16 , } , # [codec (index = 2)] # [doc = "Request to claim the instantaneous coretime sales revenue starting from the block it was"] # [doc = "last claimed until and up to the block specified. The claimed amount value is sent back"] # [doc = "to the Coretime chain in a `notify_revenue` message. At the same time, the amount is"] # [doc = "teleported to the Coretime chain."] request_revenue_at { when : :: core :: primitive :: u32 , } , # [codec (index = 3)] credit_account { who : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , amount : :: core :: primitive :: u128 , } , # [codec (index = 4)] # [doc = "Receive instructions from the `ExternalBrokerOrigin`, detailing how a specific core is"] # [doc = "to be used."] # [doc = ""] # [doc = "Parameters:"] # [doc = "-`origin`: The `ExternalBrokerOrigin`, assumed to be the coretime chain."] # [doc = "-`core`: The core that should be scheduled."] # [doc = "-`begin`: The starting blockheight of the instruction."] # [doc = "-`assignment`: How the blockspace should be utilised."] # [doc = "-`end_hint`: An optional hint as to when this particular set of instructions will end."] assign_core { core : :: core :: primitive :: u16 , begin : :: core :: primitive :: u32 , assignment : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < (runtime_types :: pallet_broker :: coretime_interface :: CoreAssignment , runtime_types :: polkadot_runtime_parachains :: assigner_coretime :: PartsOf57600 ,) > , end_hint : :: core :: option :: Option < :: core :: primitive :: u32 > , } , }
+                        # [codec (index = 1)] # [doc = "Request the configuration to be updated with the specified number of cores. Warning:"] # [doc = "Since this only schedules a configuration update, it takes two sessions to come into"] # [doc = "effect."] # [doc = ""] # [doc = "- `origin`: Root or the Coretime Chain"] # [doc = "- `count`: total number of cores"] request_core_count { count : :: core :: primitive :: u16 , } , # [codec (index = 2)] # [doc = "Request to claim the instantaneous coretime sales revenue starting from the block it was"] # [doc = "last claimed until and up to the block specified. The claimed amount value is sent back"] # [doc = "to the Coretime chain in a `notify_revenue` message. At the same time, the amount is"] # [doc = "teleported to the Coretime chain."] request_revenue_at { when : :: core :: primitive :: u32 , } , # [codec (index = 3)] credit_account { who : :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 , amount : :: core :: primitive :: u128 , } , # [codec (index = 4)] # [doc = "Receive instructions from the `ExternalBrokerOrigin`, detailing how a specific core is"] # [doc = "to be used."] # [doc = ""] # [doc = "Parameters:"] # [doc = "-`origin`: The `ExternalBrokerOrigin`, assumed to be the coretime chain."] # [doc = "-`core`: The core that should be scheduled."] # [doc = "-`begin`: The starting blockheight of the instruction."] # [doc = "-`assignment`: How the blockspace should be utilised."] # [doc = "-`end_hint`: An optional hint as to when this particular set of instructions will end."] assign_core { core : :: core :: primitive :: u16 , begin : :: core :: primitive :: u32 , assignment : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < (runtime_types :: pallet_broker :: coretime_interface :: CoreAssignment , runtime_types :: pezkuwi_runtime_parachains :: assigner_coretime :: PartsOf57600 ,) > , end_hint : :: core :: option :: Option < :: core :: primitive :: u32 > , } , }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -60083,7 +60083,7 @@ pub mod api {
                         #[codec(index = 1)]
                         #[doc = "A core has received a new assignment from the broker chain."]
                         CoreAssigned {
-                            core: runtime_types::polkadot_primitives::v9::CoreIndex,
+                            core: runtime_types::pezkuwi_primitives::v9::CoreIndex,
                         },
                     }
                 }
@@ -60165,15 +60165,15 @@ pub mod api {
                         #[codec(index = 0)]
                         #[doc = "A dispute has been initiated. \\[candidate hash, dispute location\\]"]
                         DisputeInitiated(
-                            runtime_types::polkadot_core_primitives::CandidateHash,
-                            runtime_types::polkadot_runtime_parachains::disputes::DisputeLocation,
+                            runtime_types::pezkuwi_core_primitives::CandidateHash,
+                            runtime_types::pezkuwi_runtime_parachains::disputes::DisputeLocation,
                         ),
                         #[codec(index = 1)]
                         #[doc = "A dispute has concluded for or against a candidate."]
                         #[doc = "`\\[para id, candidate hash, dispute result\\]`"]
                         DisputeConcluded(
-                            runtime_types::polkadot_core_primitives::CandidateHash,
-                            runtime_types::polkadot_runtime_parachains::disputes::DisputeResult,
+                            runtime_types::pezkuwi_core_primitives::CandidateHash,
+                            runtime_types::pezkuwi_runtime_parachains::disputes::DisputeResult,
                         ),
                         #[codec(index = 2)]
                         #[doc = "A dispute has concluded with supermajority against a candidate."]
@@ -60203,7 +60203,7 @@ pub mod api {
                             #[codec(index = 0)]
                             report_dispute_lost_unsigned {
                                 dispute_proof: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::boxed::Box<
-                                    runtime_types::polkadot_primitives::v9::slashing::DisputeProof,
+                                    runtime_types::pezkuwi_primitives::v9::slashing::DisputeProof,
                                 >,
                                 key_owner_proof: runtime_types::sp_session::MembershipProof,
                             },
@@ -60295,7 +60295,7 @@ pub mod api {
                     )]
                     #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
                     pub enum Call {
-                        # [codec (index = 0)] # [doc = "Initiate opening a channel from a parachain to a given recipient with given channel"] # [doc = "parameters."] # [doc = ""] # [doc = "- `proposed_max_capacity` - specifies how many messages can be in the channel at once."] # [doc = "- `proposed_max_message_size` - specifies the maximum size of the messages."] # [doc = ""] # [doc = "These numbers are a subject to the relay-chain configuration limits."] # [doc = ""] # [doc = "The channel can be opened only after the recipient confirms it and only on a session"] # [doc = "change."] hrmp_init_open_channel { recipient : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , proposed_max_capacity : :: core :: primitive :: u32 , proposed_max_message_size : :: core :: primitive :: u32 , } , # [codec (index = 1)] # [doc = "Accept a pending open channel request from the given sender."] # [doc = ""] # [doc = "The channel will be opened only on the next session boundary."] hrmp_accept_open_channel { sender : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 2)] # [doc = "Initiate unilateral closing of a channel. The origin must be either the sender or the"] # [doc = "recipient in the channel being closed."] # [doc = ""] # [doc = "The closure can only happen on a session change."] hrmp_close_channel { channel_id : runtime_types :: polkadot_parachain_primitives :: primitives :: HrmpChannelId , } , # [codec (index = 3)] # [doc = "This extrinsic triggers the cleanup of all the HRMP storage items that a para may have."] # [doc = "Normally this happens once per session, but this allows you to trigger the cleanup"] # [doc = "immediately for a specific parachain."] # [doc = ""] # [doc = "Number of inbound and outbound channels for `para` must be provided as witness data."] # [doc = ""] # [doc = "Origin must be the `ChannelManager`."] force_clean_hrmp { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , num_inbound : :: core :: primitive :: u32 , num_outbound : :: core :: primitive :: u32 , } , # [codec (index = 4)] # [doc = "Force process HRMP open channel requests."] # [doc = ""] # [doc = "If there are pending HRMP open channel requests, you can use this function to process"] # [doc = "all of those requests immediately."] # [doc = ""] # [doc = "Total number of opening channels must be provided as witness data."] # [doc = ""] # [doc = "Origin must be the `ChannelManager`."] force_process_hrmp_open { channels : :: core :: primitive :: u32 , } , # [codec (index = 5)] # [doc = "Force process HRMP close channel requests."] # [doc = ""] # [doc = "If there are pending HRMP close channel requests, you can use this function to process"] # [doc = "all of those requests immediately."] # [doc = ""] # [doc = "Total number of closing channels must be provided as witness data."] # [doc = ""] # [doc = "Origin must be the `ChannelManager`."] force_process_hrmp_close { channels : :: core :: primitive :: u32 , } , # [codec (index = 6)] # [doc = "This cancels a pending open channel request. It can be canceled by either of the sender"] # [doc = "or the recipient for that request. The origin must be either of those."] # [doc = ""] # [doc = "The cancellation happens immediately. It is not possible to cancel the request if it is"] # [doc = "already accepted."] # [doc = ""] # [doc = "Total number of open requests (i.e. `HrmpOpenChannelRequestsList`) must be provided as"] # [doc = "witness data."] hrmp_cancel_open_request { channel_id : runtime_types :: polkadot_parachain_primitives :: primitives :: HrmpChannelId , open_requests : :: core :: primitive :: u32 , } , # [codec (index = 7)] # [doc = "Open a channel from a `sender` to a `recipient` `ParaId`. Although opened by governance,"] # [doc = "the `max_capacity` and `max_message_size` are still subject to the Relay Chain's"] # [doc = "configured limits."] # [doc = ""] # [doc = "Expected use is when one (and only one) of the `ParaId`s involved in the channel is"] # [doc = "governed by the system, e.g. a system parachain."] # [doc = ""] # [doc = "Origin must be the `ChannelManager`."] force_open_hrmp_channel { sender : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , recipient : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , max_capacity : :: core :: primitive :: u32 , max_message_size : :: core :: primitive :: u32 , } , # [codec (index = 8)] # [doc = "Establish an HRMP channel between two system chains. If the channel does not already"] # [doc = "exist, the transaction fees will be refunded to the caller. The system does not take"] # [doc = "deposits for channels between system chains, and automatically sets the message number"] # [doc = "and size limits to the maximum allowed by the network's configuration."] # [doc = ""] # [doc = "Arguments:"] # [doc = ""] # [doc = "- `sender`: A system chain, `ParaId`."] # [doc = "- `recipient`: A system chain, `ParaId`."] # [doc = ""] # [doc = "Any signed origin can call this function, but _both_ inputs MUST be system chains. If"] # [doc = "the channel does not exist yet, there is no fee."] establish_system_channel { sender : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , recipient : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 9)] # [doc = "Update the deposits held for an HRMP channel to the latest `Configuration`. Channels"] # [doc = "with system chains do not require a deposit."] # [doc = ""] # [doc = "Arguments:"] # [doc = ""] # [doc = "- `sender`: A chain, `ParaId`."] # [doc = "- `recipient`: A chain, `ParaId`."] # [doc = ""] # [doc = "Any signed origin can call this function."] poke_channel_deposits { sender : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , recipient : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 10)] # [doc = "Establish a bidirectional HRMP channel between a parachain and a system chain."] # [doc = ""] # [doc = "Arguments:"] # [doc = ""] # [doc = "- `target_system_chain`: A system chain, `ParaId`."] # [doc = ""] # [doc = "The origin needs to be the parachain origin."] establish_channel_with_system { target_system_chain : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , }
+                        # [codec (index = 0)] # [doc = "Initiate opening a channel from a parachain to a given recipient with given channel"] # [doc = "parameters."] # [doc = ""] # [doc = "- `proposed_max_capacity` - specifies how many messages can be in the channel at once."] # [doc = "- `proposed_max_message_size` - specifies the maximum size of the messages."] # [doc = ""] # [doc = "These numbers are a subject to the relay-chain configuration limits."] # [doc = ""] # [doc = "The channel can be opened only after the recipient confirms it and only on a session"] # [doc = "change."] hrmp_init_open_channel { recipient : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , proposed_max_capacity : :: core :: primitive :: u32 , proposed_max_message_size : :: core :: primitive :: u32 , } , # [codec (index = 1)] # [doc = "Accept a pending open channel request from the given sender."] # [doc = ""] # [doc = "The channel will be opened only on the next session boundary."] hrmp_accept_open_channel { sender : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 2)] # [doc = "Initiate unilateral closing of a channel. The origin must be either the sender or the"] # [doc = "recipient in the channel being closed."] # [doc = ""] # [doc = "The closure can only happen on a session change."] hrmp_close_channel { channel_id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: HrmpChannelId , } , # [codec (index = 3)] # [doc = "This extrinsic triggers the cleanup of all the HRMP storage items that a para may have."] # [doc = "Normally this happens once per session, but this allows you to trigger the cleanup"] # [doc = "immediately for a specific parachain."] # [doc = ""] # [doc = "Number of inbound and outbound channels for `para` must be provided as witness data."] # [doc = ""] # [doc = "Origin must be the `ChannelManager`."] force_clean_hrmp { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , num_inbound : :: core :: primitive :: u32 , num_outbound : :: core :: primitive :: u32 , } , # [codec (index = 4)] # [doc = "Force process HRMP open channel requests."] # [doc = ""] # [doc = "If there are pending HRMP open channel requests, you can use this function to process"] # [doc = "all of those requests immediately."] # [doc = ""] # [doc = "Total number of opening channels must be provided as witness data."] # [doc = ""] # [doc = "Origin must be the `ChannelManager`."] force_process_hrmp_open { channels : :: core :: primitive :: u32 , } , # [codec (index = 5)] # [doc = "Force process HRMP close channel requests."] # [doc = ""] # [doc = "If there are pending HRMP close channel requests, you can use this function to process"] # [doc = "all of those requests immediately."] # [doc = ""] # [doc = "Total number of closing channels must be provided as witness data."] # [doc = ""] # [doc = "Origin must be the `ChannelManager`."] force_process_hrmp_close { channels : :: core :: primitive :: u32 , } , # [codec (index = 6)] # [doc = "This cancels a pending open channel request. It can be canceled by either of the sender"] # [doc = "or the recipient for that request. The origin must be either of those."] # [doc = ""] # [doc = "The cancellation happens immediately. It is not possible to cancel the request if it is"] # [doc = "already accepted."] # [doc = ""] # [doc = "Total number of open requests (i.e. `HrmpOpenChannelRequestsList`) must be provided as"] # [doc = "witness data."] hrmp_cancel_open_request { channel_id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: HrmpChannelId , open_requests : :: core :: primitive :: u32 , } , # [codec (index = 7)] # [doc = "Open a channel from a `sender` to a `recipient` `ParaId`. Although opened by governance,"] # [doc = "the `max_capacity` and `max_message_size` are still subject to the Relay Chain's"] # [doc = "configured limits."] # [doc = ""] # [doc = "Expected use is when one (and only one) of the `ParaId`s involved in the channel is"] # [doc = "governed by the system, e.g. a system parachain."] # [doc = ""] # [doc = "Origin must be the `ChannelManager`."] force_open_hrmp_channel { sender : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , recipient : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , max_capacity : :: core :: primitive :: u32 , max_message_size : :: core :: primitive :: u32 , } , # [codec (index = 8)] # [doc = "Establish an HRMP channel between two system chains. If the channel does not already"] # [doc = "exist, the transaction fees will be refunded to the caller. The system does not take"] # [doc = "deposits for channels between system chains, and automatically sets the message number"] # [doc = "and size limits to the maximum allowed by the network's configuration."] # [doc = ""] # [doc = "Arguments:"] # [doc = ""] # [doc = "- `sender`: A system chain, `ParaId`."] # [doc = "- `recipient`: A system chain, `ParaId`."] # [doc = ""] # [doc = "Any signed origin can call this function, but _both_ inputs MUST be system chains. If"] # [doc = "the channel does not exist yet, there is no fee."] establish_system_channel { sender : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , recipient : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 9)] # [doc = "Update the deposits held for an HRMP channel to the latest `Configuration`. Channels"] # [doc = "with system chains do not require a deposit."] # [doc = ""] # [doc = "Arguments:"] # [doc = ""] # [doc = "- `sender`: A chain, `ParaId`."] # [doc = "- `recipient`: A chain, `ParaId`."] # [doc = ""] # [doc = "Any signed origin can call this function."] poke_channel_deposits { sender : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , recipient : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 10)] # [doc = "Establish a bidirectional HRMP channel between a parachain and a system chain."] # [doc = ""] # [doc = "Arguments:"] # [doc = ""] # [doc = "- `target_system_chain`: A system chain, `ParaId`."] # [doc = ""] # [doc = "The origin needs to be the parachain origin."] establish_channel_with_system { target_system_chain : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -60383,7 +60383,7 @@ pub mod api {
                     )]
                     #[doc = "The `Event` enum of this pallet"]
                     pub enum Event {
-                        # [codec (index = 0)] # [doc = "Open HRMP channel requested."] OpenChannelRequested { sender : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , recipient : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , proposed_max_capacity : :: core :: primitive :: u32 , proposed_max_message_size : :: core :: primitive :: u32 , } , # [codec (index = 1)] # [doc = "An HRMP channel request sent by the receiver was canceled by either party."] OpenChannelCanceled { by_parachain : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , channel_id : runtime_types :: polkadot_parachain_primitives :: primitives :: HrmpChannelId , } , # [codec (index = 2)] # [doc = "Open HRMP channel accepted."] OpenChannelAccepted { sender : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , recipient : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 3)] # [doc = "HRMP channel closed."] ChannelClosed { by_parachain : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , channel_id : runtime_types :: polkadot_parachain_primitives :: primitives :: HrmpChannelId , } , # [codec (index = 4)] # [doc = "An HRMP channel was opened via Root origin."] HrmpChannelForceOpened { sender : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , recipient : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , proposed_max_capacity : :: core :: primitive :: u32 , proposed_max_message_size : :: core :: primitive :: u32 , } , # [codec (index = 5)] # [doc = "An HRMP channel was opened with a system chain."] HrmpSystemChannelOpened { sender : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , recipient : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , proposed_max_capacity : :: core :: primitive :: u32 , proposed_max_message_size : :: core :: primitive :: u32 , } , # [codec (index = 6)] # [doc = "An HRMP channel's deposits were updated."] OpenChannelDepositsUpdated { sender : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , recipient : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , }
+                        # [codec (index = 0)] # [doc = "Open HRMP channel requested."] OpenChannelRequested { sender : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , recipient : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , proposed_max_capacity : :: core :: primitive :: u32 , proposed_max_message_size : :: core :: primitive :: u32 , } , # [codec (index = 1)] # [doc = "An HRMP channel request sent by the receiver was canceled by either party."] OpenChannelCanceled { by_parachain : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , channel_id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: HrmpChannelId , } , # [codec (index = 2)] # [doc = "Open HRMP channel accepted."] OpenChannelAccepted { sender : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , recipient : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 3)] # [doc = "HRMP channel closed."] ChannelClosed { by_parachain : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , channel_id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: HrmpChannelId , } , # [codec (index = 4)] # [doc = "An HRMP channel was opened via Root origin."] HrmpChannelForceOpened { sender : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , recipient : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , proposed_max_capacity : :: core :: primitive :: u32 , proposed_max_message_size : :: core :: primitive :: u32 , } , # [codec (index = 5)] # [doc = "An HRMP channel was opened with a system chain."] HrmpSystemChannelOpened { sender : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , recipient : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , proposed_max_capacity : :: core :: primitive :: u32 , proposed_max_message_size : :: core :: primitive :: u32 , } , # [codec (index = 6)] # [doc = "An HRMP channel's deposits were updated."] OpenChannelDepositsUpdated { sender : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , recipient : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , }
                 }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -60527,36 +60527,36 @@ pub mod api {
                         #[codec(index = 0)]
                         #[doc = "A candidate was backed. `[candidate, head_data]`"]
                         CandidateBacked(
-                            runtime_types::polkadot_primitives::v9::CandidateReceiptV2<
+                            runtime_types::pezkuwi_primitives::v9::CandidateReceiptV2<
                                 ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                             >,
-                            runtime_types::polkadot_parachain_primitives::primitives::HeadData,
-                            runtime_types::polkadot_primitives::v9::CoreIndex,
-                            runtime_types::polkadot_primitives::v9::GroupIndex,
+                            runtime_types::pezkuwi_parachain_primitives::primitives::HeadData,
+                            runtime_types::pezkuwi_primitives::v9::CoreIndex,
+                            runtime_types::pezkuwi_primitives::v9::GroupIndex,
                         ),
                         #[codec(index = 1)]
                         #[doc = "A candidate was included. `[candidate, head_data]`"]
                         CandidateIncluded(
-                            runtime_types::polkadot_primitives::v9::CandidateReceiptV2<
+                            runtime_types::pezkuwi_primitives::v9::CandidateReceiptV2<
                                 ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                             >,
-                            runtime_types::polkadot_parachain_primitives::primitives::HeadData,
-                            runtime_types::polkadot_primitives::v9::CoreIndex,
-                            runtime_types::polkadot_primitives::v9::GroupIndex,
+                            runtime_types::pezkuwi_parachain_primitives::primitives::HeadData,
+                            runtime_types::pezkuwi_primitives::v9::CoreIndex,
+                            runtime_types::pezkuwi_primitives::v9::GroupIndex,
                         ),
                         #[codec(index = 2)]
                         #[doc = "A candidate timed out. `[candidate, head_data]`"]
                         CandidateTimedOut(
-                            runtime_types::polkadot_primitives::v9::CandidateReceiptV2<
+                            runtime_types::pezkuwi_primitives::v9::CandidateReceiptV2<
                                 ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::H256,
                             >,
-                            runtime_types::polkadot_parachain_primitives::primitives::HeadData,
-                            runtime_types::polkadot_primitives::v9::CoreIndex,
+                            runtime_types::pezkuwi_parachain_primitives::primitives::HeadData,
+                            runtime_types::pezkuwi_primitives::v9::CoreIndex,
                         ),
                         #[codec(index = 3)]
                         #[doc = "Some upward messages have been received and will be processed."]
                         UpwardMessagesReceived {
-                            from: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            from: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             count: ::core::primitive::u32,
                         },
                     }
@@ -60574,7 +60574,7 @@ pub mod api {
                 )]
                 pub enum AggregateMessageOrigin {
                     #[codec(index = 0)]
-                    Ump(runtime_types::polkadot_runtime_parachains::inclusion::UmpQueueId),
+                    Ump(runtime_types::pezkuwi_runtime_parachains::inclusion::UmpQueueId),
                 }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -60588,12 +60588,12 @@ pub mod api {
                     crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                 )]
                 pub struct CandidatePendingAvailability<_0, _1> {
-                    pub core: runtime_types::polkadot_primitives::v9::CoreIndex,
-                    pub hash: runtime_types::polkadot_core_primitives::CandidateHash,
+                    pub core: runtime_types::pezkuwi_primitives::v9::CoreIndex,
+                    pub hash: runtime_types::pezkuwi_core_primitives::CandidateHash,
                     pub descriptor:
-                        runtime_types::polkadot_primitives::v9::CandidateDescriptorV2<_0>,
+                        runtime_types::pezkuwi_primitives::v9::CandidateDescriptorV2<_0>,
                     pub commitments:
-                        runtime_types::polkadot_primitives::v9::CandidateCommitments<_1>,
+                        runtime_types::pezkuwi_primitives::v9::CandidateCommitments<_1>,
                     pub availability_votes: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::bits::DecodedBits<
                         ::core::primitive::u8,
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::bits::Lsb0,
@@ -60604,7 +60604,7 @@ pub mod api {
                     >,
                     pub relay_parent_number: _1,
                     pub backed_in_number: _1,
-                    pub backing_group: runtime_types::polkadot_primitives::v9::GroupIndex,
+                    pub backing_group: runtime_types::pezkuwi_primitives::v9::GroupIndex,
                 }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -60619,7 +60619,7 @@ pub mod api {
                 )]
                 pub enum UmpQueueId {
                     #[codec(index = 0)]
-                    Para(runtime_types::polkadot_parachain_primitives::primitives::Id),
+                    Para(runtime_types::pezkuwi_parachain_primitives::primitives::Id),
                 }
             }
             pub mod initializer {
@@ -60659,10 +60659,10 @@ pub mod api {
                 )]
                 pub struct BufferedSessionChange {
                     pub validators: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::validator_app::Public,
+                        runtime_types::pezkuwi_primitives::v9::validator_app::Public,
                     >,
                     pub queued: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_primitives::v9::validator_app::Public,
+                        runtime_types::pezkuwi_primitives::v9::validator_app::Public,
                     >,
                     pub session_index: ::core::primitive::u32,
                 }
@@ -60702,7 +60702,7 @@ pub mod api {
                         #[doc = "- `OnDemandOrderPlaced`"]
                         place_order_allow_death {
                             max_amount: ::core::primitive::u128,
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 1)]
                         #[doc = "Same as the [`place_order_allow_death`](Self::place_order_allow_death) call , but with a"]
@@ -60722,7 +60722,7 @@ pub mod api {
                         #[doc = "- `OnDemandOrderPlaced`"]
                         place_order_keep_alive {
                             max_amount: ::core::primitive::u128,
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                         #[codec(index = 2)]
                         #[doc = "Create a single on demand core order with credits."]
@@ -60744,7 +60744,7 @@ pub mod api {
                         #[doc = "- `OnDemandOrderPlaced`"]
                         place_order_with_credits {
                             max_amount: ::core::primitive::u128,
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         },
                     }
                     #[derive(
@@ -60787,7 +60787,7 @@ pub mod api {
                         #[codec(index = 0)]
                         #[doc = "An order was placed at some spot price amount by orderer ordered_by"]
                         OnDemandOrderPlaced {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                             spot_price: ::core::primitive::u128,
                             ordered_by: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::AccountId32,
                         },
@@ -60816,7 +60816,7 @@ pub mod api {
                         crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                     )]
                     pub struct CoreAffinityCount {
-                        pub core_index: runtime_types::polkadot_primitives::v9::CoreIndex,
+                        pub core_index: runtime_types::pezkuwi_primitives::v9::CoreIndex,
                         pub count: ::core::primitive::u32,
                     }
                     #[derive(
@@ -60830,7 +60830,7 @@ pub mod api {
                     #[encode_as_type(
                         crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                     )]
-                    pub struct EnqueuedOrder { pub para_id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , pub idx : runtime_types :: polkadot_runtime_parachains :: on_demand :: types :: QueueIndex , }
+                    pub struct EnqueuedOrder { pub para_id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , pub idx : runtime_types :: pezkuwi_runtime_parachains :: on_demand :: types :: QueueIndex , }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -60854,7 +60854,7 @@ pub mod api {
                     #[encode_as_type(
                         crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                     )]
-                    pub struct QueueStatusType { pub traffic : runtime_types :: sp_arithmetic :: fixed_point :: FixedU128 , pub next_index : runtime_types :: polkadot_runtime_parachains :: on_demand :: types :: QueueIndex , pub smallest_index : runtime_types :: polkadot_runtime_parachains :: on_demand :: types :: QueueIndex , pub freed_indices : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: polkadot_runtime_parachains :: on_demand :: types :: ReverseQueueIndex > , }
+                    pub struct QueueStatusType { pub traffic : runtime_types :: sp_arithmetic :: fixed_point :: FixedU128 , pub next_index : runtime_types :: pezkuwi_runtime_parachains :: on_demand :: types :: QueueIndex , pub smallest_index : runtime_types :: pezkuwi_runtime_parachains :: on_demand :: types :: QueueIndex , pub freed_indices : :: subxt :: ext :: pezkuwi_subxt_core :: alloc :: vec :: Vec < runtime_types :: pezkuwi_runtime_parachains :: on_demand :: types :: ReverseQueueIndex > , }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -60886,7 +60886,7 @@ pub mod api {
                     )]
                     pub enum Origin {
                         #[codec(index = 0)]
-                        Parachain(runtime_types::polkadot_parachain_primitives::primitives::Id),
+                        Parachain(runtime_types::pezkuwi_parachain_primitives::primitives::Id),
                     }
                 }
             }
@@ -60907,7 +60907,7 @@ pub mod api {
                     )]
                     #[doc = "Contains a variant per dispatchable extrinsic that this pallet has."]
                     pub enum Call {
-                        # [codec (index = 0)] # [doc = "Set the storage for the parachain validation code immediately."] force_set_current_code { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , new_code : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCode , } , # [codec (index = 1)] # [doc = "Set the storage for the current parachain head data immediately."] force_set_current_head { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , new_head : runtime_types :: polkadot_parachain_primitives :: primitives :: HeadData , } , # [codec (index = 2)] # [doc = "Schedule an upgrade as if it was scheduled in the given relay parent block."] force_schedule_code_upgrade { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , new_code : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCode , relay_parent_number : :: core :: primitive :: u32 , } , # [codec (index = 3)] # [doc = "Note a new block head for para within the context of the current block."] force_note_new_head { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , new_head : runtime_types :: polkadot_parachain_primitives :: primitives :: HeadData , } , # [codec (index = 4)] # [doc = "Put a parachain directly into the next session's action queue."] # [doc = "We can't queue it any sooner than this without going into the"] # [doc = "initializer..."] force_queue_action { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 5)] # [doc = "Adds the validation code to the storage."] # [doc = ""] # [doc = "The code will not be added if it is already present. Additionally, if PVF pre-checking"] # [doc = "is running for that code, it will be instantly accepted."] # [doc = ""] # [doc = "Otherwise, the code will be added into the storage. Note that the code will be added"] # [doc = "into storage with reference count 0. This is to account the fact that there are no users"] # [doc = "for this code yet. The caller will have to make sure that this code eventually gets"] # [doc = "used by some parachain or removed from the storage to avoid storage leaks. For the"] # [doc = "latter prefer to use the `poke_unused_validation_code` dispatchable to raw storage"] # [doc = "manipulation."] # [doc = ""] # [doc = "This function is mainly meant to be used for upgrading parachains that do not follow"] # [doc = "the go-ahead signal while the PVF pre-checking feature is enabled."] add_trusted_validation_code { validation_code : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCode , } , # [codec (index = 6)] # [doc = "Remove the validation code from the storage iff the reference count is 0."] # [doc = ""] # [doc = "This is better than removing the storage directly, because it will not remove the code"] # [doc = "that was suddenly got used by some parachain while this dispatchable was pending"] # [doc = "dispatching."] poke_unused_validation_code { validation_code_hash : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash , } , # [codec (index = 7)] # [doc = "Includes a statement for a PVF pre-checking vote. Potentially, finalizes the vote and"] # [doc = "enacts the results if that was the last vote before achieving the supermajority."] include_pvf_check_statement { stmt : runtime_types :: polkadot_primitives :: v9 :: PvfCheckStatement , signature : runtime_types :: polkadot_primitives :: v9 :: validator_app :: Signature , } , # [codec (index = 8)] # [doc = "Set the storage for the current parachain head data immediately."] force_set_most_recent_context { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , context : :: core :: primitive :: u32 , } , # [codec (index = 9)] # [doc = "Remove an upgrade cooldown for a parachain."] # [doc = ""] # [doc = "The cost for removing the cooldown earlier depends on the time left for the cooldown"] # [doc = "multiplied by [`Config::CooldownRemovalMultiplier`]. The paid tokens are burned."] remove_upgrade_cooldown { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 10)] # [doc = "Sets the storage for the authorized current code hash of the parachain."] # [doc = "If not applied, it will be removed at the `System::block_number() + valid_period` block."] # [doc = ""] # [doc = "This can be useful, when triggering `Paras::force_set_current_code(para, code)`"] # [doc = "from a different chain than the one where the `Paras` pallet is deployed."] # [doc = ""] # [doc = "The main purpose is to avoid transferring the entire `code` Wasm blob between chains."] # [doc = "Instead, we authorize `code_hash` with `root`, which can later be applied by"] # [doc = "`Paras::apply_authorized_force_set_current_code(para, code)` by anyone."] # [doc = ""] # [doc = "Authorizations are stored in an **overwriting manner**."] authorize_force_set_current_code_hash { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , new_code_hash : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash , valid_period : :: core :: primitive :: u32 , } , # [codec (index = 11)] # [doc = "Applies the already authorized current code for the parachain,"] # [doc = "triggering the same functionality as `force_set_current_code`."] apply_authorized_force_set_current_code { para : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , new_code : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCode , } , }
+                        # [codec (index = 0)] # [doc = "Set the storage for the parachain validation code immediately."] force_set_current_code { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , new_code : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCode , } , # [codec (index = 1)] # [doc = "Set the storage for the current parachain head data immediately."] force_set_current_head { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , new_head : runtime_types :: pezkuwi_parachain_primitives :: primitives :: HeadData , } , # [codec (index = 2)] # [doc = "Schedule an upgrade as if it was scheduled in the given relay parent block."] force_schedule_code_upgrade { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , new_code : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCode , relay_parent_number : :: core :: primitive :: u32 , } , # [codec (index = 3)] # [doc = "Note a new block head for para within the context of the current block."] force_note_new_head { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , new_head : runtime_types :: pezkuwi_parachain_primitives :: primitives :: HeadData , } , # [codec (index = 4)] # [doc = "Put a parachain directly into the next session's action queue."] # [doc = "We can't queue it any sooner than this without going into the"] # [doc = "initializer..."] force_queue_action { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 5)] # [doc = "Adds the validation code to the storage."] # [doc = ""] # [doc = "The code will not be added if it is already present. Additionally, if PVF pre-checking"] # [doc = "is running for that code, it will be instantly accepted."] # [doc = ""] # [doc = "Otherwise, the code will be added into the storage. Note that the code will be added"] # [doc = "into storage with reference count 0. This is to account the fact that there are no users"] # [doc = "for this code yet. The caller will have to make sure that this code eventually gets"] # [doc = "used by some parachain or removed from the storage to avoid storage leaks. For the"] # [doc = "latter prefer to use the `poke_unused_validation_code` dispatchable to raw storage"] # [doc = "manipulation."] # [doc = ""] # [doc = "This function is mainly meant to be used for upgrading parachains that do not follow"] # [doc = "the go-ahead signal while the PVF pre-checking feature is enabled."] add_trusted_validation_code { validation_code : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCode , } , # [codec (index = 6)] # [doc = "Remove the validation code from the storage iff the reference count is 0."] # [doc = ""] # [doc = "This is better than removing the storage directly, because it will not remove the code"] # [doc = "that was suddenly got used by some parachain while this dispatchable was pending"] # [doc = "dispatching."] poke_unused_validation_code { validation_code_hash : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash , } , # [codec (index = 7)] # [doc = "Includes a statement for a PVF pre-checking vote. Potentially, finalizes the vote and"] # [doc = "enacts the results if that was the last vote before achieving the supermajority."] include_pvf_check_statement { stmt : runtime_types :: pezkuwi_primitives :: v9 :: PvfCheckStatement , signature : runtime_types :: pezkuwi_primitives :: v9 :: validator_app :: Signature , } , # [codec (index = 8)] # [doc = "Set the storage for the current parachain head data immediately."] force_set_most_recent_context { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , context : :: core :: primitive :: u32 , } , # [codec (index = 9)] # [doc = "Remove an upgrade cooldown for a parachain."] # [doc = ""] # [doc = "The cost for removing the cooldown earlier depends on the time left for the cooldown"] # [doc = "multiplied by [`Config::CooldownRemovalMultiplier`]. The paid tokens are burned."] remove_upgrade_cooldown { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 10)] # [doc = "Sets the storage for the authorized current code hash of the parachain."] # [doc = "If not applied, it will be removed at the `System::block_number() + valid_period` block."] # [doc = ""] # [doc = "This can be useful, when triggering `Paras::force_set_current_code(para, code)`"] # [doc = "from a different chain than the one where the `Paras` pallet is deployed."] # [doc = ""] # [doc = "The main purpose is to avoid transferring the entire `code` Wasm blob between chains."] # [doc = "Instead, we authorize `code_hash` with `root`, which can later be applied by"] # [doc = "`Paras::apply_authorized_force_set_current_code(para, code)` by anyone."] # [doc = ""] # [doc = "Authorizations are stored in an **overwriting manner**."] authorize_force_set_current_code_hash { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , new_code_hash : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash , valid_period : :: core :: primitive :: u32 , } , # [codec (index = 11)] # [doc = "Applies the already authorized current code for the parachain,"] # [doc = "triggering the same functionality as `force_set_current_code`."] apply_authorized_force_set_current_code { para : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , new_code : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCode , } , }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -60983,7 +60983,7 @@ pub mod api {
                     )]
                     #[doc = "The `Event` enum of this pallet"]
                     pub enum Event {
-                        # [codec (index = 0)] # [doc = "Current code has been updated for a Para. `para_id`"] CurrentCodeUpdated (runtime_types :: polkadot_parachain_primitives :: primitives :: Id ,) , # [codec (index = 1)] # [doc = "Current head has been updated for a Para. `para_id`"] CurrentHeadUpdated (runtime_types :: polkadot_parachain_primitives :: primitives :: Id ,) , # [codec (index = 2)] # [doc = "A code upgrade has been scheduled for a Para. `para_id`"] CodeUpgradeScheduled (runtime_types :: polkadot_parachain_primitives :: primitives :: Id ,) , # [codec (index = 3)] # [doc = "A new head has been noted for a Para. `para_id`"] NewHeadNoted (runtime_types :: polkadot_parachain_primitives :: primitives :: Id ,) , # [codec (index = 4)] # [doc = "A para has been queued to execute pending actions. `para_id`"] ActionQueued (runtime_types :: polkadot_parachain_primitives :: primitives :: Id , :: core :: primitive :: u32 ,) , # [codec (index = 5)] # [doc = "The given para either initiated or subscribed to a PVF check for the given validation"] # [doc = "code. `code_hash` `para_id`"] PvfCheckStarted (runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash , runtime_types :: polkadot_parachain_primitives :: primitives :: Id ,) , # [codec (index = 6)] # [doc = "The given validation code was accepted by the PVF pre-checking vote."] # [doc = "`code_hash` `para_id`"] PvfCheckAccepted (runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash , runtime_types :: polkadot_parachain_primitives :: primitives :: Id ,) , # [codec (index = 7)] # [doc = "The given validation code was rejected by the PVF pre-checking vote."] # [doc = "`code_hash` `para_id`"] PvfCheckRejected (runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash , runtime_types :: polkadot_parachain_primitives :: primitives :: Id ,) , # [codec (index = 8)] # [doc = "The upgrade cooldown was removed."] UpgradeCooldownRemoved { para_id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , } , # [codec (index = 9)] # [doc = "A new code hash has been authorized for a Para."] CodeAuthorized { para_id : runtime_types :: polkadot_parachain_primitives :: primitives :: Id , code_hash : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash , expire_at : :: core :: primitive :: u32 , } , }
+                        # [codec (index = 0)] # [doc = "Current code has been updated for a Para. `para_id`"] CurrentCodeUpdated (runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id ,) , # [codec (index = 1)] # [doc = "Current head has been updated for a Para. `para_id`"] CurrentHeadUpdated (runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id ,) , # [codec (index = 2)] # [doc = "A code upgrade has been scheduled for a Para. `para_id`"] CodeUpgradeScheduled (runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id ,) , # [codec (index = 3)] # [doc = "A new head has been noted for a Para. `para_id`"] NewHeadNoted (runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id ,) , # [codec (index = 4)] # [doc = "A para has been queued to execute pending actions. `para_id`"] ActionQueued (runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , :: core :: primitive :: u32 ,) , # [codec (index = 5)] # [doc = "The given para either initiated or subscribed to a PVF check for the given validation"] # [doc = "code. `code_hash` `para_id`"] PvfCheckStarted (runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash , runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id ,) , # [codec (index = 6)] # [doc = "The given validation code was accepted by the PVF pre-checking vote."] # [doc = "`code_hash` `para_id`"] PvfCheckAccepted (runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash , runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id ,) , # [codec (index = 7)] # [doc = "The given validation code was rejected by the PVF pre-checking vote."] # [doc = "`code_hash` `para_id`"] PvfCheckRejected (runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash , runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id ,) , # [codec (index = 8)] # [doc = "The upgrade cooldown was removed."] UpgradeCooldownRemoved { para_id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , } , # [codec (index = 9)] # [doc = "A new code hash has been authorized for a Para."] CodeAuthorized { para_id : runtime_types :: pezkuwi_parachain_primitives :: primitives :: Id , code_hash : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash , expire_at : :: core :: primitive :: u32 , } , }
                 }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -60996,7 +60996,7 @@ pub mod api {
                 #[encode_as_type(
                     crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode"
                 )]
-                pub struct AuthorizedCodeHashAndExpiry < _0 > { pub code_hash : runtime_types :: polkadot_parachain_primitives :: primitives :: ValidationCodeHash , pub expire_at : _0 , }
+                pub struct AuthorizedCodeHashAndExpiry < _0 > { pub code_hash : runtime_types :: pezkuwi_parachain_primitives :: primitives :: ValidationCodeHash , pub expire_at : _0 , }
                 #[derive(
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                     :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -61010,9 +61010,9 @@ pub mod api {
                 )]
                 pub struct ParaGenesisArgs {
                     pub genesis_head:
-                        runtime_types::polkadot_parachain_primitives::primitives::HeadData,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::HeadData,
                     pub validation_code:
-                        runtime_types::polkadot_parachain_primitives::primitives::ValidationCode,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::ValidationCode,
                     pub para_kind: ::core::primitive::bool,
                 }
                 #[derive(
@@ -61055,7 +61055,7 @@ pub mod api {
                 )]
                 pub struct ParaPastCodeMeta<_0> {
                     pub upgrade_times: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_runtime_parachains::paras::ReplacementTimes<_0>,
+                        runtime_types::pezkuwi_runtime_parachains::paras::ReplacementTimes<_0>,
                     >,
                     pub last_pruned: ::core::option::Option<_0>,
                 }
@@ -61082,7 +61082,7 @@ pub mod api {
                     pub age: ::core::primitive::u32,
                     pub created_at: _0,
                     pub causes: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_runtime_parachains::paras::PvfCheckCause<_0>,
+                        runtime_types::pezkuwi_runtime_parachains::paras::PvfCheckCause<_0>,
                     >,
                 }
                 #[derive(
@@ -61098,13 +61098,13 @@ pub mod api {
                 )]
                 pub enum PvfCheckCause<_0> {
                     #[codec(index = 0)]
-                    Onboarding(runtime_types::polkadot_parachain_primitives::primitives::Id),
+                    Onboarding(runtime_types::pezkuwi_parachain_primitives::primitives::Id),
                     #[codec(index = 1)]
                     Upgrade {
-                        id: runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         included_at: _0,
                         upgrade_strategy:
-                            runtime_types::polkadot_runtime_parachains::paras::UpgradeStrategy,
+                            runtime_types::pezkuwi_runtime_parachains::paras::UpgradeStrategy,
                     },
                 }
                 #[derive(
@@ -61160,7 +61160,7 @@ pub mod api {
                         #[codec(index = 0)]
                         #[doc = "Enter the paras inherent. This will process bitfields and backed candidates."]
                         enter {
-                            data: runtime_types::polkadot_primitives::v9::InherentData<
+                            data: runtime_types::pezkuwi_primitives::v9::InherentData<
                                 runtime_types::sp_runtime::generic::header::Header<
                                     ::core::primitive::u32,
                                 >,
@@ -61215,11 +61215,11 @@ pub mod api {
                     pub enum Assignment {
                         #[codec(index = 0)]
                         Pool {
-                            para_id: runtime_types::polkadot_parachain_primitives::primitives::Id,
-                            core_index: runtime_types::polkadot_primitives::v9::CoreIndex,
+                            para_id: runtime_types::pezkuwi_parachain_primitives::primitives::Id,
+                            core_index: runtime_types::pezkuwi_primitives::v9::CoreIndex,
                         },
                         #[codec(index = 1)]
-                        Bulk(runtime_types::polkadot_parachain_primitives::primitives::Id),
+                        Bulk(runtime_types::pezkuwi_parachain_primitives::primitives::Id),
                     }
                 }
             }
@@ -61254,7 +61254,7 @@ pub mod api {
                 )]
                 pub struct AllowedRelayParentsTracker<_0, _1> {
                     pub buffer: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                        runtime_types::polkadot_runtime_parachains::shared::RelayParentInfo<_0>,
+                        runtime_types::pezkuwi_runtime_parachains::shared::RelayParentInfo<_0>,
                     >,
                     pub latest_number: _1,
                 }
@@ -61273,18 +61273,18 @@ pub mod api {
                     pub relay_parent: _0,
                     pub state_root: _0,
                     pub claim_queue: ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::KeyedVec<
-                        runtime_types::polkadot_parachain_primitives::primitives::Id,
+                        runtime_types::pezkuwi_parachain_primitives::primitives::Id,
                         ::pezkuwi_subxt::ext::pezkuwi_subxt_core::utils::KeyedVec<
                             ::core::primitive::u8,
                             ::pezkuwi_subxt::ext::pezkuwi_subxt_core::alloc::vec::Vec<
-                                runtime_types::polkadot_primitives::v9::CoreIndex,
+                                runtime_types::pezkuwi_primitives::v9::CoreIndex,
                             >,
                         >,
                     >,
                 }
             }
         }
-        pub mod rococo_runtime {
+        pub mod pezkuwichain_runtime {
             use super::runtime_types;
             pub mod dynamic_params {
                 use super::runtime_types;
@@ -61316,14 +61316,14 @@ pub mod api {
                     pub enum Parameters {
                         #[codec(index = 0)]
                         Target(
-                            runtime_types::rococo_runtime::dynamic_params::nis::Target,
+                            runtime_types::pezkuwichain_runtime::dynamic_params::nis::Target,
                             ::core::option::Option<
                                 runtime_types::sp_arithmetic::per_things::Perquintill,
                             >,
                         ),
                         #[codec(index = 1)]
                         MinBid(
-                            runtime_types::rococo_runtime::dynamic_params::nis::MinBid,
+                            runtime_types::pezkuwichain_runtime::dynamic_params::nis::MinBid,
                             ::core::option::Option<::core::primitive::u128>,
                         ),
                     }
@@ -61340,9 +61340,9 @@ pub mod api {
                     )]
                     pub enum ParametersKey {
                         #[codec(index = 0)]
-                        Target(runtime_types::rococo_runtime::dynamic_params::nis::Target),
+                        Target(runtime_types::pezkuwichain_runtime::dynamic_params::nis::Target),
                         #[codec(index = 1)]
-                        MinBid(runtime_types::rococo_runtime::dynamic_params::nis::MinBid),
+                        MinBid(runtime_types::pezkuwichain_runtime::dynamic_params::nis::MinBid),
                     }
                     #[derive(
                         :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -61414,12 +61414,12 @@ pub mod api {
                     pub enum Parameters {
                         #[codec(index = 0)]
                         BaseDeposit(
-                            runtime_types::rococo_runtime::dynamic_params::preimage::BaseDeposit,
+                            runtime_types::pezkuwichain_runtime::dynamic_params::preimage::BaseDeposit,
                             ::core::option::Option<::core::primitive::u128>,
                         ),
                         #[codec(index = 1)]
                         ByteDeposit(
-                            runtime_types::rococo_runtime::dynamic_params::preimage::ByteDeposit,
+                            runtime_types::pezkuwichain_runtime::dynamic_params::preimage::ByteDeposit,
                             ::core::option::Option<::core::primitive::u128>,
                         ),
                     }
@@ -61437,11 +61437,11 @@ pub mod api {
                     pub enum ParametersKey {
                         #[codec(index = 0)]
                         BaseDeposit(
-                            runtime_types::rococo_runtime::dynamic_params::preimage::BaseDeposit,
+                            runtime_types::pezkuwichain_runtime::dynamic_params::preimage::BaseDeposit,
                         ),
                         #[codec(index = 1)]
                         ByteDeposit(
-                            runtime_types::rococo_runtime::dynamic_params::preimage::ByteDeposit,
+                            runtime_types::pezkuwichain_runtime::dynamic_params::preimage::ByteDeposit,
                         ),
                     }
                     #[derive(
@@ -61613,7 +61613,7 @@ pub mod api {
             #[decode_as_type(crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode")]
             #[encode_as_type(crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode")]
             pub enum OriginCaller {
-                # [codec (index = 0)] system (runtime_types :: frame_support :: dispatch :: RawOrigin < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 > ,) , # [codec (index = 43)] Origins (runtime_types :: rococo_runtime :: governance :: origins :: pallet_custom_origins :: Origin ,) , # [codec (index = 50)] ParachainsOrigin (runtime_types :: polkadot_runtime_parachains :: origin :: pallet :: Origin ,) , # [codec (index = 99)] XcmPallet (runtime_types :: pallet_xcm :: pallet :: Origin ,) , }
+                # [codec (index = 0)] system (runtime_types :: frame_support :: dispatch :: RawOrigin < :: subxt :: ext :: pezkuwi_subxt_core :: utils :: AccountId32 > ,) , # [codec (index = 43)] Origins (runtime_types :: pezkuwichain_runtime :: governance :: origins :: pallet_custom_origins :: Origin ,) , # [codec (index = 50)] ParachainsOrigin (runtime_types :: pezkuwi_runtime_parachains :: origin :: pallet :: Origin ,) , # [codec (index = 99)] XcmPallet (runtime_types :: pallet_xcm :: pallet :: Origin ,) , }
             #[derive(
                 :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
                 :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode :: EncodeAsType,
@@ -61684,7 +61684,7 @@ pub mod api {
                 #[codec(index = 44)]
                 Whitelist(runtime_types::pallet_whitelist::pallet::Call),
                 #[codec(index = 19)]
-                Claims(runtime_types::polkadot_runtime_common::claims::pallet::Call),
+                Claims(runtime_types::pezkuwi_runtime_common::claims::pallet::Call),
                 #[codec(index = 24)]
                 Utility(runtime_types::pallet_utility::pallet::Call),
                 #[codec(index = 25)]
@@ -61715,44 +61715,44 @@ pub mod api {
                 NisCounterpartBalances(runtime_types::pallet_balances::pallet::Call),
                 #[codec(index = 51)]
                 Configuration(
-                    runtime_types::polkadot_runtime_parachains::configuration::pallet::Call,
+                    runtime_types::pezkuwi_runtime_parachains::configuration::pallet::Call,
                 ),
                 #[codec(index = 52)]
-                ParasShared(runtime_types::polkadot_runtime_parachains::shared::pallet::Call),
+                ParasShared(runtime_types::pezkuwi_runtime_parachains::shared::pallet::Call),
                 #[codec(index = 53)]
-                ParaInclusion(runtime_types::polkadot_runtime_parachains::inclusion::pallet::Call),
+                ParaInclusion(runtime_types::pezkuwi_runtime_parachains::inclusion::pallet::Call),
                 #[codec(index = 54)]
                 ParaInherent(
-                    runtime_types::polkadot_runtime_parachains::paras_inherent::pallet::Call,
+                    runtime_types::pezkuwi_runtime_parachains::paras_inherent::pallet::Call,
                 ),
                 #[codec(index = 56)]
-                Paras(runtime_types::polkadot_runtime_parachains::paras::pallet::Call),
+                Paras(runtime_types::pezkuwi_runtime_parachains::paras::pallet::Call),
                 #[codec(index = 57)]
-                Initializer(runtime_types::polkadot_runtime_parachains::initializer::pallet::Call),
+                Initializer(runtime_types::pezkuwi_runtime_parachains::initializer::pallet::Call),
                 #[codec(index = 60)]
-                Hrmp(runtime_types::polkadot_runtime_parachains::hrmp::pallet::Call),
+                Hrmp(runtime_types::pezkuwi_runtime_parachains::hrmp::pallet::Call),
                 #[codec(index = 62)]
-                ParasDisputes(runtime_types::polkadot_runtime_parachains::disputes::pallet::Call),
+                ParasDisputes(runtime_types::pezkuwi_runtime_parachains::disputes::pallet::Call),
                 #[codec(index = 63)]
                 ParasSlashing(
-                    runtime_types::polkadot_runtime_parachains::disputes::slashing::pallet::Call,
+                    runtime_types::pezkuwi_runtime_parachains::disputes::slashing::pallet::Call,
                 ),
                 #[codec(index = 64)]
                 MessageQueue(runtime_types::pallet_message_queue::pallet::Call),
                 #[codec(index = 66)]
                 OnDemandAssignmentProvider(
-                    runtime_types::polkadot_runtime_parachains::on_demand::pallet::Call,
+                    runtime_types::pezkuwi_runtime_parachains::on_demand::pallet::Call,
                 ),
                 #[codec(index = 70)]
-                Registrar(runtime_types::polkadot_runtime_common::paras_registrar::pallet::Call),
+                Registrar(runtime_types::pezkuwi_runtime_common::paras_registrar::pallet::Call),
                 #[codec(index = 71)]
-                Slots(runtime_types::polkadot_runtime_common::slots::pallet::Call),
+                Slots(runtime_types::pezkuwi_runtime_common::slots::pallet::Call),
                 #[codec(index = 72)]
-                Auctions(runtime_types::polkadot_runtime_common::auctions::pallet::Call),
+                Auctions(runtime_types::pezkuwi_runtime_common::auctions::pallet::Call),
                 #[codec(index = 73)]
-                Crowdloan(runtime_types::polkadot_runtime_common::crowdloan::pallet::Call),
+                Crowdloan(runtime_types::pezkuwi_runtime_common::crowdloan::pallet::Call),
                 #[codec(index = 74)]
-                Coretime(runtime_types::polkadot_runtime_parachains::coretime::pallet::Call),
+                Coretime(runtime_types::pezkuwi_runtime_parachains::coretime::pallet::Call),
                 #[codec(index = 98)]
                 MultiBlockMigrations(runtime_types::pallet_migrations::pallet::Call),
                 #[codec(index = 99)]
@@ -61761,16 +61761,16 @@ pub mod api {
                 Beefy(runtime_types::pallet_beefy::pallet::Call),
                 #[codec(index = 248)]
                 IdentityMigrator(
-                    runtime_types::polkadot_runtime_common::identity_migrator::pallet::Call,
+                    runtime_types::pezkuwi_runtime_common::identity_migrator::pallet::Call,
                 ),
                 #[codec(index = 250)]
                 ParasSudoWrapper(
-                    runtime_types::polkadot_runtime_common::paras_sudo_wrapper::pallet::Call,
+                    runtime_types::pezkuwi_runtime_common::paras_sudo_wrapper::pallet::Call,
                 ),
                 #[codec(index = 251)]
-                AssignedSlots(runtime_types::polkadot_runtime_common::assigned_slots::pallet::Call),
+                AssignedSlots(runtime_types::pezkuwi_runtime_common::assigned_slots::pallet::Call),
                 #[codec(index = 252)]
-                ValidatorManager(runtime_types::rococo_runtime::validator_manager::pallet::Call),
+                ValidatorManager(runtime_types::pezkuwichain_runtime::validator_manager::pallet::Call),
                 #[codec(index = 254)]
                 StateTrieMigration(runtime_types::pallet_state_trie_migration::pallet::Call),
                 #[codec(index = 249)]
@@ -61811,7 +61811,7 @@ pub mod api {
                 #[codec(index = 44)]
                 Whitelist(runtime_types::pallet_whitelist::pallet::Error),
                 #[codec(index = 19)]
-                Claims(runtime_types::polkadot_runtime_common::claims::pallet::Error),
+                Claims(runtime_types::pezkuwi_runtime_common::claims::pallet::Error),
                 #[codec(index = 24)]
                 Utility(runtime_types::pallet_utility::pallet::Error),
                 #[codec(index = 25)]
@@ -61842,44 +61842,44 @@ pub mod api {
                 NisCounterpartBalances(runtime_types::pallet_balances::pallet::Error),
                 #[codec(index = 51)]
                 Configuration(
-                    runtime_types::polkadot_runtime_parachains::configuration::pallet::Error,
+                    runtime_types::pezkuwi_runtime_parachains::configuration::pallet::Error,
                 ),
                 #[codec(index = 53)]
-                ParaInclusion(runtime_types::polkadot_runtime_parachains::inclusion::pallet::Error),
+                ParaInclusion(runtime_types::pezkuwi_runtime_parachains::inclusion::pallet::Error),
                 #[codec(index = 54)]
                 ParaInherent(
-                    runtime_types::polkadot_runtime_parachains::paras_inherent::pallet::Error,
+                    runtime_types::pezkuwi_runtime_parachains::paras_inherent::pallet::Error,
                 ),
                 #[codec(index = 56)]
-                Paras(runtime_types::polkadot_runtime_parachains::paras::pallet::Error),
+                Paras(runtime_types::pezkuwi_runtime_parachains::paras::pallet::Error),
                 #[codec(index = 60)]
-                Hrmp(runtime_types::polkadot_runtime_parachains::hrmp::pallet::Error),
+                Hrmp(runtime_types::pezkuwi_runtime_parachains::hrmp::pallet::Error),
                 #[codec(index = 62)]
-                ParasDisputes(runtime_types::polkadot_runtime_parachains::disputes::pallet::Error),
+                ParasDisputes(runtime_types::pezkuwi_runtime_parachains::disputes::pallet::Error),
                 #[codec(index = 63)]
                 ParasSlashing(
-                    runtime_types::polkadot_runtime_parachains::disputes::slashing::pallet::Error,
+                    runtime_types::pezkuwi_runtime_parachains::disputes::slashing::pallet::Error,
                 ),
                 #[codec(index = 64)]
                 MessageQueue(runtime_types::pallet_message_queue::pallet::Error),
                 #[codec(index = 66)]
                 OnDemandAssignmentProvider(
-                    runtime_types::polkadot_runtime_parachains::on_demand::pallet::Error,
+                    runtime_types::pezkuwi_runtime_parachains::on_demand::pallet::Error,
                 ),
                 #[codec(index = 68)]
                 CoretimeAssignmentProvider(
-                    runtime_types::polkadot_runtime_parachains::assigner_coretime::pallet::Error,
+                    runtime_types::pezkuwi_runtime_parachains::assigner_coretime::pallet::Error,
                 ),
                 #[codec(index = 70)]
-                Registrar(runtime_types::polkadot_runtime_common::paras_registrar::pallet::Error),
+                Registrar(runtime_types::pezkuwi_runtime_common::paras_registrar::pallet::Error),
                 #[codec(index = 71)]
-                Slots(runtime_types::polkadot_runtime_common::slots::pallet::Error),
+                Slots(runtime_types::pezkuwi_runtime_common::slots::pallet::Error),
                 #[codec(index = 72)]
-                Auctions(runtime_types::polkadot_runtime_common::auctions::pallet::Error),
+                Auctions(runtime_types::pezkuwi_runtime_common::auctions::pallet::Error),
                 #[codec(index = 73)]
-                Crowdloan(runtime_types::polkadot_runtime_common::crowdloan::pallet::Error),
+                Crowdloan(runtime_types::pezkuwi_runtime_common::crowdloan::pallet::Error),
                 #[codec(index = 74)]
-                Coretime(runtime_types::polkadot_runtime_parachains::coretime::pallet::Error),
+                Coretime(runtime_types::pezkuwi_runtime_parachains::coretime::pallet::Error),
                 #[codec(index = 98)]
                 MultiBlockMigrations(runtime_types::pallet_migrations::pallet::Error),
                 #[codec(index = 99)]
@@ -61888,11 +61888,11 @@ pub mod api {
                 Beefy(runtime_types::pallet_beefy::pallet::Error),
                 #[codec(index = 250)]
                 ParasSudoWrapper(
-                    runtime_types::polkadot_runtime_common::paras_sudo_wrapper::pallet::Error,
+                    runtime_types::pezkuwi_runtime_common::paras_sudo_wrapper::pallet::Error,
                 ),
                 #[codec(index = 251)]
                 AssignedSlots(
-                    runtime_types::polkadot_runtime_common::assigned_slots::pallet::Error,
+                    runtime_types::pezkuwi_runtime_common::assigned_slots::pallet::Error,
                 ),
                 #[codec(index = 254)]
                 StateTrieMigration(runtime_types::pallet_state_trie_migration::pallet::Error),
@@ -61938,7 +61938,7 @@ pub mod api {
                 #[codec(index = 44)]
                 Whitelist(runtime_types::pallet_whitelist::pallet::Event),
                 #[codec(index = 19)]
-                Claims(runtime_types::polkadot_runtime_common::claims::pallet::Event),
+                Claims(runtime_types::pezkuwi_runtime_common::claims::pallet::Event),
                 #[codec(index = 24)]
                 Utility(runtime_types::pallet_utility::pallet::Event),
                 #[codec(index = 25)]
@@ -61968,43 +61968,43 @@ pub mod api {
                 #[codec(index = 45)]
                 NisCounterpartBalances(runtime_types::pallet_balances::pallet::Event),
                 #[codec(index = 53)]
-                ParaInclusion(runtime_types::polkadot_runtime_parachains::inclusion::pallet::Event),
+                ParaInclusion(runtime_types::pezkuwi_runtime_parachains::inclusion::pallet::Event),
                 #[codec(index = 56)]
-                Paras(runtime_types::polkadot_runtime_parachains::paras::pallet::Event),
+                Paras(runtime_types::pezkuwi_runtime_parachains::paras::pallet::Event),
                 #[codec(index = 60)]
-                Hrmp(runtime_types::polkadot_runtime_parachains::hrmp::pallet::Event),
+                Hrmp(runtime_types::pezkuwi_runtime_parachains::hrmp::pallet::Event),
                 #[codec(index = 62)]
-                ParasDisputes(runtime_types::polkadot_runtime_parachains::disputes::pallet::Event),
+                ParasDisputes(runtime_types::pezkuwi_runtime_parachains::disputes::pallet::Event),
                 #[codec(index = 64)]
                 MessageQueue(runtime_types::pallet_message_queue::pallet::Event),
                 #[codec(index = 66)]
                 OnDemandAssignmentProvider(
-                    runtime_types::polkadot_runtime_parachains::on_demand::pallet::Event,
+                    runtime_types::pezkuwi_runtime_parachains::on_demand::pallet::Event,
                 ),
                 #[codec(index = 70)]
-                Registrar(runtime_types::polkadot_runtime_common::paras_registrar::pallet::Event),
+                Registrar(runtime_types::pezkuwi_runtime_common::paras_registrar::pallet::Event),
                 #[codec(index = 71)]
-                Slots(runtime_types::polkadot_runtime_common::slots::pallet::Event),
+                Slots(runtime_types::pezkuwi_runtime_common::slots::pallet::Event),
                 #[codec(index = 72)]
-                Auctions(runtime_types::polkadot_runtime_common::auctions::pallet::Event),
+                Auctions(runtime_types::pezkuwi_runtime_common::auctions::pallet::Event),
                 #[codec(index = 73)]
-                Crowdloan(runtime_types::polkadot_runtime_common::crowdloan::pallet::Event),
+                Crowdloan(runtime_types::pezkuwi_runtime_common::crowdloan::pallet::Event),
                 #[codec(index = 74)]
-                Coretime(runtime_types::polkadot_runtime_parachains::coretime::pallet::Event),
+                Coretime(runtime_types::pezkuwi_runtime_parachains::coretime::pallet::Event),
                 #[codec(index = 98)]
                 MultiBlockMigrations(runtime_types::pallet_migrations::pallet::Event),
                 #[codec(index = 99)]
                 XcmPallet(runtime_types::pallet_xcm::pallet::Event),
                 #[codec(index = 248)]
                 IdentityMigrator(
-                    runtime_types::polkadot_runtime_common::identity_migrator::pallet::Event,
+                    runtime_types::pezkuwi_runtime_common::identity_migrator::pallet::Event,
                 ),
                 #[codec(index = 251)]
                 AssignedSlots(
-                    runtime_types::polkadot_runtime_common::assigned_slots::pallet::Event,
+                    runtime_types::pezkuwi_runtime_common::assigned_slots::pallet::Event,
                 ),
                 #[codec(index = 252)]
-                ValidatorManager(runtime_types::rococo_runtime::validator_manager::pallet::Event),
+                ValidatorManager(runtime_types::pezkuwichain_runtime::validator_manager::pallet::Event),
                 #[codec(index = 254)]
                 StateTrieMigration(runtime_types::pallet_state_trie_migration::pallet::Event),
                 #[codec(index = 249)]
@@ -62040,9 +62040,9 @@ pub mod api {
             #[encode_as_type(crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode")]
             pub enum RuntimeParameters {
                 #[codec(index = 0)]
-                Nis(runtime_types::rococo_runtime::dynamic_params::nis::Parameters),
+                Nis(runtime_types::pezkuwichain_runtime::dynamic_params::nis::Parameters),
                 #[codec(index = 1)]
-                Preimage(runtime_types::rococo_runtime::dynamic_params::preimage::Parameters),
+                Preimage(runtime_types::pezkuwichain_runtime::dynamic_params::preimage::Parameters),
             }
             #[derive(
                 :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -62053,9 +62053,9 @@ pub mod api {
             #[encode_as_type(crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode")]
             pub enum RuntimeParametersKey {
                 #[codec(index = 0)]
-                Nis(runtime_types::rococo_runtime::dynamic_params::nis::ParametersKey),
+                Nis(runtime_types::pezkuwichain_runtime::dynamic_params::nis::ParametersKey),
                 #[codec(index = 1)]
-                Preimage(runtime_types::rococo_runtime::dynamic_params::preimage::ParametersKey),
+                Preimage(runtime_types::pezkuwichain_runtime::dynamic_params::preimage::ParametersKey),
             }
             #[derive(
                 :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -62066,9 +62066,9 @@ pub mod api {
             #[encode_as_type(crate_path = ":: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_encode")]
             pub enum RuntimeParametersValue {
                 #[codec(index = 0)]
-                Nis(runtime_types::rococo_runtime::dynamic_params::nis::ParametersValue),
+                Nis(runtime_types::pezkuwichain_runtime::dynamic_params::nis::ParametersValue),
                 #[codec(index = 1)]
-                Preimage(runtime_types::rococo_runtime::dynamic_params::preimage::ParametersValue),
+                Preimage(runtime_types::pezkuwichain_runtime::dynamic_params::preimage::ParametersValue),
             }
             #[derive(
                 :: subxt :: ext :: pezkuwi_subxt_core :: ext :: scale_decode :: DecodeAsType,
@@ -62080,8 +62080,8 @@ pub mod api {
             pub struct SessionKeys {
                 pub grandpa: runtime_types::sp_consensus_grandpa::app::Public,
                 pub babe: runtime_types::sp_consensus_babe::app::Public,
-                pub para_validator: runtime_types::polkadot_primitives::v9::validator_app::Public,
-                pub para_assignment: runtime_types::polkadot_primitives::v9::assignment_app::Public,
+                pub para_validator: runtime_types::pezkuwi_primitives::v9::validator_app::Public,
+                pub para_assignment: runtime_types::pezkuwi_primitives::v9::assignment_app::Public,
                 pub authority_discovery: runtime_types::sp_authority_discovery::app::Public,
                 pub beefy: runtime_types::sp_consensus_beefy::ecdsa_crypto::Public,
             }
@@ -64090,13 +64090,13 @@ pub mod api {
                             block_hash: [::core::primitive::u8; 32usize],
                         },
                         #[codec(index = 2)]
-                        Polkadot,
+                        Pezkuwi,
                         #[codec(index = 3)]
                         Kusama,
                         #[codec(index = 4)]
-                        Westend,
+                        Zagros,
                         #[codec(index = 5)]
-                        Rococo,
+                        Pezkuwichain,
                         #[codec(index = 6)]
                         Wococo,
                         #[codec(index = 7)]
@@ -64109,7 +64109,7 @@ pub mod api {
                         #[codec(index = 9)]
                         BitcoinCash,
                         #[codec(index = 10)]
-                        PolkadotBulletin,
+                        PezkuwiBulletin,
                     }
                 }
                 pub mod junctions {
@@ -64729,7 +64729,7 @@ pub mod api {
                             block_hash: [::core::primitive::u8; 32usize],
                         },
                         #[codec(index = 2)]
-                        Polkadot,
+                        Pezkuwi,
                         #[codec(index = 3)]
                         Kusama,
                         #[codec(index = 7)]
@@ -64742,7 +64742,7 @@ pub mod api {
                         #[codec(index = 9)]
                         BitcoinCash,
                         #[codec(index = 10)]
-                        PolkadotBulletin,
+                        PezkuwiBulletin,
                     }
                 }
                 pub mod junctions {
@@ -65402,13 +65402,13 @@ pub mod api {
                             block_hash: [::core::primitive::u8; 32usize],
                         },
                         #[codec(index = 2)]
-                        Polkadot,
+                        Pezkuwi,
                         #[codec(index = 3)]
                         Kusama,
                         #[codec(index = 4)]
-                        Westend,
+                        Zagros,
                         #[codec(index = 5)]
-                        Rococo,
+                        Pezkuwichain,
                         #[codec(index = 6)]
                         Wococo,
                         #[codec(index = 7)]
@@ -65421,7 +65421,7 @@ pub mod api {
                         #[codec(index = 9)]
                         BitcoinCash,
                         #[codec(index = 10)]
-                        PolkadotBulletin,
+                        PezkuwiBulletin,
                     }
                 }
                 pub mod junctions {

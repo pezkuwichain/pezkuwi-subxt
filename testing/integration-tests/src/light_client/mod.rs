@@ -14,7 +14,7 @@
 //! using `OnceCell`. However, during the initialization, tokio::spawn is used
 //! to multiplex between subxt requests and node responses. The #[tokio::test]
 //! macro internally creates a new Runtime for each individual test. This means
-//! that only the first test, which spawns the substrate binary and synchronizes
+//! that only the first test, which spawns the bizinikiwi binary and synchronizes
 //! the light client, would have access to the background task. The cleanup process
 //! would destroy the spawned background task, preventing subsequent tests from
 //! accessing it.
@@ -33,13 +33,13 @@ use std::sync::Arc;
 use pezkuwi_subxt::backend::chain_head::ChainHeadBackend;
 use pezkuwi_subxt::backend::rpc::RpcClient;
 use pezkuwi_subxt::dynamic::Value;
-use pezkuwi_subxt::{client::OnlineClient, config::PolkadotConfig, lightclient::LightClient};
+use pezkuwi_subxt::{client::OnlineClient, config::PezkuwiConfig, lightclient::LightClient};
 use pezkuwi_subxt_metadata::Metadata;
 
-type Client = OnlineClient<PolkadotConfig>;
+type Client = OnlineClient<PezkuwiConfig>;
 
-/// The Polkadot chainspec.
-const POLKADOT_SPEC: &str = include_str!("../../../../artifacts/demo_chain_specs/polkadot.json");
+/// The Pezkuwi chainspec.
+const POLKADOT_SPEC: &str = include_str!("../../../../artifacts/demo_chain_specs/pezkuwi.json");
 
 // Check that we can subscribe to non-finalized blocks.
 async fn non_finalized_headers_subscription(api: &Client) -> Result<(), pezkuwi_subxt::Error> {
@@ -165,11 +165,11 @@ async fn dynamic_events(api: &Client) -> Result<(), pezkuwi_subxt::Error> {
 }
 
 async fn run_test(backend: BackendType) -> Result<(), pezkuwi_subxt::Error> {
-    // Note: This code fetches the chainspec from the Polkadot public RPC node.
+    // Note: This code fetches the chainspec from the Pezkuwi public RPC node.
     // This is not recommended for production use, as it may be slow and unreliable.
     // However, this can come in handy for testing purposes.
     //
-    // let chainspec = pezkuwi_subxt::utils::fetch_chainspec_from_rpc_node("wss://rpc.polkadot.io:443")
+    // let chainspec = pezkuwi_subxt::utils::fetch_chainspec_from_rpc_node("wss://rpc.pezkuwi.io:443")
     //     .await
     //     .unwrap();
     // let chain_config = chainspec.get();
@@ -182,7 +182,7 @@ async fn run_test(backend: BackendType) -> Result<(), pezkuwi_subxt::Error> {
         BackendType::Unstable => {
             let backend =
                 ChainHeadBackend::builder().build_with_background_driver(RpcClient::new(rpc));
-            let api: OnlineClient<PolkadotConfig> =
+            let api: OnlineClient<PezkuwiConfig> =
                 OnlineClient::from_backend(Arc::new(backend)).await?;
             api
         }

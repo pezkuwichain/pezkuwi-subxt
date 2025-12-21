@@ -45,7 +45,7 @@ impl<T: Config, Client: OfflineClientT<T>> CustomValuesClient<T, Client> {
 #[cfg(test)]
 mod tests {
 	use crate::{
-		Metadata, OfflineClient, SubstrateConfig,
+		Metadata, OfflineClient, BizinikiwConfig,
 		custom_values::{self, CustomValuesClient},
 	};
 	use codec::Encode;
@@ -102,7 +102,7 @@ mod tests {
 
 	#[test]
 	fn test_decoding() {
-		let client = OfflineClient::<SubstrateConfig>::new(
+		let client = OfflineClient::<BizinikiwConfig>::new(
 			Default::default(),
 			RuntimeVersion { spec_version: 0, transaction_version: 0 },
 			mock_metadata(),

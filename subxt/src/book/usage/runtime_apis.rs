@@ -22,10 +22,10 @@
 //! We can use the statically generated interface to build runtime calls:
 //!
 //! ```rust,no_run,standalone_crate
-//! #[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-//! pub mod polkadot {}
+//! #[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+//! pub mod pezkuwi {}
 //!
-//! let runtime_call = polkadot::apis().metadata().metadata_versions();
+//! let runtime_call = pezkuwi::apis().metadata().metadata_versions();
 //! ```
 //!
 //! Alternately, we can dynamically construct a runtime call. The input type can be a tuple or

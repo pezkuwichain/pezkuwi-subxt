@@ -170,7 +170,7 @@ impl<T: Config> OnlineClient<T> {
 		})
 	}
 
-	/// Fetch the metadata from substrate using the runtime API.
+	/// Fetch the metadata from bizinikiwi using the runtime API.
 	async fn fetch_metadata(
 		backend: &dyn Backend<T>,
 		block_hash: HashFor<T>,
@@ -219,9 +219,9 @@ impl<T: Config> OnlineClient<T> {
 	/// ```rust,no_run,standalone_crate
 	/// # #[tokio::main]
 	/// # async fn main() {
-	/// use pezkuwi_subxt::{ OnlineClient, PolkadotConfig };
+	/// use pezkuwi_subxt::{ OnlineClient, PezkuwiConfig };
 	///
-	/// let client = OnlineClient::<PolkadotConfig>::new().await.unwrap();
+	/// let client = OnlineClient::<PezkuwiConfig>::new().await.unwrap();
 	///
 	/// // high level API.
 	///
@@ -437,7 +437,7 @@ impl<T: Config> ClientRuntimeUpdater<T> {
 			let update = runtime_version_stream.next().await?;
 
 			// This only fails if received the runtime version is the same the current runtime
-			// version which might occur because that runtime subscriptions in substrate sends
+			// version which might occur because that runtime subscriptions in bizinikiwi sends
 			// out the initial value when they created and not only when runtime upgrades occurs.
 			// Thus, fine to ignore here as it strictly speaking isn't really an error
 			let _ = self.apply_update(update);
@@ -532,7 +532,7 @@ async fn wait_runtime_upgrade_in_finalized_block<T: Config>(
 		let value = client_at
 			.entry(addr)
 			// The storage `system::lastRuntimeUpgrade` should always exist.
-			// <https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/system/src/lib.rs#L958>
+			// <https://github.com/pezkuwichain/pezkuwi-sdk/blob/master/bizinikiwi/frame/system/src/lib.rs#L958>
 			.map_err(|_| RuntimeUpdaterError::CantFindSystemLastRuntimeUpgrade)?
 			.fetch(())
 			.await

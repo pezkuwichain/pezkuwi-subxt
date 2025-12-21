@@ -5,29 +5,29 @@
 //! `frame_system::Config` trait. For most use cases, you can just use one of the following Configs
 //! shipped with Subxt:
 //!
-//! - [`PolkadotConfig`](crate::config::PolkadotConfig) for talking to Polkadot nodes, and
-//! - [`SubstrateConfig`](crate::config::SubstrateConfig) for talking to generic nodes built with
-//!   Substrate.
+//! - [`PezkuwiConfig`](crate::config::PezkuwiConfig) for talking to Pezkuwi nodes, and
+//! - [`BizinikiwConfig`](crate::config::BizinikiwConfig) for talking to generic nodes built with
+//!   Bizinikiwi.
 //!
 //! # How to create a Config for a custom chain?
 //!
 //! Some chains may use config that is not compatible with our
-//! [`PolkadotConfig`](crate::config::PolkadotConfig) or
-//! [`SubstrateConfig`](crate::config::SubstrateConfig).
+//! [`PezkuwiConfig`](crate::config::PezkuwiConfig) or
+//! [`BizinikiwConfig`](crate::config::BizinikiwConfig).
 //!
 //! We now walk through creating a custom [`crate::config::Config`] for a parachain, using the
 //! ["Statemint"](https://parachains.info/details/statemint) parachain, also known as "Asset Hub", as an example. It
-//! is currently (as of 2023-06-26) deployed on Polkadot and [Kusama (as "Statemine")](https://parachains.info/details/statemine).
+//! is currently (as of 2023-06-26) deployed on Pezkuwi and [Kusama (as "Statemine")](https://parachains.info/details/statemine).
 //!
 //! To construct a valid [`crate::config::Config`] implementation, we need to find out which types
-//! to use for `AccountId`, `Hasher`, etc. For this, we need to take a look at the source code of Statemint, which is currently a part of the [Cumulus Github repository](https://github.com/paritytech/cumulus).
-//! The crate defining the asset hub runtime can be found [here](https://github.com/paritytech/cumulus/tree/master/parachains/runtimes/assets/asset-hub-polkadot).
+//! to use for `AccountId`, `Hasher`, etc. For this, we need to take a look at the source code of Statemint, which is currently a part of the [Pezpezcumulus Github repository](https://github.com/pezkuwichain/pezcumulus).
+//! The crate defining the asset hub runtime can be found [here](https://github.com/pezkuwichain/pezcumulus/tree/master/parachains/runtimes/assets/asset-hub-pezkuwi).
 //!
 //! ## `AccountId`, `Hash`, `Hasher` and `Header`
 //!
 //! For these config types, we need to find out where the parachain runtime implements the
 //! `frame_system::Config` trait. Look for a code fragment like `impl frame_system::Config for
-//! Runtime { ... }` In the source code. For Statemint it looks like [this](https://github.com/paritytech/cumulus/blob/e2b7ad2061824f490c08df27a922c64f50accd6b/parachains/runtimes/assets/asset-hub-polkadot/src/lib.rs#L179)
+//! Runtime { ... }` In the source code. For Statemint it looks like [this](https://github.com/pezkuwichain/pezcumulus/blob/e2b7ad2061824f490c08df27a922c64f50accd6b/parachains/runtimes/assets/asset-hub-pezkuwi/src/lib.rs#L179)
 //! at the time of writing. The `AccountId`, `Hash` and `Header` types of the [frame_system::pallet::Config](https://docs.rs/frame-system/latest/frame_system/pallet/trait.Config.html)
 //! correspond to the ones we want to use in our Subxt [crate::Config]. In the Case of Statemint
 //! (Asset Hub) they are:
@@ -38,36 +38,36 @@
 //!   `sp_runtime::traits::BlakeTwo256`
 //! - Header: `sp_runtime::generic::Header<u32, sp_runtime::traits::BlakeTwo256>`
 //!
-//! Subxt has its own versions of some of these types in order to avoid needing to pull in Substrate
+//! Subxt has its own versions of some of these types in order to avoid needing to pull in Bizinikiwi
 //! dependencies:
 //!
 //! - `sp_core::crypto::AccountId32` can be swapped with [`crate::utils::AccountId32`].
 //! - `sp_core::H256` is a re-export which subxt also provides as
-//!   [`crate::config::substrate::H256`].
+//!   [`crate::config::bizinikiwi::H256`].
 //! - `sp_runtime::traits::BlakeTwo256` can be swapped with
-//!   [`crate::config::substrate::BlakeTwo256`].
+//!   [`crate::config::bizinikiwi::BlakeTwo256`].
 //! - `sp_runtime::generic::Header` can be swapped with
-//!   [`crate::config::substrate::SubstrateHeader`].
+//!   [`crate::config::bizinikiwi::BizinikiwiHeader`].
 //!
 //! Having a look at how those types are implemented can give some clues as to how to implement
 //! other custom types that you may need to use as part of your config.
 //!
 //! ## `Address`, `Signature`
 //!
-//! A Substrate runtime is typically constructed by using the [frame_support::construct_runtime](https://docs.rs/frame-support/latest/frame_support/macro.construct_runtime.html) macro.
+//! A Bizinikiwi runtime is typically constructed by using the [frame_support::construct_runtime](https://docs.rs/frame-support/latest/frame_support/macro.construct_runtime.html) macro.
 //! In this macro, we need to specify the type of an `UncheckedExtrinsic`. Most of the time, the
 //! `UncheckedExtrinsic` will be of the type `sp_runtime::generic::UncheckedExtrinsic<Address,
 //! RuntimeCall, Signature, SignedExtra>`. The generic parameters `Address` and `Signature`
 //! specified when declaring the `UncheckedExtrinsic` type are the types for `Address` and
 //! `Signature` we should use with our [crate::Config] implementation. This information can
 //! also be obtained from the metadata (see [`frame_metadata::v15::ExtrinsicMetadata`]). In case of
-//! Statemint (Polkadot Asset Hub) we see the following types being used in `UncheckedExtrinsic`:
+//! Statemint (Pezkuwi Asset Hub) we see the following types being used in `UncheckedExtrinsic`:
 //!
 //! - Address: `sp_runtime::MultiAddress<Self::AccountId, ()>`
 //! - Signature: `sp_runtime::MultiSignature`
 //!
 //! As above, Subxt has its own versions of these types that can be used instead to avoid pulling in
-//! Substrate dependencies. Using the Subxt versions also makes interacting with generated code
+//! Bizinikiwi dependencies. Using the Subxt versions also makes interacting with generated code
 //! (which uses them in some places) a little nicer:
 //!
 //! - `sp_runtime::MultiAddress` can be swapped with [`crate::utils::MultiAddress`].
@@ -111,7 +111,7 @@
 //! metadata (see [`frame_metadata::v15::SignedExtensionMetadata`]).
 //!
 //! For statemint, the transaction extensions look like
-//! [this](https://github.com/paritytech/cumulus/blob/d4bb2215bb28ee05159c4c7df1b3435177b5bf4e/parachains/runtimes/assets/asset-hub-polkadot/src/lib.rs#L786):
+//! [this](https://github.com/pezkuwichain/pezcumulus/blob/d4bb2215bb28ee05159c4c7df1b3435177b5bf4e/parachains/runtimes/assets/asset-hub-pezkuwi/src/lib.rs#L786):
 //!
 //! ```rust,ignore
 //! pub type SignedExtra = (

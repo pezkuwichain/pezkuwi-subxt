@@ -11,8 +11,8 @@ readme = "README.md"
 repository.workspace = true
 documentation.workspace = true
 homepage.workspace = true
-description = "Download non head-of-chain blocks and state from Substrate based nodes"
-keywords = ["blockchain", "parity", "substrate"]
+description = "Download non head-of-chain blocks and state from Bizinikiwi based nodes"
+keywords = ["blockchain", "parity", "bizinikiwi"]
 
 [lints]
 workspace = true

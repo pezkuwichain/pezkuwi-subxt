@@ -468,7 +468,7 @@ pub struct RuntimeVersion {
 /// # Note
 ///
 /// This is copied from `sp-transaction-pool` to avoid a dependency on that crate. Therefore it
-/// must be kept compatible with that type from the target substrate version.
+/// must be kept compatible with that type from the target bizinikiwi version.
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub enum TransactionStatus<Hash> {
@@ -593,7 +593,7 @@ pub struct BlockStats {
 /// # Note
 ///
 /// This is copied from `sc-rpc-api` to avoid a dependency on that crate. Therefore it
-/// must be kept compatible with that type from the target substrate version.
+/// must be kept compatible with that type from the target bizinikiwi version.
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ReadProof<Hash> {

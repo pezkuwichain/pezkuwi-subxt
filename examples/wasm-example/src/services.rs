@@ -4,24 +4,24 @@ use serde::{Deserialize, Serialize};
 use serde_json::json;
 use std::fmt::Write;
 use pezkuwi_subxt::ext::codec::{Compact, Encode};
-use pezkuwi_subxt::{self, OnlineClient, PolkadotConfig};
+use pezkuwi_subxt::{self, OnlineClient, PezkuwiConfig};
 use wasm_bindgen::prelude::*;
 use wasm_bindgen_futures::JsFuture;
 use yew::{AttrValue, Callback};
 
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 pub(crate) async fn fetch_constant_block_length() -> Result<String, pezkuwi_subxt::Error> {
-    let api = OnlineClient::<PolkadotConfig>::new().await?;
-    let constant_query = polkadot::constants().system().block_length();
+    let api = OnlineClient::<PezkuwiConfig>::new().await?;
+    let constant_query = pezkuwi::constants().system().block_length();
 
     let value = api.constants().at(&constant_query)?;
     Ok(format!("{value:?}"))
 }
 
 pub(crate) async fn fetch_events_dynamically() -> Result<Vec<String>, pezkuwi_subxt::Error> {
-    let api = OnlineClient::<PolkadotConfig>::new().await?;
+    let api = OnlineClient::<PezkuwiConfig>::new().await?;
     let events = api.events().at_latest().await?;
     let mut event_strings = Vec::<String>::new();
     for event in events.iter() {
@@ -38,7 +38,7 @@ pub(crate) async fn fetch_events_dynamically() -> Result<Vec<String>, pezkuwi_su
 pub(crate) async fn subscribe_to_finalized_blocks(
     cb: Callback<AttrValue>,
 ) -> Result<(), pezkuwi_subxt::Error> {
-    let api = OnlineClient::<PolkadotConfig>::new().await?;
+    let api = OnlineClient::<PezkuwiConfig>::new().await?;
     // Subscribe to all finalized blocks:
     let mut blocks_sub = api.blocks().subscribe_finalized().await?;
     while let Some(block) = blocks_sub.next().await {
@@ -54,7 +54,7 @@ pub(crate) async fn subscribe_to_finalized_blocks(
             let bytes_hex = format!("0x{}", hex::encode(ext.bytes()));
 
             // See the API docs for more ways to decode extrinsics:
-            let decoded_ext = ext.as_root_extrinsic::<polkadot::Call>();
+            let decoded_ext = ext.as_root_extrinsic::<pezkuwi::Call>();
 
             writeln!(output, "    Extrinsic #{idx}:").ok();
             writeln!(output, "      Bytes: {bytes_hex}").ok();
@@ -117,12 +117,12 @@ fn encode_then_hex<E: Encode>(input: &E) -> String {
     format!("0x{}", hex::encode(input.encode()))
 }
 
-/// communicates with JavaScript to obtain a signature for the `partial_extrinsic` via a browser extension (e.g. polkadot-js or Talisman)
+/// communicates with JavaScript to obtain a signature for the `partial_extrinsic` via a browser extension (e.g. pezkuwi-js or Talisman)
 ///
 /// Some parameters are hard-coded here and not taken from the partial_extrinsic itself (mortality_checkpoint, era, tip).
 pub async fn extension_signature_for_extrinsic(
     call_data: &[u8],
-    api: &OnlineClient<PolkadotConfig>,
+    api: &OnlineClient<PezkuwiConfig>,
     account_nonce: u64,
     account_source: String,
     account_address: String,

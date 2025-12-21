@@ -1,6 +1,6 @@
 use hex::decode;
 use std::{ffi::CStr, os::raw::c_char, sync::OnceLock};
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig, dynamic::Value, ext::scale_value::Composite, tx};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig, dynamic::Value, ext::scale_value::Composite, tx};
 use pezkuwi_subxt_signer::sr25519::dev;
 use tokio::runtime::Runtime;
 
@@ -35,7 +35,7 @@ pub extern "C" fn do_transfer(dest_hex: *const c_char, amount: u64) -> i32 {
 
     // Spin up (or reuse) our Tokio runtime and connect:
     let client = tokio_rt().block_on(async {
-        OnlineClient::<PolkadotConfig>::from_url("ws://127.0.0.1:8000")
+        OnlineClient::<PezkuwiConfig>::from_url("ws://127.0.0.1:8000")
             .await
             .unwrap()
     });

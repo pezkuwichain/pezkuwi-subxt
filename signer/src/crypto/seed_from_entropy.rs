@@ -8,7 +8,7 @@ use pbkdf2::pbkdf2;
 use sha2::Sha512;
 use zeroize::Zeroize;
 
-/// This is taken from `substrate-bip39` so that we can keep dependencies in line, and
+/// This is taken from `bizinikiwi-bip39` so that we can keep dependencies in line, and
 /// is the same logic that sp-core uses to go from mnemonic entropy to seed. Returns
 /// `None` if invalid length.
 #[allow(dead_code)]

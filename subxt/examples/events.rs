@@ -1,13 +1,13 @@
 #![allow(missing_docs)]
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig};
 
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	// Create a client to use:
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 
 	// Get events for the latest block:
 	let events = api.events().at_latest().await?;
@@ -29,7 +29,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	for event in events.iter() {
 		let event = event?;
 
-		if let Ok(ev) = event.as_root_event::<polkadot::Event>() {
+		if let Ok(ev) = event.as_root_event::<pezkuwi::Event>() {
 			println!("{ev:?}");
 		} else {
 			println!("<Cannot decode event>");
@@ -37,7 +37,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	}
 
 	// Or we can look for specific events which match our statically defined ones:
-	let transfer_event = events.find_first::<polkadot::balances::events::Transfer>()?;
+	let transfer_event = events.find_first::<pezkuwi::balances::events::Transfer>()?;
 	if let Some(ev) = transfer_event {
 		println!("  - Balance transfer success: value: {:?}", ev.amount);
 	} else {

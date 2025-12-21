@@ -9,7 +9,7 @@
 
 //! # The Subxt Guide
 //!
-//! Subxt is a library for interacting with Substrate based nodes. It has a focus on **sub**mitting
+//! Subxt is a library for interacting with Bizinikiwi based nodes. It has a focus on **sub**mitting
 //! e**xt**rinsics, hence the name, however it's also capable of reading blocks, storage, events and
 //! constants from a node. The aim of this guide is to explain key concepts and get you started with
 //! using Subxt.
@@ -68,8 +68,8 @@
 #![doc = include_str!("../../examples/tx_basic.rs")]
 //! ```
 //! 
-//! This example assumes that a Polkadot node is running locally (Subxt endeavors to support all
-//! recent releases). Typically, to use Subxt to talk to some custom Substrate node (for example a
+//! This example assumes that a Pezkuwi node is running locally (Subxt endeavors to support all
+//! recent releases). Typically, to use Subxt to talk to some custom Bizinikiwi node (for example a
 //! parachain node), you'll want to:
 //!
 //! 1. [Generate an interface](setup::codegen)
@@ -100,9 +100,9 @@
 //!
 //! Some complete, self contained examples which are not a part of this guide:
 //!
-//! - [`parachain-example`](https://github.com/paritytech/subxt/tree/master/examples/parachain-example) is an example
+//! - [`parachain-example`](https://github.com/pezkuwichain/subxt/tree/master/examples/parachain-example) is an example
 //!   which uses Zombienet to spawn a parachain locally, and then connects to it using Subxt.
-//! - [`wasm-example`](https://github.com/paritytech/subxt/tree/master/examples/wasm-example) is an example of writing
+//! - [`wasm-example`](https://github.com/pezkuwichain/subxt/tree/master/examples/wasm-example) is an example of writing
 //!   a Rust app that contains a Yew based UI, uses Subxt to interact with a chain, and compiles to WASM in order to
 //!   run entirely in the browser.
 pub mod setup;

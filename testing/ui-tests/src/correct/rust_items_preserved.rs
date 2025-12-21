@@ -1,4 +1,4 @@
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../../../../artifacts/polkadot_metadata_tiny.scale")]
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../../../../artifacts/pezkuwi_metadata_tiny.scale")]
 pub mod node_runtime {
     pub struct SomeStruct;
     pub enum SomeEnum {

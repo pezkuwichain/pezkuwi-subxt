@@ -16,7 +16,7 @@ jsonrpsee = { workspace = true, features = [
 	"client-ws-transport-tls",
 ] }
 serde = { workspace = true }
-substrate-runner = { workspace = true }
+bizinikiwi-runner = { workspace = true }
 tokio = { workspace = true, features = ["rt-multi-thread"] }
 tokio-util = { workspace = true, features = ["compat"] }
 which = { workspace = true }

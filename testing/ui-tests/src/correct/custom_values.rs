@@ -1,5 +1,5 @@
 use codec::{Decode};
-use pezkuwi_subxt::{config::substrate::H256, OfflineClient, PolkadotConfig};
+use pezkuwi_subxt::{config::bizinikiwi::H256, OfflineClient, PezkuwiConfig};
 use pezkuwi_subxt_metadata::Metadata;
 
 #[pezkuwi_subxt::subxt(runtime_metadata_path = "../../../../artifacts/metadata_with_custom_values.scale", derive_for_all_types = "Eq, PartialEq")]
@@ -29,7 +29,7 @@ fn main() {
     assert_eq!(vec![0,1,2,3], custom_bytes);
 }
 
-fn construct_offline_client() -> OfflineClient<PolkadotConfig> {
+fn construct_offline_client() -> OfflineClient<PezkuwiConfig> {
     let genesis_hash = {
         let h = "91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3";
         let bytes = hex::decode(h).unwrap();
@@ -44,5 +44,5 @@ fn construct_offline_client() -> OfflineClient<PolkadotConfig> {
         let bytes = std::fs::read("../../../../artifacts/metadata_with_custom_values.scale").unwrap();
         Metadata::decode(&mut &*bytes).unwrap()
     };
-    OfflineClient::<PolkadotConfig>::new(genesis_hash, runtime_version, metadata)
+    OfflineClient::<PezkuwiConfig>::new(genesis_hash, runtime_version, metadata)
 }

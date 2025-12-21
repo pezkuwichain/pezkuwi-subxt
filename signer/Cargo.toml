@@ -39,8 +39,8 @@ sr25519 = ["schnorrkel"]
 ecdsa = ["secp256k1"]
 unstable-eth = ["bip32", "ecdsa", "keccak-hash", "secp256k1"]
 
-# Enable support for loading key pairs from polkadot-js json.
-polkadot-js-compat = [
+# Enable support for loading key pairs from pezkuwi-js json.
+pezkuwi-js-compat = [
 	"base64",
 	"crypto_secretbox",
 	"scrypt",
@@ -83,7 +83,7 @@ sha2 = { workspace = true }
 thiserror = { workspace = true, default-features = false }
 zeroize = { workspace = true }
 
-# These are used if the polkadot-js-compat feature is enabled
+# These are used if the pezkuwi-js-compat feature is enabled
 base64 = { workspace = true, optional = true, features = ["alloc"] }
 crypto_secretbox = { workspace = true, optional = true, features = ["alloc", "salsa20"] }
 scrypt = { workspace = true, default-features = false, optional = true }

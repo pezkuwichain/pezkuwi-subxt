@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-//! Substrate specific configuration
+//! Bizinikiwi specific configuration
 
 use super::{Config, DefaultExtrinsicParams, DefaultExtrinsicParamsBuilder, Hasher, Header};
 pub use crate::utils::{AccountId32, MultiAddress, MultiSignature};
@@ -12,31 +12,31 @@ use pezkuwi_subxt_metadata::Metadata;
 pub use primitive_types::{H256, U256};
 use serde::{Deserialize, Serialize};
 
-/// Default set of commonly used types by Substrate runtimes.
+/// Default set of commonly used types by Bizinikiwi runtimes.
 // Note: We only use this at the type level, so it should be impossible to
 // create an instance of it.
 // The trait implementations exist just to make life easier,
 // but shouldn't strictly be necessary since users can't instantiate this type.
 #[derive(Clone, Copy, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
-pub enum SubstrateConfig {}
+pub enum BizinikiwConfig {}
 
-impl Config for SubstrateConfig {
+impl Config for BizinikiwConfig {
 	type AccountId = AccountId32;
 	type Address = MultiAddress<Self::AccountId, u32>;
 	type Signature = MultiSignature;
 	type Hasher = DynamicHasher256;
-	type Header = SubstrateHeader<u32, DynamicHasher256>;
-	type ExtrinsicParams = SubstrateExtrinsicParams<Self>;
+	type Header = BizinikiwiHeader<u32, DynamicHasher256>;
+	type ExtrinsicParams = BizinikiwiExtrinsicParams<Self>;
 	type AssetId = u32;
 }
 
 /// A struct representing the signed extra and additional parameters required
-/// to construct a transaction for the default substrate node.
-pub type SubstrateExtrinsicParams<T> = DefaultExtrinsicParams<T>;
+/// to construct a transaction for the default bizinikiwi node.
+pub type BizinikiwiExtrinsicParams<T> = DefaultExtrinsicParams<T>;
 
-/// A builder which leads to [`SubstrateExtrinsicParams`] being constructed.
+/// A builder which leads to [`BizinikiwiExtrinsicParams`] being constructed.
 /// This is what you provide to methods like `sign_and_submit()`.
-pub type SubstrateExtrinsicParamsBuilder<T> = DefaultExtrinsicParamsBuilder<T>;
+pub type BizinikiwiExtrinsicParamsBuilder<T> = DefaultExtrinsicParamsBuilder<T>;
 
 /// A hasher (ie implements [`Hasher`]) which hashes values using the blaks2_256 algorithm.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -105,11 +105,11 @@ impl Hasher for DynamicHasher256 {
 	}
 }
 
-/// A generic Substrate header type, adapted from `sp_runtime::generic::Header`.
+/// A generic Bizinikiwi header type, adapted from `sp_runtime::generic::Header`.
 /// The block number and hasher can be configured to adapt this for other nodes.
 #[derive(Encode, Decode, Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct SubstrateHeader<N: Copy + Into<U256> + TryFrom<U256>, H: Hasher> {
+pub struct BizinikiwiHeader<N: Copy + Into<U256> + TryFrom<U256>, H: Hasher> {
 	/// The parent hash.
 	pub parent_hash: H::Output,
 	/// The block number.
@@ -124,11 +124,11 @@ pub struct SubstrateHeader<N: Copy + Into<U256> + TryFrom<U256>, H: Hasher> {
 	pub digest: Digest,
 }
 
-impl<N, H> Header for SubstrateHeader<N, H>
+impl<N, H> Header for BizinikiwiHeader<N, H>
 where
 	N: Copy + Into<u64> + Into<U256> + TryFrom<U256> + Encode,
 	H: Hasher,
-	SubstrateHeader<N, H>: Encode + Decode,
+	BizinikiwiHeader<N, H>: Encode + Decode,
 {
 	type Number = N;
 	type Hasher = H;
@@ -365,12 +365,12 @@ mod test {
             }
         "#;
 
-		let header: SubstrateHeader<u32, BlakeTwo256> =
+		let header: BizinikiwiHeader<u32, BlakeTwo256> =
 			serde_json::from_str(numeric_block_number_json).expect("valid block header");
 		assert_eq!(header.number(), 4);
 	}
 
-	// Substrate returns hex block numbers; ensure we can also deserialize those OK.
+	// Bizinikiwi returns hex block numbers; ensure we can also deserialize those OK.
 	#[test]
 	fn can_deserialize_hex_block_number() {
 		let numeric_block_number_json = r#"
@@ -385,7 +385,7 @@ mod test {
             }
         "#;
 
-		let header: SubstrateHeader<u32, BlakeTwo256> =
+		let header: BizinikiwiHeader<u32, BlakeTwo256> =
 			serde_json::from_str(numeric_block_number_json).expect("valid block header");
 		assert_eq!(header.number(), 4);
 	}

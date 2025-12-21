@@ -1,10 +1,10 @@
 #![allow(missing_docs)]
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-	// Create a client that subscribes to blocks of the Polkadot network.
-	let api = OnlineClient::<PolkadotConfig>::from_url("wss://rpc.polkadot.io:443").await?;
+	// Create a client that subscribes to blocks of the Pezkuwi network.
+	let api = OnlineClient::<PezkuwiConfig>::from_url("wss://rpc.pezkuwi.io:443").await?;
 
 	// Subscribe to all finalized blocks:
 	let mut blocks_sub = api.blocks().subscribe_finalized().await?;

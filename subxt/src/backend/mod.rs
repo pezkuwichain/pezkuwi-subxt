@@ -39,7 +39,7 @@ pub mod rpc {
 		/// use std::time::Duration;
 		/// use futures::StreamExt;
 		/// use pezkuwi_subxt::backend::rpc::reconnecting_rpc_client::{RpcClient, ExponentialBackoff};
-		/// use pezkuwi_subxt::{OnlineClient, PolkadotConfig};
+		/// use pezkuwi_subxt::{OnlineClient, PezkuwiConfig};
 		///
 		/// #[tokio::main]
 		/// async fn main() {
@@ -49,7 +49,7 @@ pub mod rpc {
 		///         .await
 		///         .unwrap();
 		///
-		///     let subxt_client: OnlineClient<PolkadotConfig> = OnlineClient::from_rpc_client(rpc.clone()).await.unwrap();
+		///     let subxt_client: OnlineClient<PezkuwiConfig> = OnlineClient::from_rpc_client(rpc.clone()).await.unwrap();
 		///     let mut blocks_sub = subxt_client.blocks().subscribe_finalized().await.unwrap();
 		///
 		///     while let Some(block) = blocks_sub.next().await {
@@ -420,8 +420,8 @@ mod test {
 		type AccountId = crate::utils::AccountId32;
 		type Address = crate::utils::MultiAddress<Self::AccountId, ()>;
 		type Signature = crate::utils::MultiSignature;
-		type Hasher = crate::config::substrate::BlakeTwo256;
-		type Header = crate::config::substrate::SubstrateHeader<u32, Self::Hasher>;
+		type Hasher = crate::config::bizinikiwi::BlakeTwo256;
+		type Header = crate::config::bizinikiwi::BizinikiwiHeader<u32, Self::Hasher>;
 		type ExtrinsicParams = DefaultExtrinsicParams<Self>;
 		type AssetId = u32;
 	}
@@ -645,8 +645,8 @@ mod test {
 
 		fn runtime_spec() -> RuntimeSpec {
 			let spec = serde_json::json!({
-				"specName": "westend",
-				"implName": "parity-westend",
+				"specName": "zagros",
+				"implName": "parity-zagros",
 				"specVersion": 9122,
 				"implVersion": 0,
 				"transactionVersion": 7,
@@ -968,7 +968,7 @@ mod test {
 		}
 
 		// Check that the backend will resubscribe on Stop, and handle a change in subscription ID.
-		// see https://github.com/paritytech/subxt/issues/1567
+		// see https://github.com/pezkuwichain/subxt/issues/1567
 		#[tokio::test]
 		async fn stale_subscription_id_failure() {
 			let (tx, rx) = tokio::sync::mpsc::unbounded_channel();

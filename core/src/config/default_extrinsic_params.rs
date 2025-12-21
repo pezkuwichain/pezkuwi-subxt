@@ -161,7 +161,7 @@ mod test {
 
 	#[test]
 	fn params_are_default() {
-		let params = DefaultExtrinsicParamsBuilder::<crate::config::PolkadotConfig>::new().build();
+		let params = DefaultExtrinsicParamsBuilder::<crate::config::PezkuwiConfig>::new().build();
 		assert_default(params)
 	}
 }

@@ -6,7 +6,7 @@ use std::cell::RefCell;
 use std::ffi::{OsStr, OsString};
 use std::sync::Arc;
 use std::time::Duration;
-use substrate_runner::SubstrateNode;
+use bizinikiwi_runner::BizinikiwiNode;
 use pezkuwi_subxt::backend::rpc::reconnecting_rpc_client::{ExponentialBackoff, RpcClientBuilder};
 use pezkuwi_subxt::{
     Config, OnlineClient,
@@ -35,10 +35,10 @@ fn get_url(port: Option<u16>) -> String {
     }
 }
 
-/// Spawn a local substrate node for testing subxt.
+/// Spawn a local bizinikiwi node for testing subxt.
 pub struct TestNodeProcess<R: Config> {
     // Keep a handle to the node; once it's dropped the node is killed.
-    proc: Option<SubstrateNode>,
+    proc: Option<BizinikiwiNode>,
 
     // Lazily construct these when asked for.
     chainhead_backend: RefCell<Option<OnlineClient<R>>>,
@@ -165,14 +165,14 @@ impl TestNodeProcessBuilder {
         self
     }
 
-    /// Spawn the substrate node at the given path, and wait for rpc to be initialized.
+    /// Spawn the bizinikiwi node at the given path, and wait for rpc to be initialized.
     pub async fn spawn<R>(self) -> Result<TestNodeProcess<R>, String>
     where
         R: Config,
     {
         // Only spawn a process if a URL to target wasn't provided as an env var.
         let proc = if !is_url_provided() {
-            let mut node_builder = SubstrateNode::builder();
+            let mut node_builder = BizinikiwiNode::builder();
             node_builder.binary_paths(&self.node_paths);
 
             if let Some(authority) = &self.authority {
@@ -267,14 +267,14 @@ async fn build_chainhead_backend<T: Config>(
 
 #[cfg(lightclient)]
 async fn build_light_client<T: Config>(
-    maybe_proc: &Option<SubstrateNode>,
+    maybe_proc: &Option<BizinikiwiNode>,
 ) -> Result<OnlineClient<T>, String> {
     use pezkuwi_subxt::lightclient::{ChainConfig, LightClient};
 
     let proc = if let Some(proc) = maybe_proc {
         proc
     } else {
-        return Err("Cannot build light client: no substrate node is running (you can't start a light client when pointing to an external node)".into());
+        return Err("Cannot build light client: no bizinikiwi node is running (you can't start a light client when pointing to an external node)".into());
     };
 
     // RPC endpoint. Only localhost works.

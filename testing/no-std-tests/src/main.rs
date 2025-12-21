@@ -37,7 +37,7 @@ fn compile_test() {
     let bytes: alloc::vec::Vec<u8> = alloc::vec![0, 1, 2, 3, 4];
     pezkuwi_subxt_metadata::Metadata::decode(&mut &bytes[..]).expect_err("invalid byte sequence");
 
-    const METADATA: &[u8] = include_bytes!("../../../artifacts/polkadot_metadata_small.scale");
+    const METADATA: &[u8] = include_bytes!("../../../artifacts/pezkuwi_metadata_small.scale");
     pezkuwi_subxt_metadata::Metadata::decode(&mut &METADATA[..]).expect("should be valid metadata");
 
     // Subxt signer compiles (though nothing much works on this particular nostd target...):
@@ -68,7 +68,7 @@ fn compile_test() {
 }
 
 #[pezkuwi_subxt_macro::subxt(
-    runtime_metadata_path = "../../artifacts/polkadot_metadata_full.scale",
+    runtime_metadata_path = "../../artifacts/pezkuwi_metadata_full.scale",
     crate = "::pezkuwi_subxt_core"
 )]
-pub mod polkadot {}
+pub mod pezkuwi {}

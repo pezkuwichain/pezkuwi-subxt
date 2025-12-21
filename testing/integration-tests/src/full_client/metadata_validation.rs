@@ -17,9 +17,9 @@ use scale_info::{
     build::{Fields, Variants},
     meta_type,
 };
-use pezkuwi_subxt::{Metadata, OfflineClient, OnlineClient, SubstrateConfig};
+use pezkuwi_subxt::{Metadata, OfflineClient, OnlineClient, BizinikiwConfig};
 
-async fn fetch_v15_metadata(client: &OnlineClient<SubstrateConfig>) -> RuntimeMetadataV15 {
+async fn fetch_v15_metadata(client: &OnlineClient<BizinikiwConfig>) -> RuntimeMetadataV15 {
     let payload = node_runtime::apis().metadata().metadata_at_version(15);
     let runtime_metadata_bytes = client
         .runtime_api()
@@ -40,7 +40,7 @@ async fn fetch_v15_metadata(client: &OnlineClient<SubstrateConfig>) -> RuntimeMe
     v15_metadata
 }
 
-async fn metadata_to_api(metadata: Metadata, ctx: &TestContext) -> OfflineClient<SubstrateConfig> {
+async fn metadata_to_api(metadata: Metadata, ctx: &TestContext) -> OfflineClient<BizinikiwConfig> {
     OfflineClient::new(
         ctx.client().genesis_hash(),
         ctx.client().runtime_version(),

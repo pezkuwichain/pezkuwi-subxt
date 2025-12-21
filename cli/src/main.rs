@@ -9,7 +9,7 @@ mod utils;
 
 use clap::Parser as ClapParser;
 
-/// Subxt utilities for interacting with Substrate based nodes.
+/// Subxt utilities for interacting with Bizinikiwi based nodes.
 #[derive(Debug, ClapParser)]
 enum Command {
 	Metadata(commands::metadata::Opts),

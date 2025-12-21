@@ -14,40 +14,40 @@ pub use error::Error;
 
 type CowStr = Cow<'static, str>;
 
-pub struct SubstrateNodeBuilder {
+pub struct BizinikiwiNodeBuilder {
     binary_paths: Vec<OsString>,
     custom_flags: HashMap<CowStr, Option<CowStr>>,
 }
 
-impl Default for SubstrateNodeBuilder {
+impl Default for BizinikiwiNodeBuilder {
     fn default() -> Self {
-        SubstrateNodeBuilder::new()
+        BizinikiwiNodeBuilder::new()
     }
 }
 
-impl SubstrateNodeBuilder {
-    /// Configure a new Substrate node.
+impl BizinikiwiNodeBuilder {
+    /// Configure a new Bizinikiwi node.
     pub fn new() -> Self {
-        SubstrateNodeBuilder {
+        BizinikiwiNodeBuilder {
             binary_paths: vec![],
             custom_flags: Default::default(),
         }
     }
 
-    /// Provide "substrate-node" and "substrate" as binary paths
-    pub fn substrate(&mut self) -> &mut Self {
-        self.binary_paths = vec!["substrate-node".into(), "substrate".into()];
+    /// Provide "bizinikiwi-node" and "bizinikiwi" as binary paths
+    pub fn bizinikiwi(&mut self) -> &mut Self {
+        self.binary_paths = vec!["bizinikiwi-node".into(), "bizinikiwi".into()];
         self
     }
 
-    /// Provide "polkadot" as binary path.
-    pub fn polkadot(&mut self) -> &mut Self {
-        self.binary_paths = vec!["polkadot".into()];
+    /// Provide "pezkuwi" as binary path.
+    pub fn pezkuwi(&mut self) -> &mut Self {
+        self.binary_paths = vec!["pezkuwi".into()];
         self
     }
 
-    /// Set the path to the `substrate` binary; defaults to "substrate-node"
-    /// or "substrate".
+    /// Set the path to the `bizinikiwi` binary; defaults to "bizinikiwi-node"
+    /// or "bizinikiwi".
     pub fn binary_paths<Paths, S>(&mut self, paths: Paths) -> &mut Self
     where
         Paths: IntoIterator<Item = S>,
@@ -70,7 +70,7 @@ impl SubstrateNodeBuilder {
     }
 
     /// Spawn the node, handing back an object which, when dropped, will stop it.
-    pub fn spawn(mut self) -> Result<SubstrateNode, Error> {
+    pub fn spawn(mut self) -> Result<BizinikiwiNode, Error> {
         // Try to spawn the binary at each path, returning the
         // first "ok" or last error that we encountered.
         let mut res = Err(io::Error::other("No binary path provided"));
@@ -85,7 +85,7 @@ impl SubstrateNodeBuilder {
             self.custom_flags
                 .insert("base-path".into(), Some(path.clone().into()));
 
-            res = SubstrateNodeBuilder::try_spawn(binary_path, &self.custom_flags);
+            res = BizinikiwiNodeBuilder::try_spawn(binary_path, &self.custom_flags);
             if res.is_ok() {
                 bin_path.clone_from(binary_path);
                 break;
@@ -99,13 +99,13 @@ impl SubstrateNodeBuilder {
 
         // Wait for RPC port to be logged (it's logged to stderr).
         let stderr = proc.stderr.take().unwrap();
-        let running_node = try_find_substrate_port_from_output(stderr);
+        let running_node = try_find_bizinikiwi_port_from_output(stderr);
 
         let ws_port = running_node.ws_port()?;
         let p2p_address = running_node.p2p_address()?;
         let p2p_port = running_node.p2p_port()?;
 
-        Ok(SubstrateNode {
+        Ok(BizinikiwiNode {
             binary_path: bin_path,
             custom_flags: self.custom_flags,
             proc,
@@ -144,7 +144,7 @@ impl SubstrateNodeBuilder {
     }
 }
 
-pub struct SubstrateNode {
+pub struct BizinikiwiNode {
     binary_path: OsString,
     custom_flags: HashMap<CowStr, Option<CowStr>>,
     proc: process::Child,
@@ -154,10 +154,10 @@ pub struct SubstrateNode {
     base_path: String,
 }
 
-impl SubstrateNode {
-    /// Configure and spawn a new [`SubstrateNode`].
-    pub fn builder() -> SubstrateNodeBuilder {
-        SubstrateNodeBuilder::new()
+impl BizinikiwiNode {
+    /// Configure and spawn a new [`BizinikiwiNode`].
+    pub fn builder() -> BizinikiwiNodeBuilder {
+        BizinikiwiNodeBuilder::new()
     }
 
     /// Return the ID of the running process.
@@ -235,16 +235,16 @@ impl SubstrateNode {
     }
 }
 
-impl Drop for SubstrateNode {
+impl Drop for BizinikiwiNode {
     fn drop(&mut self) {
         let _ = self.kill();
         self.cleanup()
     }
 }
 
-// Consume a stderr reader from a spawned substrate command and
+// Consume a stderr reader from a spawned bizinikiwi command and
 // locate the port number that is logged out to it.
-fn try_find_substrate_port_from_output(r: impl Read + Send + 'static) -> SubstrateNodeInfo {
+fn try_find_bizinikiwi_port_from_output(r: impl Read + Send + 'static) -> BizinikiwiNodeInfo {
     let mut port = None;
     let mut p2p_address = None;
     let mut p2p_port = None;
@@ -321,7 +321,7 @@ fn try_find_substrate_port_from_output(r: impl Read + Send + 'static) -> Substra
         }
     }
 
-    SubstrateNodeInfo {
+    BizinikiwiNodeInfo {
         ws_port: port,
         p2p_address,
         p2p_port,
@@ -331,14 +331,14 @@ fn try_find_substrate_port_from_output(r: impl Read + Send + 'static) -> Substra
 
 /// Data extracted from the running node's stdout.
 #[derive(Debug)]
-pub struct SubstrateNodeInfo {
+pub struct BizinikiwiNodeInfo {
     ws_port: Option<u16>,
     p2p_address: Option<String>,
     p2p_port: Option<u32>,
     log: String,
 }
 
-impl SubstrateNodeInfo {
+impl BizinikiwiNodeInfo {
     pub fn ws_port(&self) -> Result<u16, Error> {
         self.ws_port
             .ok_or_else(|| Error::CouldNotExtractPort(self.log.clone()))

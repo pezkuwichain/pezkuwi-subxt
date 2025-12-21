@@ -1,13 +1,13 @@
 #![allow(missing_docs)]
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig};
 
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	// Create a client to use:
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 
 	// Subscribe to all finalized blocks:
 	let mut blocks_sub = api.blocks().subscribe_finalized().await?;
@@ -31,7 +31,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 			let bytes_hex = format!("0x{}", hex::encode(ext.bytes()));
 
 			// See the API docs for more ways to decode extrinsics:
-			let decoded_ext = ext.as_root_extrinsic::<polkadot::Call>();
+			let decoded_ext = ext.as_root_extrinsic::<pezkuwi::Call>();
 
 			println!("    Extrinsic #{idx}:");
 			println!("      Bytes: {bytes_hex}");

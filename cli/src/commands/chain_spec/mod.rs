@@ -10,10 +10,10 @@ use std::{io::Write, path::PathBuf};
 
 mod fetch;
 
-/// Download chainSpec from a substrate node.
+/// Download chainSpec from a bizinikiwi node.
 #[derive(Debug, ClapParser)]
 pub struct Opts {
-	/// The url of the substrate node to query for metadata for codegen.
+	/// The url of the bizinikiwi node to query for metadata for codegen.
 	#[clap(long)]
 	url: Url,
 	/// Write the output of the command to the provided file path.

@@ -1,6 +1,6 @@
 # subxt-rpcs
 
-This crate provides an interface for interacting with Substrate nodes via the available RPC methods.
+This crate provides an interface for interacting with Bizinikiwi nodes via the available RPC methods.
 
 ```rust
 use subxt_rpcs::{RpcClient, ChainHeadRpcMethods};

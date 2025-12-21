@@ -20,7 +20,7 @@ pub struct Second<T, U>(T, U);
 pub struct DoesntImplEncodeDecodeAsType(u16);
 
 #[pezkuwi_subxt::subxt(
-    runtime_metadata_path = "../../../../artifacts/polkadot_metadata_small.scale",
+    runtime_metadata_path = "../../../../artifacts/pezkuwi_metadata_small.scale",
     substitute_type(
         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
         // Discarding both params:
@@ -30,7 +30,7 @@ pub struct DoesntImplEncodeDecodeAsType(u16);
 pub mod node_runtime {}
 
 #[pezkuwi_subxt::subxt(
-    runtime_metadata_path = "../../../../artifacts/polkadot_metadata_small.scale",
+    runtime_metadata_path = "../../../../artifacts/pezkuwi_metadata_small.scale",
     substitute_type(
         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
         // Discarding second param:
@@ -40,7 +40,7 @@ pub mod node_runtime {}
 pub mod node_runtime2 {}
 
 #[pezkuwi_subxt::subxt(
-    runtime_metadata_path = "../../../../artifacts/polkadot_metadata_small.scale",
+    runtime_metadata_path = "../../../../artifacts/pezkuwi_metadata_small.scale",
     substitute_type(
         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
         // Discarding first param:
@@ -50,7 +50,7 @@ pub mod node_runtime2 {}
 pub mod node_runtime3 {}
 
 #[pezkuwi_subxt::subxt(
-    runtime_metadata_path = "../../../../artifacts/polkadot_metadata_small.scale",
+    runtime_metadata_path = "../../../../artifacts/pezkuwi_metadata_small.scale",
     substitute_type(
         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
         // Swapping params:
@@ -60,7 +60,7 @@ pub mod node_runtime3 {}
 pub mod node_runtime4 {}
 
 #[pezkuwi_subxt::subxt(
-    runtime_metadata_path = "../../../../artifacts/polkadot_metadata_small.scale",
+    runtime_metadata_path = "../../../../artifacts/pezkuwi_metadata_small.scale",
     substitute_type(
         path = "sp_runtime::multiaddress::MultiAddress",
         // Ignore input params and just use concrete types on output:
@@ -70,7 +70,7 @@ pub mod node_runtime4 {}
 pub mod node_runtime5 {}
 
 #[pezkuwi_subxt::subxt(
-    runtime_metadata_path = "../../../../artifacts/polkadot_metadata_small.scale",
+    runtime_metadata_path = "../../../../artifacts/pezkuwi_metadata_small.scale",
     substitute_type(
         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
         // We can put a static type in, too:
@@ -80,7 +80,7 @@ pub mod node_runtime5 {}
 pub mod node_runtime6 {}
 
 #[pezkuwi_subxt::subxt(
-    runtime_metadata_path = "../../../../artifacts/polkadot_metadata_small.scale",
+    runtime_metadata_path = "../../../../artifacts/pezkuwi_metadata_small.scale",
     substitute_type(
         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
         // Check that things can be wrapped in our Static type:
@@ -90,7 +90,7 @@ pub mod node_runtime6 {}
 pub mod node_runtime7 {}
 
 #[pezkuwi_subxt::subxt(
-    runtime_metadata_path = "../../../../artifacts/polkadot_metadata_small.scale",
+    runtime_metadata_path = "../../../../artifacts/pezkuwi_metadata_small.scale",
     substitute_type(
         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
         // Recursive type param substitution should work too (swapping out nested A and B):
@@ -100,7 +100,7 @@ pub mod node_runtime7 {}
 pub mod node_runtime8 {}
 
 fn main() {
-    // We assume Polkadot's config of MultiAddress<AccountId32, ()> here
+    // We assume Pezkuwi's config of MultiAddress<AccountId32, ()> here
     let _ = node_runtime::tx()
         .balances()
         .transfer_allow_death(CustomAddress(1337), 123);

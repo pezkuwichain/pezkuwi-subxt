@@ -11,7 +11,7 @@ use scale_info::meta_type;
 use crate::utils::generate_metadata_from_storage_entries;
 
 /// Generate metadata which contains a `Map` storage entry with no hashers/values.
-/// This is a bit of an odd case, but it was raised in https://github.com/paritytech/subxt/issues/552,
+/// This is a bit of an odd case, but it was raised in https://github.com/pezkuwichain/subxt/issues/552,
 /// and this test will fail before the fix and should pass once the fix is applied.
 pub fn metadata_storage_map_no_keys() -> RuntimeMetadataPrefixed {
     generate_metadata_from_storage_entries(vec![StorageEntryMetadata {

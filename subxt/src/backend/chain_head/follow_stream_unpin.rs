@@ -463,7 +463,7 @@ pub(super) mod test_utils {
 		super::follow_stream::{FollowStream, test_utils::test_stream_getter},
 		*,
 	};
-	use crate::config::substrate::H256;
+	use crate::config::bizinikiwi::H256;
 
 	pub type UnpinRx<H> = std::sync::mpsc::Receiver<(H, Arc<str>)>;
 
@@ -552,7 +552,7 @@ mod test {
 		test_utils::{assert_from_unpin_rx, ev_new_block_ref, test_unpin_stream_getter},
 		*,
 	};
-	use crate::config::substrate::H256;
+	use crate::config::bizinikiwi::H256;
 
 	#[tokio::test]
 	async fn hands_back_blocks() {

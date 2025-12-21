@@ -46,7 +46,7 @@ fn maybe_decompress(file_contents: Vec<u8>) -> WasmMetadataResult<Vec<u8>> {
 
 struct Executor {
 	runtime_blob: RuntimeBlob,
-	executor: WasmExecutor<sp_io::SubstrateHostFunctions>,
+	executor: WasmExecutor<sp_io::BizinikiwiHostFunctions>,
 	externalities: sp_state_machine::BasicExternalities,
 }
 
@@ -54,7 +54,7 @@ impl Executor {
 	fn new(wasm_file: &[u8]) -> WasmMetadataResult<Self> {
 		let externalities: sp_state_machine::BasicExternalities = Default::default();
 
-		let executor: WasmExecutor<sp_io::SubstrateHostFunctions> = WasmExecutor::builder()
+		let executor: WasmExecutor<sp_io::BizinikiwiHostFunctions> = WasmExecutor::builder()
 			.with_execution_method(WasmExecutionMethod::default())
 			.with_offchain_heap_alloc_strategy(sc_executor::HeapAllocStrategy::Dynamic {
 				maximum_pages: Some(64),

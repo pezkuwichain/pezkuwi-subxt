@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-//! Generate a type safe Subxt interface for a Substrate runtime from its metadata.
+//! Generate a type safe Subxt interface for a Bizinikiwi runtime from its metadata.
 //! This is used by the `#[subxt]` macro and `subxt codegen` CLI command, but can also
 //! be used directly if preferable.
 
@@ -44,7 +44,7 @@ pub use syn;
 /// use pezkuwi_subxt_codegen::{ Metadata, CodegenBuilder };
 ///
 /// // Get hold of and decode some metadata:
-/// let encoded = std::fs::read("../artifacts/polkadot_metadata_full.scale").unwrap();
+/// let encoded = std::fs::read("../artifacts/pezkuwi_metadata_full.scale").unwrap();
 /// let metadata = Metadata::decode(&mut &*encoded).unwrap();
 ///
 /// // Generate a TokenStream representing the code for the interface.
@@ -388,7 +388,7 @@ fn default_substitutes(crate_path: &syn::Path) -> TypeSubstitutes {
 		// `EncodeAsType` the bytes would be re-encoded. This leads to the bytes
 		// being altered by adding the length prefix in front of them.
 
-		// Note: Not sure if this is appropriate or not. The most recent polkadot.rs file does not
+		// Note: Not sure if this is appropriate or not. The most recent pezkuwi.rs file does not
 		// have these.
 		(
 			parse_quote!(pezsp_runtime::generic::unchecked_extrinsic::UncheckedExtrinsic),

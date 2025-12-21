@@ -16,18 +16,18 @@
 //! use pezkuwi_subxt_macro::subxt;
 //! use pezkuwi_subxt_core::blocks;
 //! use pezkuwi_subxt_core::Metadata;
-//! use pezkuwi_subxt_core::config::PolkadotConfig;
+//! use pezkuwi_subxt_core::config::PezkuwiConfig;
 //! use alloc::vec;
 //!
 //! // If we generate types without `subxt`, we need to point to `::pezkuwi_subxt_core`:
 //! #[subxt(
 //!     crate = "::pezkuwi_subxt_core",
-//!     runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale",
+//!     runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale",
 //! )]
-//! pub mod polkadot {}
+//! pub mod pezkuwi {}
 //!
 //! // Some metadata we'd like to use to help us decode extrinsics:
-//! let metadata_bytes = include_bytes!("../../../artifacts/polkadot_metadata_small.scale");
+//! let metadata_bytes = include_bytes!("../../../artifacts/pezkuwi_metadata_small.scale");
 //! let metadata = Metadata::decode_from(&metadata_bytes[..]).unwrap();
 //!
 //! // Some extrinsics we'd like to decode:
@@ -38,7 +38,7 @@
 //! ];
 //!
 //! // Given some chain config and metadata, we know how to decode the bytes.
-//! let exts = blocks::decode_from::<PolkadotConfig>(ext_bytes, metadata).unwrap();
+//! let exts = blocks::decode_from::<PezkuwiConfig>(ext_bytes, metadata).unwrap();
 //!
 //! // We'll see 3 extrinsics:
 //! assert_eq!(exts.len(), 3);

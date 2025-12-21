@@ -12,7 +12,7 @@ use crate::utils::node_runtime;
 #[cfg(fullclient)]
 use pezkuwi_subxt::{
     config::{
-        DefaultExtrinsicParamsBuilder, SubstrateConfig,
+        DefaultExtrinsicParamsBuilder, BizinikiwConfig,
         transaction_extensions::{ChargeAssetTxPayment, CheckMortality, CheckNonce},
     },
     utils::Era,
@@ -268,9 +268,9 @@ async fn fetch_block_and_decode_extrinsic_details() {
 /// A helper function to submit a transaction with some params and then get it back in a block,
 /// so that we can test the decoding of it.
 async fn submit_extrinsic_and_get_it_back(
-    api: &pezkuwi_subxt::OnlineClient<SubstrateConfig>,
-    params: pezkuwi_subxt::config::DefaultExtrinsicParamsBuilder<SubstrateConfig>,
-) -> pezkuwi_subxt::blocks::ExtrinsicDetails<SubstrateConfig, pezkuwi_subxt::OnlineClient<SubstrateConfig>> {
+    api: &pezkuwi_subxt::OnlineClient<BizinikiwConfig>,
+    params: pezkuwi_subxt::config::DefaultExtrinsicParamsBuilder<BizinikiwConfig>,
+) -> pezkuwi_subxt::blocks::ExtrinsicDetails<BizinikiwConfig, pezkuwi_subxt::OnlineClient<BizinikiwConfig>> {
     let alice = dev::alice();
     let bob = dev::bob();
 
@@ -313,7 +313,7 @@ async fn decode_transaction_extensions_from_blocks() {
     let nonce1_static = extensions1.find::<CheckNonce>().unwrap().unwrap();
     let tip1 = extensions1.tip().unwrap();
     let tip1_static: u128 = extensions1
-        .find::<ChargeAssetTxPayment<SubstrateConfig>>()
+        .find::<ChargeAssetTxPayment<BizinikiwConfig>>()
         .unwrap()
         .unwrap()
         .tip();
@@ -326,7 +326,7 @@ async fn decode_transaction_extensions_from_blocks() {
     let nonce2_static = extensions2.find::<CheckNonce>().unwrap().unwrap();
     let tip2 = extensions2.tip().unwrap();
     let tip2_static: u128 = extensions2
-        .find::<ChargeAssetTxPayment<SubstrateConfig>>()
+        .find::<ChargeAssetTxPayment<BizinikiwConfig>>()
         .unwrap()
         .unwrap()
         .tip();
@@ -393,7 +393,7 @@ async fn decode_block_mortality() {
         let mortality = tx
             .transaction_extensions()
             .unwrap()
-            .find::<CheckMortality<SubstrateConfig>>()
+            .find::<CheckMortality<BizinikiwConfig>>()
             .unwrap()
             .unwrap();
 
@@ -411,7 +411,7 @@ async fn decode_block_mortality() {
         let mortality = tx
             .transaction_extensions()
             .unwrap()
-            .find::<CheckMortality<SubstrateConfig>>()
+            .find::<CheckMortality<BizinikiwConfig>>()
             .unwrap()
             .unwrap();
 
@@ -429,7 +429,7 @@ async fn decode_block_mortality() {
         let mortality = tx
             .transaction_extensions()
             .unwrap()
-            .find::<CheckMortality<SubstrateConfig>>()
+            .find::<CheckMortality<BizinikiwConfig>>()
             .unwrap()
             .unwrap();
 

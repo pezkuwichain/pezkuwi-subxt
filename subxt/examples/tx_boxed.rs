@@ -1,13 +1,13 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt_signer::sr25519::dev;
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig};
 
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 
 	// Prepare some extrinsics. These are boxed so that they can live alongside each other.
 	let txs = [dynamic_remark(), balance_transfer(), remark()];
@@ -28,11 +28,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 fn balance_transfer() -> Box<dyn pezkuwi_subxt::tx::Payload> {
 	let dest = dev::bob().public_key().into();
-	Box::new(polkadot::tx().balances().transfer_allow_death(dest, 10_000))
+	Box::new(pezkuwi::tx().balances().transfer_allow_death(dest, 10_000))
 }
 
 fn remark() -> Box<dyn pezkuwi_subxt::tx::Payload> {
-	Box::new(polkadot::tx().system().remark(vec![1, 2, 3, 4, 5]))
+	Box::new(pezkuwi::tx().system().remark(vec![1, 2, 3, 4, 5]))
 }
 
 fn dynamic_remark() -> Box<dyn pezkuwi_subxt::tx::Payload> {

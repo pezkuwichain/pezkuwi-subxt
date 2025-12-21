@@ -6,7 +6,7 @@
 //!
 //! The main output from this crate is the [`sr25519::Keypair`], which can
 //! be constructed from a bip39 phrase, secret URI or raw seed, and used to
-//! sign and verify arbitrary messages. This crate is aligned with how Substrate's
+//! sign and verify arbitrary messages. This crate is aligned with how Bizinikiwi's
 //! `sp_core` crate constructs and signs keypairs, but is lighter on dependencies
 //! and can support compilation to WASM with the `web` feature.
 //!
@@ -37,10 +37,10 @@ pub mod ecdsa;
 #[cfg_attr(docsrs, doc(cfg(feature = "unstable-eth")))]
 pub mod eth;
 
-/// A polkadot-js account json loader.
-#[cfg(feature = "polkadot-js-compat")]
-#[cfg_attr(docsrs, doc(cfg(feature = "polkadot-js-compat")))]
-pub mod polkadot_js_compat;
+/// A pezkuwi-js account json loader.
+#[cfg(feature = "pezkuwi-js-compat")]
+#[cfg_attr(docsrs, doc(cfg(feature = "pezkuwi-js-compat")))]
+pub mod pezkuwi_js_compat;
 
 // Re-export useful bits and pieces for generating a Pair from a phrase,
 // namely the Mnemonic struct.

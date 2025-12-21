@@ -1,9 +1,9 @@
 [relaychain]
-default_image = "docker.io/parity/polkadot:latest"
-default_command = "polkadot"
+default_image = "docker.io/parity/pezkuwi:latest"
+default_command = "pezkuwi"
 default_args = ["-lparachain=debug"]
 
-chain = "rococo-local"
+chain = "pezkuwichain-local"
 
 [[relaychain.nodes]]
 name = "alice"
@@ -15,11 +15,11 @@ validator = true
 
 [[parachains]]
 id = 100
-chain = "asset-hub-polkadot-local"
+chain = "asset-hub-pezkuwi-local"
 
 [parachains.collator]
 name = "collator01"
-image = "docker.io/parity/polkadot-parachain:latest"
+image = "docker.io/parity/pezkuwi-parachain:latest"
 ws_port = 42069
-command = "polkadot-parachain"
+command = "pezkuwi-parachain"
 args = ["-lparachain=debug"]

@@ -3,7 +3,7 @@
 // see LICENSE for license details.
 
 //! A wrapper around [`smoldot_light`] which provides an light client capable of connecting
-//! to Substrate based chains.
+//! to Bizinikiwi based chains.
 
 #![deny(missing_docs)]
 #![cfg_attr(docsrs, feature(doc_cfg))]

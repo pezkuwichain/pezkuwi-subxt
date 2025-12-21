@@ -1,13 +1,13 @@
 #![allow(missing_docs)]
-use subxt_historic::{OnlineClient, PolkadotConfig, ext::StreamExt};
+use subxt_historic::{OnlineClient, PezkuwiConfig, ext::StreamExt};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn core::error::Error + Send + Sync + 'static>> {
-    // Configuration for the Polkadot relay chain.
-    let config = PolkadotConfig::new();
+    // Configuration for the Pezkuwi relay chain.
+    let config = PezkuwiConfig::new();
 
-    // Create an online client for the Polkadot relay chain, pointed at a Polkadot archive node.
-    let client = OnlineClient::from_url(config, "wss://rpc.polkadot.io").await?;
+    // Create an online client for the Pezkuwi relay chain, pointed at a Pezkuwi archive node.
+    let client = OnlineClient::from_url(config, "wss://rpc.pezkuwi.io").await?;
 
     // Iterate through some randomly selected blocks to show how to fetch and decode storage.
     for block_number in 12345678.. {

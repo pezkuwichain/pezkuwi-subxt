@@ -1,13 +1,13 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt_signer::sr25519::dev;
 use pezkuwi_subxt::{
-	OnlineClient, PolkadotConfig,
+	OnlineClient, PezkuwiConfig,
 	backend::{legacy::LegacyRpcMethods, rpc::RpcClient},
 	config::DefaultExtrinsicParamsBuilder as Params,
 };
 
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -15,10 +15,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	let rpc_client = RpcClient::from_url("ws://127.0.0.1:9944").await?;
 
 	// Use this to construct our RPC methods:
-	let rpc = LegacyRpcMethods::<PolkadotConfig>::new(rpc_client.clone());
+	let rpc = LegacyRpcMethods::<PezkuwiConfig>::new(rpc_client.clone());
 
 	// We can use the same client to drive our full Subxt interface too:
-	let api = OnlineClient::<PolkadotConfig>::from_rpc_client(rpc_client.clone()).await?;
+	let api = OnlineClient::<PezkuwiConfig>::from_rpc_client(rpc_client.clone()).await?;
 
 	// Now, we can make some RPC calls using some legacy RPC methods.
 	println!(
@@ -41,7 +41,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 		let ext_params = Params::new().mortal(8).nonce(current_nonce).build();
 
-		let balance_transfer = polkadot::tx()
+		let balance_transfer = pezkuwi::tx()
 			.balances()
 			.transfer_allow_death(bob.public_key().into(), 1_000_000);
 

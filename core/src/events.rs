@@ -8,7 +8,7 @@
 //!
 //! ```rust
 //! use pezkuwi_subxt_macro::subxt;
-//! use pezkuwi_subxt_core::config::PolkadotConfig;
+//! use pezkuwi_subxt_core::config::PezkuwiConfig;
 //! use pezkuwi_subxt_core::events;
 //! use pezkuwi_subxt_core::Metadata;
 //! use pezkuwi_subxt_core::dynamic::Value;
@@ -16,19 +16,19 @@
 //! // If we generate types without `subxt`, we need to point to `::pezkuwi_subxt_core`:
 //! #[subxt(
 //!     crate = "::pezkuwi_subxt_core",
-//!     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
+//!     runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale",
 //! )]
-//! pub mod polkadot {}
+//! pub mod pezkuwi {}
 //!
 //! // Some metadata we'll use to work with storage entries:
-//! let metadata_bytes = include_bytes!("../../artifacts/polkadot_metadata_full.scale");
+//! let metadata_bytes = include_bytes!("../../artifacts/pezkuwi_metadata_full.scale");
 //! let metadata = Metadata::decode_from(&metadata_bytes[..]).unwrap();
 //!
 //! // Some bytes representing events (located in System.Events storage):
 //! let event_bytes = hex::decode("1c00000000000000a2e9b53d5517020000000100000000000310c96d901d0102000000020000000408d43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27dbeea5a030000000000000000000000000000020000000402d43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d8eaf04151687736326c9fea17e25fc5287613693c912909cb226aa4794f26a48102700000000000000000000000000000000020000000407be5ddb1579b72e84524fc29e78609e3caf42e85aa118ebfe0b0ad404b5bdd25fbeea5a030000000000000000000000000000020000002100d43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27dbeea5a03000000000000000000000000000000000000000000000000000000000000020000000000426df03e00000000").unwrap();
 //!
 //! // We can decode these bytes like so:
-//! let evs = events::decode_from::<PolkadotConfig>(event_bytes, metadata);
+//! let evs = events::decode_from::<PezkuwiConfig>(event_bytes, metadata);
 //!
 //! // And then do things like iterate over them and inspect details:
 //! for ev in evs.iter() {
@@ -461,7 +461,7 @@ pub struct EventMetadataDetails<'a> {
 #[cfg(test)]
 pub(crate) mod test_utils {
 	use super::*;
-	use crate::config::{HashFor, SubstrateConfig};
+	use crate::config::{HashFor, BizinikiwConfig};
 	use codec::Encode;
 	use frame_metadata::{
 		RuntimeMetadataPrefixed,
@@ -494,12 +494,12 @@ pub(crate) mod test_utils {
 	pub struct EventRecord<E: Encode> {
 		phase: Phase,
 		event: AllEvents<E>,
-		topics: Vec<HashFor<SubstrateConfig>>,
+		topics: Vec<HashFor<BizinikiwConfig>>,
 	}
 
 	impl<E: Encode> EventRecord<E> {
 		/// Create a new event record with the given phase, event, and topics.
-		pub fn new(phase: Phase, event: E, topics: Vec<HashFor<SubstrateConfig>>) -> Self {
+		pub fn new(phase: Phase, event: E, topics: Vec<HashFor<BizinikiwConfig>>) -> Self {
 			Self { phase, event: AllEvents::Test(event), topics }
 		}
 	}
@@ -580,7 +580,7 @@ pub(crate) mod test_utils {
 	pub fn events<E: Decode + Encode>(
 		metadata: Metadata,
 		event_records: Vec<EventRecord<E>>,
-	) -> Events<SubstrateConfig> {
+	) -> Events<BizinikiwConfig> {
 		let num_events = event_records.len() as u32;
 		let mut event_bytes = Vec::new();
 		for ev in event_records {
@@ -595,7 +595,7 @@ pub(crate) mod test_utils {
 		metadata: Metadata,
 		event_bytes: Vec<u8>,
 		num_events: u32,
-	) -> Events<SubstrateConfig> {
+	) -> Events<BizinikiwConfig> {
 		// Prepend compact encoded length to event bytes:
 		let mut all_event_bytes = Compact(num_events).encode();
 		all_event_bytes.extend(event_bytes);
@@ -609,7 +609,7 @@ mod tests {
 		test_utils::{AllEvents, EventRecord, event_record, events, events_raw},
 		*,
 	};
-	use crate::{config::SubstrateConfig, events::Phase};
+	use crate::{config::BizinikiwConfig, events::Phase};
 	use codec::Encode;
 	use primitive_types::H256;
 	use scale_info::TypeInfo;
@@ -637,7 +637,7 @@ mod tests {
 	/// Compare some actual [`RawEventDetails`] with a hand-constructed
 	/// (probably) [`TestRawEventDetails`].
 	pub fn assert_raw_events_match(
-		actual: EventDetails<SubstrateConfig>,
+		actual: EventDetails<BizinikiwConfig>,
 		expected: TestRawEventDetails,
 	) {
 		let actual_fields_no_context: Vec<_> = actual

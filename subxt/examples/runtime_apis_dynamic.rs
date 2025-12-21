@@ -1,11 +1,11 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt_signer::sr25519::dev;
-use pezkuwi_subxt::{OnlineClient, config::PolkadotConfig, utils::AccountId32};
+use pezkuwi_subxt::{OnlineClient, config::PezkuwiConfig, utils::AccountId32};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	// Create a client to use:
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 
 	// Create a "dynamic" runtime API payload that calls the
 	// `AccountNonceApi_account_nonce` function. We could use the

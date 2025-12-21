@@ -347,22 +347,22 @@ mod test {
 	use pezkuwi_subxt_core::client::RuntimeVersion;
 
 	use crate::{
-		SubstrateConfig,
+		BizinikiwConfig,
 		backend::{StreamOfResults, TransactionStatus},
 		client::{OfflineClientT, OnlineClientT},
 		config::{Config, HashFor},
 		tx::TxProgress,
 	};
 
-	type MockTxProgress = TxProgress<SubstrateConfig, MockClient>;
-	type MockHash = HashFor<SubstrateConfig>;
-	type MockSubstrateTxStatus = TransactionStatus<MockHash>;
+	type MockTxProgress = TxProgress<BizinikiwConfig, MockClient>;
+	type MockHash = HashFor<BizinikiwConfig>;
+	type MockBizinikiwiTxStatus = TransactionStatus<MockHash>;
 
 	/// a mock client to satisfy trait bounds in tests
 	#[derive(Clone, Debug)]
 	struct MockClient;
 
-	impl OfflineClientT<SubstrateConfig> for MockClient {
+	impl OfflineClientT<BizinikiwConfig> for MockClient {
 		fn metadata(&self) -> crate::Metadata {
 			unimplemented!("just a mock impl to satisfy trait bounds")
 		}
@@ -375,17 +375,17 @@ mod test {
 			unimplemented!("just a mock impl to satisfy trait bounds")
 		}
 
-		fn hasher(&self) -> <SubstrateConfig as Config>::Hasher {
+		fn hasher(&self) -> <BizinikiwConfig as Config>::Hasher {
 			unimplemented!("just a mock impl to satisfy trait bounds")
 		}
 
-		fn client_state(&self) -> pezkuwi_subxt_core::client::ClientState<SubstrateConfig> {
+		fn client_state(&self) -> pezkuwi_subxt_core::client::ClientState<BizinikiwConfig> {
 			unimplemented!("just a mock impl to satisfy trait bounds")
 		}
 	}
 
-	impl OnlineClientT<SubstrateConfig> for MockClient {
-		fn backend(&self) -> &dyn crate::backend::Backend<SubstrateConfig> {
+	impl OnlineClientT<BizinikiwConfig> for MockClient {
+		fn backend(&self) -> &dyn crate::backend::Backend<BizinikiwConfig> {
 			unimplemented!("just a mock impl to satisfy trait bounds")
 		}
 	}
@@ -393,8 +393,8 @@ mod test {
 	#[tokio::test]
 	async fn wait_for_finalized_returns_err_when_error() {
 		let tx_progress = mock_tx_progress(vec![
-			MockSubstrateTxStatus::Broadcasted,
-			MockSubstrateTxStatus::Error { message: "err".into() },
+			MockBizinikiwiTxStatus::Broadcasted,
+			MockBizinikiwiTxStatus::Error { message: "err".into() },
 		]);
 		let finalized_result = tx_progress.wait_for_finalized().await;
 		assert!(matches!(
@@ -406,8 +406,8 @@ mod test {
 	#[tokio::test]
 	async fn wait_for_finalized_returns_err_when_invalid() {
 		let tx_progress = mock_tx_progress(vec![
-			MockSubstrateTxStatus::Broadcasted,
-			MockSubstrateTxStatus::Invalid { message: "err".into() },
+			MockBizinikiwiTxStatus::Broadcasted,
+			MockBizinikiwiTxStatus::Invalid { message: "err".into() },
 		]);
 		let finalized_result = tx_progress.wait_for_finalized().await;
 		assert!(matches!(
@@ -419,8 +419,8 @@ mod test {
 	#[tokio::test]
 	async fn wait_for_finalized_returns_err_when_dropped() {
 		let tx_progress = mock_tx_progress(vec![
-			MockSubstrateTxStatus::Broadcasted,
-			MockSubstrateTxStatus::Dropped { message: "err".into() },
+			MockBizinikiwiTxStatus::Broadcasted,
+			MockBizinikiwiTxStatus::Dropped { message: "err".into() },
 		]);
 		let finalized_result = tx_progress.wait_for_finalized().await;
 		assert!(matches!(
@@ -429,17 +429,17 @@ mod test {
 		));
 	}
 
-	fn mock_tx_progress(statuses: Vec<MockSubstrateTxStatus>) -> MockTxProgress {
-		let sub = create_substrate_tx_status_subscription(statuses);
+	fn mock_tx_progress(statuses: Vec<MockBizinikiwiTxStatus>) -> MockTxProgress {
+		let sub = create_bizinikiwi_tx_status_subscription(statuses);
 		TxProgress::new(sub, MockClient, Default::default())
 	}
 
-	fn create_substrate_tx_status_subscription(
-		elements: Vec<MockSubstrateTxStatus>,
-	) -> StreamOfResults<MockSubstrateTxStatus> {
+	fn create_bizinikiwi_tx_status_subscription(
+		elements: Vec<MockBizinikiwiTxStatus>,
+	) -> StreamOfResults<MockBizinikiwiTxStatus> {
 		let results = elements.into_iter().map(Ok);
 		let stream = Box::pin(futures::stream::iter(results));
-		let sub: StreamOfResults<MockSubstrateTxStatus> = StreamOfResults::new(stream);
+		let sub: StreamOfResults<MockBizinikiwiTxStatus> = StreamOfResults::new(stream);
 		sub
 	}
 }

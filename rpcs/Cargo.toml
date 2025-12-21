@@ -11,7 +11,7 @@ readme = "README.md"
 repository.workspace = true
 documentation.workspace = true
 homepage.workspace = true
-description = "Make RPC calls to Substrate based nodes"
+description = "Make RPC calls to Bizinikiwi based nodes"
 keywords = ["parity", "rpcs", "subxt"]
 
 [features]

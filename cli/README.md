@@ -1,6 +1,6 @@
 # subxt-cli
 
-Utilities for working with substrate metadata for `subxt`
+Utilities for working with bizinikiwi metadata for `subxt`
 
 ```
 USAGE:
@@ -17,7 +17,7 @@ Prints help information
 SUBCOMMANDS:
 codegen     Generate runtime API client code from metadata
 help        Prints this message or the help of the given subcommand(s)
-metadata    Download metadata from a substrate node, for use with `subxt` codegen
+metadata    Download metadata from a bizinikiwi node, for use with `subxt` codegen
 ```
 
 ## Metadata
@@ -32,7 +32,7 @@ USAGE:
 
 OPTIONS:
     -f, --format <format>    the format of the metadata to display: `json`, `hex` or `bytes` [default: json]
-        --url <url>          the url of the substrate node to query for metadata [default: http://localhost:9933]
+        --url <url>          the url of the bizinikiwi node to query for metadata [default: http://localhost:9933]
 ```
 
 ## Codegen
@@ -52,7 +52,7 @@ OPTIONS:
             the path to the encoded metadata file
 
         --url <url>
-            the url of the substrate node to query for metadata for codegen
+            the url of the bizinikiwi node to query for metadata for codegen
 
 ```
 

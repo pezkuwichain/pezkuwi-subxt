@@ -222,7 +222,7 @@ impl<Hash> Stream for FollowStream<Hash> {
 #[cfg(test)]
 pub(super) mod test_utils {
 	use super::*;
-	use crate::config::substrate::H256;
+	use crate::config::bizinikiwi::H256;
 	use pezkuwi_subxt_rpcs::methods::chain_head::{
 		BestBlockChanged, Finalized, Initialized, NewBlock,
 	};

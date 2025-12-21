@@ -11,7 +11,7 @@ use heck::ToUpperCamelCase;
 use scale_info::PortableRegistry;
 use scale_typegen_description::{format_type_description, type_description};
 use std::{fmt::Display, fs, io::Read, path::PathBuf, str::FromStr};
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig};
 
 use pezkuwi_subxt_utils_fetchmetadata::{self as fetch_metadata, MetadataVersion, Url};
 use scale_value::Value;
@@ -19,7 +19,7 @@ use scale_value::Value;
 /// The source of the metadata.
 #[derive(Debug, Args, Clone)]
 pub struct FileOrUrl {
-	/// The url of the substrate node to query for metadata for codegen.
+	/// The url of the bizinikiwi node to query for metadata for codegen.
 	#[clap(long, value_parser)]
 	pub url: Option<Url>,
 	/// The path to the encoded metadata file.
@@ -219,10 +219,10 @@ impl<T: Display> Indent for T {}
 
 pub async fn create_client(
 	file_or_url: &FileOrUrl,
-) -> color_eyre::Result<OnlineClient<PolkadotConfig>> {
+) -> color_eyre::Result<OnlineClient<PezkuwiConfig>> {
 	let client = match &file_or_url.url {
-		Some(url) => OnlineClient::<PolkadotConfig>::from_url(url).await?,
-		None => OnlineClient::<PolkadotConfig>::new().await?,
+		Some(url) => OnlineClient::<PezkuwiConfig>::from_url(url).await?,
+		None => OnlineClient::<PezkuwiConfig>::new().await?,
 	};
 	Ok(client)
 }
@@ -368,7 +368,7 @@ mod tests {
 		assert!(FileOrUrl::from_str("./src/i_dont_exist.rs").is_err());
 
 		assert!(matches!(
-			FileOrUrl::from_str("https://github.com/paritytech/subxt"),
+			FileOrUrl::from_str("https://github.com/pezkuwichain/subxt"),
 			Ok(FileOrUrl { url: Some(_), file: None, version: None, at_block: None })
 		));
 	}

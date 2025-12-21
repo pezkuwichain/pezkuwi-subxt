@@ -4,7 +4,7 @@
 
 use codec::{Decode, Encode};
 use std::{env, fs, path::Path};
-use substrate_runner::{Error as SubstrateNodeError, SubstrateNode};
+use bizinikiwi_runner::{Error as BizinikiwiNodeError, BizinikiwiNode};
 
 // This variable accepts a single binary name or comma separated list.
 static SUBSTRATE_BIN_ENV_VAR: &str = "SUBSTRATE_NODE_PATH";
@@ -17,24 +17,24 @@ async fn main() {
 }
 
 async fn run() {
-    // Select substrate binary to run based on env var.
-    let substrate_bins: String =
-        env::var(SUBSTRATE_BIN_ENV_VAR).unwrap_or_else(|_| "substrate-node,substrate".to_owned());
-    let substrate_bins_vec: Vec<&str> = substrate_bins.split(',').map(|s| s.trim()).collect();
+    // Select bizinikiwi binary to run based on env var.
+    let bizinikiwi_bins: String =
+        env::var(SUBSTRATE_BIN_ENV_VAR).unwrap_or_else(|_| "bizinikiwi-node,bizinikiwi".to_owned());
+    let bizinikiwi_bins_vec: Vec<&str> = bizinikiwi_bins.split(',').map(|s| s.trim()).collect();
 
-    let mut node_builder = SubstrateNode::builder();
-    node_builder.binary_paths(substrate_bins_vec.iter());
+    let mut node_builder = BizinikiwiNode::builder();
+    node_builder.binary_paths(bizinikiwi_bins_vec.iter());
 
     let node = match node_builder.spawn() {
         Ok(node) => node,
-        Err(SubstrateNodeError::Io(e)) if e.kind() == std::io::ErrorKind::NotFound => {
+        Err(BizinikiwiNodeError::Io(e)) if e.kind() == std::io::ErrorKind::NotFound => {
             panic!(
-                "A substrate binary should be installed on your path for testing purposes. \
-                 See https://github.com/paritytech/subxt/tree/master#integration-testing"
+                "A bizinikiwi binary should be installed on your path for testing purposes. \
+                 See https://github.com/pezkuwichain/subxt/tree/master#integration-testing"
             )
         }
         Err(e) => {
-            panic!("Cannot spawn substrate command from any of {substrate_bins_vec:?}: {e}")
+            panic!("Cannot spawn bizinikiwi command from any of {bizinikiwi_bins_vec:?}: {e}")
         }
     };
 
@@ -52,7 +52,7 @@ async fn run() {
     // and so we need to spit it out here and include it verbatim instead.
     let runtime_api_contents = format!(
         r#"
-        /// Generated types for the locally running Substrate node using V15 metadata.
+        /// Generated types for the locally running Bizinikiwi node using V15 metadata.
         #[pezkuwi_subxt::subxt(
             runtime_metadata_path = "{stable_metadata_path}",
             derive_for_all_types = "Eq, PartialEq",
@@ -63,16 +63,16 @@ async fn run() {
     let runtime_path = Path::new(&out_dir).join("runtime.rs");
     fs::write(runtime_path, runtime_api_contents).expect("Couldn't write runtime rust output");
 
-    for substrate_node_path in substrate_bins_vec {
-        let Ok(full_path) = which::which(substrate_node_path) else {
+    for bizinikiwi_node_path in bizinikiwi_bins_vec {
+        let Ok(full_path) = which::which(bizinikiwi_node_path) else {
             continue;
         };
 
-        // Re-build if the substrate binary we're pointed to changes (mtime):
+        // Re-build if the bizinikiwi binary we're pointed to changes (mtime):
         println!("cargo:rerun-if-changed={}", full_path.to_string_lossy());
     }
 
-    // Re-build if we point to a different substrate binary:
+    // Re-build if we point to a different bizinikiwi binary:
     println!("cargo:rerun-if-env-changed={SUBSTRATE_BIN_ENV_VAR}");
     // Re-build if this file changes:
     println!("cargo:rerun-if-changed=build.rs");

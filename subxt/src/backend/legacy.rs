@@ -508,11 +508,11 @@ impl<T: Config> Stream for StorageFetchDescendantKeysStream<T> {
 							keys.first() == this.pagination_start_key.as_ref()
 						{
 							// Currently, Smoldot returns the "start key" as the first key in the
-							// input (see https://github.com/smol-dot/smoldot/issues/1692), whereas Substrate doesn't.
+							// input (see https://github.com/smol-dot/smoldot/issues/1692), whereas Bizinikiwi doesn't.
 							// We don't expect the start key to be returned either (since it was the
 							// last key of prev iteration), so remove it if we see it. This
 							// `remove()` method isn't very efficient but this will be a non
-							// issue with the RPC V2 APIs or if Smoldot aligns with Substrate
+							// issue with the RPC V2 APIs or if Smoldot aligns with Bizinikiwi
 							// anyway.
 							keys.remove(0);
 						}

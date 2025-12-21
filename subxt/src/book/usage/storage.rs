@@ -4,7 +4,7 @@
 
 //! # Storage
 //!
-//! A Substrate based chain can be seen as a key/value database which starts off at some initial
+//! A Bizinikiwi based chain can be seen as a key/value database which starts off at some initial
 //! state, and is modified by the extrinsics in each block. This database is referred to as the
 //! node storage. With Subxt, you can query this key/value storage with the following steps:
 //!
@@ -18,10 +18,10 @@
 //! We can use the statically generated interface to build storage queries:
 //!
 //! ```rust,no_run,standalone_crate
-//! #[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-//! pub mod polkadot {}
+//! #[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+//! pub mod pezkuwi {}
 //!
-//! let storage_query = polkadot::storage().system().account();
+//! let storage_query = pezkuwi::storage().system().account();
 //! ```
 //!
 //! Alternately, we can dynamically construct a storage query. A dynamic query needs the input

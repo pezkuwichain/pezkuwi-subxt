@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-//! Subxt is a library for interacting with Substrate based nodes. Using it looks something like
+//! Subxt is a library for interacting with Bizinikiwi based nodes. Using it looks something like
 //! this:
 //!
 //! ```rust,ignore
@@ -54,16 +54,16 @@ pub mod view_functions;
 
 /// This module provides a [`Config`] type, which is used to define various
 /// types that are important in order to speak to a particular chain.
-/// [`SubstrateConfig`] provides a default set of these types suitable for the
-/// default Substrate node implementation, and [`PolkadotConfig`] for a
-/// Polkadot node.
+/// [`BizinikiwConfig`] provides a default set of these types suitable for the
+/// default Bizinikiwi node implementation, and [`PezkuwiConfig`] for a
+/// Pezkuwi node.
 pub mod config {
 	pub use pezkuwi_subxt_core::{
 		config::{
 			Config, DefaultExtrinsicParams, DefaultExtrinsicParamsBuilder, ExtrinsicParams,
-			ExtrinsicParamsEncoder, Hash, HashFor, Hasher, Header, PolkadotConfig,
-			PolkadotExtrinsicParams, SubstrateConfig, SubstrateExtrinsicParams,
-			TransactionExtension, polkadot, substrate, transaction_extensions,
+			ExtrinsicParamsEncoder, Hash, HashFor, Hasher, Header, PezkuwiConfig,
+			PezkuwiExtrinsicParams, BizinikiwConfig, BizinikiwiExtrinsicParams,
+			TransactionExtension, pezkuwi, bizinikiwi, transaction_extensions,
 		},
 		error::ExtrinsicParamsError,
 	};
@@ -88,7 +88,7 @@ cfg_unstable_light_client! {
 // but leave most types behind their respective modules.
 pub use crate::{
 	client::{OfflineClient, OnlineClient},
-	config::{Config, PolkadotConfig, SubstrateConfig},
+	config::{Config, PezkuwiConfig, BizinikiwConfig},
 	error::Error,
 	metadata::Metadata,
 };
@@ -110,7 +110,7 @@ pub mod ext {
 	}
 }
 
-/// Generate a strongly typed API for interacting with a Substrate runtime from its metadata of
+/// Generate a strongly typed API for interacting with a Bizinikiwi runtime from its metadata of
 /// WASM.
 ///
 /// # Metadata
@@ -122,7 +122,7 @@ pub mod ext {
 /// # Install the CLI tool:
 /// cargo install subxt-cli
 /// # Use it to download metadata (in this case, from a node running locally)
-/// subxt metadata > polkadot_metadata.scale
+/// subxt metadata > pezkuwi_metadata.scale
 /// ```
 ///
 /// Run `subxt metadata --help` for more options.
@@ -146,9 +146,9 @@ pub mod ext {
 ///
 /// ```rust,no_run,standalone_crate
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
+///     runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale",
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// You can use the `$OUT_DIR` placeholder in the path to reference metadata generated at build
@@ -158,7 +158,7 @@ pub mod ext {
 /// #[pezkuwi_subxt::subxt(
 ///     runtime_metadata_path = "$OUT_DIR/metadata.scale",
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// ## Using a WASM runtime via `runtime_path = "..."`
@@ -169,9 +169,9 @@ pub mod ext {
 ///
 /// ```rust,ignore
 /// #[pezkuwi_subxt::subxt(
-///     runtime_path = "../artifacts/westend_runtime.wasm",
+///     runtime_path = "../artifacts/zagros_runtime.wasm",
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// You can also use the `$OUT_DIR` placeholder in the path to reference WASM files generated
@@ -181,7 +181,7 @@ pub mod ext {
 /// #[pezkuwi_subxt::subxt(
 ///     runtime_path = "$OUT_DIR/runtime.wasm",
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// ## Connecting to a node to download metadata via `runtime_metadata_insecure_url = "..."`
@@ -199,9 +199,9 @@ pub mod ext {
 ///
 /// ```rust,ignore
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_insecure_url = "wss://rpc.polkadot.io:443"
+///     runtime_metadata_insecure_url = "wss://rpc.pezkuwi.io:443"
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// # Configuration
@@ -217,10 +217,10 @@ pub mod ext {
 /// # pub mod path { pub mod to { pub use pezkuwi_subxt_core; } }
 /// # fn main() {}
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
+///     runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale",
 ///     crate = "crate::path::to::pezkuwi_subxt_core"
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// This is useful if you write a library which uses this macro, but don't want to force users
@@ -233,10 +233,10 @@ pub mod ext {
 ///
 /// ```rust,standalone_crate
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
+///     runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale",
 ///     substitute_type(path = "sp_arithmetic::per_things::Perbill", with = "crate::Foo")
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 ///
 /// # #[derive(
 /// #     scale_encode::EncodeAsType,
@@ -271,13 +271,13 @@ pub mod ext {
 ///
 /// ```rust,no_run,standalone_crate
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
+///     runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale",
 ///     substitute_type(
 ///         path = "sp_runtime::multiaddress::MultiAddress<A, B>",
 ///         with = "::pezkuwi_subxt::utils::Static<sp_runtime::MultiAddress<A, B>>"
 ///     )
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// The above is also an example of using the [`crate::utils::Static`] type to wrap some type
@@ -292,10 +292,10 @@ pub mod ext {
 ///
 /// ```rust,no_run,standalone_crate
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
+///     runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale",
 ///     derive_for_all_types = "Eq, PartialEq"
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// Any substituted types (including the default substitutes) must also implement these traits
@@ -309,12 +309,12 @@ pub mod ext {
 ///
 /// ```rust,no_run,standalone_crate
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
+///     runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale",
 ///     derive_for_all_types = "Eq, PartialEq",
 ///     derive_for_type(path = "frame_support::PalletId", derive = "Ord, PartialOrd"),
 ///     derive_for_type(path = "sp_runtime::ModuleError", derive = "Hash"),
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// ## `generate_docs`
@@ -324,10 +324,10 @@ pub mod ext {
 ///
 /// ```rust,no_run,standalone_crate
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
+///     runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale",
 ///     generate_docs
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// ## `runtime_types_only`
@@ -338,10 +338,10 @@ pub mod ext {
 ///
 /// ```rust,no_run,standalone_crate
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
+///     runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale",
 ///     runtime_types_only
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// ## `no_default_derives`
@@ -351,12 +351,12 @@ pub mod ext {
 ///
 /// ```rust,no_run,standalone_crate
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
+///     runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale",
 ///     runtime_types_only,
 ///     no_default_derives,
 ///     derive_for_all_types="codec::Encode, codec::Decode"
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 ///
 /// **Note**: At the moment, you must derive at least one of `codec::Encode` or `codec::Decode`
@@ -375,9 +375,9 @@ pub mod ext {
 ///
 /// ```rust,ignore
 /// #[pezkuwi_subxt::subxt(
-///     runtime_metadata_insecure_url = "wss://rpc.polkadot.io:443",
+///     runtime_metadata_insecure_url = "wss://rpc.pezkuwi.io:443",
 ///     unstable_metadata
 /// )]
-/// mod polkadot {}
+/// mod pezkuwi {}
 /// ```
 pub use pezkuwi_subxt_macro::subxt;

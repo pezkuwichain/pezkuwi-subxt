@@ -16,15 +16,15 @@ impl std::fmt::Display for Error {
             Error::Io(err) => write!(f, "IO error: {err}"),
             Error::CouldNotExtractPort(log) => write!(
                 f,
-                "could not extract port from running substrate node's stdout: {log}"
+                "could not extract port from running bizinikiwi node's stdout: {log}"
             ),
             Error::CouldNotExtractP2pAddress(log) => write!(
                 f,
-                "could not extract p2p address from running substrate node's stdout: {log}"
+                "could not extract p2p address from running bizinikiwi node's stdout: {log}"
             ),
             Error::CouldNotExtractP2pPort(log) => write!(
                 f,
-                "could not extract p2p port from running substrate node's stdout: {log}"
+                "could not extract p2p port from running bizinikiwi node's stdout: {log}"
             ),
         }
     }

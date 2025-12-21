@@ -301,7 +301,7 @@ fn codegen(
 
 		// Run this first to ensure type paths are unique (which may result in 1,2,3 suffixes being
 		// added to type paths), so that when we validate derives/substitutions below, they are
-		// allowed for such types. See <https://github.com/paritytech/subxt/issues/2011>.
+		// allowed for such types. See <https://github.com/pezkuwichain/subxt/issues/2011>.
 		scale_typegen::utils::ensure_unique_type_paths(metadata.types_mut())
 			.expect("ensure_unique_type_paths should not fail; please report an issue.");
 
@@ -418,7 +418,7 @@ mod tests {
 	}
 
 	async fn run(args_str: &str) -> color_eyre::Result<String> {
-		let mut args = vec!["codegen", "--file=../artifacts/polkadot_metadata_small.scale"];
+		let mut args = vec!["codegen", "--file=../artifacts/pezkuwi_metadata_small.scale"];
 		args.extend(args_str.split(' ').filter(|e| !e.is_empty()));
 		let opts: super::Opts = clap::Parser::try_parse_from(args)?;
 		let mut output: Vec<u8> = Vec::new();

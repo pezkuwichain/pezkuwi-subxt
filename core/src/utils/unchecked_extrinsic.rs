@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-//! The "default" Substrate/Polkadot UncheckedExtrinsic.
+//! The "default" Bizinikiwi/Pezkuwi UncheckedExtrinsic.
 //! This is used in codegen for runtime API calls.
 //!
 //! The inner bytes represent the encoded extrinsic expected by the
@@ -17,7 +17,7 @@ use scale_decode::{DecodeAsType, IntoVisitor, TypeResolver, Visitor, visitor::De
 use super::{Encoded, Static};
 use alloc::vec::Vec;
 
-/// The unchecked extrinsic from substrate.
+/// The unchecked extrinsic from bizinikiwi.
 #[derive(Clone, Debug, Eq, PartialEq, Encode)]
 pub struct UncheckedExtrinsic<Address, Call, Signature, Extra>(
 	Static<Encoded>,

@@ -3,14 +3,14 @@ use std::{
     process::{Command, Stdio},
 };
 
-use substrate_runner::SubstrateNode;
+use bizinikiwi_runner::BizinikiwiNode;
 
 /// A Script to generate artifacts that are used in the integration tests.
 ///
 /// Run with `cargo run --bin artifacts` from the root of the repository.
 fn main() {
-    let mut node_builder = SubstrateNode::builder();
-    node_builder.polkadot();
+    let mut node_builder = BizinikiwiNode::builder();
+    node_builder.pezkuwi();
 
     // Spawn the node and retrieve a ws URL to it:
     let proc = node_builder
@@ -19,32 +19,32 @@ fn main() {
         .expect("Could not spawn node");
     let node_url = format!("ws://127.0.0.1:{}", proc.ws_port());
 
-    // Get the full metadata from the spawned substrate node
+    // Get the full metadata from the spawned bizinikiwi node
     run_cmd(
         &format!("cargo run --bin subxt metadata --version 15 --url {node_url}"),
-        Some("artifacts/polkadot_metadata_full.scale"),
+        Some("artifacts/pezkuwi_metadata_full.scale"),
     );
 
-    // Use it to generate polkadot.rs
+    // Use it to generate pezkuwi.rs
     run_cmd(
-        "cargo run --bin subxt codegen --file artifacts/polkadot_metadata_full.scale",
-        Some("testing/integration-tests/src/full_client/codegen/polkadot.rs"),
+        "cargo run --bin subxt codegen --file artifacts/pezkuwi_metadata_full.scale",
+        Some("testing/integration-tests/src/full_client/codegen/pezkuwi.rs"),
     );
     run_cmd(
-        "rustfmt testing/integration-tests/src/full_client/codegen/polkadot.rs",
+        "rustfmt testing/integration-tests/src/full_client/codegen/pezkuwi.rs",
         None,
     );
 
     // Generate a metadata file that only contains a few pallets that we need for our examples.
     run_cmd(
-        "cargo run --bin subxt metadata --file artifacts/polkadot_metadata_full.scale --pallets Balances,Staking,System,Multisig,Timestamp,ParaInherent",
-        Some("artifacts/polkadot_metadata_small.scale"),
+        "cargo run --bin subxt metadata --file artifacts/pezkuwi_metadata_full.scale --pallets Balances,Staking,System,Multisig,Timestamp,ParaInherent",
+        Some("artifacts/pezkuwi_metadata_small.scale"),
     );
 
     // Generate a metadata file that contains no pallets
     run_cmd(
-        "cargo run --bin subxt metadata --file artifacts/polkadot_metadata_full.scale --pallets \"\"",
-        Some("artifacts/polkadot_metadata_tiny.scale"),
+        "cargo run --bin subxt metadata --file artifacts/pezkuwi_metadata_full.scale --pallets \"\"",
+        Some("artifacts/pezkuwi_metadata_tiny.scale"),
     );
 
     // Generate a metadata file that only contains some custom metadata
@@ -53,9 +53,9 @@ fn main() {
         Some("artifacts/metadata_with_custom_values.scale"),
     );
 
-    // Generate the polkadot chain spec.
+    // Generate the pezkuwi chain spec.
     run_cmd(
-        "cargo run --features chain-spec-pruning --bin subxt chain-spec --url wss://rpc.polkadot.io:443 --output-file artifacts/demo_chain_specs/polkadot.json --state-root-hash --remove-substitutes",
+        "cargo run --features chain-spec-pruning --bin subxt chain-spec --url wss://rpc.pezkuwi.io:443 --output-file artifacts/demo_chain_specs/pezkuwi.json --state-root-hash --remove-substitutes",
         None,
     );
 }

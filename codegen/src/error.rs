@@ -16,7 +16,7 @@ pub enum CodegenError {
 	Decode(#[from] codec::Error),
 	/// Out of line modules are not supported.
 	#[error(
-		"Out-of-line subxt modules are not supported, make sure you are providing a body to your module: pub mod polkadot {{ ... }}"
+		"Out-of-line subxt modules are not supported, make sure you are providing a body to your module: pub mod pezkuwi {{ ... }}"
 	)]
 	InvalidModule(Span),
 	/// Invalid type path.
@@ -24,37 +24,37 @@ pub enum CodegenError {
 	InvalidTypePath(String, syn::Error),
 	/// Metadata for constant could not be found.
 	#[error(
-		"Metadata for constant entry {0}_{1} could not be found. Make sure you are providing a valid substrate-based metadata"
+		"Metadata for constant entry {0}_{1} could not be found. Make sure you are providing a valid bizinikiwi-based metadata"
 	)]
 	MissingConstantMetadata(String, String),
 	/// Metadata for storage could not be found.
 	#[error(
-		"Metadata for storage entry {0}_{1} could not be found. Make sure you are providing a valid substrate-based metadata"
+		"Metadata for storage entry {0}_{1} could not be found. Make sure you are providing a valid bizinikiwi-based metadata"
 	)]
 	MissingStorageMetadata(String, String),
 	/// Metadata for call could not be found.
 	#[error(
-		"Metadata for call entry {0}_{1} could not be found. Make sure you are providing a valid substrate-based metadata"
+		"Metadata for call entry {0}_{1} could not be found. Make sure you are providing a valid bizinikiwi-based metadata"
 	)]
 	MissingCallMetadata(String, String),
 	/// Metadata for call could not be found.
 	#[error(
-		"Metadata for runtime API entry {0}_{1} could not be found. Make sure you are providing a valid substrate-based metadata"
+		"Metadata for runtime API entry {0}_{1} could not be found. Make sure you are providing a valid bizinikiwi-based metadata"
 	)]
 	MissingRuntimeApiMetadata(String, String),
 	/// Call variant must have all named fields.
 	#[error(
-		"Call variant for type {0} must have all named fields. Make sure you are providing a valid substrate-based metadata"
+		"Call variant for type {0} must have all named fields. Make sure you are providing a valid bizinikiwi-based metadata"
 	)]
 	InvalidCallVariant(u32),
 	/// Type should be an variant/enum.
 	#[error(
-		"{0} type should be an variant/enum type. Make sure you are providing a valid substrate-based metadata"
+		"{0} type should be an variant/enum type. Make sure you are providing a valid bizinikiwi-based metadata"
 	)]
 	InvalidType(String),
 	/// Extrinsic call type could not be found.
 	#[error(
-		"Extrinsic call type could not be found. Make sure you are providing a valid substrate-based metadata"
+		"Extrinsic call type could not be found. Make sure you are providing a valid bizinikiwi-based metadata"
 	)]
 	MissingCallType,
 	/// There are too many or too few hashers.

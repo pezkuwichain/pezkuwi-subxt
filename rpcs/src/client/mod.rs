@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-//! RPC types and client for interacting with a substrate node.
+//! RPC types and client for interacting with a bizinikiwi node.
 //!
 //! An RPC client is instantiated and then used to create some methods, for instance
 //! [`crate::methods::ChainHeadRpcMethods`], which defines the calls that can be made with it.

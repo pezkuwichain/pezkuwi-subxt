@@ -1,15 +1,15 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt_signer::sr25519::dev;
 use pezkuwi_subxt::{
-	PolkadotConfig,
+	PezkuwiConfig,
 	client::OnlineClient,
 	lightclient::{ChainConfig, LightClient},
 	utils::fetch_chainspec_from_rpc_node,
 };
 
 // Generate an interface that we can use from the node's metadata.
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -24,7 +24,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	// to the local node.
 	//
 	// The `12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp` is the P2P address
-	// from a local polkadot node starting with
+	// from a local pezkuwi node starting with
 	// `--node-key 0000000000000000000000000000000000000000000000000000000000000001`
 	let chain_config = ChainConfig::chain_spec(chain_spec.get()).set_bootnodes([
 		"/ip4/127.0.0.1/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp",
@@ -32,11 +32,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 	// Start the light client up, establishing a connection to the local node.
 	let (_light_client, chain_rpc) = LightClient::relay_chain(chain_config)?;
-	let api = OnlineClient::<PolkadotConfig>::from_rpc_client(chain_rpc).await?;
+	let api = OnlineClient::<PezkuwiConfig>::from_rpc_client(chain_rpc).await?;
 
 	// Build a balance transfer extrinsic.
 	let dest = dev::bob().public_key().into();
-	let balance_transfer_tx = polkadot::tx().balances().transfer_allow_death(dest, 10_000);
+	let balance_transfer_tx = pezkuwi::tx().balances().transfer_allow_death(dest, 10_000);
 
 	// Submit the balance transfer extrinsic from Alice, and wait for it to be successful
 	// and in a finalized block. We get back the extrinsic events if all is well.
@@ -49,7 +49,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 		.await?;
 
 	// Find a Transfer event and print it.
-	let transfer_event = events.find_first::<polkadot::balances::events::Transfer>()?;
+	let transfer_event = events.find_first::<pezkuwi::balances::events::Transfer>()?;
 	if let Some(event) = transfer_event {
 		println!("Balance transfer success: {event:?}");
 	}

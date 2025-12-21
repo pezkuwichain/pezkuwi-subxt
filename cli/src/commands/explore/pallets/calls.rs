@@ -7,7 +7,7 @@ use std::str::FromStr;
 
 use pezkuwi_subxt::{
 	OfflineClient,
-	config::SubstrateConfig,
+	config::BizinikiwConfig,
 	metadata::{Metadata, PalletMetadata},
 	tx,
 	utils::H256,
@@ -146,7 +146,7 @@ fn get_calls_enum_type<'a>(
 
 /// The specific values used for construction do not matter too much, we just need any OfflineClient
 /// to create unsigned extrinsics
-fn mocked_offline_client(metadata: Metadata) -> OfflineClient<SubstrateConfig> {
+fn mocked_offline_client(metadata: Metadata) -> OfflineClient<BizinikiwConfig> {
 	let genesis_hash =
 		H256::from_str("91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3")
 			.expect("Valid hash; qed");
@@ -154,7 +154,7 @@ fn mocked_offline_client(metadata: Metadata) -> OfflineClient<SubstrateConfig> {
 	let runtime_version =
 		pezkuwi_subxt::client::RuntimeVersion { spec_version: 9370, transaction_version: 20 };
 
-	OfflineClient::<SubstrateConfig>::new(genesis_hash, runtime_version, metadata)
+	OfflineClient::<BizinikiwConfig>::new(genesis_hash, runtime_version, metadata)
 }
 
 /// composites stay composites, all other types are converted into a 1-fielded unnamed composite

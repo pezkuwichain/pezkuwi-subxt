@@ -4,7 +4,7 @@
 
 #![allow(clippy::too_many_arguments)]
 
-/// The SCALE encoded metadata obtained from a local run of a substrate node.
+/// The SCALE encoded metadata obtained from a local run of a bizinikiwi node.
 pub static METADATA: &[u8] = include_bytes!(concat!(
     env!("OUT_DIR"),
     "/test_node_runtime_metadata_v15.scale"

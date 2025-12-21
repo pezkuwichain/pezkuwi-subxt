@@ -1,6 +1,6 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt::{
-	OnlineClient, PolkadotConfig,
+	OnlineClient, PezkuwiConfig,
 	dynamic::{At, Value},
 	ext::futures::StreamExt,
 	utils::AccountId32,
@@ -8,8 +8,8 @@ use pezkuwi_subxt::{
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-	// Create a new API client, configured to talk to Polkadot nodes.
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	// Create a new API client, configured to talk to Pezkuwi nodes.
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 
 	// Build a dynamic storage query to access account information.
 	// here, we assume that there is one value to provide at this entry

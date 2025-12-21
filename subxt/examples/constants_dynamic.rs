@@ -1,10 +1,10 @@
 #![allow(missing_docs)]
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig, dynamic::Value};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig, dynamic::Value};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	// Create a client to use:
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 
 	// We can query a constant by providing a tuple of the pallet and constant name. The return type
 	// will be `Value` if we pass this query:

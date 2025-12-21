@@ -13,4 +13,4 @@ While `subxt` is a library for working at the head of a chain (submitting transa
 
 # Examples
 
-See the [examples](https://github.com/paritytech/subxt/tree/master/historic/examples) folder for examples of how to use `subxt-historic`.
+See the [examples](https://github.com/pezkuwichain/subxt/tree/master/historic/examples) folder for examples of how to use `subxt-historic`.

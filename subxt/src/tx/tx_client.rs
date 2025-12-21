@@ -557,7 +557,7 @@ where
 	) -> Result<ValidationResult, ExtrinsicError> {
 		let block_hash = at.into().hash();
 
-		// Approach taken from https://github.com/paritytech/json-rpc-interface-spec/issues/55.
+		// Approach taken from https://github.com/pezkuwichain/json-rpc-interface-spec/issues/55.
 		let mut params = Vec::with_capacity(8 + self.encoded().len() + 8);
 		2u8.encode_to(&mut params);
 		params.extend(self.encoded().iter());
@@ -586,7 +586,7 @@ where
 			.await
 			.map_err(ExtrinsicError::CannotGetLatestFinalizedBlock)?;
 
-		// destructuring RuntimeDispatchInfo, see type information <https://paritytech.github.io/substrate/master/pallet_transaction_payment_rpc_runtime_api/struct.RuntimeDispatchInfo.html>
+		// destructuring RuntimeDispatchInfo, see type information <https://pezkuwichain.github.io/bizinikiwi/master/pallet_transaction_payment_rpc_runtime_api/struct.RuntimeDispatchInfo.html>
 		// data layout: {weight_ref_time: Compact<u64>, weight_proof_size: Compact<u64>, class: u8,
 		// partial_fee: u128}
 		let (_, _, _, partial_fee) = self
@@ -648,7 +648,7 @@ impl ValidationResult {
 	#[allow(clippy::get_first)]
 	fn try_from_bytes(bytes: Vec<u8>) -> Result<ValidationResult, ExtrinsicError> {
 		// TaggedTransactionQueue_validate_transaction returns this:
-		// https://github.com/paritytech/substrate/blob/0cdf7029017b70b7c83c21a4dc0aa1020e7914f6/primitives/runtime/src/transaction_validity.rs#L210
+		// https://github.com/pezkuwichain/bizinikiwi/blob/0cdf7029017b70b7c83c21a4dc0aa1020e7914f6/primitives/runtime/src/transaction_validity.rs#L210
 		// We copy some of the inner types and put the three states (valid, invalid, unknown) into
 		// one enum, because from our perspective, the call was successful regardless.
 		if bytes.get(0) == Some(&0) {
@@ -708,7 +708,7 @@ pub struct TransactionValid {
 	///
 	/// A list of tags this transaction provides. Successfully importing the transaction
 	/// will enable other transactions that depend on (require) those tags to be included as well.
-	/// Provided and required tags allow Substrate to build a dependency graph of transactions
+	/// Provided and required tags allow Bizinikiwi to build a dependency graph of transactions
 	/// and import them in the right (linear) order.
 	pub provides: Vec<Vec<u8>>,
 	/// Transaction longevity
@@ -761,7 +761,7 @@ pub enum TransactionInvalid {
 	/// # Possible causes
 	///
 	/// For `FRAME`-based runtimes this would be caused by `current block number`
-	/// - Era::birth block number > BlockHashCount`. (e.g. in Polkadot `BlockHashCount` = 2400, so a
+	/// - Era::birth block number > BlockHashCount`. (e.g. in Pezkuwi `BlockHashCount` = 2400, so a
 	///   transaction with birth block number 1337 would be valid up until block number 1337 + 2400,
 	///   after which point the transaction would be considered to have an ancient birth block.)
 	AncientBirthBlock,

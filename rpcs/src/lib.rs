@@ -2,13 +2,13 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-//! This crate provides a low level RPC interface to Substrate based nodes.
+//! This crate provides a low level RPC interface to Bizinikiwi based nodes.
 //!
 //! See the [`client`] module for a [`client::RpcClient`] which is driven by implementations
 //! of [`client::RpcClientT`] (several of which are provided behind feature flags).
 //!
 //! See the [`methods`] module for structs which implement sets of concrete RPC calls for
-//! communicating with Substrate based nodes. These structs are all driven by a
+//! communicating with Bizinikiwi based nodes. These structs are all driven by a
 //! [`client::RpcClient`].
 //!
 //! The RPC clients/methods here are made use of in `subxt`. Enabling the `subxt` feature flag

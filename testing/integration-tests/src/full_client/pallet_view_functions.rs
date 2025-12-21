@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-// TODO: Re-enable these once V16 is stable in Substrate nightlies,
+// TODO: Re-enable these once V16 is stable in Bizinikiwi nightlies,
 // and test-runtime is updated to pull in V16 metadata by default.
 /*
 use crate::{subxt_test, test_context};

@@ -16,10 +16,10 @@
 //! We can use the statically generated interface to build constant queries:
 //!
 //! ```rust,no_run,standalone_crate
-//! #[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale")]
-//! pub mod polkadot {}
+//! #[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_full.scale")]
+//! pub mod pezkuwi {}
 //!
-//! let constant_query = polkadot::constants().system().block_length();
+//! let constant_query = pezkuwi::constants().system().block_length();
 //! ```
 //!
 //! Alternately, we can dynamically construct a constant query. A dynamic query needs the return

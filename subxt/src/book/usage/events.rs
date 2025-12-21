@@ -24,10 +24,10 @@
 //! # #[tokio::main]
 //! # async fn main() -> Result<(), Box<dyn std::error::Error>> {
 //! use pezkuwi_subxt::client::OnlineClient;
-//! use pezkuwi_subxt::config::PolkadotConfig;
+//! use pezkuwi_subxt::config::PezkuwiConfig;
 //!
 //! // Create client:
-//! let client = OnlineClient::<PolkadotConfig>::new().await?;
+//! let client = OnlineClient::<PezkuwiConfig>::new().await?;
 //!
 //! // Get events from the latest block (use .at() to specify a block hash):
 //! let events = client.blocks().at_latest().await?.events().await?;

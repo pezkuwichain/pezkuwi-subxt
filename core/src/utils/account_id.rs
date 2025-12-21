@@ -2,17 +2,17 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-//! The "default" Substrate/Polkadot AccountId. This is used in codegen, as well as signing related
+//! The "default" Bizinikiwi/Pezkuwi AccountId. This is used in codegen, as well as signing related
 //! bits. This doesn't contain much functionality itself, but is easy to convert to/from an
 //! `sp_core::AccountId32` for instance, to gain functionality without forcing a dependency on
-//! Substrate crates here.
+//! Bizinikiwi crates here.
 
 use alloc::{format, string::String, vec, vec::Vec};
 use codec::{Decode, Encode};
 use serde::{Deserialize, Serialize};
 use thiserror::Error as DeriveError;
 
-/// A 32-byte cryptographic identifier. This is a simplified version of Substrate's
+/// A 32-byte cryptographic identifier. This is a simplified version of Bizinikiwi's
 /// `sp_core::crypto::AccountId32`. To obtain more functionality, convert this into
 /// that type.
 #[derive(
@@ -52,7 +52,7 @@ impl AccountId32 {
 	// Return the ss58-check string for this key. Adapted from `sp_core::crypto`. We need this to
 	// serialize our account appropriately but otherwise don't care.
 	fn to_ss58check(&self) -> String {
-		// For serializing to a string to obtain the account nonce, we use the default substrate
+		// For serializing to a string to obtain the account nonce, we use the default bizinikiwi
 		// prefix (since we have no way to otherwise pick one). It doesn't really matter, since when
 		// it's deserialized back in system_accountNextIndex, we ignore this (so long as it's
 		// valid).
@@ -166,23 +166,23 @@ mod test {
 	use sp_keyring::sr25519::Keyring;
 
 	#[test]
-	fn ss58_is_compatible_with_substrate_impl() {
+	fn ss58_is_compatible_with_bizinikiwi_impl() {
 		let keyrings = vec![Keyring::Alice, Keyring::Bob, Keyring::Charlie];
 
 		for keyring in keyrings {
-			let substrate_account = keyring.to_account_id();
-			let local_account = AccountId32(substrate_account.clone().into());
+			let bizinikiwi_account = keyring.to_account_id();
+			let local_account = AccountId32(bizinikiwi_account.clone().into());
 
 			// Both should encode to ss58 the same way:
-			let substrate_ss58 = substrate_account.to_ss58check();
-			assert_eq!(substrate_ss58, local_account.to_ss58check());
+			let bizinikiwi_ss58 = bizinikiwi_account.to_ss58check();
+			assert_eq!(bizinikiwi_ss58, local_account.to_ss58check());
 
 			// Both should decode from ss58 back to the same:
 			assert_eq!(
-				sp_core::crypto::AccountId32::from_ss58check(&substrate_ss58).unwrap(),
-				substrate_account
+				sp_core::crypto::AccountId32::from_ss58check(&bizinikiwi_ss58).unwrap(),
+				bizinikiwi_account
 			);
-			assert_eq!(AccountId32::from_ss58check(&substrate_ss58).unwrap(), local_account);
+			assert_eq!(AccountId32::from_ss58check(&bizinikiwi_ss58).unwrap(), local_account);
 		}
 	}
 }

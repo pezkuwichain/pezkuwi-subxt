@@ -1,19 +1,19 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt_signer::sr25519::dev;
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig};
 
 // Generate an interface that we can use from the node's metadata.
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-	// Create a new API client, configured to talk to Polkadot nodes.
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	// Create a new API client, configured to talk to Pezkuwi nodes.
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 	let account = dev::alice().public_key().into();
 
 	// Build a storage query to access account information.
-	let storage_query = polkadot::storage().system().account();
+	let storage_query = pezkuwi::storage().system().account();
 
 	// Use that query to access a storage entry, fetch a result and decode the value.
 	// The static address knows that fetching requires a tuple of one value, an

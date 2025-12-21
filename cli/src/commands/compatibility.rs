@@ -13,10 +13,10 @@ use std::collections::HashMap;
 
 use crate::utils::validate_url_security;
 
-/// Verify metadata compatibility between substrate nodes.
+/// Verify metadata compatibility between bizinikiwi nodes.
 #[derive(Debug, ClapParser)]
 pub struct Opts {
-	/// Urls of the substrate nodes to verify for metadata compatibility.
+	/// Urls of the bizinikiwi nodes to verify for metadata compatibility.
 	#[clap(name = "nodes", long, use_value_delimiter = true, value_parser)]
 	nodes: Vec<Url>,
 	/// Check the compatibility of metadata for a particular pallet.

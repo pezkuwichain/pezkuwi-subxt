@@ -3,7 +3,7 @@
 // see LICENSE for license details.
 
 //! An interface to call the  API methods. See
-//! <https://github.com/paritytech/json-rpc-interface-spec/> for details of the API
+//! <https://github.com/pezkuwichain/json-rpc-interface-spec/> for details of the API
 //! methods exposed here.
 
 use crate::{
@@ -298,7 +298,7 @@ impl<T: RpcConfig> ChainHeadRpcMethods<T> {
 			success: bool,
 			value: Option<Bytes>,
 			error: Option<String>,
-			// This was accidentally used instead of value in Substrate,
+			// This was accidentally used instead of value in Bizinikiwi,
 			// so to support those impls we try it here if needed:
 			result: Option<Bytes>,
 		}
@@ -409,7 +409,7 @@ impl<T: RpcConfig> ChainHeadRpcMethods<T> {
 			success: bool,
 			value: Option<Bytes>,
 			error: Option<String>,
-			// This was accidentally used instead of value in Substrate,
+			// This was accidentally used instead of value in Bizinikiwi,
 			// so to support those impls we try it here if needed:
 			result: Option<Bytes>,
 		}
@@ -655,7 +655,7 @@ pub struct RuntimeSpec {
 	/// making a runtime call (using chainHead_call), you should make sure that this list contains
 	/// the entry point API corresponding to the call and with a known version number.
 	///
-	/// **Note:** In Substrate, the keys in the apis field consists of the hexadecimal-encoded
+	/// **Note:** In Bizinikiwi, the keys in the apis field consists of the hexadecimal-encoded
 	/// 8-bytes blake2 hash of the name of the API. For example, the `TaggedTransactionQueue` API
 	/// is 0xd2bc9897eed08f15.
 	#[serde(with = "hashmap_as_tuple_list")]
@@ -1117,7 +1117,7 @@ fn to_hex(bytes: impl AsRef<[u8]>) -> String {
 }
 
 /// Attempt to deserialize either a string or integer into an integer.
-/// See <https://github.com/paritytech/json-rpc-interface-spec/issues/83>
+/// See <https://github.com/pezkuwichain/json-rpc-interface-spec/issues/83>
 pub(crate) mod unsigned_number_as_string {
 	use serde::de::{Deserializer, Visitor};
 	use std::fmt;
@@ -1263,8 +1263,8 @@ mod test {
 	fn can_deserialize_apis_from_tuple_or_object() {
 		let old_response = serde_json::json!({
 			"authoringVersion": 10,
-			"specName": "westend",
-			"implName": "parity-westend",
+			"specName": "zagros",
+			"implName": "parity-zagros",
 			"specVersion": 9122,
 			"implVersion": 0,
 			"stateVersion": 1,
@@ -1289,8 +1289,8 @@ mod test {
 		let old_spec: RuntimeSpec = serde_json::from_value(old_response).unwrap();
 
 		let new_response = serde_json::json!({
-			"specName": "westend",
-			"implName": "parity-westend",
+			"specName": "zagros",
+			"implName": "parity-zagros",
 			"specVersion": 9122,
 			"implVersion": 0,
 			"transactionVersion": 7,

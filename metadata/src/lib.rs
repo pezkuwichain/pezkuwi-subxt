@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-//! A representation of the metadata provided by a substrate based node.
+//! A representation of the metadata provided by a bizinikiwi based node.
 //! This representation is optimized to be used by Subxt and related crates,
 //! and is independent of the different versions of metadata that can be
 //! provided from a node.

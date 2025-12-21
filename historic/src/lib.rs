@@ -1,4 +1,4 @@
-//! `subxt-historic` is a library for working with non head-of-chain data on Substrate-based blockchains.
+//! `subxt-historic` is a library for working with non head-of-chain data on Bizinikiwi-based blockchains.
 
 // TODO: Remove this when we're ready to release, and document everything!
 #![allow(missing_docs)]
@@ -12,8 +12,8 @@ pub mod extrinsics;
 pub mod storage;
 
 pub use client::{OfflineClient, OnlineClient};
-pub use config::polkadot::PolkadotConfig;
-pub use config::substrate::SubstrateConfig;
+pub use config::pezkuwi::PezkuwiConfig;
+pub use config::bizinikiwi::BizinikiwConfig;
 pub use error::Error;
 
 /// External types and crates that may be useful.

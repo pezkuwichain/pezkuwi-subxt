@@ -12,7 +12,7 @@ repository.workspace = true
 documentation.workspace = true
 homepage.workspace = true
 description = "Light Client for chain interaction"
-keywords = ["blockchain", "parity", "substrate"]
+keywords = ["blockchain", "parity", "bizinikiwi"]
 
 [lints]
 workspace = true

@@ -10,13 +10,13 @@ use std::time::Duration;
 
 use futures::StreamExt;
 use pezkuwi_subxt::{
-	OnlineClient, PolkadotConfig,
+	OnlineClient, PezkuwiConfig,
 	backend::rpc::reconnecting_rpc_client::{ExponentialBackoff, RpcClient},
 };
 
 // Generate an interface that we can use from the node's metadata.
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -43,15 +43,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	// use pezkuwi_subxt::OnlineClient;
 	//
 	// let backend = ChainHeadBackend::builder().build_with_background_task(RpcClient::new(rpc.clone()));
-	// let api: OnlineClient<PolkadotConfig> = OnlineClient::from_backend(Arc::new(backend)).await?;
+	// let api: OnlineClient<PezkuwiConfig> = OnlineClient::from_backend(Arc::new(backend)).await?;
 	// ```
 
-	let api: OnlineClient<PolkadotConfig> = OnlineClient::from_rpc_client(rpc.clone()).await?;
+	let api: OnlineClient<PezkuwiConfig> = OnlineClient::from_rpc_client(rpc.clone()).await?;
 
 	// Run for at most 100 blocks and print a bunch of information about it.
 	//
 	// The subscription is automatically re-started when the RPC client has reconnected.
-	// You can test that by stopping the polkadot node and restarting it.
+	// You can test that by stopping the pezkuwi node and restarting it.
 	let mut blocks_sub = api.blocks().subscribe_finalized().await?.take(100);
 
 	while let Some(block) = blocks_sub.next().await {

@@ -1,11 +1,11 @@
 #![allow(missing_docs)]
 use pezkuwi_subxt_signer::sr25519::dev;
-use pezkuwi_subxt::{OnlineClient, PolkadotConfig};
+use pezkuwi_subxt::{OnlineClient, PezkuwiConfig};
 
 type BoxedError = Box<dyn std::error::Error + Send + Sync + 'static>;
 
-#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
-pub mod polkadot {}
+#[pezkuwi_subxt::subxt(runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale")]
+pub mod pezkuwi {}
 
 #[tokio::main]
 async fn main() -> Result<(), BoxedError> {
@@ -16,11 +16,11 @@ async fn main() -> Result<(), BoxedError> {
 }
 
 async fn signing_example() -> Result<(), BoxedError> {
-	let api = OnlineClient::<PolkadotConfig>::new().await?;
+	let api = OnlineClient::<PezkuwiConfig>::new().await?;
 
 	// Build a balance transfer extrinsic.
 	let dest = dev::bob().public_key().into();
-	let balance_transfer_tx = polkadot::tx().balances().transfer_allow_death(dest, 10_000);
+	let balance_transfer_tx = pezkuwi::tx().balances().transfer_allow_death(dest, 10_000);
 
 	let alice = dev::alice();
 

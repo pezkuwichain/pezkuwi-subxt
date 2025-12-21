@@ -192,7 +192,7 @@ async fn external_signing() {
 
 #[cfg(fullclient)]
 // TODO: Investigate and fix this test failure when using the ChainHeadBackend.
-// (https://github.com/paritytech/subxt/issues/1308)
+// (https://github.com/pezkuwichain/subxt/issues/1308)
 #[cfg(legacy_backend)]
 #[subxt_test]
 async fn submit_large_extrinsic() {
@@ -267,7 +267,7 @@ async fn decode_a_module_error() {
 }
 
 #[subxt_test]
-async fn unsigned_extrinsic_is_same_shape_as_polkadotjs() {
+async fn unsigned_extrinsic_is_same_shape_as_pezkuwijs() {
     let ctx = test_context().await;
     let api = ctx.client();
 
@@ -280,8 +280,8 @@ async fn unsigned_extrinsic_is_same_shape_as_polkadotjs() {
     let actual_tx_bytes = actual_tx.encoded();
 
     // How these were obtained:
-    // - start local substrate node.
-    // - open polkadot.js UI in browser and point at local node.
+    // - start local bizinikiwi node.
+    // - open pezkuwi.js UI in browser and point at local node.
     // - open dev console (may need to refresh page now) and find the WS connection.
     // - create a balances.transferAllowDeath to ALICE (doesn't matter who from) with 12345 and "submit unsigned".
     // - find the submitAndWatchExtrinsic call in the WS connection to get these bytes:
@@ -290,7 +290,7 @@ async fn unsigned_extrinsic_is_same_shape_as_polkadotjs() {
     )
         .unwrap();
 
-    // Make sure our encoding is the same as the encoding polkadot UI created.
+    // Make sure our encoding is the same as the encoding pezkuwi UI created.
     assert_eq!(actual_tx_bytes, expected_tx_bytes);
 }
 
@@ -393,8 +393,8 @@ async fn partial_fee_estimate_correct() {
 
 // This test runs OK locally but fails sporadically in CI eg:
 //
-// https://github.com/paritytech/subxt/actions/runs/13374953009/job/37353887719?pr=1910#step:7:178
-// https://github.com/paritytech/subxt/actions/runs/13385878645/job/37382498200#step:6:163
+// https://github.com/pezkuwichain/subxt/actions/runs/13374953009/job/37353887719?pr=1910#step:7:178
+// https://github.com/pezkuwichain/subxt/actions/runs/13385878645/job/37382498200#step:6:163
 //
 // While those errors were timeouts, I also saw errors like "intersections size is 1".
 /*

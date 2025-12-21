@@ -6,30 +6,30 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use std::sync::Mutex;
 
-/// Configuration that's suitable for standard Substrate chains (ie those
+/// Configuration that's suitable for standard Bizinikiwi chains (ie those
 /// that have not customized the block hash type).
-pub struct SubstrateConfig {
+pub struct BizinikiwConfig {
     legacy_types: ChainTypeRegistry,
     spec_version_for_block_number: RangeMap<u64, u32>,
     metadata_for_spec_version: Mutex<HashMap<u32, Arc<frame_metadata::RuntimeMetadata>>>,
 }
 
-impl SubstrateConfig {
-    /// Create a new SubstrateConfig with no legacy types.
+impl BizinikiwConfig {
+    /// Create a new BizinikiwConfig with no legacy types.
     ///
     /// Without any further configuration, this will only work with
     /// the [`crate::client::OnlineClient`] for blocks that were produced by Runtimes
     /// that emit metadata V14 or later.
     ///
     /// To support working at any block with the [`crate::client::OnlineClient`], you
-    /// must call [`SubstrateConfig::set_legacy_types`] with appropriate legacy type
+    /// must call [`BizinikiwConfig::set_legacy_types`] with appropriate legacy type
     /// definitions.
     ///
     /// To support working with the [`crate::client::OfflineClient`] at any block,
     /// you must also call:
-    /// - [`SubstrateConfig::set_metadata_for_spec_versions`] to set the metadata to
+    /// - [`BizinikiwConfig::set_metadata_for_spec_versions`] to set the metadata to
     ///   use at each spec version we might encounter.
-    /// - [`SubstrateConfig::set_spec_version_for_block_ranges`] to set the spec version
+    /// - [`BizinikiwConfig::set_spec_version_for_block_ranges`] to set the spec version
     ///   to use for each range of blocks we might encounter.
     pub fn new() -> Self {
         Self {
@@ -74,13 +74,13 @@ impl SubstrateConfig {
     }
 }
 
-impl Default for SubstrateConfig {
+impl Default for BizinikiwConfig {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl Config for SubstrateConfig {
+impl Config for BizinikiwConfig {
     type Hash = H256;
 
     fn legacy_types_for_spec_version(&'_ self, spec_version: u32) -> TypeRegistrySet<'_> {
@@ -120,7 +120,7 @@ impl Config for SubstrateConfig {
     }
 }
 
-impl pezkuwi_subxt_rpcs::RpcConfig for SubstrateConfig {
+impl pezkuwi_subxt_rpcs::RpcConfig for BizinikiwConfig {
     type Hash = <Self as Config>::Hash;
     // We don't use these types in any of the RPC methods we call,
     // so don't bother setting them up:

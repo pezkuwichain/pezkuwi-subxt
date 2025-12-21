@@ -17,16 +17,16 @@
 //! // If we generate types without `subxt`, we need to point to `::pezkuwi_subxt_core`:
 //! #[subxt(
 //!     crate = "::pezkuwi_subxt_core",
-//!     runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale",
+//!     runtime_metadata_path = "../artifacts/pezkuwi_metadata_small.scale",
 //! )]
-//! pub mod polkadot {}
+//! pub mod pezkuwi {}
 //!
 //! // Some metadata we'd like to access constants in:
-//! let metadata_bytes = include_bytes!("../../../artifacts/polkadot_metadata_small.scale");
+//! let metadata_bytes = include_bytes!("../../../artifacts/pezkuwi_metadata_small.scale");
 //! let metadata = Metadata::decode_from(&metadata_bytes[..]).unwrap();
 //!
 //! // We can use a static address to obtain some constant:
-//! let address = polkadot::constants().balances().existential_deposit();
+//! let address = pezkuwi::constants().balances().existential_deposit();
 //!
 //! // This validates that the address given is in line with the metadata
 //! // we're trying to access the constant in:

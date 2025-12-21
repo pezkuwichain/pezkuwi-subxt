@@ -1,7 +1,7 @@
-#[pezkuwi_subxt::subxt(runtime_path = "../../../../artifacts/westend_runtime.wasm")]
+#[pezkuwi_subxt::subxt(runtime_path = "../../../../artifacts/zagros_runtime.wasm")]
 mod runtime {}
 
-#[pezkuwi_subxt::subxt(runtime_path = "../../../../artifacts/westend_runtime.compact.compressed.wasm")]
+#[pezkuwi_subxt::subxt(runtime_path = "../../../../artifacts/zagros_runtime.compact.compressed.wasm")]
 mod runtime_compressed {}
 
 fn main() {
