@@ -111,6 +111,11 @@ impl<T: Config> EventDetails<T> {
 		self.inner.pallet_name()
 	}
 
+	/// Alias for pallet_name() - rebranded terminology (pezpallet)
+	pub fn pezpallet_name(&self) -> &str {
+		self.pallet_name()
+	}
+
 	/// The name of the event (ie the name of the variant that it corresponds to).
 	pub fn variant_name(&self) -> &str {
 		self.inner.variant_name()
